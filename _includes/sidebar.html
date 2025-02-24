@@ -20,6 +20,7 @@
           <span>Home</span>
         </a>
       </li>
+{% if false %}
       <li>
         <a href="{{'/projects' | absolute_url}}">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="33" fill="currentColor" class="bi bi-folder"
@@ -30,6 +31,7 @@
           <span>Projects</span>
         </a>
       </li>
+{% endif %}
       <li>
         <a href="{{'/about' | absolute_url}}">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="33" fill="currentColor" class="bi bi-info-circle"
@@ -45,9 +47,11 @@
   </nav>
 
   <div class="sidebar-icons-actions">
+{% if false %}
     <div class="sidebar-social-icons">
       {% include social-icons.html %}
     </div>
+{% endif %}
 
     <div class="sidebar-blog-resources">
       <a href="{{'/search' | absolute_url}}" aria-label="Pesquisar"><i class="fa-solid fa-magnifying-glass"></i></a>
