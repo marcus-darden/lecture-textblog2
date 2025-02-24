@@ -1,0 +1,10 @@
+<section class="videos">
+{% if page.videos %}
+  <h2>Videos</h2>
+  <ul>
+  {% for video in page.videos %}
+    <li><a href="#{{ video.id }}">{{ video.title }}</a></li>
+  {% endfor %}
+  </ul>
+{% endif %}
+</section>

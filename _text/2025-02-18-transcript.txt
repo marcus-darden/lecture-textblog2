@@ -1,0 +1,1539 @@
+All right,
+so we were talking about Union Find.
+Remember,
+we're trying to figure out how I can join these things together.
+And this is a common thing that occurs.
+Our play fun was building roads on Mars.
+Say, how do I connect everything without wasting time building
+roads that I don't need? but the same thing is true for internet
+connectivity across the United States.
+I don't need to have my router connected to every router in the
+country. I just need to find a path that
+they are connected through.
+And so that is a union find because if there's a section of
+the network that isn't connected to the rest of the network,
+that's completely inaccessible.
+As long as there's one connection in there, I'm good.
+So what I don't want is a disjoint set that includes
+somebody.
+So if I take these things and say, well, I've got this subnet
+on the East Coast and this subnet on the West Coast,
+one connection and the whole country's covered,
+right? So I'm saying this because Union Find isn't just a
+silly thing about building roads on Mars.
+It's a common occurrence when I've got a set of things and I
+need to make sure that there's a certain amount of connectivity
+going on there. So,
+we'll stick at finishing up Mars, but we said we can put
+things together in sets, and that was a little inefficient,
+because every time I wanted to do a union,
+I'd have to look in every set.
+And so that was taking me linear time.
+And every time I wanted to do a find,
+sorry,
+every time I wanted to do a find, I'd look in every set, so
+that was linear time. And then the cost to join two
+sets could be as bad as linear,
+too. So when I kept the groups in
+separate sets,
+then it was linear and linear to do union and find.
+Then I said, well, what if I used a representative and
+everyone knew who their representative was?
+So then I could say, well, who's your coach? Cause that's my
+coach too, I guess we're on the same team.
+The representatives sped things up because now find was quicker.
+Say, who's your representative? Who's your representative?
+Oh, you're already connected,
+constant time.
+But when I said, now that you're connected, We have to tell
+everyone that thought that they were on your team that they're
+on this team So the Union was taking me linear time, even
+though the find was constant time
+That was when we knew who our representative was
+Then we added this hierarchical representative where you could
+say well I know who I think my representative is but if you go
+check with them they might change that information.
+So I could be representing this person, they could be
+represented,
+and so on. So we had this chain, and so
+what that did is it made it much faster to do union.
+Because now I didn't have to go say,
+well,
+if you were representing 10 people,
+I don't have to go tell all of them that your representative
+has changed.
+I'll just tell them,
+tell you that your representative has changed, and
+then when they try to figure out who the representative is, they
+come ask you and you say well it's not me anymore it's them
+okay so what that did was that made Union
+faster I just had to update the actual connection and through
+the indirection we could get everyone but it also makes find
+longer now because when I say who's your representative
+you don't No,
+you can find them, but it could be as bad as linear.
+If 10 represents nine represents eight represents seven
+represents six represents five represents four represents three
+represents two,
+they say, hey,
+who's your representative?
+Two,
+I think it's three.
+No, I think it's four, I think it's five.
+So if we go hierarchical representative, we found out
+that we could flip flop things.
+Now,
+union is way faster,
+but find is back to linear.
+So we're playing around, trying to get faster,
+but then we also realize that I can't union without doing a
+find,
+so even though my union is constant time, I'm still going
+to have to do that linear find first before I feel safe about
+unioning because I don't want to make any unnecessary
+connections,
+right?
+That was where we left off. That was all my warm-up.
+Now we're at this step right here that's called path
+compression,
+and it has to do with how the hierarchical representation
+works.
+The hierarchical representation,
+when I start asking someone who's their representative, and
+they say,
+well,
+who's your representative to?
+Two says, well, I think it's three.
+Three says, I think it's four. Four says, I think it's five.
+I think it's six, I think it's seven.
+They can say,
+they get all the way down and say, oh okay the actual
+representative is 10 that was a really long find
+but path compression says what if we treat
+find as a modifying operation because
+before we were just saying who's your representative and it was
+read only just give me that information in path compression
+though as I looked on that 2 to 3 to 4 to 5 to 6 to 7 to 8 to 9
+to 10.
+Okay, I know who it is.
+Then I'm going to go back and say,
+well, 9 thinks they're represented by 10, but now I'm
+going to tell 8 you're actually represented by 10.
+I'm going to tell 7 you're actually represented by 10.
+6, 5, 4,
+3, 2, every single one of them now knows that they're directly
+represented by 10.
+So that path compression says, if I have to do this long find
+lookup,
+I'm gonna update everyone in that chain
+so that they aren't hierarchical,
+they're direct.
+What that does is it takes these really long chains and it's
+actually the longer the chain, the better.
+A really long chain, I'm gonna update all of those people to
+know who their direct representative is So the next
+time I've got to do a find,
+there's a whole bunch more people that know exactly who the
+representative is and they can find it in constant time as
+opposed to linear time.
+Does that make sense?
+It's a little cloudy out there.
+But even the small ones are okay.
+So if I say,
+well,
+15, who's your representative?
+I think it's 12.
+12, who's your representative?
+I think it's 10. 10, who's your representative?
+It's me.
+Oh, great, so 10's represented by 10.
+I also changed 12 to be represented by 10 and 15 to be
+represented by 10. So when I do this path
+compression thing, I say for every element that I go through
+this list of representatives, I find the ultimate representative
+and I update all of them. So what does that do time wise?
+It's not that much, right?
+Because the thing about it, if I had to do that eight steps of
+two to three to four to five to six to seven to eight to nine to
+10,
+if I had to do those steps already,
+going back and say, well,
+eight to 10, seven, you're ten, six, you're ten, five, you're
+ten.
+It's not any different complexity,
+right? I did those eight steps to do the lookup.
+I come back and do eight steps of update.
+It's the same complexity,
+just a constant,
+an extra constant number of operations.
+I set your ultimate representative.
+I set your ultimate representative.
+This is one more step, really.
+So, the find operation,
+It hasn't changed complexity,
+but the next time I try to do it,
+it's going to be faster.
+That's what path compression is.
+So it says here, it doubles the workload of find,
+but it doesn't change its complexity.
+It's the same big O to do the find.
+But the next time I try to do finds,
+they go faster.
+So now,
+the thing about this that makes it even more complicated is
+we're now into some behavior.
+Find.
+That sometimes when I do it,
+it works out like constant time, but other times when I do it,
+it works out like linear time.
+So how do I know what the actual complexity of that is?
+Just like in pushback,
+I have to do an amortized analysis.
+So I had to do all of the unions and all of the fines and then
+divide that by the total number of things to say what was the
+complexity for each individual one.
+That's what amortized complexity is because some of them are it's
+the same operation and some of them are quick and some of them
+are not.
+So that's when amortized comes in I can't just pick any two and
+average them or pick any three and average them or any five I
+can't pick any number unless that number is n.
+That's the only way that I can average to get an amortized
+analysis here.
+So,
+what happens is,
+starting with these n disjoint sets, so that's n sets of size
+one,
+I have to do all the operations to union and find up to one set
+of size n.
+Then I can divide that total number of operations by n,
+and that's when I figure out how much it costs.
+And so,
+that's as thick as I'm going to get into the deep analysis.
+But the answer that comes out is pretty surprising.
+We see here that we get this n times the inverse Ackermann of
+n.
+And if you don't know the Ackermann function,
+it's an interesting function.
+But the Ackermann function grows very, very, very, very quickly.
+So the inverse Ackermann function grows very, very, very
+slowly.
+Right, so if I look at the Ackermann function, so something
+like Ackermann four comma four Not that inverse but the regular
+Ackermann Ackermann of four comma four is just two to the
+two to the two to the two
+to the sixteen
+Gigantic number that's a really big number right Ackermann four
+there is greater than the number of particles in the known
+universe.
+That's a really large number.
+So what that means is the inverse of that grows very very
+very slowly.
+That make sense?
+So n times the inverse acriment of n,
+it looks like this second thing,
+it looks like this is based on N,
+but in reality N's got to be bigger than the known particles
+in the universe to get four.
+So you can think of this inverse Ackerman as almost working out
+like a constant.
+If I got a hundred items,
+that's an inverse of one see what I mean I got a thousand
+items it's still one
+so it's n times some
+function of n but that function really grows like a constant
+and so this is for doing all of the work for unioning and things
+it cost me n inverse Ackermann of n so what does that mean each
+individual one costs I just divide that number by n so I
+take n times inverse Ackermann of n divide that by n
+divide that by n cross it out right and I end up
+with this is what the amortized cost of each
+union and find is.
+Great,
+really I'm trying to understand this inverse Ackerman thing,
+but what you really need to know is
+the amortized cost looks like it's constant
+because this is really close to constant.
+And when I do this whole path compression based
+Union-find,
+all the operations look like they're
+amortized cost. They look like amortized
+constant.
+So we went from linear-linear,
+and then we went constant-linear,
+then we went linear-constant,
+and we've got this thing that looks pretty much like
+constant-constant.
+So I'll show you how it goes.
+Question?
+This is almost linear
+for
+all of them,
+for all n,
+right?
+For all n, right? Because remember, this is amortized
+analysis. So the amortized analysis means
+I'm gonna do all of the things and this is what it cost me So
+then I get a divide by how many things and and that's how the
+cost per thing right
+So if I start out here, let's do union two and four
+Two represents four we make this connection
+Check union one and two. So now if I say one is gonna
+represent two
+In graph you can see that one and four are connected but how
+do I see it in the Union fine data structure I say well who's
+four's representative four thinks it's two two thinks it's
+one one agrees that it's one so now I can say yeah definitely
+four's representative is one four's ultimate representative
+is one and one's ultimate representative is one so if I
+were to try to do a union one four here I would fail because
+that's how it works we haven't got to the compression yet we'll
+show you in a minute so how How about five and seven?
+So five's representative is five,
+seven's representative is seven. I can definitely make this
+connection here. I'll update seven's
+representative to be represented by five.
+That's good there. How about five and six? Five's
+representative is five, six's representative is six.
+I put the five here. I can make that connection.
+Now I'm looking at a union of eight and five.
+So eight's representative is eight, five's representative is
+five. I can do that.
+And once again,
+I've got this really cool indirect setup that tells me
+I know who six's representative
+is.
+Six thinks it's five,
+five says it's eight, eight says yes, it's me.
+So this is what the hierarchical indirect thing has done and you
+see how now my find could be linear because I could ask
+multiple people who that is. I haven't done one of these
+fines yet, but here when I come to this union of four and seven
+Visually, you can see that they're on different teams red
+team blue team
+Now I've got to figure out how should I connect them? So I say
+find
+Who is your representative for?
+Four says I think it's two
+Two says I think it's one.
+So I say okay Well, then I guess in that case,
+four's representative really is one.
+That's what the find does.
+Now I know four's represented by one.
+And then I want to say,
+well,
+how about seven? Who's seven's representative?
+Seven says, I think it's five.
+Five says, I think it's eight.
+And eight says, it's definitely me.
+So then really I can go back during find and update seven's
+representative to eight.
+Now,
+when I look at this at union time, and I say, well, one and
+eight are not the same,
+let me update accordingly.
+And I come back here and cross this off
+and put a one in there. And now everyone's connected,
+right? Because I've just made this union right here.
+Everyone is connected except three,
+right?
+So pick any number but three.
+And if you ask who that representative is and follow
+that chain backwards,
+you will find that it's one.
+And then to show how we flattened the hierarchy,
+look at how many of those values are actual ones.
+One's got a one, two's got a one, four's got a one,
+eight's got a one.
+And then everybody else that's on the team,
+their depth is only two,
+right?
+Somebody didn't get updated.
+No,
+I didn't go through six. I didn't go through six, that's
+fine.
+So five's represented by eight,
+seven's represented by eight, and they go to one.
+It's only six that's got this double hierarchy.
+Six thinks five, five thinks eight,
+eight thinks one.
+But the next time I try to do a find on six,
+I'll end up smashing that all the way down to one.
+I'll smash five down to one, I'll smash six down to one if I
+do a find on six.
+Does that make sense? So this is a hierarchical representation
+with path compression the path compression puts us at this
+thing that looks like it's constant time for both But we
+call it
+Inverse Ackermann inverse Ackermann
+If either of them is well in the in the fine situation I mean you
+can't you're gonna have to use fine somehow, right? So at the
+union time you say well who's your representative if you're
+your own representative? if you just return from find in
+constant time. You just say, it's me.
+Yeah,
+but you do the find.
+And this is easily done in a, just like this looks.
+When you have to do a union find,
+you've got a vector that's got a bunch of numbers in it.
+Each number is the name of the representative for that
+location.
+So you could do this with an iota and just fill this with 0,
+1, 2, 3, 4, 5, 6, 7,
+and then 0 is represented by 0, 1 is represented by 1, and so
+on. When it comes time to do the
+union to find, You just change the values in the vector.
+The union find data structure is just a vector that you properly
+behave with.
+Make sense?
+So this is union find.
+That wraps that one here.
+There's some study questions.
+Turn those study questions into your own multiple choice
+questions. That's a good way to do it.
+So that should wrap that one up.
+And that puts us on to our next set.
+We're getting into sorting here whilst I download.
+There's my face.
+I'm desperately trying hard to get you all really good scores
+on this midterm,
+so that's That's why I've spent a bit more time in class talking
+about stuff.
+It's shaved some of my time.
+What I would normally do if I wasn't as far behind,
+I'd go to YouTube and show you these videos of this Hungarian
+dance troupe that's doing sorts.
+It's really funny.
+They do these little dances and everybody's got a number on
+them.
+And so you can visualize these sorts as they happen.
+So that's your walking homework is to go find the Hungarian
+dance sorting videos.
+They do a thing and they spin around and they compare
+and they come forward and then they do a swap,
+but I don't have time for that. So we're just gonna have to do
+this sorting without the videos.
+On this slide here, I see this really old photograph
+and I think that the youngest kid on the far left just taller
+than his sister, but he was the youngest and they were trying to
+make it work,
+right?
+He's taller than her.
+But it was a good family photo for back then.
+We're talking about sorting though.
+We're gonna talk about some basic sorting stuff.
+And what does it mean to sort?
+When I wanna sort, I'm trying to put some set of records,
+often called records in CS, or we'll call them files as well.
+We're trying to put them in some sequence by some keys.
+And usually the key is less data than all of the records.
+So you can imagine,
+if I was to sort all of your student records, I wouldn't use
+every bit of information in that sort.
+I would pick something like a key,
+something small, like either your UMID, which is a unique way
+to do it, or if I wanted to do it for some sort of roster, I
+might sort it by last name and then first name.
+But both of those things are smaller than the entire record
+So that's what the key is that I'm sorting and sometimes when
+I'm doing just simple stuff. Sorry got some of my hair
+Sometimes the key is the record like here sort these integers.
+Yes, the key and the record are the same thing
+Right.
+So we've got these elementary sorts we're gonna look at today
+bubble sort selection sort insertion sort and
+Counting sort the first three are different than the last one.
+The last one is a distribution sort It only works on integers,
+and it doesn't actually compare
+values to each other. So I could use a counting sort
+to sort you all by class level.
+Freshman,
+sophomore,
+junior, senior grad.
+That's what counting sort would do.
+So it's a specialized kind of sort when I know ahead of time
+what the keys are and that there's some limited number of
+keys. So if the keys were freshmen,
+sophomore, junior, senior,
+and grad,
+then I can go through and count all the freshmen and know
+where the freshmen are gonna sit and then count all the
+sophomores in that same time and then freshmen sit here and the
+sophomores sit after them.
+So I could sort this thing in that way.
+So that's a distribution sort,
+sorted by your distribution, not by your value.
+So that's why this one is different.
+We're gonna go into those three right there and those three are
+fairly similar. I had a real tough time when I
+was at your stage
+Differentiating them so do what it takes to figure out how
+there's a different cuz we look at the code and it's almost
+identical code and they behave slightly differently, but
+They're they're so close to the same.
+So we'll be talking about them. And then as I mentioned earlier,
+we've already seen heap sort and
+And that was not heap sort.
+We've seen heap sort.
+And then on Thursday, we're going to do quicksort and merge
+sort together.
+All right?
+So let's go.
+Why are we doing these elementary sorts?
+They are good for getting some algorithmic maturity under our
+belts,
+as also we're going to try to speed them up a little bit.
+We're not going to be able to change any of the complexity
+classes, but we will look at some optimizations,
+which is stuff that you can use in your own coding.
+in the future.
+And sometimes, we still use these elementary sorts because
+they are good enough, if you use them properly.
+Which containers can be sorted?
+Obviously,
+everything can be sorted.
+We're going to be working on our connected, obviously, our
+contiguous stuff for starters.
+This is vectors,
+decks, and things like that as opposed to linked lists.
+So we'll begin with arrays in the slides, because we always
+keep it C in the slides. but that's the same as being
+able to work in a vector.
+So that's how we do it.
+STL sorting is done with iterators like much of the STL.
+So you see this real quick example, you include algorithm,
+that's where sort lives.
+I've got this vector of integers A containing 4, 2, 5, 1, 3, and
+I can call standard sort from begin to end of A, and it will
+sort those things in increasing order.
+because when you think sort,
+you think increasing, and the STL does what you think.
+So the default behavior of sort is to put things in increasing
+order.
+Good enough. So if I just say sort begin to
+end,
+and the thing that I'm sorting has a known sort order,
+it will work.
+So for instance, if I just give it a vector of zombies and say
+sort,
+I'm going to say, I don't know how to sort a zombie, I can't do
+that. You're gonna have to add the
+third parameter to sort to say when you've got two zombies
+Here's how you figure out if this one is less important than
+that one All right So we'll be using the C style here because
+it's a little bit easier to see than the guts of a vector so you
+see we'll say just like an int array a of four to five one
+three and then we'll bubble sort from a
+The vector itself or sorry that the array itself starting at
+index zero up to but not including
+Five, so it's a consistent half-open interval like that,
+where we start at five,
+we do dereference zero,
+sorry,
+we do start at zero,
+dereference zero, but we do not dereference five.
+Five is the index just past good data.
+Exercise at home, of course,
+rewrite using iterators. We know we need some iterator
+practice, so take the algorithms that we have here in C, turn
+them into vector or or or iterator based
+algorithms and write them with iterator so you can practice
+that the STL
+will automatically support our object if the object has
+overloaded operator less than defined for it so if operator
+less than is defined for zombies,
+then I can do that,
+right?
+We said don't use operator less than too often, though, because
+it sort of locks you into one way to do things.
+So that's what we talk about adding a third parameter right
+here if you put in your own funcdoor, which is the same code
+that you would write in an operator less.
+You just use it as a separate function there, so.
+All right.
+We'll look at one of these things that I'm sure you heard
+before that size doesn't matter.
+Turns out that it does,
+right?
+So an internal sort is one where the size of the data is small
+enough that I can see everything in memory.
+That's good,
+right?
+An indirect sort, that's where I can see all the indexes.
+We already did the index sort when we were talking about using
+the functor
+So sometimes an indirect sort I might have data items that are
+so large I can't see all of them in memory But I can see all the
+indexes in the version that we had we just might have been able
+to see all the indexes And all the data, but there's a couple
+of reasons. Why I might index sort one might
+be size one might be a Number of reasons right we talked about
+them already Then there's an external sort and this is when
+I've got either too many elements to put them all in
+memory or
+the elements are too large and
+so I Keep them on some external storage and I might only have
+Sequential access to them or I might only have block access to
+them mean like I can I can look at these 100 for now I can look
+at those 100 later. We've got another hundred after
+that How am I gonna sort all of them if I can only put a hundred
+of a memory at time? And that's a consideration.
+So these are the reasons why size matters in sorting.
+It doesn't have to be non-contiguous.
+It doesn't have to be a linked list.
+But like I said, what if I had like 14 million records or 150
+million records that I needed to sort? I'm trying to take over
+the government and rearrange everybody's files here.
+I don't want to put all of those files in memory just to sort
+them, right? I might say, well, I've got one machine sorting the
+A through Js. I got another machine sorting
+the K through Ts, and then another machine, right?
+So this is,
+because the data is so large, it might not be able to all be held
+in memory at once. And so I might split it up
+between multiple devices
+or any number of things.
+So if you ever watch any old 70s movies with computers in them,
+they go to the computer room. They got these things that look
+like refrigerators and lights on them, and there's little wheels
+that are spinning around. Those are tape drives.
+That's how we used to store stuff on magnetic tape.
+And so then when you wanted to sort stuff that was on magnetic
+tape, you had to have a source tape for the one list,
+a source tape for the other list, and then a destination
+tape for the sorted result. And you would be able to read
+from those two sorted lists and merge them together and put that
+onto the third copy of it. So we'll see a real good
+algorithm for that when we talk about merge sort.
+All right.
+What are our desirable qualities?
+Obviously, the asymptotic complexity is the thing we care
+about the most.
+When n gets big, that's going to help us out the most.
+So we're going to be looking at our number of comparisons and
+our number of swaps, because that's going to drive the
+complexity
+of each one of these algorithms.
+We'll look at a worst case, we'll look at an average case
+and get a good feel for those things.
+We'll also have some memory efficiency considerations.
+Can I do this in place?
+So an in-place sort means I don't need a separate container,
+I don't need a separate copy of the data.
+So if I've got a vector full of things, can I get this algorithm
+to sort them without having to make a whole new vector?
+That's not big O of one.
+So if we're looking at being able to sort in place,
+maybe I can sort in place with recursion that still uses the
+same amount of data space. However,
+if I'm using recursion, you know there is a chance for me to have
+stack frames that might cost me some additional memory.
+So we're trying to figure out where we're actually using
+memory.
+Sometimes I'm going to go with the indirect if I've got
+pointers or indices.
+So I might have n items and also n pointers and indices.
+So I'm looking at how much of these things I need to do.
+And then some sorts need a full copy extra of the data.
+Like we talked about merge sort.
+We'll talk about counting sort as well.
+But those things need a full-on copy of the data to get it
+sorted.
+Another desirable quality is this stability thing.
+And stability is this nifty little process that says, if
+I've got two values that are the same,
+right,
+duplicate keys,
+can I preserve their relative order?
+Scramble data up here.
+I cruise along, and there's a four.
+And I cruise along some more,
+and there's a four. So before the sort,
+I've got,
+let's call it left four,
+and right four.
+After the sort,
+if left four is still to the left of right four,
+I call that a stable sort.
+If they've changed places,
+it's still a correct sort, the fours would be together,
+but if left four is now to the right of right four, Then my
+sorting algorithm isn't stable
+Why do we care about stability?
+Well, sometimes we want to do a multiple level sort
+Like this example here, I've got four actress
+Charlie Sheen Halle Berry Lucy Liu and Martin Sheen.
+I'm gonna try to sort them
+Right?
+I can sort them.
+You see the list, they're already sorted by first name.
+Charlie comes before Hallie comes before Lucy comes before
+Martin.
+That's good.
+C-H-L-M.
+Now,
+when I sort them by last name, you see I've got two sheens up
+there,
+and they're the last ones. So it's going to be Barry, Lou,
+Sheen, and Sheen.
+And you see it that if I've got Charlie here
+before Martin,
+Charlie was before Martin up there.
+So this is a stable sort because it's got Barry,
+Lou,
+Sheen,
+Sheen, but Charlie comes before Martin.
+This is another sort. This is a correct sort.
+So the items are sorted by last name,
+Barry, Lou,
+Sheen,
+Sheen,
+but because the sort that used it was not stable,
+you see that now Martin Sheen comes before Charlie Sheen.
+And so when I want to do a multi-level sort,
+that's when stability matters to me,
+right? Because if I sort everybody in the class by last
+name, And then I sort you by first name after that I
+Don't want it to pull all the first names back together again,
+and I have my last name sort
+ruined
+So that's what stability counts for so when we look at these
+algorithms We'll be determining whether or not they're stable as
+well as other things
+Yes, yes, and so it's when that second sort happens that I
+really care about the stability
+Because the second sort's not stable, then it blows up my
+first sort,
+and I've lost what I wanted.
+All right.
+As we look at these algorithms, we've got a couple of different
+ways that we'll look at them.
+We'll look at them in their non-adaptive versions.
+So a non-adaptive algorithm does the same amount of work
+regardless of the data.
+You can think of an adaptive algorithm as responding to the
+data.
+In the extreme case, if I give you some sorted information and
+say, sort this,
+an adaptive algorithm is going to do a little bit of work and
+say,
+done.
+A non-adaptive algorithm is going to do all the work it
+would take to sort it even if it wasn't already sorted.
+So the non-adaptive algorithm can do more work,
+well, typically will do more work.
+The non-adaptive algorithm does the same amount of work
+regardless of what the data looks like.
+The data looks like it's already sorted, then the adaptive
+algorithm does a little bit of work and realizes there's
+nothing for me to do here and then quits.
+So we'll look at these algorithms from a non-adaptive
+viewpoint and then see if we can make them adaptive because that
+can speed things up in some cases.
+So we'll see here the adaptive sort performance, different
+sequences of operations depending on the outcomes of the
+comparisons.
+And this changes our worst case and best case complexities.
+So I mean our worst case isn't going to change,
+but our best case can change,
+right?
+The sort in the best case is the data are already sorted.
+I don't have to do anything.
+Best case.
+All right,
+there's our sorting overview.
+Let's get in to Bubble Sort.
+So Bubble Sort has a couple of different ways that it can work
+if you look at it in the literature.
+The one way that Bubble Sort works is it slowly moves the
+smaller things that way.
+And the other way is it slowly moves the bigger things the
+other direction.
+In the end,
+the result is the same. So it kind of depends on who's
+implementing it and what they're looking at.
+So this version,
+it doesn't look like much, but it's just these five lines,
+four lines really, if you don't count the header,
+to get that done. We've got a four loop,
+four loop,
+and what do we think about the size on those four loops?
+Well,
+the outer four loop,
+two, goes from left all the way up to right minus one.
+So if the distance between left and right is n,
+you can think of that as a solid n base loop, right? It's a big O
+of N loop.
+How about the inner loop?
+The inner loop goes from right down to I,
+and that's a little bit harder to cover,
+but the way that you figure that out is say, well,
+because I'm using some other variable referenced outside of
+this loop, what's the worst it could be?
+What's the worst I could be to make J do the most amount of
+work,
+right? J greater than I at the very worst I could be left so
+really I'm looking at that inner loop in the worst case as going
+from right minus one down to left this is another big O and
+loop so I've got an end loop inside an end loop and then what
+goes on inside the loop constant amount of work
+There's an if in four, that's a constant.
+There's a swap in five,
+also constant.
+So there's a constant amount of work inside the body of this
+loop, and it's two nested for loops that are both N long.
+So I'm happy with calling this a big O N squared algorithm.
+All right,
+complexity analysis,
+done.
+Now how does it work? It says in its first bullet, it finds the
+minimum item on the first pass, and it does this by comparing
+adjacent items and swapping them if they're out of order.
+So I'll look at the last two items, and if they're in the
+right order, I leave them, and I move toward the beginning.
+And I look at those two items, and if they're right, I leave
+them. But anytime I look at two items
+if they're in the wrong order
+If line four if what's at J is less than what's at J minus one
+J is to the right?
+L is to the left if what sorry J minus one is to the left So if J
+minus one is greater than J
+They should be swapped
+And that's it.
+That's what Bubble Sort does.
+It goes through checks, pairs,
+swaps,
+checks, pairs, swaps.
+By the time it gets all the way to the left-hand side on the
+first round,
+I can guarantee that the smallest item is in the leftmost
+position.
+What do I do then? I go back and do it over again.
+This time I only swap down to position 2.
+Now I can guarantee the two smallest items are where they
+belong you just keep doing that until we're done We see that
+outer loop goes all the way to write minus one.
+You know how I hate a for loop. That's junky That's kind of a
+junky for loop right there, right? Why do we do minus one
+there? Why don't we just go all the way up to right? Isn't that
+cool?
+Well, it turns out that's just wasted effort
+So imagine this, I've got 10 numbers,
+they're all scrambled,
+if I take and put nine of them
+exactly where they belong,
+where is the tenth one?
+Exactly, that's the only place it can be is where it belongs.
+So my outer loop only has to go n minus one times.
+That's why it's the minus one in there,
+all right?
+So here's the data we started with, four, two, five, one,
+three.
+And in bubble sort, we look at one and three, and say they're
+fine,
+leave them alone. Move on,
+five and one,
+they need a swap.
+So we'll swap five and one,
+one,
+five.
+And then I look at two and one,
+they need a swap.
+And I look at one and four,
+they need a swap.
+Does that make sense?
+That's my first pass.
+It looks like that.
+So after one pass, I've bubbled,
+and you see what happens. The smallest thing is in the
+leftmost position,
+and my bigger items are slowly floating up to the top.
+Maybe that's where the bubble name came from.
+Think of those big bubbles as working their ways up there,
+right?
+What do I do on the next pass?
+Three and five,
+need a swap.
+Three and two,
+don't need a swap.
+Two and four,
+need a swap.
+That's the pass.
+Yeah.
+If there was a for loop inside an if, yes.
+So we see after the second pass, what do I know?
+I know that after the first pass, this was exactly where it
+belongs.
+After the second pass,
+these things are exactly where they belong.
+So now I do a third pass. What do I do? Do I swap three
+and five?
+No. They're good.
+Do I swap three and four?
+They're bad, so I'm going to swap them,
+right?
+That gets me this. So now I know that one is
+perfect,
+two is perfect,
+and three is perfect. That's all I know.
+You can see that the rest is perfect.
+The algorithm can't though.
+Algorithm doesn't have these human skills.
+Algorithm has to do another pass and say, okay, well, on the
+fourth pass, I'll guarantee that these two things are where they
+belong because once I put the fourth thing in place, the fifth
+thing has to be in place. So the last pass goes through
+and doesn't make any changes, but it did do a comparison on
+this four five and decided not to swap there so after four
+passes I can tell that all five of these things are where they
+belong and so if you look at what goes on in the code there
+right every time we're saying let's start and work our way
+from the outer loop starts at I meaning I'm gonna put the
+leftmost thing into position this iteration then I go to the
+inner loop and say let's go to the end and swap Swap swap our
+way up to I then I move I over swap swap swap swap swap.
+I move I over and so on That's bubble sort
+Yeah
+Yes, right so I would be something like
+Yes,
+it's exactly one past the end. So the right,
+in this case, is one past the end, just like our standard sort
+of half-open interval. It would be like zero,
+one, two, three, four,
+five.
+Don't take the five, right?
+All right,
+so currently it's not adaptive. We do the same amount of work.
+We do those same for loops even if the data were already sorted.
+I just wouldn't do any swaps
+So you see I would do that same number of comparisons
+How could I fine-tune it so that I could do less work
+What would make sense when would I want to stop yeah
+Exactly right if I make a whole pass and I haven't swapped
+anything What am I gonna do in the past after that a whole lot
+of nothing more, right? And the past after that a whole lot of
+nothing more and a whole lot of nothing more So if I can ever
+make a full inner pass
+Without doing any swapping I can say I'm done here the next time
+doesn't need to go through so
+You see here. We've added this boolean inside
+in between the loops now say that the swapped is is false
+then I'll go through the inner loop and now if it's time to do
+that swap you see in line six I say let's set swap equal to true
+so now after I get done with the inner loop I say if I
+haven't swapped anything break out we're done so this is an
+adaptive version of bubble sort if I give this one, two, three,
+four, five.
+It'll set up, say,
+bool swapped is equal to false.
+It'll look at five, four, four, three,
+three, two,
+two, one. And it'll say, I'm done.
+So this is an adaptive version of bubble sort.
+Bubble sort is not in the standard library.
+It's such a low performance sort that it's just not there.
+So we're learning how some sorts work.
+We're learning how to write adaptive code, so we'll learn
+and be able to compare some, but this is not something you're
+going to find in the SEL.
+And, well, here you saw when,
+in this one I guess I didn't. I had to do that last pass
+anyway,
+but if I were to sort one, two, three, four, five,
+then I would say one,
+two, three, four, five. After one pass,
+I'm sure the one is where it belongs.
+After the second pass, I know that two is where it belongs.
+After the third pass,
+I know that three is where it belongs.
+I have to do all of those passes to get this done if it was
+already sorted.
+You see what I mean?
+All right.
+So,
+in our non-adaptive version,
+it's approximately n squared over two comparisons and swaps
+in the worst case and in the average case.
+So n squared over 2 is big O n squared.
+And I can say,
+even in the best case,
+I'm going to do n squared over 2 comparisons
+if I'm not adaptive.
+In the adaptive version, I'm still going to do the same work
+in worse than average cases,
+n squared over 2 work.
+But I come down to just n comparisons and as few as zero
+swaps in the best case.
+Right? So this is better.
+When the data are sorted,
+it's a linear algorithm rather than an n-squared algorithm.
+That's bubble sort.
+So its advantages are it's pretty simple to understand.
+You saw it was written in four lines.
+It's easy to write. even if I go for the adaptive
+version what I added like three or four more lines not too bad
+it's stable we talked about that stability thing and it does
+some pre sorting as we go remember as I put the one all
+the way over here the four and the five are moving up this way
+so every time I do more real work I start to do more partial
+work as well so it's getting better and and better as we go.
+And it also says the advantage of the adaptive version finishes
+quickly if the array is already sorted or almost sorted.
+Is it a bubble sort?
+You just have a best case scenario of n.
+The best case scenario is n comparisons,
+not swaps, right?
+The best case scenario is I don't have to do any swaps.
+And I look at 5, 4, 4, 3, 3, 2, 2, 1, and there's my big order
+of N comparisons,
+but I do zero swaps.
+So the zero swaps is not the best case?
+Well, it's not the ideal case, but it can be on the complexity
+of the best case, right? If I do two passes,
+right,
+that's going to be a whole lot better than...
+Because what drives it is what's the total number of comparisons?
+And if I got 1,000 items and I got to go through one pass to
+fix one thing in there and the second pass that says I do no
+work,
+to do no work, and then the third pass I skip.
+That's still big O of N, right? I've gone through these 2,000
+comparisons.
+Yeah,
+it's not about the swaps, it's about the comparisons in best
+case, yeah.
+So the disadvantages are, of course, worst case,
+it's big O N squared, and it's never going to be anything
+better than that.
+And it's slower than our high-performance sorts, which
+we'll get into as we move on.
+All right,
+bubble sort in the bag. Okay,
+selection sort.
+This is one that you kind of learn as a kid when you're
+playing a card game and somebody deals you a whole bunch of cards
+and say, well, sort your cards in your hand,
+how do you sort them?
+You go find the ace, you move it to the beginning,
+you find the two and you put it after that, you find the three
+and you put it after the two.
+So selection sort does that. It says,
+I can think of this as having
+an unsorted thing that I'm gonna turn into sorted section
+and I'm gonna grow the sorted section by
+taking the smallest thing from the unsorted section and moving
+it to the end of the sorted section I'm
+gonna select the smallest thing no bubbling here we're just
+gonna select the smallest thing put it up where it belongs so
+you see this This this version of it.
+It's pretty much all of the same lines that were in bubble sort
+That's why I said it's confusing to keep these Separated there's
+two for loops. There's that if I need to do a
+swap then do the swap thing
+But look at where the swap actually takes place in this
+algorithm, it's outside of
+the inner loop I
+I go through this inner loop and say hey let me find the smallest
+things index
+and then in line seven after that I swap one thing
+so remember in bubble sort we were constantly futzing with
+stuff futz with stuff in selection sort I go that's good
+all right I'm gonna swap you back to the beginning and be
+done.
+One swap per pass.
+Before we could do as many as N swaps per pass, that's why it
+was N squared.
+Now I can only ever do N swaps.
+N minus one if you want to get persnickety.
+You see it in line seven?
+What do I do in line three? I say I'm gonna remember where the
+smallest thing I've ever seen is I'm gonna think it's the
+beginning and then in line five and six I say if what I just
+looked at a of J if that's less than the smallest thing I've
+seen let's remember that remember that the min index is
+now J
+make sense let's see it in action same data for two five
+one three I
+will go through here and say I think four is the smallest thing
+nope I I think two is smaller.
+Yep, two's definitely smaller.
+Oh, no, I think one's smaller.
+Yeah, I think one's the smallest thing I know.
+Now swap,
+one and four.
+I do one swap.
+Just like before in bubble sort, though, I know after one pass,
+exactly that is sorted.
+Now I repeat,
+right? I'm trying to fix this second spot.
+You can see that it's fixed, the algorithm can't.
+It says find me the smallest thing remaining in this unsorted
+area. I think it's two.
+Yep. It's two.
+Yep. It's two.
+Yep It's definitely two so Swap two with two and we'll be good
+That's what it says right because in this case men index
+and I are the same So I swap two with two
+But the algorithm now knows that those two things are where they
+belong
+and these sorts yes yeah you can bubble sort the opposite
+direction if you want
+well either one bubble sort you can you can bubble sort from the
+left to the right or you can bubble sort from the right to
+the left what do you
+mean well they weren't sorted
+right when I started here after one pass I got that and then I
+did another pass and that other pass said well the best I can
+find is two and so it just said right there in line seven swap
+two with two which did no work but I still had to do all of the
+comparison stuff to find it and I wasn't smart enough to not
+swap two with two so maybe that's a room for adaptation
+later so after two passes I know that what do I do on the third
+pass I think it's five I got an improvement at four I got an
+improvement at three,
+three's the best I've seen.
+Let's swap three and five.
+So after that pass,
+I know that these three things are sorted, and once again,
+you can see the rest of the data are sorted,
+the algorithm can't.
+So it's gonna run one more,
+find me the smallest so I can select the smallest item.
+I think it's four,
+it's definitely not five, so it's still four.
+Swap four with four,
+and now we know that this whole thing is sorted.
+we're not pushing the greater items to the right.
+We're swapping them, but it's the case that, well,
+what happens if the smallest item is last
+and the second smallest item is first?
+That selection's gonna be like, hey, let's take this second
+smallest item, which was one spot away from where it belongs,
+I'm gonna put it in spots away from where it belongs.
+So it's not doing partial shorting, And for that same
+reason it's also not stable,
+right? Because if there was a two here and then
+Another two right there and I decided to swap the one at the
+end with the first two now the first two is after the
+second two and
+I'd have no way to fix that reliably so selection sort not
+stable
+Can we make it adaptive
+What work do we do in here that we don't have to do?
+Can we tell ahead of time when the whole thing is sorted?
+There's no real way to tell that the whole thing is sorted like
+we could in bubble sort.
+When we did a pass and we didn't do anything, that gave us more
+information. But in this case, we're always
+doing one thing.
+Unless I need to swap two with two or swap four with four,
+I could say, I wouldn't have to do that.
+So that's the only way that I can make this a bit more
+adaptive to say is like, when I've discovered what it is,
+and it's time to do swap A at I with A min index,
+if I and min index are the same,
+then don't do the swap.
+What's the thing is,
+if you have a new condition where you have your comparator,
+and it just,
+when it does the compare,
+it also checks that comparator,
+and then you can say,
+like,
+there's sort of things descending over here, if that's
+a descending relationship and you compare it and return false.
+So it can't be the whole array,
+and if it was true for the whole array,
+then that would be the target for this.
+No, because you're not gonna be comparing the things in the past
+to each other.
+That would work if you were comparing them to each other,
+right? If you're trying to find the smallest thing,
+though,
+just because the smallest thing was already where it belonged,
+maybe like the one was already in place,
+and I say, well, let me look at all the rest of them, I don't
+find anything that's less than one,
+they could be all kind of junky order in here, but I wouldn't
+have to move this, and so you have to be able to compare
+everybody to everybody before you know whether you're not
+doing it.
+Yeah,
+like I said, you're not doing those comparisons, right?
+You're saying,
+I think the min index is at i, and then all of your comparisons
+are what is at J versus min index not what's at J versus J
+plus 1 and J plus 2 and J plus 3 so that I'm not inducted in that
+way
+J
+minus 1 is never greater than J what good
+would that do you if you're trying to find the smallest item
+so Oh,
+so you're like bubbling along the way?
+Well, if you're just checking,
+like, if it's adaptive,
+so it's already sorted,
+but the problem is sorted.
+Yeah, I don't know if that gets you anything.
+That one would be fun, right?
+Like sort of like a hybrid bubble slash selection sort.
+It's like a, it's like the same on its own.
+Yeah.
+Like sorting with one.
+Yeah.
+Try it, try it.
+Right?
+So here is the adaptive version. and you see that all we added
+was this one one-liner in line seven and what did it do for
+us
+it actually added another comparison inside the
+outer loop so it added n comparisons
+in the hopes of maybe not having to do some of my swaps
+so this is adaptive but not very It's very slightly
+adaptive.
+It only helps me a little bit when I'm trying to swap
+something to where it already is.
+And other than that,
+it doesn't help me at all. It actually adds more work.
+So it's extra comparison checks,
+but it could eliminate unnecessary swaps,
+which you would be willing to pay for if you had very large
+data items.
+So imagine you have a very large data item
+and a swap of this thing with itself could cost me moving a
+couple hundred K
+three times just to keep this thing where it was it'd be way
+faster to be like hey is are they the same just leave it
+alone so there's a reason why we make all of our modifications
+and then there's times when it can be helpful and times when it
+won't be helpful so here I could say it looks like it's just
+adding more work and it is adding more work which I'd be
+willing to pay if I had really costly swaps my swaps were
+really costly I wouldn't I wouldn't want to do that if I
+was just sorting integers it's not even worth it right because
+swapping two with two is really not that expensive
+it's not as expensive as asking every single one of those hey
+are we are you where you belong are you where you belong it I
+mean it's just yeah It just makes,
+yeah.
+Standard swap,
+question is how does standard swap work? Standard swap is
+going to call swap on the object if the object has its own swap,
+right? Which is going to be faster if it has one.
+So for instance, if I say swap these two vectors,
+what you would have to do is say, well, let me make a copy of
+this vector,
+and then I'll move this vector to that location and move this
+vector down there. So you'd be touching all of
+those items.
+Whereas vector swap can say, well, what if I just take my
+three pointers and swap them with your three pointers and we
+can do this in constant time instead of linear time.
+So standard swap will go as slow as you would if it has to, but
+if it can go faster it will.
+So that's why we use standard swap.
+Yes,
+yeah, it does the one temp variable, just a three person
+swap, like from A up to temp,
+B to A,
+temp to B.
+That's what it's going to do if it's just single values.
+But if the object itself knows how to do a faster swap than it
+will.
+Well,
+move is gonna delete some information,
+right?
+Yeah,
+we'll mess with it. All right, I'm trying to get
+these done.
+So let's analyze it here.
+What do we've got? The non-adaptive version is n
+squared over two comparisons and n minus one swaps.
+So in the best,
+worst,
+and average case, we're talking about n swaps.
+Always got this n squared comparisons.
+It's reliably slow,
+selection sort is.
+Runtime is insensitive to input.
+In the adaptive version, And we did even more comparisons,
+but in the best case,
+we did zero swaps.
+So that's what the improvement was there.
+The runtime was slightly sensitive to input.
+Selection sort's advantages are there's minimal copying of
+items. If you've got big items,
+selection sort is your friend.
+And it's fairly efficient for small, and it's not too bad.
+The disadvantages are it's always n squared.
+And the runtime is only slightly dependent on the pre-ordering.
+It doesn't really help what you've got ahead of time.
+The smallest key on one pass tells you nothing about any of
+the other passes. We don't get any partial sorting
+like bubble sort did. It runs about the same on
+already sorted,
+randomly arranged,
+reverse ordered. It doesn't really matter what it
+is. Selection sort is the same slow
+sort.
+And it's not stable.
+So there's selection sort.
+All right. So we've been looking at sorting
+algorithms to uh satisfy the direct request of something we
+want to do it quickly we looked at bubble sort and selection
+sort those are both n squared
+yes probably but what would it do it would it would make an
+already slow sort even slower right so to try to make
+selection sort stable i'm not even say it's going to be that
+easy
+you're gonna add a whole lot of additional work and say, why
+don't you just use a different sort?
+Now we're gonna look at insertion sort
+because we tuned bubble sort and selection sort a little,
+not much.
+We're gonna look at insertion sort which is also
+asymptotically slow.
+It's an N squared algorithm
+but we can tune it a little bit more.
+So look at that sort.
+What does that look like?
+It looks even more like bubble sort, right?
+Bubble sort was for loop, for loop, if swap.
+So the only difference between insertion sort and bubble sort
+is where are those for loops working?
+So we look at our outer loop,
+now starts at the second item,
+goes all the way to the end. So,
+Bubble Sort started at the first item and went to one before the
+end.
+So, a little difference there.
+And then,
+the inner loop starts at
+i and works its way down, whereas in Bubble Sort,
+the inner loop started at the end and worked its way down.
+So, we'll see how we get that to work there.
+Then if the things are out of order, we swap them.
+But what insertion sort does is it thinks of these things as
+now,
+before all the other sorts said, well, this is one big list of
+unsorted things.
+Insertion sort says this is actually two lists,
+right?
+This first list just has four in it.
+And I can say without doubt
+that a list with one item in it is already sorted.
+So I've got a sorted list and an unsorted list, and I'm going to
+take something from the unsorted list and insert it
+where it belongs in the sorted list.
+So I'm going to say,
+well, let's go with two.
+If four is my sorted list,
+two really can only go in one of two places,
+where it is or before the four
+so I'm just gonna swap it till it lands where it should
+so I say let's swap two and four and after that first
+pass it looks like that and the algorithm knows these two things
+are sorted I've got this two item sorted list and I'm trying
+to figure out where to insert the five physically the five
+could stay where it is it could go between the two and the four
+or it could be before the two we swap it until it stays where it
+is so we say let me swap five four if needed swap for two if
+needed and then after that second pass I know that the
+first three items are sorted
+Insertion sort now works here kind of just like bubble sort.
+Let's swap this,
+bubble this thing down until it's where it belongs.
+So one five swap,
+one four swap,
+one two swap.
+And after the third pass,
+I know that this,
+this,
+this, and this
+are all sorted.
+They might not be where they ultimately belong, but they're
+the sorted list, And all that's left in the unsorted list is
+three.
+So let's bubble it on down.
+Swap three with five, sure.
+Swap three with four,
+oh yeah.
+Swap three with two,
+nah.
+Swap two with one,
+nah.
+So my pass goes through,
+and it looks like that. So after the fourth pass again,
+I'm good.
+So each inner loop iteration,
+is that if statement like a sequence of trues and then a
+sequence of falses?
+Each inner loop,
+what do you mean?
+So like,
+say for example,
+like from going from past three to four,
+you check three with five and then it's a true, and then three
+with four and then it's a true, but then after that everything's
+passed,
+it's three, it's then in the right place.
+Yes,
+but the loop as written does check those all the way out,
+because if that was zero,
+for instance,
+if this was zero and not three, when it comes time to swap those
+things in, I'd have to swap five and zero, then I'd have to swap
+zero and four, then I'd have to swap zero and two,
+I'd have to swap one and zero.
+So that's why that inner loop of swaps goes all the way to the
+end.
+Even though you're right, sometimes we don't have to.
+I could make,
+you know, when it was three, I just made these three swaps, and
+I don't have to swap two in one.
+That's a room for adaptation,
+right?
+Because once I've inserted this thing where it belongs,
+everything before it is already where it belongs.
+I can stop.
+So it's kind of like, you put the element in the last place it
+was sorted,
+and you kind of like, all the way over there.
+Mm-hmm,
+exactly,
+yep.
+Yeah, we're not going all the way there, right? And we're sort
+of expanding this sorted list with something from the unsorted
+list. And if you think about the way
+that this goes, on average,
+I'm only going to have to move this thing about half the way,
+right?
+Whereas on my bubble sort pass,
+I'm going to touch them small, really.
+So as we look at this,
+the non-adaptive version we just looked at,
+there's n squared over 2 comparisons in the worst case,
+n squared over 2 swaps in the worst case.
+It's just the same as all the other bad things.
+But on the average case, I'm going to do fewer swaps.
+Because I've already got a sorted section,
+and the newest item that I can put in there,
+I'm going to only have to go halfway through that to find
+where it belongs.
+So that's why it's n squared over 4 swaps in the average
+case. The runtime is only slightly
+sensitive the input the comparisons are always the same,
+but sometimes the swaps change
+All right, so let's improve it This is a general-purpose
+elementary sort Like all the others it involves comparisons
+and swaps the best way to Get faster is to use a better
+algorithm But when we can't we can tune the one we have All
+right,
+and when you're talking about tuning things, where do you want
+to tune?
+Inside the innermost innermost loop because that's what's gonna
+go the most You start as deep inside the function as you can
+and try to make that stuff Faster because that's how you're
+gonna get the most speed out of it
+So here's our insertion sort
+We started here
+And we're going to modify that and look at it like this.
+So in this case,
+what we're going to do is a move instead of a swap.
+So in move,
+we're going to write less.
+We think about a swap, I say A up to temp,
+B into A,
+temp into B.
+So to do a swap, I'm always writing three times.
+If I gotta do this thing and I swap it here,
+that's three rights. And I swap it here,
+that's three rights. And I swap it here, three
+rights. So as I swap something into
+position,
+it's three times the number of positions rights.
+Make sense?
+Now,
+if I were to say something like
+one,
+two,
+well it should have been two,
+but it works for me now.
+So now look at that. If I'm trying to swap that two
+to where it belongs,
+if I swap two and six that's three rights.
+If I swap two and five that's three rights.
+If I swap two and four that's three rights.
+If I swap two and three that's three rights.
+That's 12 rights.
+I can go faster with a move if I say well let me write three
+Right two up into this position right here, and then I can write
+six right five right four right three and
+right two
+You see how that one worked
+Instead of swapping I did a move
+So I've moved two out of the way so that I can push six back.
+I don't write six into a temp.
+I write six from where it was to where it's going to ultimately
+be with one write.
+Then I put five where it's going to be.
+I put four where it's going to be.
+I put three where it's going to be.
+And now I've got room to put two exactly where it's going to be
+in a write.
+So whereas before with swapping I said this was going to take me
+12 writes,
+Three times n, the number of positions I'm moving it.
+Now how many writes did this take me?
+This took me n plus two.
+So in this case it's six, which only sounds like half of 12,
+but let's move something 1,000 spaces
+and see do I want to do 3,000 writes or 1,002 writes.
+It's a factor of three faster to use move versus swap.
+So that's what's going on here, and the loop has been modified a
+little bit to get that done. We pulled the J outside of the
+for statement so that it would exist after the for loop went
+away because we don't want that J to go out of scope.
+So J gets defined up there outside of the for loop and we
+scratch it off in the for loop and then the if swap gets
+changed into hey, if what I'm trying to put into position
+should go here,
+move that thing over.
+So we've changed the swap to a move,
+and the condition that makes that happen is changed slightly
+a little bit. So,
+this is the new version.
+At the end,
+I put in JV,
+the final thing there.
+So this is move versus swap. It's now a third faster on the
+rights.
+Two-thirds faster.
+It's one-third the speed in the rights.
+Here's the second improvement.
+This one is not a whole bunch different.
+It's actually exactly the same as the first improvement.
+But this version of is because all we did is get rid of the for
+loop and turn it into a while loop so from a compilation
+standpoint it's identical soon the exact same thing but look
+what we did we said we're gonna keep for looping until we run
+out of space while J is greater than left or we're not out of
+order so now I say well let's keep while looping as long as we
+haven't run out of space And the thing that we're looking at
+needs to be moved out of the way.
+That's my while loop
+So no real change, but now we've taken the break out remember the
+break was used to get us out of the loop when
+Right the break got us out of the loop when this failed
+V is less than a at J minus 1 now if V is less than a at J
+minus 1 I get out of the loop here just the same
+with no break it was the condition to keep me in the loop
+on the previous slide and it's now the condition to keep me on
+the loop on this slide so no change but now I can see what
+I'm doing why am I looping I'm looping because I want to stay
+in bounds and I want to move values that's what it says while
+J is greater than left J is the index I'm looking at I don't
+want to go J minus one if I'm at the left because I'll be out of
+bounds so J has to be greater than left in order for me to
+look at J minus one and that's what I want to do say let's
+check a at J minus one so far so good

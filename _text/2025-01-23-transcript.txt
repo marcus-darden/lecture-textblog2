@@ -1,0 +1,1409 @@
+This is the timer class I talked about in terms of instrumenting
+your code,
+adding code to your code to measure your code.
+So this is pretty straightforward.
+It works like a stopwatch.
+Here you see it in action. Line 26, we declare a timer of
+this type.
+Line 27,
+we start it. Line 28, we run some code that
+we want to time.
+Line 29,
+then we stop the stopwatch, which has the effect of
+marking the time that it took for what happened between the
+start and stop. So you can see in the next line,
+30 and 31,
+it prints out what was there in seconds.
+One colon means do stuff one.
+Here you see another version of it.
+We reset the timer and measure a second thing.
+So this is a one way to
+measure your code. So we are behind
+in schedule.
+So this is a video that I can have you go check out.
+Right?
+This is the search demo video. But this is just some
+command line code here.
+You can get to the code itself right there.
+And as you look at it, you can see right here at the top of the
+code is that timer class. So it's being used in this
+thing.
+Then there's a function here that's called linear search.
+It looks like a pretty standard linear search there.
+We've got some vector of integers and some value that
+we're looking for. That's up there.
+Then we just run a for loop, go through the entire size.
+If the value is what we're looking for,
+then we return that index, otherwise return negative 1.
+Really vanilla linear search.
+There's not really a whole lot of spicy linear searches, by the
+way. They're all vanilla.
+This is just a linear search.
+up next here's a binary search right we've seen a binary search
+where we're looking to find the thing in the middle and if the
+Val is equal to the thing in the middle then we say we found it
+return mid otherwise we modify either the high end or the low
+end based on what we found binary search So
+this test search function takes
+a number of searches to do so this is important to do when
+you're testing things empirically is you can't just
+test it and measure it once and say well that's how long it took
+there's a lot of things that are going on in your computer so you
+want to run it a
+bunch of times and so this program actually lets you send
+in a number and we start with ten thousand one hundred
+thousand million two million four million, eight million,
+keep making it grow larger because you need to do that to
+get some timing on it to measure a trend here.
+So this loop,
+you'll see this one loops however many number of searches
+times you gave it and then it says if you're doing a binary
+search call the binary search, if you're doing a linear search
+do the linear search.
+So at the beginning of the run you just say hey I want to do
+10,000 linear searches and it measures them.
+10,000 binary searches and it measures them.
+That's what this code does sometimes you see sometimes it
+finds it looks for a value that's not there so sometimes
+doesn't always flock find it that's why it says if binary
+search then increment the number of things found it's possible
+that you might not find the thing because it doesn't exist
+so that's it and then main is pretty straightforward it asks
+you for some arguments at the command line and if one of
+them's a B then it does a binary search and then it gets the
+number of items it's pretty straightforward it fills the
+vector but You can see where the timer gets used here, right? So
+we start with a timer that gets declared here, right? That's the
+second line in main.
+Then we have to fill the vector that we're going to search.
+So we want to measure that.
+We start the timer,
+create the vector,
+reserve some space in it,
+push back a bunch of values,
+and then stop the timer.
+And then it can tell us how long did it take to fill the vector.
+because part of the work that's being done is prep,
+and then the other part that we want to measure is how much time
+is our algorithm taking, right? So,
+if we've got a particularly slow prep,
+we don't want to spend a whole lot of time trying to minimize
+the time done in the prep when we can't really do that.
+If we've got to read some stuff in off a disk or fetch something
+off the net,
+we can't really make that faster.
+When we have the data,
+that's where we can start working on it.
+So you'll see,
+after we've got the vector filled,
+we reset the counter,
+start it up, and then run that test search function, which is
+going to do 1,000 binary searches, or 10,000 linear
+searches, or whatever you asked for.
+And then we stop it.
+Then it can say,
+after searching, it took us this much time.
+So this is how you can instrument your code.
+This is how using some code inside of your code can work.
+Remember, obviously,
+you can only do this if it's yours.
+If you don't have source code, you certainly can't put some
+stuff in there to do some testing.
+So this is the search demo.
+Any questions on this?
+So one of the things we do is we run through it.
+And here's how you can do this all on the command line,
+add cane,
+make the search demo, CD in the search demo, Then go grab that
+file that I was just looking at right once you've done that Or
+you can also download it in your browser, which is what I did to
+show on the video here
+You can compile it and you run it
+So you can do this you see here we start with a million items
+To get a number and then try larger numbers two million four
+million eight million
+Start measuring those things and then you can see a trend right
+so you say well in a linear search, every time I double the
+number of items I'm searching,
+I double the amount of work that I'm doing.
+So I would expect that a bunch of runs when I go at a 1 million
+should take about half as long as a bunch of runs at 2 million,
+about half as much at 4 million, and so on.
+And that's what you can see here when you run this.
+Then you try it with a binary search.
+And the binary search is a bit faster.
+But then when you double the items,
+it ends up doubling anyway.
+So this is kind of what we need to do in our empirical testing
+is if you look at this graph on the left, if I just say, well,
+So what if I measure 5, 10, 15, and 20 items?
+It kind of looks like this, and I might say, well, that's pretty
+linear.
+But here you can see these are roughly the same 5, 10, and 20
+items.
+But until I get some of those higher level stuffs up there, I
+can't see how that asymptotic is going to play out.
+So you're going to want to add larger numbers and do
+multiple runs if you're really trying to get some information
+from empirical testing.
+right?
+Then you look at it and say okay now that my empirical testing is
+done what did I get versus what did I expect?
+What happens if the results I get are worse than I expected?
+So I thought maybe it should have been linear and I see some
+exponential or some log some some polynomial response.
+What happened there?
+Usually one of two things right?
+I made an error in how I
+So there's some hidden loops that I didn't really count on,
+some unintended operations, et cetera.
+What happens if my results are better than I predicted?
+Likely the same two things, really,
+right?
+Maybe I didn't do the analysis right,
+or maybe I coded something different than what I analyzed.
+Right? Some other things that could happen, too, though.
+I might not have gotten to a worse case,
+So I'm measuring and measuring and measuring I never get to the
+worst case it doesn't really show me what that worst-case
+analysis looks like or Some few things like that and then we get
+to the part where you're really gonna be struggling in 281 is
+like well what if
+My data match.
+I think this looks linear, and it was supposed to be linear
+quadratic or whatever and
+That's what I expected,
+but it's still too slow ah
+There's very rarely a performance bug, as in I haven't
+seen one in 281 ever.
+So very rarely it's performance bug.
+But you make sure that you got your right compile options on
+there because you don't want to be testing your debug builds for
+speed. It's kind of a waste of time.
+They're not built for speed,
+and so you're not going to get really good response out of
+them. You can get some relative
+response.
+So if you run a debug build and measure it, and then you run
+another debug build that you've improved,
+you should probably see some similar work there.
+But if you're really trying to figure out what's going on,
+you're going to want to run your release builds,
+the dash 03 builds, to do your measurement.
+And then we're going to look for optimizations to help us improve
+constant factors.
+So it turns out in this one, when we run it, We have
+this binary search giving
+us linear search behavior
+in terms of time.
+We double the stuff in the binary search, it takes twice as
+long.
+We double it again, it takes twice as long.
+It doesn't do what we would think it would do in a binary
+search.
+So that's a perfectly good reason to say, Well, I analyzed
+it and it looks like a binary search, right?
+Anybody see why it's not responding in a logarithmic way
+Because this one responds in a linear fashion, yes
+Passing the vector by value look at that argument param the
+parameter argument
+parameter type sorry
+Vector of integers named vec
+Not a vector by reference a vector by value so every time I
+call this and when you say binary search this vector a
+thousand times or a million times two million times so a a
+million times I copy that vector.
+That's the majority of the work.
+The binary search,
+that's logarithmic,
+right? If there's just a thousand items in the container,
+that's like 10 steps.
+But if a million times I'm copying a thousand items,
+I feel the thousand way more than I feel the 10.
+So this is an example how you can use
+like a runtime analysis to find bugs in your code.
+One of the things that you need to do is to be able to write
+your stuff for testing so you saw the way that this program
+was structured right there was a main function the main function
+called some test function after it set things up and the test
+function was able to call the functions that I wanted to test.
+So then I was able to say, well, start the timer,
+run a bunch of tests, and stop the timer, and I can look at
+exactly what I want. So when it comes time to start
+analyzing your code with measurements,
+you have to write your code in such a way that you can measure
+what's important.
+You can't be like, well, I started at the beginning of main
+and turn on the timer, and then when the answer came out,
+I hit stop. Well, that's what the autograder
+does.
+That doesn't help you figure out what part of your code is
+running slow right at the high level you could be like start
+the timer read the map stop the timer give me some information
+you know then search for the goal give me some new time
+information then do my backtrace give me some new time
+information you know and then print my output give me some new
+time information so you can break those things down and say
+well here I have these four important parts of what's going
+on there and now if I'm 40% over I can see which one of those is
+gonna make a difference right because you say well I'm 40%
+over and reading the map was like 7% of my time
+guess what you're not gonna get your time back by fixing how you
+read the map that ain't the problem you could eliminate
+reading the map and still be
+33% over in my magic example so that's what you can do
+with perf as As well, when you start talking about perf or with
+tools like this,
+it can help you figure out what it is.
+But you have to write your code in such a way that you can
+isolate sections of it and measure them.
+And also know that every time you start and stop the thing,
+what are you doing?
+You start it.
+You set some variable equal to something.
+When you stop it,
+you set some other variable and do some math.
+So what you don't want to do is, Let me start my stopwatch and
+stop my stopwatch inside of the million times loop
+Right because it's non-zero amount of work It's not much
+work But a million times of starting and stopping is
+non-zero work And you don't want that to influence what you think
+about your measurement, so it's better to say let me take a
+stopwatch here Do it a million times and then take a stopwatch
+there And then if I want to I can divide that out by a million
+and figure out what's my average execution time But I don't want
+to try to measure each loop because it adds too much work to
+the situation to help you really get a good idea of what's going
+on there.
+All right, so that's what's going on in measuring runtime
+performance.
+Any questions on this?
+Like I said, there is one of the videos in the playlist of me
+doing the search demo.
+So you can go watch that one and see me pull the code down, see
+me build it, see me run it,
+change the sizes, All that stuff trying to speed us up to catch
+us up any other questions
+Sweet
+Runtime analysis tools here, so I did just mentioned perf This
+is what perf looks like perf might be maybe the most
+frustrating tool of all time so I
+Don't know if you want to use it a whole bunch definitely cover
+it in lab
+but Perf is the late stage tool is why it's frustrating.
+Perf measures running code to see how efficient
+code that runs is, so you hear that, right?
+It has to be working,
+and for it to be working and make any sense,
+it actually has to be working without bugs,
+because if it's got bugs and you're trying to measure how to
+make things faster and you're fixing stuff that doesn't need
+to be fixed.
+So, you can't really use perf until it's done and working
+correctly.
+So,
+perf is a late-stage tool for that reason.
+And what perf does is that, as you see in this picture here,
+it gives you a percentage of the run time spent in and under
+a particular function.
+And the way that it does is it kind of marks up the processor
+and it runs your code and then stops it and see, hey, what
+function am I in?
+And runs it and, ah, what function am I in?
+What function am I in?
+It just samples it over and over and over again,
+thousands of times, and then adds all of those samples up and
+says, well,
+36% of the time,
+when I looked,
+you were in this function. So I infer from that that this
+function is responsible for 36% of your time.
+So it's not even the greatest information.
+It's a good version of information.
+it can be helpful it samples things and you can see it gives
+you the total amount of time spent in a function and it says
+also it's children so that's why you see you know Maine is up
+there and almost the highest number that we can get there
+right because all of the calls were children of Maine Maine
+started and everything else came underneath that so that's why
+it's high up there but then if you see that how much time was
+spent in Maine itself here it's like 0% of the time right
+because it literally said hey I'm gonna start main main said
+do a thing the thing happened the thing happened the thing
+happened and then we're done it was like one or two samples
+inside main so it looks like main didn't take any time at all
+which it
+didn't but its children did because the things that it
+called that's how you read this one and if you go into a live
+version of it you can hit plus there and it'll expand any given
+call and tell you the sub calls underneath that and how much
+time they took so you can use this to say well here if I'm
+trying to figure out how to get this code to be faster right
+maybe I'm like 21% over what do I
+see there like the only thing that might have a chance of me
+fixing something there is maybe this seam function so I've got
+to figure out if I can if I could fix scene carve itself but
+oh no I'm off the line sorry that's mem copy SSE back well I
+can't fix that can I right that's a system level library
+level function that I'm not gonna fix so I'm gonna have to
+go into somewhere else there's no one place where I'm gonna win
+those 21 percent back from right I might be able to shave some
+off of this image get pixel might be able to take some off
+of matrix at so you're gonna be going back through here and sort
+of looking at what you can do to speed up your code and that's
+how perf gets used so you have to have some magic command line
+to use with perf and every time I need to do it I go look in the
+lab slides because I can't remember exactly the the
+arguments for perf I should make that a command somewhere but
+it's one I've just dragged my feet on.
+That's how perf gets used.
+Late stage tool.
+This is another one here. This one is for measuring
+runtime externally. So we looked at the timer class.
+That's for measuring it internally.
+I can instrument the code with it.
+This one says if I can't modify it, well, can't I just start a
+real stopwatch?
+And that's what time does.
+That's really how the autograder measures your stuff as well.
+Because the autograder doesn't instrument your code.
+It just starts a stopwatch,
+runs it, and asks it.
+So that's what the time command from Linux does.
+So if you've got WSL,
+or you can go to your command line on the Mac, and you can run
+this command here,
+it's user bin time. So if you type that into the
+command line,
+you type that in, and then you type whatever else you were
+gonna type.
+It runs your code and tells you some stuff about it.
+So it'll do whatever it was supposed to run, and then
+afterwards it'll print a line that looks like this.
+You hear it says 0.84 seconds were spent in user time.
+That's your code actually working.
+0.0 time spent in system, so this is
+the system time spent on your program's behalf.
+So this one didn't have a lot of reading or writing because it
+didn't have system time there.
+And then 0.85 times is a total elapsed time.
+So 0.84 was spent in your code and the
+whole program took 0.85. So that's some overhead time, or
+maybe the processor switched out to do something else while your
+code was running,
+came back.
+And so it took 0.85 seconds, and it was busy doing
+something else for 0.01 seconds.
+So then it can tell you that you had the CPU 99% of the time.
+That can also tell you something.
+So you see something that's taken a long time, and you've
+only got the CPU like 47% of the time,
+something else is busy on your computer, and it's making you
+feel like it's slow, But your actual execution isn't quite
+maybe as slow. So that's how you can read user
+bin time.
+Oftentimes, you can also just type time as well.
+There are two different.
+One's a built-in. One's a program.
+But both of them do the same thing.
+The reports look a little different, but they give you the
+same information.
+So here's an example of it.
+So this command here,
+dd,
+device duplicate, It copies from one device raw form
+to another device.
+So here it says the input file, that's what if looks like.
+Input file is dev zero.
+Anybody use Linux out there?
+So dev zero is this magical device that looks like a file
+and if you read from it,
+it gives you zeros,
+right?
+But it's not a real device.
+So it's got an unlimited amount of zeros.
+You can keep reading and keep reading and keep reading and
+keep reading because it will never run out of zeros because
+they're not going to physical location to get them.
+So that's what it is, it's a pseudo device.
+The same thing on the other end,
+the output file,
+of.
+So this is what disk duplicate does is it reads from here,
+input,
+and writes to there.
+So if you wanna do that, you could do this yourself.
+But this output file is called dev null, and dev null has also
+got a nifty name, it's called the bitbucket,
+because you can write to the bitbucket and it doesn't write
+it anywhere.
+It just acts like it did,
+takes what you give it, and throws it away.
+So I've got an infinite amount of zeros coming from dev zero,
+and I've got an infinite amount of space to write to with dev
+null. So when I say do this command
+here, it's not gonna stop running until the computer dies
+or the Sun cools
+Right.
+It's never gonna run out of zeros never gonna run out of
+space to put them So you can use this as something that you can
+measure with and the only way it's gonna get out of it is If
+you kill the program yourself, so that's why you hit ctrl C
+there and then you'll see it It'll shoot out something like
+this.
+This light code is what comes from DD itself Some information
+about how many records it copied how long it took blah blah blah,
+and then this bolded line here This is the output from time
+that says okay. Well as we copied these
+Whole bunch of bytes, what's that number big number?
+As we copied those bytes it took us 0.26
+users
+0.26 seconds user time
+0.65 second system time, which makes
+sense, right? Because it's doing stuff with devices.
+The system is using an input file and an output file on your
+program's behalf. So the total amount of time here
+is the sum of these two things, plus whatever was handed off.
+You see here that 0.92 elapsed.
+If you add those two up together, you get 0.91.
+Once again, it's about 99% of the CPU time.
+And these are rounded values,
+so... But they're good enough to give
+you some good information.
+You can see that DD has its own time
+information as well. So DD said, hey, by the way, we
+thought we took 0.92598 seconds.
+And that's exactly what we thought we took.
+So time and DD just happens to do its own time measurements, is
+all I'm saying.
+But you can see how they're similar there, copied 1.7
+Gigabytes in that amount of time, so this is a tool here.
+That's that is very useful now What you don't want to do is try
+to figure out how to get your time to be exactly like the
+autograder time It's different hardware
+Also really good for relative
+Stuff so if you say I'm over time on the autograder did this
+new fix change anything well time time time time time time
+time
+Get a number average that out
+then make your changes and time,
+time, time, time, time, time, time, get a number averaged out
+and you'll see,
+did it get faster or not?
+Because if it doesn't get faster when you test it locally by 20%,
+it's not going to get faster by 20% when you put it on the
+autograder.
+So this is how you can use time as a tool to measure your code
+there.
+Question on this one?
+Yeah. So what's the measure time
+between measure and memory?
+Measuring memory is a different thing.
+But yeah, there's ways to do it.
+If you use a,
+oops,
+I'm drawing a total blank here.
+It's a memory issue.
+Yes,
+there is,
+like Valgrind obviously does mem check.
+But there's also a tool in Valgrind called MASSIF.
+And there's some stuff,
+I think we talk about MASSIF in either some slides or also in
+lab.
+But MASSIF will do the same sort of thing as measure how much
+memory gets used. It also gives you stack traces.
+So you can see when I was at this amount of memory, what
+function was I in? So you can see how your memory gets
+developed there.
+So that's how you would do that for sure.
+Yeah.
+Yes,
+it's talking about heat memory and stack memory, yep.
+So yeah, this is just a discussion of what I said here.
+It talks about the four values that you get here, user time,
+system time, elapsed time, and the percentage of CPU.
+You can also get the man page of time
+if you type this seemingly gender specific command in At
+the command line and time for manual manual page
+Valgrind hopefully you are using Valgrind Valgrind is your friend
+We have the address sanitizer turn on that should also do your
+friend Valgrind and the address sanitizer have a huge overlap of
+what? they do I Can't really give you a real percentage
+number, but I can make one up like 80% of the same stuff And
+Valgrind does some things that ASan doesn't, and ASan does some
+things that Valgrind doesn't.
+But Valgrind is harder to get to,
+starting to be more useful in more places.
+It works really well on real Linux.
+So on Cane,
+you can get it on WSL.
+It has been a challenge to get it working on Mac.
+So you may not be able to do that if you've got a Mac.
+If you really need to do it, and you should,
+push it up to cane,
+give it a run, see there.
+So the way that you use Valgrind is similar to the way you use
+other tools,
+like time.
+You say time and then whatever command line I was gonna do.
+Valgrind and then whatever command line I was gonna do.
+If you wanna give it some arguments,
+Valgrind can take some of its own arguments like leak check
+equals full or tool equals massive.
+Valgrind will run the massive tool instead of the mem check
+tool.
+So when you run Valgrind by default, it says, oh, you want
+me to use the tool memcheck.
+You don't even have to say that, but it does.
+But if you say tool massive,
+it does a different thing. Memcheck checks to see, you
+know, when you're making invalid steps onto your memory area or
+making decisions based on uninitialized memory.
+All that stuff that we do when we just type Valgrind, we get
+memcheck. And you'll see it at the very
+top as Valgrind starts spitting stuff out, it says memcheck in a
+memory checker. But if you type dash dash tool
+equals massive,
+then you'll get Valgrind to do something completely different.
+Valgrind is a pretty powerful tool.
+So learning how to use this and other tools that make your life
+easier is one of the best things
+developers can do is learn your tools.
+Learn your tools. Learn how to use VS Code if
+you're going to use VS Code.
+If you're going to use Xcode,
+there is so much stuff to learn out of all of these tools.
+I typically sit in my office on days when I don't go for lunch,
+eating whatever I have in the room,
+just watching YouTube videos like, oh, let me see 10 new
+tricks on VS Code, right? And watch somebody do something, I
+got to see all seven of those, and then I might get somebody to
+do something new.
+But I'm constantly learning new stuff about my tools, and say,
+oh, I got to see these things two or three times to remember
+how to do it too. So you can't just see it once
+and remember it, you got to get it under your fingers.
+You might have to put some configuration into your current
+version of it,
+something to do these things. But if you learn how to use your
+tools and constantly learn and upgrade your tool set, this is
+why we wrote the 201 course because it was originally, you
+know, unflatteringly called the tools class.
+I was walking at a dinner and I ran into the old chair at the
+time. He said, oh yeah, you're
+teaching that tools class. I'm like, it's not the tools
+class.
+Although we did, you know, in our own little circle, We called
+it tools for tools by tools.
+And then we changed it over to
+computing for computer scientists and then they didn't
+like that name either and so then we changed it to computer
+science pragmatics and that's how 201 came about.
+But it was all about people not being able to use their tools.
+There's nothing more frustrating to me,
+Dr. P,
+all the staff than watching somebody
+who really needs help but they're so slow with what
+they're doing. Like, oh, you know you can do
+that faster, right? is every time you're trying to do an
+edit,
+you're doing that big old long roundabout thing, no wonder it's
+taking you so long.
+So spend some time learning your tools.
+You see somebody do something you don't know how to do, just
+like, hey, how'd you do that?
+What makes your screen look like that? Mine doesn't look like
+that. Ask questions.
+When I grew up,
+we didn't all have computers.
+We all had to go to computer lab.
+At MIT,
+almost nobody had computers when I was there.
+We all went to the computer lab. these huge rooms with like 100,
+200 computers in there. And you would just go log in,
+and you'd sit by your friends. But the other thing that gave us
+a chance to do is be walking in your seat.
+It was like, oh, dude,
+that guy has the same book that I have.
+So we must be in the same class. I don't know him.
+And he's doing something on his screen.
+I was like, hey, man,
+what'd you do?
+You would learn something.
+Now we all got our own little laptops.
+We're like, I'm going to code over here.
+I'm going to code.
+I can get this done here. No one can see me.
+You don't learn from other people when you do that, right?
+So,
+ask some people when you see somebody do something, if you
+ever see somebody do something,
+you don't know how to do it, ask somebody to do it.
+Right, if you're in office hours,
+ask the instructor, is there a better way to do this? I see
+people typing make all, this is one that drives me nuts.
+Make clean, make all.
+Don't type make all, make all builds four executables.
+Four,
+you're trying to test one.
+Hunt debug,
+if you type make,
+it makes hunt debug. If you type, if you really want
+to type two words,
+type make debug,
+because it'll still just make that one executable.
+Every time you type make all though,
+it makes four executables,
+wasting time,
+wasting time, just making your life harder.
+So this is how you use Valgrind.
+There's some stuff about it.
+You see that you can turn on leak check full.
+That's a good flag to use.
+Show leak kinds all.
+That's another one that's good.
+So that's Valgrind.
+Questions.
+Learn how to use a coverage tool.
+That's the new one. I'm going to work that one into
+the stuff.
+Coverage tool will let you run your code and tell you how many
+times you executed each line of that code.
+Which is sweet.
+Because then you can say, well, I wanted to test this and I ran
+this test and there's all these lines that are still red.
+Meaning my code never even went in there.
+So I can't be testing it if I didn't execute those lines.
+That's what a coverage tool will tell you.
+Coverage tool is probably gonna be much more useful to you when
+you're trying to figure out what your time problem is than perf
+is.
+The coverage tool will tell you how many times did you hit the,
+why did I,
+I just doubled the number of inputs and I can see that this
+line has gone up by four. So this must be being handled
+quadratically for some reason.
+And then that's where you can fix things.
+So look into a coverage tool.
+Let's see if I have the staff write something up.
+We'll come for it.
+All right,
+let's recurse.
+We saw this.
+No, this is a new one.
+X to the n.
+I'm going to write this function called power.
+We give it x and then sum n, the base and an exponent.
+If I asked you to write this function,
+you could do it.
+It's pretty easy, right?
+Just x times x times x times x times x, n minus 1 times.
+So you could write that in a loop pretty easily.
+I could ask you to write that recursively pretty
+easily as well right because X to the N is really just X
+times X to the N minus 1
+so now I've been able to
+define this exponent function in terms of another exponent
+Function that's that's the heart of recursive work there so you
+can write this linearly in a loop you could write this
+linearly in a recursive function
+Then what about this less obvious way here could you write
+this in a nonlinear?
+But logarithmic way
+Right if you if you know that two to the eighth is just two
+times two times two times two times two times two times two
+times two
+That's the linear version.
+But if I say two to the eighth is two times two,
+take that times two,
+take that times two, then I can do it with fewer
+multiplications.
+Could you write that one?
+How do you handle it if it's not two to the eighth or two to the
+16th or two to the 32nd?
+What happens when it's two to the 12th?
+Well, that's two to the sixth times two to the sixth.
+So if I just calculate two to the sixth, I just multiply them
+together.
+Great.
+Well,
+two to the sixth is what? Two to the third times two to the
+third.
+So we just get those two, I can multiply them together and then
+multiply them together again, I got the 12th.
+But two to the third,
+I can't divide that back down and get to my power of two.
+So that one's a bit more challenging.
+So it says here,
+can you find the linear version,
+the logarithmic version, And can you write both of them,
+both iteratively and recursively?
+So,
+iteratively means with a loop,
+recursively means with a function that calls itself.
+And it takes this tiny little, simple little problem and kind
+of expands it out a little bit.
+So,
+they shouldn't be giving you too much trouble.
+I'm going to run through them anyway.
+Okay,
+here's what accounts for
+computing x to the n.
+If n is equal to zero, we're gonna return one.
+Otherwise,
+set result equal to x, and then for every time I've got some
+thing that I need to multiply it by, I just multiply the result
+by x.
+Result equals result times x.
+And this could have been a times equal x,
+whatever.
+This one is big ol'
+N,
+right?
+This is very obviously linear.
+We're starting at something like one or zero.
+We're going up to N, and we're getting there by plus plussing.
+This is the iterative one, because we got a four loop.
+So this is the linear iterative version, one out of four.
+When we wanted to analyze that, we just looked at the loop and
+said, Yeah, I get it
+So you see this is the the iterative version here This is
+just a much more compact version of what was done in the previous
+slide, but it's the exact same stuff
+Over here on the right is the recursive version you see we
+calculate power of X by saying I'm gonna return X times the
+power so I had to calculate power to define power Which is
+why it's recursive
+Right, recursive functions don't work without a base case.
+But if I look at this, I can say,
+this is pretty obviously linear.
+What about that one?
+What do we think about that one?
+Is that one linear?
+What do you think?
+It is,
+but how we prove it, that's the question, right?
+So the question mark says, we need another tool to analyze
+this, because yeah, I can't just look at that and say, well,
+I know it's linear.
+Great how do you explain this to someone else right the good news
+is we got like a minus one in there that tells me that we're
+gonna go from one end to the one that and it's right next to it
+the end is next to it and it's next to it so this is why I get
+the linear feel from it but I need a tool still to analyze
+that so that's where the recurrence relation comes in if
+you look at this here is X to the end written in the
+recurrence form right And this is just the mathy version say X
+to the N is either one when N is equal to zero or It's X times X
+to the N minus one when N is greater than zero So that's the
+mathematical definition of X to the N if I want to look at
+analyzing this I say well in that case T of N
+T of N is the time it takes me to do this calculation With N as
+my variable there T of N is equal to some constant amount of
+work
+When n is equal to zero right because if it's zero I just
+return one I don't have to do much so it's a constant amount
+of work when n is zero But when n is greater than zero I say
+that T of n is just well I got to take a smaller one, so let's
+call it T of n minus 1
+Plus some constant on a work to bring things together different
+constant, so that's my Recurrence relation for how much
+time it should take me
+For that math you see how similar they are
+This one down here, this m of n is similar to t of n, but it's
+just talking about how much memory I'm going to use.
+Memory in stack frames,
+and so it makes pretty much the same show there in this
+particular instance.
+But this is what I get for a non-tail recursive version of
+this, right? And that's what we looked here.
+This one here is non-tail recursive.
+So the analyzing of that says, hey look it's C 0
+if n is equal to 0 otherwise it's T of
+n minus 1 yes that's T of
+n minus 1 plus some other constant which is the
+multiplication of
+X times this other call so you can look right at the code and
+see where that recurrence relationship comes from right so
+this recurrence relation here that T of N comes from there you
+can see the branches in the code that first branch is just
+constant time it's a different constant than the other one
+that's why I call it C 0 and I call the other one C 1 the
+second constant comes from the math that I have to do to
+combine this X that I already have and my recursive call
+the recursive call is now smaller because it's in minus
+one and so you can look at these things and find them pretty
+easily if you've got code right in this case I can take math
+write code analyze the code or if you get good enough at it you
+can analyze the math directly so how do we solve that I said we
+needed a tool for solving that recurrence relation we're gonna
+start out with this substitution Method it's covered in a bunch
+of textbooks, but it's pretty straightforward You just write
+out T of n you write out T of n minus 1 you change those things
+you do some substitutions You keep writing out you keep
+substituting it back in and eventually you recognize some
+pattern from there You can make a closed form and then you get
+your answer. So let's give it a shot here
+Here's this one that we said was we thought it was linear So we'd
+like to prove it and the way that I'm gonna do that Say,
+well, let's just mark something down for now t of 0 is
+definitely C 0
+You see that?
+When n is equal to 0 the answer is 0 so t of 0 is C sub 0 Then I
+can also say just from above t of n is equal to t of n minus 1
+plus C 1 And that's what it says above there.
+Let's just copy that down What if I do a substitution and say
+everywhere I see an n I'm gonna substitute n minus 1 for it Then
+I get an expression that looks like this T of n turns into n
+minus 1 is
+Equal to T of n minus 1 turns into n minus 2
+You see that substitution yay, man, all right, yeah
+Yeah, well all I'm doing is I'm substituting look at the line
+right above it the two red lines I changed every n to an n minus
+1 and so I didn't so I didn't do anything really right Yeah, so
+the the constants don't change so now I've got this new version
+of T of n minus 1 and I'm gonna substitute that back into the
+first line So then I can still write now T of n is equal to T
+of n minus 1
+But if I use the previous version it looks like this is n
+minus 1
+So I say T of n is equal to T of n minus 1
+That's just T of n minus 3 plus C1.
+Right?
+It's just a substitution.
+Now I've substituted n minus 2 for n into the very first line.
+Great.
+Substitute that back in there. I say T of n is equal to T of n
+minus 3 plus C1. C1
+Plus C1 Plus C1, right? So this is what I get when I substitute
+this T of n minus 2 back into there
+Right this takes over for that
+Now that's what I get
+I'm following the math so far I I started to see a pattern here
+because I can say this is really just T of n minus 3
+plus 3 times C sub 1
+1
+You with me on that?
+All right
+Great, I could even go farther and say I bet if I went to T of
+n minus K
+Plus K times C sub 1 that would work
+That's me substituting because I picked three why can't I pick K
+great?
+But I thought we were trying to simplify this and it looks like
+we've just added new letters It's the opposite of algebra
+trying to get rid of letters but I did choose K so I could take
+the K that I like I'm gonna take a K such that and And minus k
+is equal to zero. What if I choose that k because
+I can What does that tell me then that n is equal to k?
+At that location so then I can say T of n is really
+T of n minus k
+But when k is equal to zero that's really T of zero
+Right n minus k and that's 0 T of 0 and then that I'm gonna add
+to it K times C 1 that's this parameter here, but really it's
+not K anymore because I said I picked the one where it's n
+Times C 1 and since I've got this thing up here
+What does that tell me this just says this is T of n is equal to
+C sub 0 plus n
+times C sub 1
+There's my wife
+Got it
+C sub 0 plus n times C sub 1 right this is a closed form
+solution now you see I've got T of n
+Completely in terms of constants and n it's no longer in terms of
+T of n When we started T of n was in terms of T of n it was
+recursive This is how I can boil this down and so now it tells me
+if I see that recurrence relation
+That the answer is gonna be something like this.
+It's going to be linear. This is how I know that it's
+linear We thought it was linear from looking at the code and
+this is how we prove that it is
+question on this
+It's algebra the pre-college stuff good
+so whenever I see this recurrence relation I know the
+complexity is theta n so that's the cool part too is I just did
+all that work and now you'll never have to do that work again
+for this equation when you see it just use it if your
+recurrence relation says T of n is equal to T of n minus 1 plus
+some constant amount of work then you know right away yeah
+that's just linear I'm good with that what about this one let's
+say we're gonna divide by half same way we're gonna do the same
+thing it's gonna be a little bit different here though I'm gonna
+say cuz t of one
+what's that gonna be
+when I take t of one
+that's one divided by two and this is remember we're doing
+this with discrete things here so we're doing integer division
+so 1 divided by 2 is not 1 half 1 divided by 2 is 0 so
+if I say T of 1 as is well when I get down to one,
+it really ends up looking like c0,
+right?
+C0 plus c1.
+When t of one is that because, right, this looks like t of one
+over two plus c1.
+And since we've got integer math here, This looks like T of zero
+plus C one, which looks like C zero plus C one, which I'm going
+to heretofore call C,
+so lazy.
+We're good?
+This is our base case.
+We can't do any recursion without a base case.
+That's what we did last time. We got our base case at zero.
+Here I'm getting my base case. It's easier to get a base case
+at one,
+but a base case has got to get me stopped somewhere.
+So next up, we just start the substitution thing.
+We say T of n is equal to T of n over 2 plus C1.
+And then I substitute n over 2 for n.
+So n over 2 is equal to T of n over 4 plus C,
+and that should be C1.
+Substitute T of n is equal to T of n over 2, which I'll use this
+version.
+So that's T of n over 4 plus C1 plus that,
+plus C1.
+All right
+Right and I could keep going you see that now right I can say
+this is also T of I'm skipping a step here for you all that are
+off
+Talk less right more and over 8 plus C 1 plus C 1 plus C
+1 I would get that eventually by doing another round of
+substitution right and so that I can say this is really T of N
+over 8 plus 3 times C 1 or if I wanted to
+Generalize I say this is T over T of N over 2 to the K
+Plus K times C 1
+Right when K is 3 this is 8 that's 3 everybody matches So
+now I'm gonna do the same thing. I'm gonna pick pick a particular
+K. What's the K that I want to
+pick?
+I want to do this at the place where N is equal to 2 to the
+K right because then when I divide it and
+divided by 2k it's just one when they're equal
+so at n is equal to 2 to the K super messy
+at n is equal to 2 to the K what do I know about
+K take the log of both sides log base two of n is equal to
+k so we go
+back and stick it all in there right so I end up with T of n
+is equal to
+and we're gonna take this version and stick The stuff we
+like in it at n equals 2 to the K.
+That's just T of 1
+Because n divided by 2 the K is 1 plus
+K
+Times C 1 but K is really log base 2 of n
+So here I can say log base 2 of
+n Times C 1 and
+Since we know that T of 1 from this substitution looks like
+some other constant this just looks like C plus log n
+of C 1
+Everybody done with math today good.
+You don't have to do these again whenever you see this component
+this this
+Relationship this recurrence relation T is equal to T of N is
+equal to T of N over 2 plus some constant amount of work That's
+always just logarithmic
+This is what this is binary search
+I found it.
+I looked in the middle. I didn't find it So then I cut
+half of those things off I looked in the middle of fun
+didn't find it cut half of those things off cut half of those
+things off
+Anytime I see that this is what I'm gonna get
+So It says here this one works with a pile function that we
+were dealing with
+It also fits binary search Sounds like something I said
+Cut the search space in half each time the function recurses
+in only one half
+Good
+All right, so here's our recurrence thought exercises as
+we wrap this one up
+What if a recurrence cuts a problem into two sub-problems
+and then we process both sub-problems?
+What happens there? So the one we just looked at was,
+I cut it in half and I did one of those.
+What happens if I cut it in half and I do both of them?
+Yeah.
+It's a tree?
+That's how trees work, yes, absolutely.
+But I'm saying,
+what is the complexity of that?
+Absolutely, it's just linear. So if I cut it into half and
+then I process each half and in processing that half I cut that
+into halves and I cut that in half and that every time I cut
+it into half though if I process both halves
+Think about lunch here Doesn't matter how many times you cut
+your sandwich in half if you eat both of those halves you've
+eaten the whole thing
+Get done. I can't believe I ate the whole
+thing
+but That's linear right I've covered everything in there if I
+cut it in half and then continue to process both halves So that's
+the question on that one. What if I cut it into three sub
+problems now What do I cut it into three sub problems, and I
+just process one piece. What do you say that is?
+It's logarithmic right it's log base 3, but still logarithmic
+great. What happens if I process two
+pieces
+We well it was a little sloppier here
+If I process all three pieces
+That's back to linear again, right? It doesn't matter how
+many pieces I cut it into if I eat them all I ate the whole
+thing so processing two pieces though.
+That's kind of in the middle right so this is log base 3 of
+n and this is n and so this is somewhere in between
+Right and we'll we'll learn a tool to figure that one out You
+probably have already seen it before if you want the answer
+now. It's really big O of
+n to the log base 3 of
+2
+That's what it is so log base 3 of 2 is
+All right
+And then this other question what if there is an additional
+non constant amount of work So what that means is the non
+constant amount of work is what if there's something more than
+just C 1 here
+So that's an additional non constant amount of work That's
+the question is what if there's an additional non constant
+amount of work after the recursion
+Something that has to do with linear work or quadratic work,
+right? It has to be based on n if it's non constant
+Enter the binomial coefficient.
+Re-enter. We've already talked about it
+once.
+And choose k.
+So now we could write this one, couldn't you?
+You could write this one pretty easily.
+You know how to write factorial,
+right?
+What's factorial?
+Five factorial is just five times four times three times two
+times one.
+Or you could also say five factorial is five times four
+factorial.
+So you could write it iteratively or you could write
+it recursively.
+Great. So if I ask you to write this
+Inomial coefficient function to be like great.
+Give me two numbers. I'll make it happen and
+factorial K factorial and minus K factorial multiply divide
+Done
+Think about it We'll come back to it.
+All right,
+so that's analyzing recursion that gets us out of Tuesday and
+And we got about 10 solid minutes to wrap up Thursday.
+Why don't we all get it all done, but we'll work on it.
+Like I said, we're going to be behind here for a minute.
+You can breathe for a minute now while I download some files.
+All right, I love this poster.
+Seen those motivational posters.
+Recursion,
+here we go again, here we go again, here we go again.
+Also,
+if you've ever looked something up on Google and it does some
+suggesting for you,
+like you look something up and say, did you mean this?
+So if you look up recursion on Google,
+it will say, did you mean recursion? And if you click that
+link, it's a Google search for recursion.
+And it'll say,
+did you mean recursion? And it's a Google search for recursion.
+So I don't know if some tricky little Google engineer wrote
+that, because that's the kind of thing coders might do.
+But it's a funny little bit of recursion out there.
+So let's talk about recursion.
+This introduction to recursion is really a reintroduction to
+recursion, because I know that you learned it in 280,
+or whatever CS2 course you had prior to this.
+What about recursion is just some function that calls itself
+to do its work, right? As long as we know that the function is
+calling itself with less work to do, it will eventually
+terminate.
+That's what recursion is all about.
+We have to have a base case, and that's the most important thing
+the part of the day where I start singing the Meghan Trainor
+song,
+you know it's all about that base,
+about that base.
+Gotta have a base case,
+not a Base case,
+recursion just doesn't work.
+And somehow,
+when I was sitting in your seats,
+I didn't quite get that the first time I learned it.
+And so,
+I remembered struggling mightily, I could never get my
+functions to stop. And they just kept crashing and
+crashing and crashing because you have to lead with the base
+case. Write the base case first.
+You have to check for that first.
+You need to know,
+hey,
+am I done already?
+Oh, if not, then I should do some work.
+Because if I'm done, I should stop.
+So base case has to come first. You have to have at least one of
+them.
+It's possible to have multiple base cases, depending on the
+problem definition.
+You have to have at least one recursive case.
+Otherwise, it wouldn't be recursive.
+So at least one of each of those things.
+And then each subsequent call has to have simpler or smaller.
+It has to be a reduction of the amount of work to be done.
+We can use single recursion to process a list.
+We use multiple recursion to process trees,
+process the left side, process the right side, and so on.
+So that's what recursion is. So we already talked about this
+job interview question. This was power.
+We looked at this version of it, but now here is
+So this is the linear version this is when we looked at and
+analyzed this one We didn't mess with right here, though Look at
+it. It says what is X to the end X
+the end is just one if n is equal to zero great That's the
+easy branch
+now if n is even and
+and greater than zero it's pretty straightforward as well x
+to the n is just x to the n over 2 times itself if n is odd we do
+some integer division and x to the n is just x to the n of
+its even half times itself times one more x
+so there is the mathematical definition of how to calculate
+x to the
+recursively
+Right we have defined x to the n you say well You can calculate x
+to the n if you can raise x to some power Which is x to the n
+so this is the recursive definition we were this defined
+x to the n in terms of x to the n
+Looking like a perfectly good place for some Recurrence
+analysis so look at this one you would say this is a constant
+amount of work wouldn't you that's pretty easy one to see
+I'm gonna jump ahead and just do the work on the math.
+We'll see the code in a second What about this one the bottom
+one right that looks like?
+That looks like T of n over 2 work
+Because it's just saying if you give me X to the n over 2 I can
+do a constant amount of work and multiply It by itself and get
+your answer
+great
+What about that third one third one is pretty similar, right?
+It's the same amount of work. It's approximately T of n over 2
+work
+but I've got to do an Additional multiplication so you might say
+well, that's really just some other constant
+So if you wanted to be really pedantic about it You could
+always divide this into three branches, or you could also just
+realize you know those two branches at the bottom They work
+exactly the same with a slight difference in constants, which
+we're perfectly happy with ignoring anyway So I would say
+that it's one of these two things So this one then would
+say well I could solve that version with exactly what I used
+Right because we said whenever we see this recurrence relation.
+We've already solved that big O
+log base 2 of n
+So I don't have to do any work here, I know
+All right, let's look at it There's my recursive linear
+version. We saw that already
+This now is my recursive
+Logarithmic version you see the logarithmic field to it because
+if you look up and down
+There ain't a plus one or minus one in the house.
+I Do have a divide by two though, which lets me start
+thinking. I bet this is probably
+logarithmic
+Say what controls my work in this function well and does
+How do I change n?
+n gets divided by two,
+yeah,
+that's logarithmic.
+What you look at it says, okay,
+the result is just equal to, if you give me the, if you call it
+for x to the 12th, for instance, it says, well, I'll just go
+calculate x to the sixth and multiply x to the sixth times x
+to the sixth,
+right?
+Line five says, if you give me 12, I'll go get six,
+and then line six says I'll multiply x to the sixth times x
+to the sixth, and that's how I get x to the 12th.
+Line 7 and 8 say, by the way, if it was 13, there's one extra x
+hanging out there, so we'll just use that in an additional
+multiplication.
+But this is logarithmic
+recursive
+calculation of exponentiation.
+Yep?
+You divide the container into two halves.
+Mm-hmm.
+And you process them and you process them.
+Yes,
+but I put them together in the constant work, right?
+Because this X to the sixth however much work it takes me
+when I multiply by X to the sixth I don't have to do all of
+that work again to get an X to the sixth
+So for instance if I was doing a linear search right if I was if
+I was doing a search for a thing I said well here I'm gonna cut
+it in half and then I'm gonna search this half and then I'm
+gonna search that half That's what I mean by processing both
+halves right if I decide to look in both halves Then I will have
+covered the whole thing right even if I say well I'm I'm
+working on this half and to find it in this half.
+I'm gonna cut into two halves I'm gonna look in this quarter
+And we'll look in that quarter Then I will have processed the
+whole thing because every time I cut it in half I look at all of
+the things anyways
+Here in this one when I cut it in half.
+I'm not doing all the multiplications anyway, right? X
+to the 12th we know that's X times X times X times X times X
+I'm excellent, but I'm not doing that I'm just doing X times X
+five times and then multiplying that by itself
+Right that's what this line here says is after you've got X to
+the sixth
+Instead of calculating it again multiply it by itself and turn
+that into X to the 12th
+Alright, so my branches are here.
+Yep, I got a this is my cease of zero you can see it
+And then this is my,
+well I guess just the first line by itself, this is my T of N
+over two.
+And then there's a constant amount of work here, this is at
+least C one,
+and then there might be a little bit of additional work here,
+that's kind of C two.
+So you can see the things from the code that I discussed on the
+previous version of it, and this function is a combination of all
+of them.
+You had one, go for it. Yeah.
+I wonder if you wrote x to the n over 2, like, two times,
+or I guess, like,
+should it be, like, two times the n over 2?
+Oh,
+no.
+Here's why, right?
+Here's where I did the work to get results.
+I did this work. This cost me time.
+But then in a constant amount of time, I was able to get x to the
+12th because I just took that value and multiplied it by
+itself.
+So in one more moment, because it could have taken me hundreds
+of multiplications to get that first result,
+and then I can get the second version in one more
+multiplication.
+It's a constant amount of work.
+So,
+we look at this one. Let's clear it up a little.
+Scribbled.
+The recurrence that we saw earlier was T of N is equal to T
+of N minus one. We know that's linear this
+recurrence. We see that T of N is based on T
+of N over 2
+Right and we said any time we see that recurrence
+We always know that it's logarithmic.
+So that's what this one does
+All right, that's my intro to recursion like I said a re-intro
+to recursion you've done it
+Even worse for me,
+I was at a pretty solid headache in my eye stage when I was
+trying to understand recursion,
+because humans aren't really good at understanding recursion,
+not nearly as good as computers are.
+But I'm sitting in the chair and I'm like, this recursion is
+giving me a headache because it makes my brain hurt.
+Then they said, well, what about tail recursion?
+It was already lost, I don't know, I don't care.
+So tail recursion is what's next here.
+I think this is giving us our first XKCD this semester.
+If you haven't read XKCD, it's a lot of fun.
+It's this really nerdy cartoon.
+Guy was a NASA engineer and he left being a NASA engineer to
+write comics.
+So he's super smart. He knows a bunch of stuff and
+you can see it, it just kind of leaks into there.
+But it also can be a bit nerdy, but if you understand what's
+going on,
+it's really quite hilarious.
+So why do you like functional programming so much? So you have
+to understand why functional programming works the way it
+does.
+Functional programming is almost always tail recursive.
+And so that's why his answer is tail recursion is its own
+reward.
+So what is tail recursion?
+When we make a function call,
+it gives us a stack frame.
+You've seen that before. Stack Frame is where all the
+local variables are, where it stores the return value that
+it's going to kick back,
+all of that stuff.
+When any function gets called, it needs a Stack Frame.
+So if a function calls itself,
+both invocations of that function need their own Stack
+Frame.
+So when I recurse,
+I've got the Stack Frame for the original call,
+the second call, the third call, the fourth call all the way to
+the n minus 1th call.
+And so it can take up a lot of room in memory because these
+stack frames pile up.
+Anybody know what happens when we get too many stack frames?
+Stack overflow. All right, all right.
+Just making sure you're with me here.
+That's where the name came from. It's a real thing.
+It's a funny little website, but stack overflow happens when I
+have too many stack frames called.
+So in tail recursion,
+the tail recursion and says, you know what?
+If you're done with that stack frame,
+if you're done with it, can I use it?
+Sat down at a table, hey man, you done with that fork?
+Can I use it?
+Stack frame's not so dirty.
+All right.
+But if the very last thing I do is recurse,
+then I'm done with the stack frame.
+if the very last thing I do is call myself.
+Like in the previous version we said,
+well call myself minus one,
+and then when I get that back,
+multiply it by x.
+So the very last thing I did was multiply by x.
+It wasn't called a function.
+So when the very last thing I do is call myself,
+that's what's known as tail recursion,
+and the compiler and the runtime environment say well then if
+you're willing to do that as a last step you don't even need
+this stack frame anymore so I'm gonna let the new call just move
+into your house cuz you're done with it that's what tail
+recursion is like I said it's kind of a pain in the eye when
+you're trying to think about it tail recursion and iteration
+however end up being equivalent because normal recursion takes
+more memory with every stack frame.
+So I can do the same amount of work in linear time or
+logarithmic time or whatever, but it takes me more memory.
+So in the case of tail recursion,
+you saw that M of N expression earlier and the T of N
+expression, they were the same.
+When I use recursion, they might not be the same.
+So I could get something done in linear time and take a constant
+amount of memory or I could get something in a linear amount of
+time and take a linear amount of memory depending on how I set my
+stack frames up and so that's where tail recursion comes in
+no it just needs one frame yeah it just reuses that frame over
+and over again for that function right other functions can have
+their own frames but if that,
+I mean,
+when I call, for instance, fib50,
+it needs 49 stack frames to get that work done,
+but if I do it tail recursively,
+I can use that same stack frame.
+So you're saying that this rule,
+like tail recursion and iteration are like always true?
+You don't need an additional data structure?
+Right, you don't need to do any additional data structure, it's
+just how you write the code here.
+So here you see this one. This one is non tail recursive
+Because like in line four I say factorial is just n times
+calling factorial again But I have to hold that n in my own
+stack frame and wait till that call comes back to do the
+multiplication That's why I need my own stack frame so I can
+remember my in If you were gonna use the stack frame all for
+yourself you would use your own in
+So that one's not tail recursive.
+We'll pick up here at tail recursion on on Tuesday.

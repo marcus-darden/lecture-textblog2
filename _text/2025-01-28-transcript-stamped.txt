@@ -1,0 +1,6076 @@
+00:02:59.100 --> 00:03:03.660
+all right it's a pretty
+appropriate song to smile to
+
+00:03:03.660 --> 00:03:05.840
+wouldn't you say i
+
+00:03:05.840 --> 00:03:11.820
+wasn't even
+
+00:03:15.100 --> 00:03:16.100
+Yeah,
+
+00:03:16.780 --> 00:03:18.280
+stretch it.
+
+00:03:19.520 --> 00:03:20.640
+All right,
+
+00:03:20.640 --> 00:03:22.140
+that's good.
+
+00:03:22.760 --> 00:03:25.120
+And you know what?
+
+00:03:25.120 --> 00:03:27.620
+Let's just stick with what we
+got.
+
+00:03:27.620 --> 00:03:29.080
+And say,
+
+00:03:29.080 --> 00:03:31.780
+even if it doesn't work,
+
+00:03:31.780 --> 00:03:35.040
+it'll work if you make it work.
+
+00:03:35.040 --> 00:03:38.790
+I'm happy to be here.
+
+00:03:41.880 --> 00:03:47.130
+You should be happy to be here
+
+00:03:47.740 --> 00:03:49.000
+All right,
+
+00:03:49.000 --> 00:03:53.500
+all right, let's get at it.
+We left off at
+
+00:03:54.420 --> 00:03:57.500
+Tail recursion, I think that's
+where we cut right here wasn't
+
+00:03:57.500 --> 00:03:58.500
+it?
+
+00:03:58.820 --> 00:04:03.620
+We're talking about stack frame
+re-usage and then
+
+00:04:07.000 --> 00:04:10.280
+My next slide was this one here,
+which we didn't get into we were
+
+00:04:10.280 --> 00:04:11.720
+talking about
+
+00:04:11.720 --> 00:04:12.560
+factorial,
+
+00:04:12.560 --> 00:04:15.740
+which is another function that
+is very easily recursively
+
+00:04:15.740 --> 00:04:16.640
+defined,
+
+00:04:16.640 --> 00:04:20.390
+because factorial is just 5
+times 4 times 3 times 2 times 1.
+
+00:04:20.640 --> 00:04:23.980
+You multiply those things down.
+
+00:04:23.980 --> 00:04:27.060
+But you can also define that
+recursively and say factorial 5
+
+00:04:27.060 --> 00:04:30.420
+is just 5 times factorial 4,
+
+00:04:30.420 --> 00:04:33.820
+and factorial 4 is just 4 times
+factorial 3.
+
+00:04:33.820 --> 00:04:37.080
+And so you can see this version
+of it right there in the
+
+00:04:37.080 --> 00:04:39.340
+recursive setup.
+
+00:04:39.900 --> 00:04:43.380
+And so this slide's got some
+blank space on it for me to draw
+
+00:04:43.380 --> 00:04:47.000
+to you what those stack frames
+kind of look like and why
+
+00:04:47.000 --> 00:04:48.500
+they're required.
+
+00:04:48.980 --> 00:04:50.800
+So we start out with a
+
+00:04:50.800 --> 00:04:56.420
+presentation.
+
+00:04:57.140 --> 00:04:58.500
+Then things get better.
+
+00:04:58.500 --> 00:05:00.000
+That's better.
+
+00:05:00.220 --> 00:05:03.600
+So we start out with sort of our
+main down here.
+
+00:05:03.600 --> 00:05:07.340
+And this is where main keeps all
+of its local variables.
+
+00:05:07.340 --> 00:05:09.160
+There's not a whole lot of them
+in this case.
+
+00:05:09.160 --> 00:05:12.100
+But it does have a return value.
+It's going to put together and
+
+00:05:12.100 --> 00:05:13.800
+do that.
+So it's got its own stack frame.
+
+00:05:13.920 --> 00:05:15.320
+Everybody has one.
+
+00:05:15.320 --> 00:05:18.320
+It calls factorial 5.
+
+00:05:18.840 --> 00:05:22.840
+So the things that we need in a
+stack frame is a place to hold
+
+00:05:22.840 --> 00:05:25.220
+our local variables, which is,
+in this case,
+
+00:05:25.220 --> 00:05:28.320
+let's call it n, and then the
+value that we're going to
+
+00:05:28.320 --> 00:05:29.320
+return.
+
+00:05:30.500 --> 00:05:33.820
+And so in this first case, when
+I call factorial 5, There's a
+
+00:05:33.820 --> 00:05:38.380
+five there, and I don't know
+what the return value is yet I
+
+00:05:38.380 --> 00:05:41.620
+don't have it because I'm gonna
+multiply five by whatever I get
+
+00:05:41.620 --> 00:05:46.680
+back from this call the
+factorial four so Factorial four
+
+00:05:46.680 --> 00:05:50.200
+goes on the stack there.
+It keeps its own value waiting
+
+00:05:50.200 --> 00:05:52.280
+to have something to return
+
+00:05:52.280 --> 00:05:56.100
+Factorial three keeps its own
+value and you can see now why I
+
+00:05:56.100 --> 00:06:00.700
+have to have the stack frame
+because this Function needs to
+
+00:06:00.700 --> 00:06:02.860
+know that when it comes back
+from the answer.
+
+00:06:02.860 --> 00:06:07.460
+I got to multiply whatever I get
+by five Same as that other
+
+00:06:07.460 --> 00:06:11.020
+invocation up above it says
+whatever I get back I've got to
+
+00:06:11.020 --> 00:06:15.500
+multiply by three and since they
+have to keep separate values
+
+00:06:15.500 --> 00:06:20.860
+This is why I need multiple
+stack frames here So I'm going
+
+00:06:20.860 --> 00:06:25.020
+to stick my return value in on
+the left when I get it Factorial
+
+00:06:25.020 --> 00:06:28.600
+one is still not a base case, so
+I get all the way up to
+
+00:06:28.600 --> 00:06:30.100
+factorial zero
+
+00:06:30.620 --> 00:06:33.700
+Right it gets called with a
+zero, but it also decides.
+
+00:06:33.700 --> 00:06:38.560
+It's going to return one that
+one gets shipped back and
+
+00:06:39.300 --> 00:06:44.300
+As that one comes down here Into
+the things that the previous
+
+00:06:44.300 --> 00:06:49.440
+call has this stack frame comes
+off But the f1 says I'm gonna
+
+00:06:49.440 --> 00:06:52.560
+multiply one by whatever I get
+back
+
+00:06:52.560 --> 00:06:57.480
+so that's one times one and this
+frame comes off and I'll return
+
+00:06:57.480 --> 00:07:01.160
+this value down below so the
+factorial two says I'll multiply
+
+00:07:01.160 --> 00:07:05.540
+two by whatever you give me I'm
+gonna return two now that frame
+
+00:07:05.540 --> 00:07:10.440
+gets popped off we return a two
+times
+
+00:07:10.440 --> 00:07:16.240
+two right that's what I'm gonna
+
+00:07:16.240 --> 00:07:19.240
+return I've got that I return
+the two down here two times
+
+00:07:19.240 --> 00:07:21.540
+three that's what I'm really
+going for yeah that's it six
+
+00:07:21.540 --> 00:07:27.460
+this frame gets popped off we
+return the six factorial forces
+
+00:07:27.460 --> 00:07:32.080
+I multiply four by six this
+gives me 24 and I can return
+
+00:07:32.080 --> 00:07:37.160
+that and then when it gets this
+here I got a 120 and this frame
+
+00:07:37.160 --> 00:07:41.300
+comes off and main gets its
+response to what is factorial
+
+00:07:41.300 --> 00:07:45.860
+five it's 120 in this case I
+don't think it does anything
+
+00:07:45.860 --> 00:07:50.620
+with it but that's basically how
+stack frames work so you can see
+
+00:07:50.620 --> 00:07:56.040
+that I needed this column here
+to be able to deal with
+
+00:07:56.040 --> 00:07:57.040
+stuff.
+
+00:07:57.520 --> 00:08:00.960
+If you look at inline four,
+
+00:08:00.960 --> 00:08:03.740
+it says n times whatever comes
+back.
+
+00:08:03.740 --> 00:08:07.920
+So even though the call to
+factorial of n minus one is the
+
+00:08:07.920 --> 00:08:11.640
+farthest right thing on the very
+last line of code, it's still
+
+00:08:11.640 --> 00:08:13.680
+not the last thing that happens.
+
+00:08:13.680 --> 00:08:16.060
+The order of operation says I
+still have to multiply that.
+
+00:08:16.060 --> 00:08:20.260
+So it looks as last as you can
+write it, but it isn't actually
+
+00:08:20.260 --> 00:08:21.040
+last.
+
+00:08:21.040 --> 00:08:23.620
+So that's why this one is not
+tail recursive,
+
+00:08:23.620 --> 00:08:28.120
+why we need those stack frames.
+
+00:08:28.680 --> 00:08:31.040
+So this is just an outline of
+how that works.
+
+00:08:31.040 --> 00:08:32.440
+When a function call gets made,
+
+00:08:32.440 --> 00:08:35.000
+all the local variables are
+saved in special stores, we call
+
+00:08:35.000 --> 00:08:36.400
+that the program stack.
+
+00:08:36.400 --> 00:08:39.420
+Then the new argument values for
+the function that's being called
+
+00:08:39.420 --> 00:08:41.980
+are pushed onto the stack
+because the way that the
+
+00:08:41.980 --> 00:08:44.980
+compiler builds the executable
+code, it says,
+
+00:08:45.240 --> 00:08:49.480
+when you start function, you can
+expect that you will be given a
+
+00:08:49.480 --> 00:08:52.540
+stack pointer and the first
+place you can go you can pop off
+
+00:08:52.540 --> 00:08:55.400
+this argument and you can pop
+off this argument then you can
+
+00:08:55.400 --> 00:08:58.640
+pop off this argument and you
+will have those as local
+
+00:08:58.640 --> 00:09:02.480
+variables inside and that's how
+functions transfer information
+
+00:09:02.480 --> 00:09:05.900
+between each other when one
+function calls another it says
+
+00:09:05.900 --> 00:09:09.260
+here's the three four and
+whatever parameters I'm passing
+
+00:09:09.260 --> 00:09:12.340
+to you I'm gonna push them onto
+the stack in the proper order
+
+00:09:12.340 --> 00:09:16.000
+and the compiler has told you
+where to find them so They get
+
+00:09:16.000 --> 00:09:17.180
+pushed onto the stack.
+
+00:09:17.180 --> 00:09:20.060
+The function receives the call.
+It says, OK, well, I know I was
+
+00:09:20.060 --> 00:09:21.280
+supposed to get three arguments.
+
+00:09:21.280 --> 00:09:23.180
+One was four bytes, one was two
+bytes,
+
+00:09:23.180 --> 00:09:25.420
+one was one byte.
+I can go pop four bytes and
+
+00:09:25.420 --> 00:09:26.920
+stick that into a local,
+
+00:09:26.920 --> 00:09:29.120
+pop two bytes and stick that
+into another local, pop one
+
+00:09:29.120 --> 00:09:31.860
+byte, stick that into another
+local, and now I've got my
+
+00:09:31.860 --> 00:09:32.860
+variables.
+
+00:09:32.880 --> 00:09:34.720
+The function does its work.
+
+00:09:34.720 --> 00:09:36.940
+And then it says there's one
+place where I was going to push
+
+00:09:36.940 --> 00:09:40.760
+the return value so that when I
+get popped,
+
+00:09:40.760 --> 00:09:43.760
+the previous function knows
+where that value is.
+
+00:09:44.860 --> 00:09:48.020
+So when a return gets received
+at the call site, whoever called
+
+00:09:48.020 --> 00:09:48.880
+the function,
+
+00:09:48.880 --> 00:09:50.660
+says the return value is still
+on the stack.
+
+00:09:50.660 --> 00:09:53.280
+I'm going to go pop that off,
+and now I have that return
+
+00:09:53.280 --> 00:09:54.200
+value.
+
+00:09:54.200 --> 00:09:56.520
+Save local variables, get
+restored, and then that function
+
+00:09:56.520 --> 00:09:59.320
+moves on as if nothing ever
+happened.
+
+00:09:59.320 --> 00:10:02.020
+So that's what happens here in
+the program stack.
+
+00:10:02.020 --> 00:10:05.540
+If we need six calls, we need
+six sets of local variables.
+
+00:10:05.540 --> 00:10:06.600
+We saw that.
+
+00:10:06.600 --> 00:10:09.220
+There's only one program stack
+per thread.
+
+00:10:09.220 --> 00:10:11.160
+If you write multi-threaded
+code,
+
+00:10:11.160 --> 00:10:14.180
+each thread has its own stack
+because it's its own separate
+
+00:10:14.180 --> 00:10:15.680
+execution trail.
+
+00:10:16.600 --> 00:10:19.260
+But there's a distinction
+between the stack and the heap.
+
+00:10:19.260 --> 00:10:20.460
+As we know,
+
+00:10:20.460 --> 00:10:23.720
+the stack has things that go on
+and off in a very temporary
+
+00:10:23.720 --> 00:10:26.940
+format, depending on the length
+of the function call, whereas
+
+00:10:26.940 --> 00:10:31.080
+the heap gets some dedicated
+amount of memory that the entire
+
+00:10:31.080 --> 00:10:34.240
+program has until the program is
+done.
+
+00:10:34.240 --> 00:10:37.160
+That's why when we use dynamic
+memory, we put stuff up on the
+
+00:10:37.160 --> 00:10:38.100
+heap,
+
+00:10:38.100 --> 00:10:40.760
+and we can pass stuff on the
+heap from one function to
+
+00:10:40.760 --> 00:10:41.760
+another,
+
+00:10:41.840 --> 00:10:46.300
+because it stays on the heap and
+think of it as here's where my
+
+00:10:46.300 --> 00:10:49.660
+stack is and then if I've got
+some stuff over there in the
+
+00:10:49.660 --> 00:10:52.460
+heap I just need a pointer from
+something inside my stack
+
+00:10:52.460 --> 00:10:56.520
+variable over to there and I can
+access that memory and then if I
+
+00:10:56.520 --> 00:11:00.160
+want to pass that pointer on to
+some other stack frame I can and
+
+00:11:00.160 --> 00:11:03.180
+the memory still lives so as
+long as you don't lose that
+
+00:11:03.180 --> 00:11:07.720
+pointer the heap based memory
+can be used and reused
+
+00:11:07.720 --> 00:11:13.600
+so there's only one heap while
+there may be multiple
+
+00:11:13.600 --> 00:11:17.350
+stacks depending on if you've
+got a multi-threaded program.
+
+00:11:18.080 --> 00:11:22.040
+A program stack size is fairly
+limited compared to the heap.
+
+00:11:22.040 --> 00:11:24.380
+I mean we don't have a whole lot
+of problem with stack size.
+
+00:11:24.380 --> 00:11:26.780
+We do have stack overflow as a
+thing.
+
+00:11:26.780 --> 00:11:29.360
+One thing I would suggest you to
+do is write something that's
+
+00:11:29.360 --> 00:11:34.860
+recursive that's not that you
+expect to crash.
+
+00:11:35.960 --> 00:11:38.180
+Write something that you expect
+to crash because people ask me
+
+00:11:38.180 --> 00:11:40.960
+all the time in office hours,
+well when's it gonna crash?
+
+00:11:40.960 --> 00:11:42.700
+I say well I don't know.
+
+00:11:42.700 --> 00:11:45.360
+I mean I've got a got a got a
+good idea.
+
+00:11:45.360 --> 00:11:48.980
+I've got a better idea than you
+because I've crashed things and
+
+00:11:48.980 --> 00:11:50.520
+that's the only way you're gonna
+get an idea.
+
+00:11:50.520 --> 00:11:53.100
+You can't ask me how do I get an
+idea.
+
+00:11:53.100 --> 00:11:55.220
+You have to write something that
+crashes.
+
+00:11:55.220 --> 00:11:57.460
+Write something that crashes and
+then say well what happens if I
+
+00:11:57.460 --> 00:11:59.720
+have twice as many local
+variables?
+
+00:11:59.720 --> 00:12:02.640
+What happens if I got a couple
+of parameters in these many
+
+00:12:02.640 --> 00:12:07.240
+local variables like what
+affects me running out of stack
+
+00:12:07.240 --> 00:12:13.160
+space having a good internal
+feeling for that is gonna make
+
+00:12:13.160 --> 00:12:16.520
+you better right just asking
+somebody what's the answer to
+
+00:12:16.520 --> 00:12:19.320
+this problem is not going to
+give you that feeling so I don't
+
+00:12:19.320 --> 00:12:21.540
+typically answer that type of
+question I say go write some
+
+00:12:21.540 --> 00:12:23.820
+code I mean you can write
+something that's couldn't be
+
+00:12:23.820 --> 00:12:26.640
+more than about ten lines in the
+ten lines you could get
+
+00:12:26.640 --> 00:12:31.160
+something to crash great a main
+that calls that function.
+
+00:12:31.340 --> 00:12:33.260
+I mean, we saw the whole
+factorial is up there done in
+
+00:12:33.260 --> 00:12:34.560
+like six lines,
+
+00:12:34.560 --> 00:12:34.960
+right?
+
+00:12:34.960 --> 00:12:36.420
+Something like that.
+
+00:12:36.420 --> 00:12:40.200
+What level of factorial can I
+not calculate because my stack
+
+00:12:40.200 --> 00:12:41.140
+crashes?
+
+00:12:41.140 --> 00:12:43.340
+You could even just use that
+code.
+
+00:12:43.340 --> 00:12:44.520
+Play around with it, though.
+
+00:12:44.520 --> 00:12:47.500
+Get a good idea of what stack
+overflow looks like.
+
+00:12:47.500 --> 00:12:48.860
+And so it says here at the
+bottom,
+
+00:12:48.860 --> 00:12:53.120
+a bottomless function will
+exhaust the program stack pretty
+
+00:12:53.120 --> 00:12:54.120
+quickly.
+
+00:12:54.240 --> 00:12:59.880
+So one of the reasons why, And I
+mean, you could solve this
+
+00:12:59.880 --> 00:13:01.080
+sailing,
+
+00:13:01.340 --> 00:13:03.590
+searching pirate program
+recursively.
+
+00:13:03.860 --> 00:13:06.720
+Imagine if I'm trying to find
+the treasure,
+
+00:13:06.720 --> 00:13:09.860
+as long as I haven't found it in
+this location here,
+
+00:13:09.860 --> 00:13:12.660
+all I have to do is think of
+this as a smaller search that
+
+00:13:12.660 --> 00:13:13.900
+starts here,
+
+00:13:13.900 --> 00:13:14.600
+right,
+
+00:13:14.600 --> 00:13:16.720
+and then recurse from there and
+continue like that.
+
+00:13:16.720 --> 00:13:19.400
+The problem is the
+two-dimensional maps we give you
+
+00:13:19.400 --> 00:13:21.360
+are too big.
+They are going to cause you to
+
+00:13:21.360 --> 00:13:22.360
+overflow.
+
+00:13:22.400 --> 00:13:25.480
+But a really small version, and
+you could rewrite this code to
+
+00:13:25.480 --> 00:13:27.280
+be recursive.
+And as long as the maps aren't
+
+00:13:27.280 --> 00:13:30.200
+too big, like certainly the spec
+map and the appendix map, you
+
+00:13:30.200 --> 00:13:33.200
+could solve them perfectly
+recursively.
+
+00:13:33.220 --> 00:13:35.040
+64 stack frames,
+
+00:13:35.040 --> 00:13:37.560
+that's not gonna kill you.
+
+00:13:37.560 --> 00:13:40.420
+But since we don't know how big
+the map's gonna be,
+
+00:13:40.420 --> 00:13:44.500
+it's a good reason to avoid
+using recursion there.
+
+00:13:44.500 --> 00:13:46.800
+So if you know how big it's
+gonna be, or you can do tail
+
+00:13:46.800 --> 00:13:47.600
+recursion,
+
+00:13:47.600 --> 00:13:50.560
+right? Because tail recursion
+doesn't require new stack
+
+00:13:50.560 --> 00:13:51.560
+frames.
+
+00:13:51.680 --> 00:13:54.240
+Tail recursion reuses the old
+stack frame over and over and
+
+00:13:54.240 --> 00:13:58.000
+over again, so as the program
+gets to be very large,
+
+00:13:58.000 --> 00:14:01.260
+the memory requirement stays the
+same.
+
+00:14:01.260 --> 00:14:03.360
+And that's why we like tail
+recursion, yeah.
+
+00:14:03.360 --> 00:14:07.220
+I was just wondering if you have
+tail recursion calls.
+
+00:14:07.220 --> 00:14:09.140
+Mm-hmm.
+The tail recursion is happening
+
+00:14:09.140 --> 00:14:10.620
+outside, other than,
+
+00:14:10.620 --> 00:14:11.120
+like,
+
+00:14:11.120 --> 00:14:12.500
+trying to, like,
+
+00:14:12.500 --> 00:14:15.700
+outfit and everything that tail
+recursion or is there,
+
+00:14:15.700 --> 00:14:16.980
+like, a tail recursion?
+
+00:14:16.980 --> 00:14:19.320
+So if you've got, like,
+
+00:14:19.320 --> 00:14:22.640
+if branch and at the end of that
+branch you recurse,
+
+00:14:22.640 --> 00:14:28.460
+you're talking about sure right
+so you can have a
+
+00:14:28.460 --> 00:14:31.200
+I think I might even have an
+example of that somewhere in
+
+00:14:31.200 --> 00:14:32.660
+here let me see if I find it and
+then
+
+00:14:32.660 --> 00:14:51.920
+I'll
+
+00:14:51.920 --> 00:14:56.280
+show know about stack stuff so
+the compiler can at compile time
+
+00:14:56.280 --> 00:14:59.700
+know how deep you're going to
+recur so it can't know that but
+
+00:14:59.700 --> 00:15:02.900
+it does have to know the exact
+size of the stack frame right
+
+00:15:02.900 --> 00:15:07.060
+and that's why C++ is so type
+specific you have to say I'm
+
+00:15:07.060 --> 00:15:10.340
+gonna have this many variables
+that this many parameters this
+
+00:15:10.340 --> 00:15:13.500
+is where their type is gonna be
+because as it compiles it says
+
+00:15:13.500 --> 00:15:14.780
+okay OK, well,
+
+00:15:14.780 --> 00:15:20.520
+this function here has got one
+incoming 32-bit
+
+00:15:21.020 --> 00:15:24.360
+integer, and it's going to be
+returning a 32-bit integer.
+
+00:15:24.360 --> 00:15:30.200
+So I can get by with the stack
+frame for this function being 64
+
+00:15:30.200 --> 00:15:31.920
+bits, right? So it says,
+
+00:15:31.920 --> 00:15:35.840
+when I call this function, I'm
+going to automatically go get an
+
+00:15:35.840 --> 00:15:38.000
+8-byte stack frame.
+
+00:15:38.000 --> 00:15:39.760
+And I know where to put the
+return value.
+
+00:15:39.760 --> 00:15:41.320
+I know where to put the
+argument.
+
+00:15:41.320 --> 00:15:43.420
+There's no locals.
+
+00:15:43.420 --> 00:15:45.260
+so we're good to go after that.
+
+00:15:45.260 --> 00:15:47.980
+So that's how the compiler knows
+the stack frame size.
+
+00:15:47.980 --> 00:15:49.240
+At compile time you say,
+
+00:15:49.240 --> 00:15:49.460
+okay,
+
+00:15:49.460 --> 00:15:52.860
+what's going on with this one?
+This one's got the second one,
+
+00:15:52.860 --> 00:15:53.560
+line six.
+
+00:15:53.560 --> 00:15:55.680
+It's got a return value of four
+bytes.
+
+00:15:55.680 --> 00:15:57.980
+It's got an incoming argument of
+four bytes, another incoming
+
+00:15:57.980 --> 00:16:00.180
+four bytes.
+So I gotta have 12 bytes to make
+
+00:16:00.180 --> 00:16:01.700
+this stack frame work
+
+00:16:01.700 --> 00:16:05.240
+and that's how it does it.
+
+00:16:05.240 --> 00:16:09.020
+All right, so we've got this
+recursive factorial function and
+
+00:16:09.020 --> 00:16:10.320
+from the previous slide,
+
+00:16:10.320 --> 00:16:12.840
+up here one through five.
+
+00:16:12.840 --> 00:16:14.780
+Look down below it,
+
+00:16:14.780 --> 00:16:20.400
+there's another version of a
+recursive factorial
+
+00:16:20.400 --> 00:16:21.400
+call,
+
+00:16:21.560 --> 00:16:24.360
+but this one is tail recursive.
+
+00:16:24.360 --> 00:16:25.360
+Question?
+
+00:16:25.820 --> 00:16:26.820
+Yeah.
+
+00:16:31.280 --> 00:16:36.530
+Yes, so the question is if I
+pass a vector by value,
+
+00:16:36.760 --> 00:16:38.800
+how does the compiler know?
+because it doesn't know how many
+
+00:16:38.800 --> 00:16:41.860
+things are in there.
+But a vector is a data type that
+
+00:16:41.860 --> 00:16:44.110
+uses dynamic memory.
+
+00:16:44.440 --> 00:16:48.340
+So a vector is really always 24
+bytes.
+
+00:16:48.340 --> 00:16:49.920
+There's three pointers in a
+vector.
+
+00:16:49.920 --> 00:16:51.100
+Here's where it starts,
+
+00:16:51.100 --> 00:16:53.060
+here's where it ends, and then
+here's where the data ends.
+
+00:16:53.060 --> 00:16:55.000
+And those three pointers, 24
+bytes,
+
+00:16:55.000 --> 00:16:56.440
+always make up a vector.
+
+00:16:56.440 --> 00:16:59.820
+Now, the memory they point to
+over on the heap.
+
+00:16:59.820 --> 00:17:02.200
+That can be 50 bytes or 5,000
+bytes.
+
+00:17:02.200 --> 00:17:03.720
+But on the stack,
+
+00:17:03.720 --> 00:17:06.280
+the frame that keeps track of
+that vector, because when you
+
+00:17:06.280 --> 00:17:08.580
+return a vector by value, It's
+still just saying,
+
+00:17:08.580 --> 00:17:10.020
+here's these three pointers.
+
+00:17:10.020 --> 00:17:12.980
+Make sure you get the stuff.
+
+00:17:12.980 --> 00:17:16.660
+So is the amount of stack space
+available to me,
+
+00:17:16.660 --> 00:17:20.760
+is that not sometimes different
+from device to device?
+
+00:17:21.200 --> 00:17:22.380
+Yes, absolutely.
+
+00:17:22.380 --> 00:17:25.580
+So the question is, does the
+amount of stack space differ
+
+00:17:25.580 --> 00:17:28.040
+from device to device? And
+absolutely, because that's what
+
+00:17:28.040 --> 00:17:30.100
+RAM is all about, right?
+
+00:17:30.100 --> 00:17:36.060
+It can seem more infinite
+
+00:17:36.060 --> 00:17:41.120
+because the machine can actually
+say, well, we've run out of
+
+00:17:41.120 --> 00:17:43.420
+physical stack space.
+What we're going to do is we're
+
+00:17:43.420 --> 00:17:45.140
+going to create some virtual
+stack space.
+
+00:17:45.140 --> 00:17:47.260
+We'll write some of this stuff
+to disk, and then we'll pull
+
+00:17:47.260 --> 00:17:49.020
+some stuff back out.
+So there's other tricks that go
+
+00:17:49.020 --> 00:17:52.770
+on in the actual copper.
+
+00:17:53.620 --> 00:17:56.660
+So you don't really have to
+worry too much about the
+
+00:17:56.660 --> 00:17:57.660
+differences.
+I mean,
+
+00:17:57.860 --> 00:18:00.820
+if you're going to be doing some
+fine-tuned programming, like
+
+00:18:00.820 --> 00:18:03.220
+especially people that are doing
+a lot of work with embedded
+
+00:18:03.220 --> 00:18:03.900
+systems,
+
+00:18:03.900 --> 00:18:07.540
+embedded systems are notoriously
+lower resource devices, then
+
+00:18:07.540 --> 00:18:10.800
+you've got to make sure that
+you're writing code specifically
+
+00:18:10.800 --> 00:18:11.660
+for that.
+
+00:18:11.660 --> 00:18:16.560
+So you're not going to run some
+Unreal engine on a small little
+
+00:18:16.560 --> 00:18:18.400
+thumb-sized device.
+It's just the way it works,
+
+00:18:18.420 --> 00:18:19.420
+right?
+
+00:18:20.060 --> 00:18:23.680
+All right, so look at this one.
+This one is a recursive
+
+00:18:23.680 --> 00:18:27.680
+factorial, Because it's saying
+that factorial is calculated in
+
+00:18:27.680 --> 00:18:32.940
+terms of factorial of n minus 1,
+but inside of this call We're
+
+00:18:32.940 --> 00:18:38.180
+actually multiplying Before we
+make the call So that n times
+
+00:18:38.180 --> 00:18:39.560
+the result
+
+00:18:39.560 --> 00:18:44.060
+Gets done here and then passed
+on to the smaller version
+
+00:18:45.920 --> 00:18:51.640
+So if you look in line 9 you can
+see that the last thing that
+
+00:18:51.640 --> 00:18:54.510
+happens is is the function call.
+
+00:18:54.510 --> 00:18:57.630
+We're returning whatever the
+function call gets us.
+
+00:18:57.910 --> 00:19:01.530
+So there's nothing in the second
+function that needs to be done
+
+00:19:01.530 --> 00:19:02.950
+after the call.
+
+00:19:02.950 --> 00:19:07.450
+This is what makes it tail
+recursive.
+
+00:19:08.690 --> 00:19:11.530
+Because when I call this, for
+instance,
+
+00:19:11.530 --> 00:19:16.390
+with n is five and result is
+one,
+
+00:19:16.390 --> 00:19:18.450
+what happens?
+
+00:19:19.090 --> 00:19:19.590
+It says,
+
+00:19:19.590 --> 00:19:19.890
+well,
+
+00:19:19.890 --> 00:19:21.850
+n is not zero, so we're not
+going to go there.
+
+00:19:21.850 --> 00:19:27.070
+It says let's try calling
+factorial with NS4 and we start
+
+00:19:27.070 --> 00:19:31.530
+with result one and we multiply
+that by five So I'm gonna call
+
+00:19:31.530 --> 00:19:35.990
+this second one with factorial
+of four comma five
+
+00:19:37.270 --> 00:19:42.070
+And I don't need the five and
+one anymore no one does
+
+00:19:42.070 --> 00:19:45.490
+That's why the second call can
+reuse the stack frame.
+
+00:19:45.490 --> 00:19:51.490
+It says well you were using N as
+five and Res as one
+
+00:19:51.670 --> 00:19:55.210
+I'm perfectly fine with using
+NS4 and Resas5, and we haven't
+
+00:19:55.210 --> 00:19:58.960
+lost any information, so I'll
+just move in to your house,
+
+00:19:59.110 --> 00:20:01.770
+kick out the old garbage,
+
+00:20:01.770 --> 00:20:04.190
+paint the rooms the color that I
+want,
+
+00:20:04.190 --> 00:20:06.430
+and then live here long enough
+to get my math done,
+
+00:20:06.430 --> 00:20:09.670
+and then pass on some new
+variables to the next call, and
+
+00:20:09.670 --> 00:20:11.450
+that next call is gonna say,
+well, I don't like the color of
+
+00:20:11.450 --> 00:20:13.830
+those rooms either.
+I'm gonna paint on my colors,
+
+00:20:13.850 --> 00:20:17.810
+and then do my math and pass on,
+and nobody needs to keep track
+
+00:20:17.810 --> 00:20:21.170
+of anybody's older colors
+because at the very end,
+
+00:20:21.870 --> 00:20:25.620
+we're going to say, whatever
+this return gives me,
+
+00:20:26.150 --> 00:20:27.070
+right?
+
+00:20:27.070 --> 00:20:29.130
+At one point, I'm going to call
+this,
+
+00:20:29.130 --> 00:20:31.170
+and it's going to say, you know
+what?
+
+00:20:31.170 --> 00:20:33.670
+The first parameter is zero.
+
+00:20:33.670 --> 00:20:38.310
+So I'll be here, and I'll return
+the result with no additional
+
+00:20:38.310 --> 00:20:42.510
+math.
+So then the result is just
+
+00:20:42.510 --> 00:20:44.010
+sitting there
+
+00:20:44.030 --> 00:20:45.790
+where it was always going to be.
+
+00:20:45.790 --> 00:20:48.450
+So this is how tail recursion
+works.
+
+00:20:48.450 --> 00:20:53.710
+and we say it's equivalent to
+iteration because it has the
+
+00:20:53.710 --> 00:20:55.350
+repetition of iteration,
+
+00:20:55.350 --> 00:20:59.100
+but iteration doesn't use stack
+frames,
+
+00:21:00.290 --> 00:21:03.450
+and tail recursion doesn't use
+multiple stack frames either.
+
+00:21:03.450 --> 00:21:04.790
+Iteration uses one stack frame.
+
+00:21:04.790 --> 00:21:07.750
+It doesn't use multiple stack
+frames.
+
+00:21:07.750 --> 00:21:12.030
+So that's what tail recursion is
+about, and you can see here on
+
+00:21:12.030 --> 00:21:13.110
+our analysis.
+
+00:21:13.110 --> 00:21:16.570
+The recursive one that's regular
+recursion uses a linear time
+
+00:21:16.570 --> 00:21:20.320
+complexity and a linear number
+of stack frames.
+
+00:21:20.830 --> 00:21:23.030
+If N is 50, I gotta have 50
+stack frames.
+
+00:21:23.030 --> 00:21:25.650
+If N is 25, I got 25 stack
+frames.
+
+00:21:25.650 --> 00:21:27.950
+I come down here in this tail
+recursive version, same time
+
+00:21:27.950 --> 00:21:29.790
+complexity, still linear,
+
+00:21:29.790 --> 00:21:33.970
+but now it can save and reuse
+that one stack frame, so it's a
+
+00:21:33.970 --> 00:21:37.310
+constant space complexity
+because of that reuse.
+
+00:21:37.570 --> 00:21:39.050
+And so that's why it's
+equivalent,
+
+00:21:39.050 --> 00:21:41.650
+because we could write that as,
+
+00:21:41.650 --> 00:21:46.890
+you could write this as a, I got
+a version of this in a,
+
+00:21:46.890 --> 00:21:49.430
+An iterative version, you could
+write a function.
+
+00:21:49.430 --> 00:21:50.830
+Start out at one,
+
+00:21:50.830 --> 00:21:52.870
+multiply by the next number,
+multiply the next number,
+
+00:21:52.870 --> 00:21:53.870
+multiply the next number.
+
+00:21:53.870 --> 00:21:56.010
+Do that in a loop until you get
+to what you wanted to.
+
+00:21:56.010 --> 00:21:58.450
+You could write that iteratively
+pretty easily.
+
+00:21:58.450 --> 00:21:58.990
+All right.
+
+00:21:58.990 --> 00:22:01.850
+So we had a question here about
+what happens if I got a branch
+
+00:22:01.850 --> 00:22:06.050
+with recursion inside of it.
+How does that work?
+
+00:22:08.550 --> 00:22:10.800
+Looks like that.
+
+00:22:10.990 --> 00:22:14.430
+So here I've got this
+logarithmic tail recursive power
+
+00:22:14.430 --> 00:22:15.430
+function.
+
+00:22:15.450 --> 00:22:17.270
+Remember this is the one where
+we said if it's zero, we're just
+
+00:22:17.270 --> 00:22:18.870
+going to return one.
+
+00:22:18.870 --> 00:22:20.510
+If it's an even number,
+
+00:22:20.510 --> 00:22:23.750
+I'm going to calculate that and
+multiply the value by itself.
+
+00:22:23.750 --> 00:22:25.230
+If it's an odd number,
+
+00:22:25.230 --> 00:22:28.390
+I'm going to take the floor or
+integer division and take that
+
+00:22:28.390 --> 00:22:29.230
+hassle.
+
+00:22:29.230 --> 00:22:33.090
+Nine turns into four times four
+times x.
+
+00:22:33.090 --> 00:22:36.230
+So here it is.
+This is that in the tail
+
+00:22:36.230 --> 00:22:38.470
+recursive version.
+You see we've had to move some
+
+00:22:38.470 --> 00:22:41.570
+work into the function? calls,
+but we don't have to do the work
+
+00:22:41.570 --> 00:22:43.330
+after the function calls.
+
+00:22:43.330 --> 00:22:45.250
+So if it's even,
+
+00:22:45.250 --> 00:22:50.770
+I just say, well, the power of x
+is just x to the n is just x to
+
+00:22:50.770 --> 00:22:55.090
+the n over 2 times x to the n
+over 2.
+
+00:22:55.090 --> 00:22:57.690
+And then when it's odd, I need
+to have one additional
+
+00:22:57.690 --> 00:22:59.750
+multiplication by x,
+
+00:22:59.750 --> 00:23:04.450
+and that flows in there to where
+I multiply the result by in
+
+00:23:04.450 --> 00:23:06.710
+there.
+So your question was can I have
+
+00:23:06.710 --> 00:23:10.930
+a branch where I've got
+recursion in it and still have
+
+00:23:10.930 --> 00:23:14.270
+it be tail recursive and it is
+because I get to the end of one
+
+00:23:14.270 --> 00:23:16.810
+of these branches every time
+
+00:23:16.810 --> 00:23:21.530
+and as long as the last thing I
+do in any one call is either a
+
+00:23:21.530 --> 00:23:24.550
+base case or a recursion
+
+00:23:24.550 --> 00:23:27.010
+then it's tail recursive.
+
+00:23:27.010 --> 00:23:29.370
+Well this is tail recursive even
+though there's multiple places
+
+00:23:29.370 --> 00:23:32.510
+that I can recurse from.
+
+00:23:32.510 --> 00:23:35.810
+So it looks like it's
+logarithmic in time and constant
+
+00:23:35.810 --> 00:23:37.310
+in space.
+
+00:23:39.510 --> 00:23:42.070
+So our practical considerations
+are the program stack is
+
+00:23:42.070 --> 00:23:42.850
+limited,
+
+00:23:42.850 --> 00:23:45.650
+it's pretty easy to exhaust it,
+you should try it.
+
+00:23:45.650 --> 00:23:48.490
+For large data sets, simple
+recursion is a bad idea, or if
+
+00:23:48.490 --> 00:23:50.590
+you don't know how large it's
+gonna be because the user could
+
+00:23:50.590 --> 00:23:53.770
+determine how long it was gonna
+be, then that would be an unsafe
+
+00:23:53.770 --> 00:23:55.490
+way.
+If you knew what the size was
+
+00:23:55.490 --> 00:23:57.410
+gonna be and you knew what your
+hardware was roughly gonna be
+
+00:23:57.410 --> 00:24:00.530
+like, and it was small enough,
+you could write something that's
+
+00:24:00.530 --> 00:24:02.030
+basically recursive.
+
+00:24:02.570 --> 00:24:04.210
+But if you can write it as tail
+recursive,
+
+00:24:04.210 --> 00:24:06.460
+why wouldn't you?
+
+00:24:12.550 --> 00:24:13.950
+So when,
+
+00:24:13.950 --> 00:24:17.130
+the last thing, the question is,
+is it tail recursion if most of
+
+00:24:17.130 --> 00:24:18.290
+them end with it? Or,
+
+00:24:18.290 --> 00:24:20.610
+so we'll be looking at a
+function later
+
+00:24:20.610 --> 00:24:23.370
+where it processes a tree,
+right?
+
+00:24:23.370 --> 00:24:25.790
+And so there's gonna be a left
+call and a right call.
+
+00:24:25.790 --> 00:24:29.450
+So if the left call is followed
+by the right call,
+
+00:24:29.450 --> 00:24:31.510
+the left call can't be tail
+recursive.
+
+00:24:31.510 --> 00:24:33.870
+But the right call can be tail
+recursive
+
+00:24:33.870 --> 00:24:36.210
+because nothing happens after
+the right call.
+
+00:24:36.210 --> 00:24:39.230
+So as long as nothing happens
+after it, it can be recursive.
+
+00:24:39.230 --> 00:24:41.990
+But anytime that there's more
+work to be done, that's going to
+
+00:24:41.990 --> 00:24:44.470
+create a stack frame.
+So a function can be partially
+
+00:24:44.470 --> 00:24:45.670
+tail recursive.
+
+00:24:45.670 --> 00:24:46.670
+Yeah.
+
+00:24:51.970 --> 00:24:53.970
+All right.
+So I don't know what happened.
+
+00:24:53.970 --> 00:24:56.010
+and the slides got updated and
+I'm not a fan of them.
+
+00:24:56.010 --> 00:24:59.570
+So I went back to the older
+slides from last semester and
+
+00:24:59.570 --> 00:25:02.750
+each one of them has this QR
+code here.
+
+00:25:02.750 --> 00:25:07.130
+So this is the link to the
+playlist videos we call them.
+
+00:25:07.130 --> 00:25:10.430
+These are the ones I made that
+are all studio videos
+
+00:25:10.430 --> 00:25:11.830
+of these lecture sections.
+
+00:25:11.830 --> 00:25:14.230
+So everything that goes between
+a slide like this and a slide
+
+00:25:14.230 --> 00:25:15.290
+like that,
+
+00:25:15.290 --> 00:25:17.250
+the whole thing, if you just
+wanna read about,
+
+00:25:17.250 --> 00:25:19.770
+watch the video on tail
+recursion, it's there.
+
+00:25:19.770 --> 00:25:20.810
+You can click on that.
+
+00:25:20.810 --> 00:25:23.590
+It's also, if you look at the
+schedule of topics, There's a
+
+00:25:23.590 --> 00:25:26.570
+column that's talking about the
+lectures and it says playlist.
+
+00:25:26.570 --> 00:25:29.510
+You click on that playlist,
+it'll be all of the videos
+
+00:25:29.510 --> 00:25:32.110
+that make up today's entire
+lecture.
+
+00:25:32.110 --> 00:25:34.230
+So you can go look at these one
+at a time.
+
+00:25:34.230 --> 00:25:37.950
+It's great for studying near the
+end, or if you wanna binge watch
+
+00:25:37.950 --> 00:25:40.130
+because the season was already
+released,
+
+00:25:40.130 --> 00:25:42.570
+you can do that as well.
+
+00:25:42.570 --> 00:25:44.690
+So check these out if you need
+to.
+
+00:25:44.690 --> 00:25:46.590
+Plus when it comes time to do
+some studying,
+
+00:25:46.590 --> 00:25:50.350
+you don't have to watch the
+whole hour and 20 minute long
+
+00:25:50.350 --> 00:25:55.010
+video if you only want to know
+about recurrence relations all
+
+00:25:55.010 --> 00:25:57.770
+right so each one of these is a
+little different hard to tell
+
+00:25:57.770 --> 00:26:03.730
+but they are reading QR codes
+it's fun all right so
+
+00:26:03.730 --> 00:26:09.210
+recurrence relations we've seen
+these before right this is a
+
+00:26:09.210 --> 00:26:13.470
+power so we know what the
+mathematical version that is X
+
+00:26:13.470 --> 00:26:17.030
+to the end is just X times X to
+the n minus 1 we saw how the
+
+00:26:17.030 --> 00:26:19.850
+recurrence relation can look
+like this in time,
+
+00:26:19.850 --> 00:26:22.130
+the T of N.
+
+00:26:22.130 --> 00:26:27.370
+If I go with a non-tail
+recursive version,
+
+00:26:28.170 --> 00:26:31.950
+the M of N expression looks just
+like the T of N expression.
+
+00:26:31.950 --> 00:26:36.750
+Because how do I calculate it?
+The memory needed is the stack
+
+00:26:36.750 --> 00:26:39.950
+frame for one call
+
+00:26:40.690 --> 00:26:44.290
+plus the N minus 1 other calls.
+
+00:26:44.290 --> 00:26:47.470
+And each one of those needs the
+stack frame for one call plus
+
+00:26:47.470 --> 00:26:50.390
+the n minus one other call.
+So this is what it looks like
+
+00:26:50.390 --> 00:26:54.690
+when our memory requirement
+looks exactly like our time
+
+00:26:54.690 --> 00:26:55.450
+requirement.
+
+00:26:55.450 --> 00:26:59.730
+So you can see how we already
+determined that this T of n is
+
+00:26:59.730 --> 00:27:02.450
+equal to T of n minus one.
+That's always gonna be linear.
+
+00:27:02.450 --> 00:27:04.670
+Well, if m of n is in the same
+format,
+
+00:27:04.670 --> 00:27:06.730
+that's gonna be linear as well.
+
+00:27:06.730 --> 00:27:09.070
+Asterisk down here says non-tail
+recursive.
+
+00:27:09.070 --> 00:27:10.650
+This is a non-tail recursive
+version.
+
+00:27:10.650 --> 00:27:13.850
+The tail recursive version just
+looks like m of n is equal to c
+
+00:27:13.850 --> 00:27:14.750
+sub zero,
+
+00:27:14.750 --> 00:27:15.210
+right?
+
+00:27:15.210 --> 00:27:17.460
+Some constant amount.
+
+00:27:19.170 --> 00:27:21.770
+Logarithmic, we looked at this
+one.
+
+00:27:21.770 --> 00:27:24.970
+Any time I'm dividing my data in
+half and only working on half of
+
+00:27:24.970 --> 00:27:25.970
+it,
+
+00:27:26.070 --> 00:27:29.090
+I'm going to get this structure,
+T of N is equal to T of N over
+
+00:27:29.090 --> 00:27:31.470
+two plus some constant amount of
+work.
+
+00:27:31.470 --> 00:27:36.650
+So this fits things like binary
+search and things like that.
+
+00:27:38.830 --> 00:27:40.710
+So this is a table of them.
+
+00:27:40.710 --> 00:27:44.090
+The ones that we derived in
+class were these two, right? We
+
+00:27:44.090 --> 00:27:46.610
+did T of N over two.
+We did T of N minus one.
+
+00:27:46.610 --> 00:27:48.860
+Those are common.
+
+00:27:48.910 --> 00:27:51.110
+They'll always be big O of log
+N,
+
+00:27:51.110 --> 00:27:54.110
+big O of N.
+
+00:27:54.190 --> 00:27:56.270
+Look at the one in the third
+row.
+
+00:27:56.270 --> 00:27:58.090
+The third row is the one we
+talked about.
+
+00:27:58.090 --> 00:27:59.770
+We didn't actually look at it.
+
+00:27:59.770 --> 00:28:03.950
+So what if I divide it into two
+and I process both sides,
+
+00:28:03.950 --> 00:28:04.450
+right?
+
+00:28:04.450 --> 00:28:07.690
+That's what it says.
+If T of N is T of N over two,
+
+00:28:08.070 --> 00:28:11.170
+that's half of the data but I'm
+gonna work on this half times
+
+00:28:11.170 --> 00:28:12.770
+two, the other half,
+
+00:28:12.770 --> 00:28:16.210
+that's all of the work.
+So t of n over 2 in the
+
+00:28:16.210 --> 00:28:19.550
+recurrence relation still looks
+like linear, but it's because
+
+00:28:19.550 --> 00:28:23.990
+we're multiplying by 2 there
+This 2 makes that whole thing
+
+00:28:23.990 --> 00:28:25.590
+linear.
+So we see that one.
+
+00:28:25.670 --> 00:28:28.330
+We should know that it's linear
+
+00:28:28.330 --> 00:28:32.690
+We asked the question about this
+previously I said what if there
+
+00:28:32.690 --> 00:28:37.530
+is a non constant amount of work
+to be done Every time I go
+
+00:28:37.530 --> 00:28:38.530
+through
+
+00:28:39.490 --> 00:28:41.850
+Right, so if you look at this
+fourth one, it says t of n minus
+
+00:28:41.850 --> 00:28:47.030
+1 plus c1 times some
+non-constant amount of work.
+
+00:28:47.130 --> 00:28:49.950
+So now I can multiply by an n
+amount of work.
+
+00:28:49.950 --> 00:28:52.450
+Because if it was a bigger
+constant,
+
+00:28:52.450 --> 00:28:54.590
+c1 would just be c1,
+
+00:28:54.590 --> 00:28:55.590
+c1,
+
+00:28:55.830 --> 00:28:58.130
+but it would still be c1, right?
+
+00:28:58.130 --> 00:29:01.130
+Now I'm saying if there's more
+work to be done, so this is
+
+00:29:01.130 --> 00:29:03.470
+like, every time I've got to
+process this,
+
+00:29:03.470 --> 00:29:05.950
+so at, let's say at factorial 5,
+
+00:29:05.950 --> 00:29:09.070
+what if I had to go look get
+one, two, three, four, and five,
+
+00:29:09.070 --> 00:29:10.070
+right?
+
+00:29:10.370 --> 00:29:12.210
+I'm looking for some mastery
+number.
+
+00:29:12.210 --> 00:29:14.850
+Is one, two, three, or four, or
+five, is it in there? Nope, it's
+
+00:29:14.850 --> 00:29:16.810
+not, okay, then now we can call
+it with four.
+
+00:29:16.810 --> 00:29:19.110
+Now that I'm inside four, I
+gotta go check, one, two, three,
+
+00:29:19.110 --> 00:29:22.130
+four, are one of them the magic
+number? So that's me doing some
+
+00:29:22.130 --> 00:29:24.850
+additional processing at every
+level, so it's not just like
+
+00:29:24.850 --> 00:29:26.910
+five times n minus one.
+
+00:29:26.910 --> 00:29:30.630
+It's five plus checking one,
+two, three, four, five plus the
+
+00:29:30.630 --> 00:29:33.650
+call to n minus one.
+
+00:29:33.650 --> 00:29:35.470
+If that happens,
+
+00:29:35.470 --> 00:29:38.210
+I'm looking like something
+that's n squared,
+
+00:29:38.210 --> 00:29:41.150
+which makes sense if you think
+about it.
+
+00:29:41.150 --> 00:29:42.630
+Let's say I'm at five,
+
+00:29:42.630 --> 00:29:44.990
+and I do work on one, two,
+three, four, five, and then I
+
+00:29:44.990 --> 00:29:47.950
+call it with four, and I do work
+on one, two, three, four,
+
+00:29:47.950 --> 00:29:50.170
+and then I call it with three,
+and I do work on one, two,
+
+00:29:50.170 --> 00:29:50.630
+three.
+
+00:29:50.630 --> 00:29:52.990
+So when I've done five work plus
+four work plus three work plus
+
+00:29:52.990 --> 00:29:54.490
+two work,
+
+00:29:55.130 --> 00:29:58.130
+that's the classic quadratic
+profile.
+
+00:29:58.530 --> 00:30:02.330
+I'm doing all the work for every
+individual point.
+
+00:30:02.330 --> 00:30:04.410
+So that one's there,
+
+00:30:04.410 --> 00:30:08.170
+and then we say, Well, what if
+we're dividing by two and
+
+00:30:08.170 --> 00:30:10.850
+processing all of them, right?
+So this is cutting it in half,
+
+00:30:10.850 --> 00:30:12.930
+but multiplying by two.
+So I'm still processing all of
+
+00:30:12.930 --> 00:30:18.390
+them, plus I'm doing a
+non-constant amount of work
+
+00:30:18.390 --> 00:30:19.790
+every time as well.
+
+00:30:19.790 --> 00:30:24.090
+This one ends up with this n log
+n profile.
+
+00:30:24.090 --> 00:30:27.840
+So we still feel some
+logarithmic love there.
+
+00:30:29.530 --> 00:30:35.010
+But this is where we get some of
+our sorts and our...
+
+00:30:35.010 --> 00:30:39.470
+These are all sorts that are
+listed up here, but there are
+
+00:30:39.470 --> 00:30:41.730
+other things that also do things
+like this.
+
+00:30:41.730 --> 00:30:42.210
+So,
+
+00:30:42.210 --> 00:30:43.410
+selection sort,
+
+00:30:43.410 --> 00:30:44.910
+insertion sort,
+
+00:30:46.210 --> 00:30:49.090
+bubble sort, they're all n
+squared because they're doing
+
+00:30:49.090 --> 00:30:51.310
+that kind of thing.
+
+00:30:51.310 --> 00:30:52.510
+Merge sort and quicksort,
+
+00:30:52.510 --> 00:30:54.470
+they're n log n because they're
+doing that kind of thing.
+
+00:30:54.470 --> 00:30:56.750
+And we'll see those when we get
+to sorts in a couple of
+
+00:30:56.750 --> 00:30:57.750
+lectures.
+
+00:31:04.410 --> 00:31:10.410
+regular than the regular what
+okay so in
+
+00:31:10.410 --> 00:31:14.150
+selection sort we haven't talked
+about it but in selection sort
+
+00:31:14.150 --> 00:31:18.070
+the basic is I've got to go find
+the smallest item and move it to
+
+00:31:18.070 --> 00:31:22.470
+the front right so if I got 15
+items to sort I got to look
+
+00:31:22.470 --> 00:31:25.250
+through all 15 of them find the
+smallest item move it to the
+
+00:31:25.250 --> 00:31:28.250
+front now got 14 items to sort.
+
+00:31:28.250 --> 00:31:30.990
+So I got to look at all 14 of
+those, find the smallest item,
+
+00:31:30.990 --> 00:31:34.350
+move it to the front, and then I
+got 13 items to sort.
+
+00:31:34.350 --> 00:31:38.490
+So I get less work to do, but it
+takes me a linear amount of work
+
+00:31:38.490 --> 00:31:41.130
+to get to the next step.
+
+00:31:41.130 --> 00:31:44.370
+Whereas in factorial or power,
+we're doing a constant amount of
+
+00:31:44.370 --> 00:31:45.510
+work.
+Just subtract one.
+
+00:31:46.030 --> 00:31:47.490
+I'm ready to go to the next
+level.
+
+00:31:47.490 --> 00:31:50.530
+Now I got to subtract one and I
+got to look at all of the items
+
+00:31:50.530 --> 00:31:53.210
+before I can determine,
+
+00:31:53.210 --> 00:31:55.250
+before I can move on to working
+the next level.
+
+00:31:55.250 --> 00:31:57.870
+And so that's what this is
+representing.
+
+00:31:57.870 --> 00:32:00.410
+If you've got to work on
+everything before you move to
+
+00:32:00.410 --> 00:32:01.730
+the next level,
+
+00:32:01.730 --> 00:32:04.670
+that's the non-constant amount
+of work.
+
+00:32:04.670 --> 00:32:07.590
+And so selection sort does that
+in the way that selection sort
+
+00:32:07.590 --> 00:32:08.590
+works.
+
+00:32:08.930 --> 00:32:12.490
+And I'll show you more on
+selection sort in a bit.
+
+00:32:12.490 --> 00:32:16.570
+Can you put it on the bottom
+though?
+
+00:32:16.570 --> 00:32:19.150
+Why isn't it just n squared? It
+looks like it's n squared,
+
+00:32:19.150 --> 00:32:21.550
+right? Because this is,
+
+00:32:21.550 --> 00:32:25.230
+Well, if you look at it,
+
+00:32:25.230 --> 00:32:25.850
+T of N,
+
+00:32:25.850 --> 00:32:29.650
+two times T of N over two,
+
+00:32:29.650 --> 00:32:32.750
+these two things are kind of
+equivalent.
+
+00:32:32.750 --> 00:32:33.650
+I see what you're saying.
+
+00:32:33.650 --> 00:32:36.350
+So why isn't it that they're
+equivalent here and they're
+
+00:32:36.350 --> 00:32:37.650
+exactly the same, right?
+
+00:32:37.650 --> 00:32:43.650
+But it has to do with the fact
+that N over two is jumping down.
+
+00:32:45.030 --> 00:32:47.370
+Right, so I would have done,
+
+00:32:47.370 --> 00:32:49.870
+in this version, I'll do,
+
+00:32:49.870 --> 00:32:51.210
+with 15,
+
+00:32:51.210 --> 00:32:54.050
+I'll call this with c times 15,
+
+00:32:54.050 --> 00:32:55.350
+c times 14,
+
+00:32:55.350 --> 00:32:56.470
+c times 13,
+
+00:32:56.470 --> 00:32:59.710
+c times 12, whereas if I start
+with c times 16, I'll call this
+
+00:32:59.710 --> 00:33:01.530
+with c times 16,
+
+00:33:01.530 --> 00:33:03.710
+then I'll call it with c times
+eight, and then I'll call it
+
+00:33:03.710 --> 00:33:04.710
+with c times four,
+
+00:33:04.710 --> 00:33:07.530
+and two, and one, so I don't
+actually hit all of those in
+
+00:33:07.530 --> 00:33:10.690
+between there, so it doesn't end
+up being n times n, it's n times
+
+00:33:10.690 --> 00:33:11.870
+log of n.
+
+00:33:11.870 --> 00:33:12.870
+Yeah.
+
+00:33:15.890 --> 00:33:16.790
+Yeah,
+
+00:33:16.790 --> 00:33:19.130
+yeah, because this is complete,
+This is come this is
+
+00:33:19.130 --> 00:33:22.130
+contributing the same amount as
+that is right.
+
+00:33:22.130 --> 00:33:25.850
+These two terms are contributing
+the same amount of work But
+
+00:33:25.850 --> 00:33:28.490
+these two terms do a different
+amount of work.
+
+00:33:28.490 --> 00:33:29.490
+Yeah
+
+00:33:31.990 --> 00:33:36.490
+All right, so these are some
+common ones
+
+00:33:39.070 --> 00:33:42.050
+Some common ones that you should
+know if your occurrence relation
+
+00:33:42.050 --> 00:33:45.330
+shows up and it's one of these
+five We don't even have to do
+
+00:33:45.330 --> 00:33:46.930
+any algebra.
+Just say okay.
+
+00:33:46.930 --> 00:33:50.050
+I remember those That's
+something I'm familiar with boom
+
+00:33:50.050 --> 00:33:52.730
+it comes in there
+
+00:33:52.730 --> 00:33:55.390
+So we talked about some
+substitution method we did this
+
+00:33:55.390 --> 00:33:56.390
+already
+
+00:33:57.530 --> 00:34:00.430
+We already did these as well
+right what if we cut it into
+
+00:34:00.430 --> 00:34:02.870
+three problems, and we process
+one piece We said that's gonna
+
+00:34:02.870 --> 00:34:05.120
+be big O
+
+00:34:08.350 --> 00:34:12.100
+Always messing with me always
+messing with me
+
+00:34:14.090 --> 00:34:18.290
+So we said this was going to be
+big old log base 3 of n,
+
+00:34:18.290 --> 00:34:23.690
+and then we said this was going
+to be big O of n, and then the
+
+00:34:23.690 --> 00:34:27.410
+other one was something that's
+somewhere in between,
+
+00:34:27.410 --> 00:34:30.110
+right? And this was a big O of
+log
+
+00:34:30.110 --> 00:34:33.990
+n, no, not,
+
+00:34:34.270 --> 00:34:35.270
+yeah,
+
+00:34:35.810 --> 00:34:40.270
+n to the log base 3 of 2.
+
+00:34:40.270 --> 00:34:46.210
+something like that and then
+
+00:34:46.210 --> 00:34:48.990
+this was the question what if
+there was a an additional non
+
+00:34:48.990 --> 00:34:51.710
+constant work after the
+recursion and that's what we
+
+00:34:51.710 --> 00:34:56.370
+looked at when we saw this is
+what I call a non constant
+
+00:34:56.370 --> 00:35:02.050
+amount of work included with the
+recursion so they affect things
+
+00:35:02.050 --> 00:35:06.950
+there all right recurrence
+Congratulations.
+
+00:35:07.530 --> 00:35:08.470
+Wrapped up.
+
+00:35:08.470 --> 00:35:09.530
+Onwards and upwards.
+
+00:35:09.530 --> 00:35:10.790
+To the master theorem.
+
+00:35:10.790 --> 00:35:14.030
+This is also going to make our
+life easier.
+
+00:35:14.030 --> 00:35:16.510
+Remember the master theorem from
+2003?
+
+00:35:16.510 --> 00:35:19.330
+We're going to use a very
+similar, just slightly
+
+00:35:19.330 --> 00:35:21.550
+simplified version of it.
+
+00:35:21.550 --> 00:35:24.290
+We don't have to solve
+everything like 203 solves the
+
+00:35:24.290 --> 00:35:25.610
+world's problems.
+
+00:35:25.610 --> 00:35:27.730
+We just program a bit.
+
+00:35:27.730 --> 00:35:30.050
+All right.
+So here's the master theorem in
+
+00:35:30.050 --> 00:35:33.370
+a very, very math density slide,
+
+00:35:33.370 --> 00:35:34.350
+right?
+
+00:35:34.350 --> 00:35:37.030
+Densely mathy slide.
+I don't know I'm using some bad
+
+00:35:37.030 --> 00:35:40.790
+language here, but if I've got T
+of N as some monotonically
+
+00:35:40.790 --> 00:35:43.790
+increasing function meaning it
+doesn't go down
+
+00:35:43.810 --> 00:35:49.330
+has to satisfy This setup T of N
+is equal to a some
+
+00:35:49.330 --> 00:35:54.990
+constant times T of N over B
+Some other constant plus
+
+00:35:54.990 --> 00:36:01.250
+some F of N and F of N has to be
+a polynomial function
+
+00:36:01.250 --> 00:36:05.790
+polynomial where the largest
+power is some constant which
+
+00:36:05.790 --> 00:36:07.370
+we'll call C.
+
+00:36:07.370 --> 00:36:10.590
+So with these three variables A,
+B and C and their restrictions
+
+00:36:10.590 --> 00:36:15.170
+are A has to be greater than or
+equal to 1 because that's what
+
+00:36:15.170 --> 00:36:17.730
+I'm multiplying the T by.
+
+00:36:17.730 --> 00:36:22.050
+So if A is less than 1 you can
+imagine that's actually shaving
+
+00:36:22.050 --> 00:36:23.550
+things down.
+
+00:36:23.710 --> 00:36:25.870
+If A is 1 it just leaves it
+there.
+
+00:36:25.870 --> 00:36:28.930
+If A is larger than 1 it's
+doubling or tripling it, or even
+
+00:36:28.930 --> 00:36:30.030
+1.5-ing
+it,
+
+00:36:30.330 --> 00:36:32.430
+it's doing something in there.
+So a has to be greater than or
+
+00:36:32.430 --> 00:36:33.110
+equal to one,
+
+00:36:33.110 --> 00:36:35.630
+b has to be greater than one,
+because this is what I'm
+
+00:36:35.630 --> 00:36:38.030
+dividing by.
+If I'm not dividing by something
+
+00:36:38.030 --> 00:36:40.850
+greater than one, I'm not making
+my work smaller.
+
+00:36:40.850 --> 00:36:43.110
+If I'm dividing by one, it's not
+getting smaller.
+
+00:36:43.110 --> 00:36:45.230
+If I'm dividing by less than
+one,
+
+00:36:45.230 --> 00:36:47.010
+it's actually getting bigger.
+
+00:36:47.010 --> 00:36:49.370
+So it has to be greater than one
+for b,
+
+00:36:49.370 --> 00:36:50.910
+and then f of n, as I said,
+
+00:36:50.910 --> 00:36:53.790
+this n to the c is how we
+represent this function.
+
+00:36:53.790 --> 00:36:57.350
+So if you've got those three
+variables, Then when I see a
+
+00:36:57.350 --> 00:37:00.430
+function that looks like that, I
+can just plug them in to this
+
+00:37:00.430 --> 00:37:03.510
+nifty little piece of thing that
+you Absolutely have to write on
+
+00:37:03.510 --> 00:37:06.310
+your cheat sheet because I don't
+remember it.
+
+00:37:06.310 --> 00:37:09.930
+I've taught this class This is
+my 30th time and when I want to
+
+00:37:09.930 --> 00:37:11.030
+do this
+
+00:37:11.030 --> 00:37:14.430
+I'll look it up somewhere.
+I might remember one or two of
+
+00:37:14.430 --> 00:37:18.690
+them The top one and the bottom
+one are pretty easy, but I just
+
+00:37:18.690 --> 00:37:21.950
+want to deal with it so write
+this down because it says if I
+
+00:37:21.950 --> 00:37:25.970
+take those three constants a A,
+B, and C, and combine them, and
+
+00:37:25.970 --> 00:37:30.290
+compare A and B to the C,
+
+00:37:30.290 --> 00:37:33.950
+I'm going to get my answer.
+So if A is greater than B to the
+
+00:37:33.950 --> 00:37:34.510
+C,
+
+00:37:34.510 --> 00:37:36.910
+I can just write this.
+And I don't even have to do
+
+00:37:36.910 --> 00:37:40.130
+anything with the substitution
+thing and trying to algebra my
+
+00:37:40.130 --> 00:37:41.290
+way out of it.
+
+00:37:41.290 --> 00:37:44.690
+If A is greater than B to the C,
+I go there.
+
+00:37:44.690 --> 00:37:47.830
+If A is less than B to the C,
+I'm here at the bottom.
+
+00:37:47.830 --> 00:37:50.370
+And in the middle, when A and B
+to the C are equal,
+
+00:37:50.370 --> 00:37:52.620
+I've got that.
+
+00:37:56.170 --> 00:37:57.670
+Make sense?
+
+00:37:58.050 --> 00:38:04.050
+So looking at it, it says if a
+is less than b to the c,
+
+00:38:04.410 --> 00:38:08.450
+it looks like the polynomial
+term dominates,
+
+00:38:10.050 --> 00:38:13.230
+right? Because the answer is
+just n to the c.
+
+00:38:13.230 --> 00:38:18.910
+So if the multiplicative factor
+of
+
+00:38:18.910 --> 00:38:24.270
+the recurrence portion is
+smaller than what the B to the C
+
+00:38:24.270 --> 00:38:25.010
+brings,
+
+00:38:25.010 --> 00:38:27.790
+then it's just the polynomial.
+
+00:38:27.790 --> 00:38:29.190
+Reverse that,
+
+00:38:29.190 --> 00:38:34.910
+if the multiplicative factor
+applied is larger than
+
+00:38:34.910 --> 00:38:36.410
+this polynomial,
+
+00:38:36.450 --> 00:38:40.590
+then we're just concerned with
+the recursive part.
+
+00:38:40.590 --> 00:38:45.830
+So all I'm looking at is n to
+the log base b of a because it's
+
+00:38:45.830 --> 00:38:49.990
+how those things work log base b
+
+00:38:49.990 --> 00:38:54.170
+and Then finally if they're
+equal then we get to sort of
+
+00:38:54.170 --> 00:38:58.510
+combine the two effects, right?
+I can see the end to the C is in
+
+00:38:58.510 --> 00:39:02.350
+there and here's the log of n in
+there So let's look at some
+
+00:39:02.350 --> 00:39:03.350
+examples.
+
+00:39:03.350 --> 00:39:05.210
+So here's a perfect one.
+
+00:39:05.210 --> 00:39:06.710
+What's a
+
+00:39:06.970 --> 00:39:07.970
+B
+
+00:39:10.530 --> 00:39:11.890
+C, that's right,
+
+00:39:11.890 --> 00:39:13.070
+so three, two, and one,
+
+00:39:13.070 --> 00:39:16.250
+and A is three, B to the C is
+two,
+
+00:39:16.250 --> 00:39:19.370
+so A is greater than B to the C,
+
+00:39:19.370 --> 00:39:21.430
+which looks like this.
+
+00:39:21.430 --> 00:39:24.090
+A is greater than B to the C, so
+all I have to do is say that my
+
+00:39:24.090 --> 00:39:27.840
+answer is gonna be three,
+
+00:39:28.370 --> 00:39:32.090
+so the answer comes down here,
+
+00:39:32.090 --> 00:39:33.090
+right?
+
+00:39:35.890 --> 00:39:36.890
+N.
+
+00:39:37.590 --> 00:39:42.230
+I got that wrong.
+
+00:39:42.850 --> 00:39:45.830
+What am I doing? A times A is
+greater than B to the C.
+
+00:39:45.830 --> 00:39:47.330
+So I should have been at the
+first one.
+
+00:39:47.330 --> 00:39:48.510
+I was right.
+
+00:39:48.510 --> 00:39:50.110
+All right.
+So, yeah, this is what my answer
+
+00:39:50.110 --> 00:39:50.650
+is to me.
+
+00:39:50.650 --> 00:39:51.670
+Aye, aye, aye.
+
+00:39:51.670 --> 00:39:52.950
+All right.
+
+00:39:52.950 --> 00:39:55.210
+N to the log base B of A.
+
+00:39:55.210 --> 00:39:56.930
+Right? And we can see it here.
+
+00:39:56.930 --> 00:39:59.090
+We go through there.
+
+00:39:59.090 --> 00:40:03.290
+Because A is greater than B to
+the C, we just plug in and we
+
+00:40:03.290 --> 00:40:04.790
+get this.
+
+00:40:05.890 --> 00:40:07.090
+That's our answer,
+
+00:40:07.090 --> 00:40:09.650
+right? That would have been a
+whole lot harder
+
+00:40:09.650 --> 00:40:12.870
+to algebra-tize if I was gonna
+try to do a substitution thing
+
+00:40:12.870 --> 00:40:14.150
+on that beast.
+
+00:40:14.150 --> 00:40:17.410
+I've been here for a long time
+with a lot of eraser crumbs,
+
+00:40:17.410 --> 00:40:18.790
+digital or otherwise.
+
+00:40:18.790 --> 00:40:19.650
+All right,
+
+00:40:19.650 --> 00:40:21.750
+what's up next?
+
+00:40:21.750 --> 00:40:23.250
+A is,
+
+00:40:23.750 --> 00:40:25.250
+B is,
+
+00:40:25.690 --> 00:40:27.170
+C is,
+
+00:40:27.170 --> 00:40:29.170
+one half, right? So A,
+
+00:40:29.170 --> 00:40:30.030
+B,
+
+00:40:30.030 --> 00:40:31.030
+C,
+
+00:40:31.850 --> 00:40:35.430
+B to the C is now equal to a
+
+00:40:35.430 --> 00:40:37.590
+Four to the one-half is the
+square root of four that's two
+
+00:40:37.590 --> 00:40:40.350
+two is equal to two so I can
+come right down the middle and
+
+00:40:40.350 --> 00:40:42.770
+say that my answer is just
+
+00:40:42.770 --> 00:40:43.770
+N
+
+00:40:44.010 --> 00:40:49.090
+To the one-half square root of n
+log n
+
+00:40:49.090 --> 00:40:54.340
+And that's easy, so this is how
+we use the master theorem in 281
+
+00:40:55.590 --> 00:40:57.490
+There's a third example
+
+00:40:57.490 --> 00:41:00.050
+What might you imagine that's
+gonna be?
+
+00:41:00.050 --> 00:41:02.550
+when A is less than B to the C,
+right?
+
+00:41:02.550 --> 00:41:04.890
+So these are things that you
+should be doing when you're
+
+00:41:04.890 --> 00:41:05.890
+studying,
+
+00:41:06.030 --> 00:41:06.990
+when you're learning,
+
+00:41:06.990 --> 00:41:08.310
+and also when you're examining,
+
+00:41:08.310 --> 00:41:10.670
+right? It can help you find
+patterns.
+
+00:41:10.670 --> 00:41:12.850
+So finding patterns can help you
+score, right?
+
+00:41:12.850 --> 00:41:15.110
+Okay, I already got a question
+about this and a question about
+
+00:41:15.110 --> 00:41:16.110
+that.
+
+00:41:16.570 --> 00:41:18.950
+Where am I missing questions?
+
+00:41:18.950 --> 00:41:19.690
+So here,
+
+00:41:19.690 --> 00:41:22.230
+we're looking at this one.
+I've got A is one,
+
+00:41:22.230 --> 00:41:23.330
+B is two,
+
+00:41:23.330 --> 00:41:25.730
+C is also two, so B to the C,
+
+00:41:25.730 --> 00:41:26.510
+two to the two,
+
+00:41:26.510 --> 00:41:28.710
+four, is greater than one,
+
+00:41:28.710 --> 00:41:32.770
+a is less than b to the c, I
+take this bottom version and you
+
+00:41:32.770 --> 00:41:34.130
+can see,
+
+00:41:34.130 --> 00:41:35.130
+right,
+
+00:41:35.210 --> 00:41:38.390
+looking at this all by itself,
+what would you say?
+
+00:41:38.390 --> 00:41:40.630
+That contributes log n.
+
+00:41:40.630 --> 00:41:43.370
+Looking at this all by itself,
+what does it contribute?
+
+00:41:43.370 --> 00:41:44.870
+N squared.
+
+00:41:44.910 --> 00:41:46.830
+Obviously that dominates.
+
+00:41:46.830 --> 00:41:50.350
+So the answer here, I mean, even
+without the master theorem in
+
+00:41:50.350 --> 00:41:51.850
+the two outer cases,
+
+00:41:51.850 --> 00:41:53.470
+it's actually pretty easy.
+
+00:41:53.470 --> 00:41:55.470
+Without the master theorem I can
+say, oh yeah, this is just n
+
+00:41:55.470 --> 00:41:56.030
+squared,
+
+00:41:56.030 --> 00:41:59.010
+right? And if I back up a couple
+of slides here,
+
+00:41:59.010 --> 00:42:01.450
+exercise one, what's going on
+here? So now here is where we
+
+00:42:01.450 --> 00:42:02.450
+said
+
+00:42:04.150 --> 00:42:06.110
+that three is greater than two
+to the one.
+
+00:42:06.110 --> 00:42:09.890
+So really it's this term that's
+doing all the work,
+
+00:42:09.890 --> 00:42:13.830
+which makes sense, right?
+Because if it was two times T to
+
+00:42:13.830 --> 00:42:16.490
+the N over two, that would be
+linear.
+
+00:42:16.490 --> 00:42:18.810
+It's three times, so it's even
+more work.
+
+00:42:18.810 --> 00:42:21.990
+So obviously that's gonna be
+more work than just that linear
+
+00:42:21.990 --> 00:42:24.190
+function that follows.
+
+00:42:24.190 --> 00:42:27.590
+So solving that is all I need to
+do and then when they come
+
+00:42:27.590 --> 00:42:30.650
+together That's when you've got
+to sort of get a multiplication
+
+00:42:30.650 --> 00:42:33.470
+of the two of them And what do
+they actually do and what did I
+
+00:42:33.470 --> 00:42:34.970
+figure out?
+
+00:42:42.270 --> 00:42:46.430
+This portion right here
+contributes square root of n
+
+00:42:47.470 --> 00:42:50.910
+Right, and this is something
+that looks logarithmic doesn't
+
+00:42:50.910 --> 00:42:54.570
+it cut it into four parts?
+
+00:42:54.570 --> 00:42:58.450
+deal with half of them, that
+ain't logarithmic, I don't know
+
+00:42:58.450 --> 00:42:59.470
+what is.
+
+00:42:59.470 --> 00:43:01.890
+As long as you're cutting it
+into some number of parts and
+
+00:43:01.890 --> 00:43:03.750
+dealing with less than all of
+them,
+
+00:43:03.750 --> 00:43:06.650
+it's some logarithmic base.
+And so,
+
+00:43:06.650 --> 00:43:07.770
+you can see here,
+
+00:43:07.770 --> 00:43:11.520
+it's a real simple combination
+of the things that we have.
+
+00:43:11.930 --> 00:43:14.390
+That first part gives me
+something logarithmic,
+
+00:43:14.390 --> 00:43:16.410
+the second part gives me square
+root of n,
+
+00:43:16.410 --> 00:43:18.290
+I'm happy with square root of n
+log n.
+
+00:43:18.290 --> 00:43:18.890
+So,
+
+00:43:18.890 --> 00:43:19.990
+if you wanna be slick,
+
+00:43:19.990 --> 00:43:22.670
+you don't even have to write
+this master theorem down on the
+
+00:43:22.670 --> 00:43:24.830
+cheat sheet you can just sort of
+look at it
+
+00:43:24.830 --> 00:43:31.110
+the
+
+00:43:31.110 --> 00:43:36.590
+linear part does do a lot of
+stuff but
+
+00:43:36.590 --> 00:43:40.790
+we do do some dividing half
+we'll look at mercer we'll look
+
+00:43:40.790 --> 00:43:43.030
+at it when I see the full
+algorithm up on the screen it'll
+
+00:43:43.030 --> 00:43:46.270
+be a lot easier to scribe so
+alright so that's the master
+
+00:43:46.270 --> 00:43:49.390
+theorem in all three of the
+forms that we really care about
+
+00:43:49.390 --> 00:43:53.750
+when you can't use it is when T
+of N is not monotonic so if
+
+00:43:53.750 --> 00:43:57.390
+there's some sign going on there
+no good if F of N is not a
+
+00:43:57.390 --> 00:44:02.610
+polynomial here we've got 2 to
+the N we can't use it then or if
+
+00:44:02.610 --> 00:44:06.270
+we can't express it as some
+constant here B is not some
+
+00:44:06.270 --> 00:44:10.510
+constant my dividing factor
+there's also a special fourth
+
+00:44:10.510 --> 00:44:16.190
+condition that we can used but
+we will never use
+
+00:44:16.190 --> 00:44:19.210
+so just kind of move on past
+that I'll show you in a second
+
+00:44:19.210 --> 00:44:21.190
+but don't write it on your cheat
+sheet because it won't be on the
+
+00:44:21.190 --> 00:44:22.070
+exam
+
+00:44:22.070 --> 00:44:25.210
+so here's one I can't use it on
+right why can't I use it a is
+
+00:44:25.210 --> 00:44:26.570
+fine and legal
+
+00:44:26.570 --> 00:44:32.530
+C is fine and legal B is not I'm
+not dividing N by something so
+
+00:44:32.530 --> 00:44:35.970
+the recurrence so the massive
+theorem doesn't help me solve
+
+00:44:35.970 --> 00:44:40.290
+these linear ones it's gonna
+help me solve those tricky
+
+00:44:40.290 --> 00:44:43.230
+logarithmic ones and stuff with
+powers in them that are more
+
+00:44:43.230 --> 00:44:44.930
+complicated to deal with.
+
+00:44:44.930 --> 00:44:48.070
+So the master theorem isn't
+applicable because B is not
+
+00:44:48.070 --> 00:44:49.930
+greater than one.
+As long as I'm dividing by
+
+00:44:49.930 --> 00:44:52.930
+something greater than one, I'm
+making less work for myself in
+
+00:44:52.930 --> 00:44:54.430
+the future.
+
+00:44:55.170 --> 00:44:57.210
+So here's the fourth condition.
+
+00:44:57.210 --> 00:44:59.270
+If the F of N looks like this,
+
+00:44:59.270 --> 00:45:01.350
+then the T of N looks like that.
+
+00:45:01.350 --> 00:45:02.790
+It's fairly limited.
+
+00:45:02.790 --> 00:45:03.550
+Like I said,
+
+00:45:03.550 --> 00:45:05.630
+don't need to write it down.
+So here's an example.
+
+00:45:05.630 --> 00:45:08.010
+Here's a perfectly good A as
+two,
+
+00:45:08.010 --> 00:45:13.070
+perfectly good B as two, but now
+my function is not polynomial,
+
+00:45:13.070 --> 00:45:14.590
+it's polylogarithmic,
+
+00:45:15.430 --> 00:45:17.990
+so the normal version won't
+work.
+
+00:45:17.990 --> 00:45:21.650
+If I've got something under that
+structure though, I can end up
+
+00:45:21.650 --> 00:45:23.550
+with something like that.
+But that's the fourth condition
+
+00:45:23.550 --> 00:45:24.550
+example,
+
+00:45:24.610 --> 00:45:25.950
+leave it in the past.
+
+00:45:25.950 --> 00:45:27.150
+It exists,
+
+00:45:27.150 --> 00:45:31.950
+just those slides are there to
+keep the really smart kid in the
+
+00:45:31.950 --> 00:45:34.550
+classroom with me and say well
+but what about yeah what about
+
+00:45:34.550 --> 00:45:35.710
+it's on my slide leave you
+alone.
+
+00:45:35.710 --> 00:45:37.960
+Yeah, go ahead
+
+00:45:44.410 --> 00:45:46.550
+Not into any one we're not
+messing with any of that stuff
+
+00:45:46.550 --> 00:45:48.290
+Let's try to keep this a little
+bit easier.
+
+00:45:48.290 --> 00:45:51.330
+You can get into some more come
+complex analysis I mean, there's
+
+00:45:51.330 --> 00:45:54.250
+certainly functions that
+generate behavior like that, but
+
+00:45:54.250 --> 00:45:56.910
+none of the stuff that we're
+working with so
+
+00:45:56.910 --> 00:45:59.490
+farther level or higher level of
+
+00:45:59.490 --> 00:46:03.240
+Analysis in another course or
+another real-world
+
+00:46:03.670 --> 00:46:04.670
+situation
+
+00:46:04.730 --> 00:46:07.430
+All right, so here's our bonus
+friend of yours claims to have
+
+00:46:07.430 --> 00:46:09.970
+discovered a revolutionary new
+algorithm for finding a maximum
+
+00:46:09.970 --> 00:46:13.390
+element and unsorted array First
+you split the array into two
+
+00:46:13.390 --> 00:46:16.410
+halves then you recursively find
+the maximum in each half
+
+00:46:16.410 --> 00:46:20.750
+whichever half max is bigger
+That's the overall max Sounds
+
+00:46:20.750 --> 00:46:21.390
+right.
+
+00:46:21.390 --> 00:46:23.210
+You're cutting it in half.
+You're cutting it in half and
+
+00:46:23.210 --> 00:46:24.590
+cutting in half.
+This is faster than linear
+
+00:46:24.590 --> 00:46:27.810
+search it looks like a
+
+00:46:27.810 --> 00:46:29.310
+logarithmic search
+
+00:46:29.810 --> 00:46:32.060
+Is that possible?
+
+00:46:35.130 --> 00:46:37.810
+If it was, we probably wouldn't
+be talking about linear search,
+
+00:46:37.810 --> 00:46:40.060
+right, go ahead.
+
+00:46:41.810 --> 00:46:43.990
+You're cutting it in half, but
+still processing both halves,
+
+00:46:43.990 --> 00:46:44.950
+right?
+
+00:46:44.950 --> 00:46:47.130
+You're doing a full processing
+of both halves, even though
+
+00:46:47.130 --> 00:46:50.890
+you're recursing into process a
+half, you still do both halves.
+
+00:46:50.950 --> 00:46:53.490
+So that's the same sort of thing
+as what if I divided it into 10,
+
+00:46:53.490 --> 00:46:56.330
+and then I eat all 10 of them,
+well, you ate the whole pie,
+
+00:46:56.330 --> 00:46:58.550
+you ate the whole thing, it
+doesn't matter.
+
+00:46:58.550 --> 00:46:59.830
+All right.
+
+00:46:59.830 --> 00:47:03.580
+That's the master theorem and
+videos to prove it.
+
+00:47:04.050 --> 00:47:06.300
+2D table search.
+This one's a really fun one.
+
+00:47:06.530 --> 00:47:08.410
+This is great for a job
+interview question.
+
+00:47:08.410 --> 00:47:10.490
+And so I like to talk about this
+one because it's a really
+
+00:47:10.490 --> 00:47:13.610
+straightforward problem, but it
+also shows one of the ways that
+
+00:47:13.610 --> 00:47:16.850
+you can behave in job interviews
+that could be helpful.
+
+00:47:16.850 --> 00:47:19.630
+A lot of times they'll give you
+a question and the questions are
+
+00:47:19.630 --> 00:47:20.230
+really,
+
+00:47:20.230 --> 00:47:21.050
+really,
+
+00:47:21.050 --> 00:47:21.970
+really difficult.
+
+00:47:21.970 --> 00:47:24.630
+You're not supposed to be able
+to solve all of them.
+
+00:47:24.630 --> 00:47:26.930
+if you can solve it,
+
+00:47:26.930 --> 00:47:31.350
+they obviously are going to hire
+you but most people won't be
+
+00:47:31.350 --> 00:47:33.130
+able to solve it and they still
+want to know which one of those
+
+00:47:33.130 --> 00:47:35.910
+people that they should hire as
+well so one of the ways that you
+
+00:47:35.910 --> 00:47:40.350
+can do it is you can sort of
+develop your solution as you go
+
+00:47:40.350 --> 00:47:44.370
+here so in this question I've
+got this two-dimensional table
+
+00:47:44.370 --> 00:47:48.990
+and it can be m by n for the
+purposes of the slide m and n
+
+00:47:48.990 --> 00:47:52.410
+are the same it's five by five
+but all I know is that the
+
+00:47:52.410 --> 00:47:55.710
+numbers are always
+non-decreasing.
+
+00:47:56.450 --> 00:47:58.450
+So as I move from left to right,
+
+00:47:58.450 --> 00:47:59.630
+you see that they're increasing,
+
+00:47:59.630 --> 00:48:01.470
+and I move from top to bottom,
+
+00:48:01.470 --> 00:48:02.710
+you see that they're increasing.
+
+00:48:02.710 --> 00:48:06.050
+So that structure is part of the
+constraints that I'm given,
+
+00:48:06.050 --> 00:48:07.750
+it has to exist that way.
+
+00:48:07.750 --> 00:48:11.290
+So now, how would I find the
+thing if I was given some value
+
+00:48:11.290 --> 00:48:12.430
+to look for it?
+
+00:48:12.430 --> 00:48:14.550
+Say we'll start with the easiest
+way, I can just look at all of
+
+00:48:14.550 --> 00:48:15.830
+them, right?
+
+00:48:15.830 --> 00:48:17.470
+This is what I would do,
+
+00:48:17.470 --> 00:48:19.410
+say okay, I can get that written
+down in the paper, this is
+
+00:48:19.410 --> 00:48:20.150
+version one,
+
+00:48:20.150 --> 00:48:22.530
+I'll just do a linear search.
+There's n rows, there's n things
+
+00:48:22.530 --> 00:48:23.390
+in each row.
+
+00:48:23.390 --> 00:48:25.270
+That's n times n work.
+
+00:48:25.270 --> 00:48:26.070
+Great.
+
+00:48:26.070 --> 00:48:27.590
+Wait a minute.
+
+00:48:27.590 --> 00:48:29.330
+They said that they were sorted,
+
+00:48:29.330 --> 00:48:33.890
+so only an idiot would do a
+linear search on sorted data, so
+
+00:48:33.890 --> 00:48:36.470
+I could do a binary search in
+every row,
+
+00:48:36.470 --> 00:48:39.130
+log m work, but there's still n
+rows.
+
+00:48:39.130 --> 00:48:40.390
+So I could do this.
+
+00:48:40.390 --> 00:48:43.170
+So these are my two basic
+searches.
+
+00:48:43.170 --> 00:48:46.230
+Version one, version two, great.
+Now let's see if I can go
+
+00:48:46.230 --> 00:48:47.230
+faster.
+
+00:48:48.190 --> 00:48:49.190
+Right,
+
+00:48:49.910 --> 00:48:53.530
+I could go diagonally or like
+here I'm leveraging the power of
+
+00:48:53.530 --> 00:48:57.010
+the binary search in one
+dimension how can I leverage the
+
+00:48:57.010 --> 00:49:01.070
+binary search in two dimensions
+is that possible right so as I
+
+00:49:01.070 --> 00:49:04.410
+move on here let's start with
+what we call this quad partition
+
+00:49:04.410 --> 00:49:09.010
+I'm gonna divide this into four
+quadrants it's an odd number so
+
+00:49:09.010 --> 00:49:13.270
+it looks kind of odd but let's
+go back and say we're looking
+
+00:49:13.270 --> 00:49:17.570
+for the number 13 and you should
+say yeah there it I found it all
+
+00:49:17.570 --> 00:49:21.830
+right you know it's there now if
+I go over here I'm still looking
+
+00:49:21.830 --> 00:49:27.030
+for 13 what do I know about 13
+if I go look at this thing in
+
+00:49:27.030 --> 00:49:32.230
+these corners like if I've got a
+9 here can 13 be in that
+
+00:49:32.230 --> 00:49:35.110
+quadrant it's impossible
+everything that's in that
+
+00:49:35.110 --> 00:49:38.950
+quadrant is less than or equal
+to 9 because I have to go up and
+
+00:49:38.950 --> 00:49:43.550
+have to go left to get there so
+I can rule out the that 13 is in
+
+00:49:43.550 --> 00:49:49.290
+there how about this 14 sure
+could be you can see
+
+00:49:49.290 --> 00:49:53.050
+it and I know that I can go left
+from here and I can get to
+
+00:49:53.050 --> 00:49:55.810
+smaller numbers I can even go
+down a bit as long as I can go
+
+00:49:55.810 --> 00:49:59.610
+left after that I can get to
+smaller numbers so this one's
+
+00:49:59.610 --> 00:50:04.070
+good this one's bad how about
+this 16 same sort of thing if I
+
+00:50:04.070 --> 00:50:06.890
+go right I'm definitely not
+gonna find it right away but as
+
+00:50:06.890 --> 00:50:09.990
+long as I go up some there's a
+chance for me getting to
+
+00:50:09.990 --> 00:50:13.510
+something smaller than 16 so
+this one is a good quadrant to
+
+00:50:13.510 --> 00:50:17.970
+search in this particular
+version the 17 doesn't actually
+
+00:50:17.970 --> 00:50:23.870
+make me happy right I can rule
+out finding 13 here but that
+
+00:50:23.870 --> 00:50:29.690
+third quarter that the fourth
+quadrant I should say that one
+
+00:50:29.690 --> 00:50:31.730
+is going to be dependent on the
+numbers that you're searching
+
+00:50:31.730 --> 00:50:37.470
+for right So I could find a
+version of this graph
+
+00:50:37.470 --> 00:50:39.330
+where I can always,
+
+00:50:39.330 --> 00:50:40.150
+let me say,
+
+00:50:40.150 --> 00:50:41.830
+I can always rule out one
+corner,
+
+00:50:41.830 --> 00:50:43.330
+one quadrant.
+
+00:50:43.390 --> 00:50:44.950
+Depending on the numbers,
+
+00:50:44.950 --> 00:50:47.490
+I may be able to rule out
+another quadrant.
+
+00:50:47.490 --> 00:50:48.990
+So asymptotically,
+
+00:50:49.330 --> 00:50:52.450
+I can see my worst case scenario
+is I will have to search three
+
+00:50:52.450 --> 00:50:53.950
+of them.
+
+00:50:54.330 --> 00:50:55.450
+Worst case.
+
+00:50:55.450 --> 00:50:57.330
+I will never have to search
+four.
+
+00:50:57.330 --> 00:51:02.650
+So I'm dividing it by two.
+I bet you thought that was a
+
+00:51:02.650 --> 00:51:05.970
+little strange earlier when I
+said three times T of n over two
+
+00:51:05.970 --> 00:51:09.890
+like How could you possibly
+divide something in half and
+
+00:51:09.890 --> 00:51:12.050
+then process three halves?
+
+00:51:12.050 --> 00:51:17.330
+But we're dividing n in two and
+n is the length of one side
+
+00:51:17.330 --> 00:51:19.950
+so if I divide n into
+
+00:51:19.950 --> 00:51:23.750
+Two that gives me four quadrants
+as long as I'm not processing
+
+00:51:23.750 --> 00:51:24.970
+four of them.
+
+00:51:24.970 --> 00:51:27.970
+I'm faster than linear
+
+00:51:28.230 --> 00:51:33.410
+I'm some level of logarithmic so
+in this case this exact case 13
+
+00:51:33.410 --> 00:51:36.970
+could show up there so let's
+pick some other number like how
+
+00:51:36.970 --> 00:51:42.700
+about 21 like 21 could be in
+
+00:51:43.170 --> 00:51:46.490
+this khaki quadrant it could be
+in the orange quadrant it could
+
+00:51:46.490 --> 00:51:50.030
+be in the goldenrod quadrant but
+it could not be in the yellow
+
+00:51:50.030 --> 00:51:54.790
+quadrant so it It could be in
+quadrants one,
+
+00:51:54.790 --> 00:51:58.430
+three, and four, but not
+quadrant two,
+
+00:51:58.430 --> 00:51:59.430
+21.
+
+00:51:59.830 --> 00:52:02.310
+So I can't always rule one thing
+out,
+
+00:52:02.310 --> 00:52:05.430
+I can't always rule two things
+out, but I never have to do four
+
+00:52:05.430 --> 00:52:06.410
+things.
+
+00:52:06.410 --> 00:52:10.160
+That's what this quad partition
+gives me.
+
+00:52:10.550 --> 00:52:13.170
+So then I get this funky looking
+expression, I divide it by two
+
+00:52:13.170 --> 00:52:14.490
+and I take three of them,
+
+00:52:14.490 --> 00:52:16.210
+but it's true.
+
+00:52:16.210 --> 00:52:17.770
+I cut the side in half,
+
+00:52:17.770 --> 00:52:22.130
+and I have to deal with three of
+those four quadrants.
+
+00:52:22.130 --> 00:52:26.010
+Because the end is the length of
+the side, not the size of the
+
+00:52:26.010 --> 00:52:27.010
+quadrant.
+
+00:52:27.970 --> 00:52:29.470
+All right.
+
+00:52:32.790 --> 00:52:35.750
+So let's see if we can't
+simplify that, right?
+
+00:52:35.750 --> 00:52:36.670
+So this is the first,
+
+00:52:36.670 --> 00:52:39.370
+this is like the quad partition.
+This is not really a potential
+
+00:52:39.370 --> 00:52:40.970
+solution.
+This is really potential
+
+00:52:40.970 --> 00:52:43.670
+solution number three.
+But we already discounted the
+
+00:52:43.670 --> 00:52:45.730
+linear one and the log linear
+one.
+
+00:52:45.730 --> 00:52:47.210
+Well, let's get something faster
+here.
+
+00:52:47.210 --> 00:52:51.710
+We'll have to figure out how
+fast this actually is.
+
+00:52:52.210 --> 00:52:55.210
+Look at this version.
+This is a binary partition.
+
+00:52:55.590 --> 00:52:57.990
+And this one does what that quad
+partition does, but it takes
+
+00:52:57.990 --> 00:53:00.050
+this silver line down the
+middle.
+
+00:53:00.050 --> 00:53:02.530
+It says this silver line I know
+to be sorted,
+
+00:53:02.530 --> 00:53:05.470
+so I can go search for the value
+I want,
+
+00:53:05.470 --> 00:53:06.090
+13,
+
+00:53:06.090 --> 00:53:08.270
+in this silver line.
+
+00:53:08.270 --> 00:53:09.490
+It ain't there.
+
+00:53:09.490 --> 00:53:11.190
+Where would it be?
+
+00:53:11.190 --> 00:53:14.940
+It would be somewhere here
+between 9 and 14.
+
+00:53:16.370 --> 00:53:20.450
+that's where the 13 would be so
+if I find it in my partition
+
+00:53:20.450 --> 00:53:26.350
+line great I found it if not
+then it tells me where my
+
+00:53:26.350 --> 00:53:31.230
+partitions are for the other two
+sides now now my partition
+
+00:53:31.230 --> 00:53:35.770
+starts there and goes below that
+on the left and only above that
+
+00:53:35.770 --> 00:53:39.670
+on the right does that make
+sense so now with this version
+
+00:53:39.670 --> 00:53:43.810
+if I do that binary search on
+that column then I can
+
+00:53:43.810 --> 00:53:48.990
+absolutely say I can always
+reduce this to two
+
+00:53:48.990 --> 00:53:53.730
+no more than two quadrants that
+I have to process
+
+00:53:53.730 --> 00:53:57.970
+good
+
+00:53:57.970 --> 00:54:03.470
+so this one looks like this now
+I'm down to two
+
+00:54:03.470 --> 00:54:09.150
+quadrants two times T of n over
+2 plus I've got to do some
+
+00:54:09.150 --> 00:54:11.910
+amount of work there right I had
+to search to see if I could find
+
+00:54:11.910 --> 00:54:17.790
+that 13 7 8 9 no Oh 14 so it's
+somewhere in between there
+
+00:54:17.790 --> 00:54:22.410
+so this is the linear search to
+find 13 in the silver
+
+00:54:22.410 --> 00:54:28.230
+once I've done that I know what
+my quadrants look like but
+
+00:54:28.230 --> 00:54:31.850
+you say of course we already
+decided we were leaving the
+
+00:54:31.850 --> 00:54:37.070
+idiots behind nobody's do linear
+search on sorted data
+
+00:54:37.070 --> 00:54:40.770
+so why don't I binary search to
+figure out where that 13 would
+
+00:54:40.770 --> 00:54:44.710
+be right if I did that then I
+could change that up and say
+
+00:54:44.710 --> 00:54:47.550
+like the amount of work that I
+had to do for every full
+
+00:54:47.550 --> 00:54:52.150
+quadrant that I'm investigating
+it's C log n
+
+00:54:52.150 --> 00:54:56.630
+log n is give me the binary
+search to figure out where this
+
+00:54:56.630 --> 00:55:01.190
+split is right so this version
+is a linear search this version
+
+00:55:01.190 --> 00:55:03.230
+is a binary search
+
+00:55:03.230 --> 00:55:09.050
+because
+
+00:55:09.050 --> 00:55:12.810
+n is the length of the side
+right and is not the total
+
+00:55:12.810 --> 00:55:16.470
+number of items so if n was a
+total number of items dividing
+
+00:55:16.470 --> 00:55:19.910
+into the quadrants would be n
+over 4 but since n is the length
+
+00:55:19.910 --> 00:55:23.250
+of a side and I cut it into
+halves that's what it is that's
+
+00:55:23.250 --> 00:55:27.000
+why it's n over 2
+
+00:55:31.590 --> 00:55:33.650
+Well, I know that I'm searching
+for 13,
+
+00:55:33.650 --> 00:55:37.510
+and as I look through the column
+that I pick, and you can do this
+
+00:55:37.510 --> 00:55:39.250
+both ways.
+You can pick it as a column,
+
+00:55:39.510 --> 00:55:40.930
+you can pick it as a row,
+
+00:55:40.930 --> 00:55:43.810
+you can even pick it as a
+diagonal.
+
+00:55:43.810 --> 00:55:46.570
+But wherever I find that, it's
+going to be in there somewhere,
+
+00:55:46.570 --> 00:55:49.550
+right? So maybe if the number
+that I was looking for was
+
+00:55:49.550 --> 00:55:51.290
+between seven and eight, right,
+
+00:55:51.290 --> 00:55:55.530
+then that would say I have to
+look in here and here.
+
+00:55:55.530 --> 00:55:59.510
+So wherever it is, that lets me
+slide that quadrant focus into
+
+00:55:59.510 --> 00:56:00.730
+what I have to look at,
+
+00:56:00.730 --> 00:56:01.730
+right.
+
+00:56:04.350 --> 00:56:05.850
+All right,
+
+00:56:05.870 --> 00:56:08.270
+so here's our master theorem
+thing.
+
+00:56:08.270 --> 00:56:10.770
+We see that with the quad
+partition,
+
+00:56:10.770 --> 00:56:16.190
+that's this n to the log base 2
+of 3.
+
+00:56:16.190 --> 00:56:17.750
+That's pretty simple.
+
+00:56:17.750 --> 00:56:20.490
+It's a little bit more than
+linear,
+
+00:56:20.490 --> 00:56:24.590
+but it's definitely better than
+the n times n, which will be the
+
+00:56:24.590 --> 00:56:25.590
+search,
+
+00:56:26.590 --> 00:56:27.890
+the full linear search.
+
+00:56:27.890 --> 00:56:31.640
+The binary partition looks like
+n log n.
+
+00:56:31.830 --> 00:56:33.110
+That's pretty nice.
+
+00:56:33.110 --> 00:56:35.950
+And then the improved binary
+partition, where we do the
+
+00:56:35.950 --> 00:56:39.670
+binary search every time I've
+got work to do,
+
+00:56:39.670 --> 00:56:44.070
+looks like I can get this done
+in linear time.
+
+00:56:44.070 --> 00:56:47.150
+So as you're working your way
+through an interview, if you've
+
+00:56:47.150 --> 00:56:49.390
+got an interviewer talking to
+you about what's going on with
+
+00:56:49.390 --> 00:56:51.370
+your solution, you say, well, I
+started here with this linear
+
+00:56:51.370 --> 00:56:53.070
+thing.
+I knew it was a binary search
+
+00:56:53.070 --> 00:56:55.450
+that I could do, so I did an n
+log m.
+
+00:56:55.450 --> 00:56:58.090
+But I knew I could apply that,
+and so I came up with this quad
+
+00:56:58.090 --> 00:57:00.050
+partition thing, and I figured I
+could do something better than
+
+00:57:00.050 --> 00:57:00.610
+that,
+
+00:57:00.610 --> 00:57:02.910
+and so on, and then you could
+say, well, then I ran out of
+
+00:57:02.910 --> 00:57:05.610
+time, so I would've probably
+tried to develop this in both
+
+00:57:05.610 --> 00:57:07.130
+directions, and blah, blah,
+blah, blah, blah.
+
+00:57:07.130 --> 00:57:10.050
+So then they can hear your
+thought process.
+
+00:57:10.050 --> 00:57:13.050
+Hear that you understand that
+there's work that needs to be
+
+00:57:13.050 --> 00:57:14.050
+done.
+
+00:57:14.290 --> 00:57:16.130
+Let's get the work done.
+
+00:57:16.130 --> 00:57:18.610
+And then there's refinements
+that can occur
+
+00:57:18.610 --> 00:57:20.990
+because you know that there's
+some refinements out there.
+
+00:57:20.990 --> 00:57:24.910
+So use this as a method to solve
+your own problems and say, let
+
+00:57:24.910 --> 00:57:27.850
+me just get the thing solved
+rather than sitting there with a
+
+00:57:27.850 --> 00:57:30.110
+blank page in front of you that
+just doesn't work.
+
+00:57:30.110 --> 00:57:30.490
+I mean,
+
+00:57:30.490 --> 00:57:33.210
+you can take any one of our
+projects that we give you and do
+
+00:57:33.210 --> 00:57:38.270
+the most ridiculous brute force
+solution and get the right
+
+00:57:38.270 --> 00:57:39.270
+answer.
+
+00:57:39.490 --> 00:57:42.130
+Great, now that I've got the
+right answer,
+
+00:57:42.130 --> 00:57:45.730
+how do I tune that up, right?
+How do I do less work? How do I
+
+00:57:45.730 --> 00:57:47.980
+do better work?
+
+00:57:55.950 --> 00:58:00.850
+in the binary partition no we're
+dividing the length of the side
+
+00:58:00.850 --> 00:58:05.470
+by two so then I've got these
+four quadrants I'm just picking
+
+00:58:05.470 --> 00:58:11.110
+two of them in this improved
+binary partition
+
+00:58:11.110 --> 00:58:17.050
+oh yeah both of my guests um yes
+but I mean that's that's a
+
+00:58:17.050 --> 00:58:19.810
+that's a minus one right and
+we're talking about that's a
+
+00:58:19.810 --> 00:58:22.990
+constant factor really so if you
+think about what I've got a big
+
+00:58:22.990 --> 00:58:28.230
+M I've got a big N or big M like
+a thousand sure I can take one
+
+00:58:28.230 --> 00:58:31.450
+out of the middle and then I've
+got $4.99
+
+00:58:31.450 --> 00:58:33.730
+to $4.99
+and that's pretty much like n
+
+00:58:33.730 --> 00:58:37.290
+over 2 so this is just sort of
+like a hand wavy way to get past
+
+00:58:37.290 --> 00:58:41.510
+the math on there it still works
+right it's close enough so the
+
+00:58:41.510 --> 00:58:45.250
+question is because there's that
+silver column shouldn't that n
+
+00:58:45.250 --> 00:58:48.430
+over 2 be like n over 2 minus 1.
+
+00:58:48.430 --> 00:58:49.930
+And should,
+
+00:58:50.590 --> 00:58:53.950
+T of n over 2 minus 1 is on the
+order of T of n over 2, though.
+
+00:58:53.950 --> 00:58:55.750
+So that's why it's good.
+
+00:58:55.750 --> 00:58:57.250
+Good enough.
+
+00:58:57.530 --> 00:58:59.030
+All right.
+
+00:58:59.230 --> 00:59:00.010
+And oh,
+
+00:59:00.010 --> 00:59:01.650
+there's one more.
+There's one more solution here.
+
+00:59:01.650 --> 00:59:03.550
+And this one's kind of fun.
+
+00:59:03.550 --> 00:59:05.190
+This one says,
+
+00:59:05.190 --> 00:59:09.230
+what if I used something more
+
+00:59:09.230 --> 00:59:13.110
+in terms of making decisions? So
+now from trying to find 13,
+
+00:59:13.110 --> 00:59:15.910
+I could start here.
+Let's start in the upper right
+
+00:59:15.910 --> 00:59:17.830
+corner.
+And what do I know if I'm
+
+00:59:17.830 --> 00:59:19.210
+looking for 13?
+
+00:59:19.210 --> 00:59:22.550
+I know that I'm not going to go
+down from here, right? Because
+
+00:59:22.550 --> 00:59:25.050
+going down would be going up
+from 15.
+
+00:59:25.050 --> 00:59:28.030
+So let's go to the left.
+
+00:59:28.030 --> 00:59:31.010
+Well, at 11, I certainly don't
+want to go left anymore because
+
+00:59:31.010 --> 00:59:34.010
+that just gets smaller.
+So let's turn and go down.
+
+00:59:34.650 --> 00:59:35.970
+At 12,
+
+00:59:35.970 --> 00:59:38.050
+if I go down, it's a bad thing.
+
+00:59:38.050 --> 00:59:40.370
+So I'll go left.
+
+00:59:40.370 --> 00:59:42.430
+At 8 is not enough, I'll go
+down.
+
+00:59:42.430 --> 00:59:45.730
+Nine is not enough.
+I'll go down 14 is too much.
+
+00:59:45.730 --> 00:59:51.270
+I go left And I find it This is
+a stepwise linear
+
+00:59:51.270 --> 00:59:55.310
+solution and I can find it as
+long as I start in the top right
+
+00:59:55.310 --> 01:00:00.530
+or bottom left corner If I start
+in the bottom right corner, I'm
+
+01:00:00.530 --> 01:00:04.150
+looking for 13.
+I'm at 30 which way should I go?
+
+01:00:05.090 --> 01:00:08.890
+Both ways should work or could
+work but both ways could be
+
+01:00:08.890 --> 01:00:12.250
+wrong So I'm not guaranteed to
+find it if I start here same
+
+01:00:12.250 --> 01:00:14.790
+thing as starting in the upper
+right hand corner I'm at one.
+
+01:00:14.790 --> 01:00:17.450
+I know that I've got to go down
+or right to get to 13 I just
+
+01:00:17.450 --> 01:00:21.950
+don't know whether I should go
+down or right
+
+01:00:24.090 --> 01:00:28.310
+We went left at 12 because
+
+01:00:28.310 --> 01:00:31.190
+Right, you're right I did that
+wrong didn't I that's why I have
+
+01:00:31.190 --> 01:00:35.690
+an animation here keep me from
+talking and making mistakes
+
+01:00:35.690 --> 01:00:36.690
+right
+
+01:00:37.110 --> 01:00:38.810
+You're right, you should have
+gone through 12.
+
+01:00:38.810 --> 01:00:40.130
+I should have gone through 12.
+
+01:00:40.130 --> 01:00:41.310
+That's better.
+
+01:00:41.310 --> 01:00:42.450
+Sorry for the confusion there.
+
+01:00:42.450 --> 01:00:43.950
+Make sense?
+
+01:00:44.110 --> 01:00:45.610
+At 12,
+
+01:00:45.830 --> 01:00:47.910
+I know that if I go left,
+
+01:00:47.910 --> 01:00:49.090
+I might find it,
+
+01:00:49.090 --> 01:00:52.550
+but I might have missed it,
+because it's down below me, so.
+
+01:00:52.550 --> 01:00:56.170
+At 12, I should have gone down
+until I hit the 16 to tell me to
+
+01:00:56.170 --> 01:00:57.830
+go left.
+So that's the real path.
+
+01:00:58.730 --> 01:01:00.250
+It looks like I got it right.
+
+01:01:00.250 --> 01:01:01.250
+Yes?
+
+01:01:03.050 --> 01:01:04.050
+Right,
+
+01:01:07.630 --> 01:01:09.130
+yes, exactly.
+
+01:01:12.930 --> 01:01:13.850
+Well,
+
+01:01:13.850 --> 01:01:16.770
+I never go right because I've
+probably already come from
+
+01:01:16.770 --> 01:01:17.770
+right,
+
+01:01:18.330 --> 01:01:22.830
+right? I guess you could go
+right at 19,
+
+01:01:23.650 --> 01:01:26.870
+but then where would I go from
+19,
+
+01:01:26.870 --> 01:01:31.590
+right? If I go 12 and I'm trying
+to increase to go right to 19,
+
+01:01:31.590 --> 01:01:34.110
+that's a great plan because it's
+got to be bigger than 12.
+
+01:01:34.110 --> 01:01:36.690
+And I know going right from 12
+is going to get me to bigger.
+
+01:01:36.690 --> 01:01:38.570
+But if I run into something
+that's too big,
+
+01:01:38.570 --> 01:01:41.930
+the only way I could go is back
+to the left.
+
+01:01:41.930 --> 01:01:45.390
+So I could have gone 15, 11, 12,
+19,
+
+01:01:45.390 --> 01:01:46.330
+12,
+
+01:01:46.330 --> 01:01:47.330
+16,
+
+01:01:47.890 --> 01:01:48.890
+right?
+
+01:01:49.010 --> 01:01:51.930
+So I think the decision there is
+to just always go with the way
+
+01:01:51.930 --> 01:01:56.110
+that's going to make sure that
+you only have to do one turn.
+
+01:01:56.110 --> 01:01:57.010
+because,
+
+01:01:57.010 --> 01:01:57.650
+for instance,
+
+01:01:57.650 --> 01:02:02.870
+the 13 couldn't be below 15.
+I already knew that.
+
+01:02:03.230 --> 01:02:07.870
+So to duck back under something
+that I already knew was too big,
+
+01:02:07.870 --> 01:02:09.870
+I'm never going to find it
+there.
+
+01:02:09.870 --> 01:02:12.350
+So I'm always gonna go over
+there and then have to turn
+
+01:02:12.350 --> 01:02:15.350
+around and come back.
+
+01:02:15.350 --> 01:02:16.190
+Yeah.
+
+01:02:16.190 --> 01:02:19.210
+The worst case run time is N
+plus M,
+
+01:02:19.210 --> 01:02:20.170
+right? Exactly right.
+
+01:02:20.170 --> 01:02:23.430
+Worst case run time is N plus M,
+right? Because I could go from
+
+01:02:23.430 --> 01:02:27.130
+here all the way to there.
+Worst case, if I was looking for
+
+01:02:27.130 --> 01:02:29.230
+18, it would be n plus m.
+
+01:02:29.230 --> 01:02:31.670
+And that is why we call it
+linear, though, because it's
+
+01:02:31.670 --> 01:02:35.530
+still the size of the side plus
+the size of the side.
+
+01:02:35.530 --> 01:02:37.290
+So it's worst case,
+
+01:02:37.290 --> 01:02:38.790
+stepwise linear.
+
+01:02:40.410 --> 01:02:43.550
+All right, so this is a pretty
+fun example.
+
+01:02:43.550 --> 01:02:46.270
+It's been fully hashed out in
+Geeks for Geeks.
+
+01:02:46.270 --> 01:02:47.470
+You can go check it out.
+
+01:02:47.470 --> 01:02:51.290
+This one runs a million searches
+in each of the ways with n and m
+
+01:02:51.290 --> 01:02:52.450
+equal to 100,
+
+01:02:52.450 --> 01:02:54.210
+and you can see the average
+runtime.
+
+01:02:54.210 --> 01:02:56.270
+And we looked at the binary
+search.
+
+01:02:56.270 --> 01:02:58.430
+We looked at quad partition,
+binary partition.
+
+01:02:58.430 --> 01:03:00.750
+We looked at the stepwise linear
+search, and then the improved
+
+01:03:00.750 --> 01:03:04.950
+binary partition, where we have
+the silver column that we binary
+
+01:03:04.950 --> 01:03:06.550
+searched to find the divider in.
+
+01:03:06.550 --> 01:03:08.210
+That's our fastest one here.
+
+01:03:08.210 --> 01:03:11.070
+The one we didn't talk about was
+a diagonal binary search.
+
+01:03:11.070 --> 01:03:15.030
+It's got the same kind of flow
+to it,
+
+01:03:15.030 --> 01:03:17.430
+but because of the diagonal
+stuff, it's just a little
+
+01:03:17.430 --> 01:03:18.430
+clunkier.
+
+01:03:18.510 --> 01:03:20.310
+So that one got,
+
+01:03:20.310 --> 01:03:23.910
+that slide got deleted at some
+point.
+
+01:03:23.910 --> 01:03:24.770
+Alright,
+
+01:03:24.770 --> 01:03:25.370
+so,
+
+01:03:25.370 --> 01:03:28.590
+that wraps up 2D table search.
+
+01:03:28.590 --> 01:03:31.590
+Questions for writing exam
+questions.
+
+01:03:31.750 --> 01:03:33.290
+That's what these are.
+
+01:03:33.290 --> 01:03:36.070
+It says questions for
+self-study.
+
+01:03:36.070 --> 01:03:38.390
+We need to do some questions.
+
+01:03:38.390 --> 01:03:41.770
+Need to write some questions.
+
+01:03:41.770 --> 01:03:44.770
+Consider a recursive function
+that calls only itself.
+
+01:03:44.950 --> 01:03:47.150
+How can you replace recursion by
+a loop?
+
+01:03:47.150 --> 01:03:49.530
+and an additional stack,
+
+01:03:49.530 --> 01:03:50.710
+right? Things like that.
+
+01:03:50.710 --> 01:03:53.990
+So this was the thing that we
+should be doing.
+
+01:03:53.990 --> 01:03:57.410
+Like we need some more practice
+exam questions.
+
+01:03:57.410 --> 01:03:58.910
+Go to the forum.
+
+01:03:58.910 --> 01:04:00.850
+Write a question about today's
+stuff.
+
+01:04:00.850 --> 01:04:03.550
+Write a question about
+yesterday's stuff.
+
+01:04:03.550 --> 01:04:06.910
+Every time you're riding on the
+bus, start thinking about, I'm
+
+01:04:06.910 --> 01:04:08.450
+on my way to lecture.
+
+01:04:08.450 --> 01:04:09.810
+Like what happens?
+
+01:04:09.810 --> 01:04:12.330
+What happens? You know what I
+love to talk about, right?
+
+01:04:12.330 --> 01:04:16.830
+I love to talk about sports.
+I love to talk about music.
+
+01:04:18.390 --> 01:04:21.690
+You don't just like show up at
+the game and start shooting,
+
+01:04:21.690 --> 01:04:22.690
+right?
+
+01:04:22.850 --> 01:04:25.050
+You got warm-up time.
+They get to the game an hour and
+
+01:04:25.050 --> 01:04:25.830
+a half early.
+
+01:04:25.830 --> 01:04:29.810
+So when you're on the bus,
+you're walking across campus,
+
+01:04:29.810 --> 01:04:32.030
+you're on your way to 281,
+
+01:04:32.030 --> 01:04:35.250
+your mind needs to be getting in
+the 281 frame.
+
+01:04:35.250 --> 01:04:39.150
+You don't want the first 281
+thought you have is to be me
+
+01:04:39.150 --> 01:04:40.950
+opening my mouth for you,
+
+01:04:40.950 --> 01:04:42.730
+right? You need to be getting it
+together.
+
+01:04:42.730 --> 01:04:45.030
+So while you're walking to
+class,
+
+01:04:45.030 --> 01:04:45.410
+think,
+
+01:04:45.410 --> 01:04:46.050
+okay,
+
+01:04:46.050 --> 01:04:47.690
+what did we talk about last
+time?
+
+01:04:47.690 --> 01:04:50.970
+How could I prove that I know
+what we talked about last time,
+
+01:04:50.970 --> 01:04:53.770
+I would answer a question like
+this.
+
+01:04:53.770 --> 01:04:56.190
+Write a question, or do the same
+thing, you don't have to do as
+
+01:04:56.190 --> 01:04:58.870
+much cool down work to get out
+of a lecture, I'm fine with
+
+01:04:58.870 --> 01:04:59.870
+that.
+
+01:05:00.670 --> 01:05:01.550
+But,
+
+01:05:01.550 --> 01:05:02.870
+warm up time,
+
+01:05:02.870 --> 01:05:04.070
+be thinking about something.
+
+01:05:04.070 --> 01:05:05.210
+Come up with something.
+
+01:05:05.210 --> 01:05:07.090
+Write me an exam question.
+
+01:05:07.090 --> 01:05:08.610
+Submit it at this forum,
+
+01:05:08.610 --> 01:05:10.430
+I'll pull you all,
+
+01:05:10.430 --> 01:05:12.290
+it's at this point, it's only
+like,
+
+01:05:12.290 --> 01:05:15.250
+It's an embarrassingly small
+number of questions, so that's
+
+01:05:15.250 --> 01:05:16.450
+why I haven't done it for you
+yet.
+
+01:05:16.450 --> 01:05:18.610
+But if you write some more
+questions,
+
+01:05:18.610 --> 01:05:20.330
+I'll be able to bring you
+something.
+
+01:05:20.330 --> 01:05:23.690
+We get this done here in a week
+or so, and then we'll have some
+
+01:05:23.690 --> 01:05:25.790
+little practice exam.
+
+01:05:25.790 --> 01:05:27.670
+We'll recap it and see what we
+think of it.
+
+01:05:27.670 --> 01:05:28.630
+All right,
+
+01:05:28.630 --> 01:05:29.950
+so there we go.
+
+01:05:29.950 --> 01:05:30.890
+Discard.
+
+01:05:30.890 --> 01:05:34.730
+That gets me out of this lecture
+anyway, right? There we go.
+
+01:05:34.730 --> 01:05:36.250
+Six, arrays and containers.
+
+01:05:36.250 --> 01:05:37.310
+Let's go.
+Look at that.
+
+01:05:37.310 --> 01:05:40.530
+There's some ancient technology.
+looks like RAM.
+
+01:05:48.310 --> 01:05:49.190
+Arrays.
+
+01:05:49.190 --> 01:05:51.440
+You know arrays.
+
+01:05:51.950 --> 01:05:53.990
+So as we talk about things in
+this course,
+
+01:05:53.990 --> 01:05:56.270
+say you need to understand how C
+arrays work,
+
+01:05:56.270 --> 01:05:58.670
+you need to understand how
+multi-dimensional arrays work,
+
+01:05:58.670 --> 01:06:00.470
+you need to understand pointers,
+
+01:06:00.470 --> 01:06:02.810
+and including function pointers,
+you need to understand how those
+
+01:06:02.810 --> 01:06:03.570
+things work.
+
+01:06:03.570 --> 01:06:05.870
+You also need to understand how
+C strings work and the functions
+
+01:06:05.870 --> 01:06:08.150
+that work on them.
+
+01:06:08.150 --> 01:06:09.850
+But when we're in 281,
+
+01:06:09.850 --> 01:06:11.310
+we're going to avoid almost all
+of that.
+
+01:06:11.310 --> 01:06:14.630
+So we're going to avoid C arrays
+and instead use dynamic memory.
+
+01:06:14.630 --> 01:06:17.110
+That's where the C++ vector
+comes in.
+
+01:06:17.110 --> 01:06:21.790
+We could use the array standard
+array, but the difference is the
+
+01:06:21.790 --> 01:06:25.810
+standard array is much more like
+the C array in that you have to
+
+01:06:25.810 --> 01:06:28.810
+know at compile time what the
+size is going to be.
+
+01:06:28.810 --> 01:06:32.130
+So the template in array,
+
+01:06:32.130 --> 01:06:35.610
+this is what I'm going to stick
+in there, and this is the size
+
+01:06:35.610 --> 01:06:37.030
+of the container that I'm
+making.
+
+01:06:37.030 --> 01:06:39.330
+So it is not dynamic.
+
+01:06:39.330 --> 01:06:43.830
+Standard array doesn't grow like
+a regular array doesn't grow.
+
+01:06:44.250 --> 01:06:46.630
+You want something to grow?
+That's what vectors are for.
+
+01:06:46.630 --> 01:06:49.630
+Avoid pointers where possible.
+We like to use containers,
+
+01:06:49.790 --> 01:06:50.990
+function objects,
+
+01:06:50.990 --> 01:06:53.790
+and indices or iterators to get
+through that.
+
+01:06:53.790 --> 01:06:57.330
+Avoid pointers just to
+understand how that kind of
+
+01:06:57.330 --> 01:06:58.170
+stuff works.
+
+01:06:58.170 --> 01:07:00.230
+And then, of course, use C++
+string objects.
+
+01:07:00.230 --> 01:07:02.910
+They can do a lot for you.
+There's some courses that don't
+
+01:07:02.910 --> 01:07:04.190
+let you do this stuff.
+
+01:07:04.190 --> 01:07:05.110
+It's great.
+
+01:07:05.110 --> 01:07:07.470
+Use them when you can.
+
+01:07:07.470 --> 01:07:09.010
+So here's a fun one, too.
+
+01:07:09.010 --> 01:07:12.760
+Look at this code here.
+
+01:07:13.630 --> 01:07:19.590
+We've got a double array of
+doubles named a that's
+
+01:07:19.590 --> 01:07:21.290
+being initialized to 1.1,
+2.2,
+
+01:07:21.290 --> 01:07:22.190
+3.3.
+
+01:07:22.190 --> 01:07:25.250
+We've got this integer i that's
+equal to 1.
+
+01:07:25.250 --> 01:07:30.970
+Line c says let's index a at i,
+but line 4 says let's index a at
+
+01:07:30.970 --> 01:07:34.830
+i.
+Line 5 says, let's index i at a.
+
+01:07:35.830 --> 01:07:37.050
+So the question is,
+
+01:07:37.050 --> 01:07:38.390
+what happens here?
+
+01:07:38.390 --> 01:07:39.670
+Compiler error,
+
+01:07:39.670 --> 01:07:40.970
+doesn't compile.
+
+01:07:40.970 --> 01:07:41.830
+Runtime error,
+
+01:07:41.830 --> 01:07:43.450
+compiles but crashes.
+
+01:07:43.450 --> 01:07:44.950
+Or neither.
+
+01:07:48.310 --> 01:07:50.570
+Looks like a compiler error.
+
+01:07:50.570 --> 01:07:52.070
+Definitely bad.
+
+01:07:52.850 --> 01:07:54.350
+Turns out,
+
+01:07:54.930 --> 01:07:57.180
+it's totally legal.
+
+01:08:00.050 --> 01:08:01.050
+Why?
+
+01:08:01.990 --> 01:08:06.950
+Because square brackets notation
+is what is known as syntactic
+
+01:08:06.950 --> 01:08:07.950
+sugar.
+
+01:08:09.930 --> 01:08:13.190
+Syntactic sugar is something
+that is easy and sweet to write
+
+01:08:13.190 --> 01:08:16.910
+and might do something a little
+bit more nefarious than that.
+
+01:08:16.910 --> 01:08:18.850
+So if you look at it, it says
+here,
+
+01:08:18.850 --> 01:08:23.350
+A square brackets I really
+converts to dereference A plus
+
+01:08:23.350 --> 01:08:24.350
+I.
+
+01:08:24.690 --> 01:08:26.510
+Like go to the base address,
+
+01:08:26.510 --> 01:08:28.270
+add this many offset,
+
+01:08:28.270 --> 01:08:29.950
+and then dereference what you
+have there.
+
+01:08:29.950 --> 01:08:32.090
+That's all square brackets does.
+
+01:08:32.090 --> 01:08:35.930
+Imagine if we had to write this
+expression here every time we
+
+01:08:35.930 --> 01:08:39.650
+wanted to get something out of
+an array or a vector.
+
+01:08:39.650 --> 01:08:41.150
+Definitely sweeter.
+
+01:08:42.490 --> 01:08:43.990
+Syntactic sugar.
+
+01:08:44.210 --> 01:08:45.990
+So in that case then,
+
+01:08:45.990 --> 01:08:50.450
+I square brackets A just
+converts to D reference I plus A
+
+01:08:50.450 --> 01:08:52.990
+Which is the same?
+
+01:08:52.990 --> 01:08:56.610
+So the math comes out and this
+will compile today on your GCC
+
+01:08:56.610 --> 01:09:00.770
+and work just like that I mean
+the warning flags might throw
+
+01:09:00.770 --> 01:09:03.050
+you off to get enough warnings
+on there.
+
+01:09:03.050 --> 01:09:06.890
+Somebody will reject this But
+without the warning flags, it's
+
+01:09:06.890 --> 01:09:09.890
+perfectly legal code Yeah
+
+01:09:14.090 --> 01:09:15.090
+Well,
+
+01:09:15.550 --> 01:09:17.550
+A is not a double.
+
+01:09:17.550 --> 01:09:20.370
+A is the array of doubles.
+
+01:09:20.370 --> 01:09:24.010
+So in reality, we think of that
+as being the base address of
+
+01:09:24.010 --> 01:09:27.350
+where those things start.
+So A is the base address and
+
+01:09:27.350 --> 01:09:31.100
+then one is the offset.
+
+01:09:35.230 --> 01:09:38.230
+Well, I'm saying dereference
+what's at that location,
+
+01:09:38.290 --> 01:09:42.070
+right? It's like go to this
+location and add this many to
+
+01:09:42.070 --> 01:09:43.070
+it,
+
+01:09:43.390 --> 01:09:48.270
+right? So whatever that is, I
+mean, it might be like XFF42 or
+
+01:09:48.270 --> 01:09:49.670
+something like that, right?
+
+01:09:49.670 --> 01:09:51.270
+It says go there,
+
+01:09:51.270 --> 01:09:53.290
+and then when we,
+
+01:09:53.290 --> 01:09:54.610
+that's what A is.
+
+01:09:54.610 --> 01:09:57.810
+A is something like that.
+And then if I is something like
+
+01:09:57.810 --> 01:09:58.810
+four,
+
+01:09:59.170 --> 01:10:01.690
+then really all we're doing is
+saying let's just dereference
+
+01:10:01.690 --> 01:10:07.650
+OXFF46.
+And that's fine, that's
+
+01:10:07.650 --> 01:10:09.150
+some value.
+
+01:10:10.190 --> 01:10:11.310
+Right, in this case,
+
+01:10:11.310 --> 01:10:15.050
+i is one, right, but i is four
+bytes,
+
+01:10:15.050 --> 01:10:17.930
+because we're talking about
+double pointers.
+
+01:10:17.930 --> 01:10:22.430
+i plus one, I should say.
+
+01:10:23.110 --> 01:10:26.110
+Because i is one,
+
+01:10:29.090 --> 01:10:31.790
+when i plus one, right,
+
+01:10:31.790 --> 01:10:33.470
+because this a,
+
+01:10:33.470 --> 01:10:38.850
+really what happens is this A
+decays to a double pointer.
+
+01:10:39.870 --> 01:10:41.390
+It means it thinks it's a
+pointer.
+
+01:10:41.390 --> 01:10:45.570
+So when I plus one on a double
+pointer, it doesn't move over
+
+01:10:45.570 --> 01:10:49.770
+one memory cell, it moves over
+the size of a double.
+
+01:10:49.770 --> 01:10:51.270
+And that's why,
+
+01:10:51.270 --> 01:10:55.230
+starting at this address here,
+plus the size of a double, which
+
+01:10:55.230 --> 01:10:57.150
+is a really bad address,
+
+01:10:57.150 --> 01:10:59.210
+coming up with numbers at the
+top of my head.
+
+01:10:59.210 --> 01:11:02.830
+So let's go with something that
+makes a little bit more sense.
+
+01:11:02.830 --> 01:11:08.170
+because they would be, they
+would be
+
+01:11:08.170 --> 01:11:09.170
+word-oriented.
+
+01:11:09.270 --> 01:11:10.770
+So here,
+
+01:11:10.990 --> 01:11:14.230
+that number would look like
+that.
+
+01:11:14.230 --> 01:11:17.190
+It's just the way the math
+works,
+
+01:11:17.190 --> 01:11:18.110
+right?
+
+01:11:18.110 --> 01:11:22.610
+Because it knows I'm doing a
+plus one in this data type,
+
+01:11:23.290 --> 01:11:24.070
+right,
+
+01:11:24.070 --> 01:11:27.150
+it says my data type is double
+pointer,
+
+01:11:27.150 --> 01:11:32.990
+plus one to this means add one
+doubles worth of space double
+
+01:11:32.990 --> 01:11:38.270
+is eight bytes this for zero
+turns into four eight so if I
+
+01:11:38.270 --> 01:11:42.990
+turn around and do the same
+thing and say let's add one to
+
+01:11:42.990 --> 01:11:48.930
+this 48 it works so this is what
+is going on
+
+01:11:48.930 --> 01:11:51.910
+there this is obviously not
+skills that you need but it's
+
+01:11:51.910 --> 01:11:54.550
+information that you do need
+this is how square brackets
+
+01:11:54.550 --> 01:11:55.390
+works
+
+01:11:55.390 --> 01:12:01.430
+I
+
+01:12:01.430 --> 01:12:05.930
+had a is still the same thing I
+is I had a is a is still this
+
+01:12:05.930 --> 01:12:11.810
+hex FF 40 right because when I
+say hex FF
+
+01:12:11.810 --> 01:12:17.070
+40 like in here the compiler
+says what am I adding I'm adding
+
+01:12:17.070 --> 01:12:22.250
+I and a and their biggest type
+is double pointer so I'll think
+
+01:12:22.250 --> 01:12:26.370
+of a as a double pointer and
+I'll think of this one as a
+
+01:12:26.370 --> 01:12:30.850
+double pointers value so when I
+add 8 and 40 it's the same as
+
+01:12:30.850 --> 01:12:34.670
+adding 40 and 8 and end up at 48
+either way then when I
+
+01:12:34.670 --> 01:12:38.210
+dereference it I get that second
+number
+
+01:12:38.210 --> 01:12:44.030
+so it's just a little fun and
+games not
+
+01:12:44.030 --> 01:12:46.890
+really anything you're gonna be
+tested on but understanding
+
+01:12:46.890 --> 01:12:50.550
+what's going on when we see
+syntactic sugar is worth it.
+
+01:12:50.550 --> 01:12:55.800
+How does that work if you can
+overload the index operators?
+
+01:12:58.110 --> 01:13:00.530
+The question is, how does that
+work if you can overload the
+
+01:13:00.530 --> 01:13:02.780
+square brackets operator?
+
+01:13:03.090 --> 01:13:05.630
+So the same sort of thing.
+
+01:13:05.630 --> 01:13:08.550
+We've got some math that's going
+on there.
+
+01:13:08.550 --> 01:13:10.410
+So in a C++ object,
+
+01:13:10.410 --> 01:13:11.410
+though,
+
+01:13:11.490 --> 01:13:13.650
+if you put on a square brackets
+there,
+
+01:13:13.650 --> 01:13:17.030
+that value gets passed as a
+function to that argument.
+
+01:13:17.030 --> 01:13:20.070
+So it works on the built-ins
+because it's a double and it's
+
+01:13:20.070 --> 01:13:23.470
+integers, but if you've got a
+class where you've defined
+
+01:13:23.470 --> 01:13:25.470
+square brackets yourself,
+
+01:13:25.470 --> 01:13:31.050
+then that integer is gonna be
+passed to the square brackets
+
+01:13:31.050 --> 01:13:31.930
+function,
+
+01:13:31.930 --> 01:13:37.180
+and so it doesn't do that tricky
+stuff.
+
+01:13:37.510 --> 01:13:40.470
+All right, so here we go.
+
+01:13:40.470 --> 01:13:42.870
+An array here, we've got a
+character array, not to be
+
+01:13:42.870 --> 01:13:47.230
+confused with a C-style string.
+Character arrays are what C
+
+01:13:47.230 --> 01:13:50.230
+strings are, but character
+arrays have a guarantee
+
+01:13:50.930 --> 01:13:55.470
+that there's always gonna be a
+trailing null.
+
+01:13:56.330 --> 01:13:58.550
+And you see here, I don't have a
+null.
+
+01:13:58.550 --> 01:14:02.850
+So this is not a C-style string.
+This is really a C-style array
+
+01:14:02.850 --> 01:14:04.350
+of characters.
+
+01:14:04.590 --> 01:14:07.850
+Very, very slight difference
+between the two.
+
+01:14:10.010 --> 01:14:12.710
+You can square brackets to set
+something in there.
+
+01:14:12.710 --> 01:14:16.460
+You can read from square
+brackets.
+
+01:14:17.310 --> 01:14:22.560
+Here I can take a C character
+pointer,
+
+01:14:22.670 --> 01:14:23.390
+P,
+
+01:14:23.390 --> 01:14:26.310
+and set that equal to A.
+Remember,
+
+01:14:26.310 --> 01:14:32.170
+A is my array
+
+01:14:32.170 --> 01:14:32.890
+type.
+
+01:14:32.890 --> 01:14:35.870
+So I can set a pointer to an
+array type.
+
+01:14:35.870 --> 01:14:41.090
+And this is where decay comes
+along and we say that arrays can
+
+01:14:41.090 --> 01:14:44.270
+decay into pointers and that's
+really confusing.
+
+01:14:44.270 --> 01:14:47.910
+But you see I can set a pointer
+equal to that array address.
+
+01:14:47.910 --> 01:14:51.470
+So basically it's saying A
+represents the base address of
+
+01:14:51.470 --> 01:14:54.990
+an array of characters, and so I
+can take this address and stick
+
+01:14:54.990 --> 01:14:59.630
+it into a pointer, which is a
+place to hold addresses.
+
+01:14:59.630 --> 01:15:01.370
+In line 10,
+
+01:15:01.370 --> 01:15:07.070
+you can see we've set P to point
+to the address of the second
+
+01:15:07.070 --> 01:15:08.070
+item.
+
+01:15:08.310 --> 01:15:11.410
+A square brackets 1 is the
+second item, The address of that
+
+01:15:11.410 --> 01:15:15.250
+I can use that a pointer there.
+So there's how we can advance P
+
+01:15:15.250 --> 01:15:18.990
+there I could have also to get
+from here to there.
+
+01:15:18.990 --> 01:15:22.490
+I could have also just said Plus
+plus P.
+
+01:15:22.490 --> 01:15:26.890
+I've done the same thing Move me
+one character along
+
+01:15:26.890 --> 01:15:30.930
+All right, so arrays give us
+random access and constant time
+
+01:15:30.930 --> 01:15:34.630
+the indexing always starts at
+zero now Hopefully, you know
+
+01:15:34.630 --> 01:15:35.630
+why?
+
+01:15:35.970 --> 01:15:39.690
+Because A is also the address at
+the beginning of it.
+
+01:15:39.690 --> 01:15:43.070
+So A square bracket zero is the
+same as asking for A.
+
+01:15:43.070 --> 01:15:44.930
+If everything started at one,
+
+01:15:44.930 --> 01:15:45.930
+we'd have,
+
+01:15:45.930 --> 01:15:48.510
+this is where the memory starts,
+we have the plus one to get
+
+01:15:48.510 --> 01:15:50.070
+there and a minus one,
+
+01:15:50.070 --> 01:15:54.570
+and we'd always be minusing one
+everywhere.
+
+01:15:54.810 --> 01:15:58.190
+There's no bounds checking too,
+that's what the key to C style
+
+01:15:58.190 --> 01:16:01.110
+arrays is.
+You really had to keep your
+
+01:16:01.110 --> 01:16:02.110
+stuff.
+
+01:16:02.610 --> 01:16:05.490
+You declare an array, you keep
+its size somewhere.
+
+01:16:05.490 --> 01:16:08.550
+Because you have to get at it.
+That's why vectors are so nice.
+
+01:16:08.550 --> 01:16:10.210
+They'll tell you how much space
+they have.
+
+01:16:10.210 --> 01:16:12.270
+You just ask them, hey, what's
+your size?
+
+01:16:12.270 --> 01:16:14.710
+How much capacity do you have? I
+know when I've written off the
+
+01:16:14.710 --> 01:16:16.550
+end of it.
+And if I'm just using pushback,
+
+01:16:16.550 --> 01:16:18.590
+I don't even care if I'm over
+the size.
+
+01:16:18.590 --> 01:16:20.510
+It'll work out.
+
+01:16:20.510 --> 01:16:23.290
+But with C-style arrays, you've
+got to keep that stuff
+
+01:16:23.290 --> 01:16:25.510
+all well under control there.
+
+01:16:25.510 --> 01:16:28.210
+So here are a couple of
+fixed-size arrays.
+
+01:16:28.210 --> 01:16:29.750
+You look at this one on the
+left.
+
+01:16:29.750 --> 01:16:32.050
+It's a 1d array the one on the
+right.
+
+01:16:32.050 --> 01:16:34.930
+That's a 2d array and you can
+see the little red boxes How
+
+01:16:34.930 --> 01:16:39.390
+they get declared the 1d array I
+can declare that just like type
+
+01:16:39.390 --> 01:16:42.790
+name square brackets size of
+
+01:16:42.790 --> 01:16:46.650
+Dimension over here.
+I got type name square brackets
+
+01:16:46.650 --> 01:16:50.400
+number of rows square brackets
+number of columns
+
+01:16:52.230 --> 01:16:55.830
+So when I do that I get the
+white sort of boxes up there
+
+01:16:55.830 --> 01:16:59.410
+those are what my memory look
+like Logically don't worry about
+
+01:16:59.410 --> 01:17:00.610
+how it looks physically
+physically.
+
+01:17:00.610 --> 01:17:05.110
+It's just a big wrong, but
+logically it looks like that
+
+01:17:13.010 --> 01:17:15.260
+The so a
+
+01:17:17.350 --> 01:17:22.110
+2d array as you see it here
+We've got this Sort of index
+
+01:17:22.110 --> 01:17:24.950
+that we can find by taking the
+row times the number of columns
+
+01:17:24.950 --> 01:17:27.810
+and then adding the column to it
+and finding that location,
+
+01:17:27.810 --> 01:17:31.750
+right? So I can use these two
+values here,
+
+01:17:31.750 --> 01:17:36.270
+index plus row and column to go
+back and forth between the 1D
+
+01:17:36.270 --> 01:17:37.950
+version and the 2D version,
+
+01:17:37.950 --> 01:17:40.790
+right? Because if I was to use
+this math, I say, well, I wanted
+
+01:17:40.790 --> 01:17:43.390
+to find this row and column,
+
+01:17:43.390 --> 01:17:46.950
+row one, column two, that value
+is five.
+
+01:17:46.950 --> 01:17:48.370
+If I do this math, it says,
+
+01:17:48.370 --> 01:17:51.390
+oh yeah, all you have to do is
+just look that up at this
+
+01:17:51.390 --> 01:17:52.170
+location,
+
+01:17:52.170 --> 01:17:53.630
+five, and that's where you'll
+find it.
+
+01:17:53.630 --> 01:17:56.750
+So it is a bit of an
+abstraction, really.
+
+01:17:56.750 --> 01:18:00.500
+That's what's going on there.
+
+01:18:01.030 --> 01:18:05.990
+I can do this with one memory
+operation.
+
+01:18:05.990 --> 01:18:09.390
+I don't have to say, let me go
+find this container and then
+
+01:18:09.390 --> 01:18:11.570
+look inside of that container.
+
+01:18:11.570 --> 01:18:14.850
+What I was most wondering is
+whether or not it's represented
+
+01:18:14.850 --> 01:18:16.930
+in contiguous memory.
+That's what I'm saying.
+
+01:18:16.930 --> 01:18:20.290
+It is represented in contiguous
+memory, linearly.
+
+01:18:20.290 --> 01:18:22.430
+That's why I said this is a
+logical representation of it.
+
+01:18:22.430 --> 01:18:24.250
+it's not the physical
+representation of it.
+
+01:18:24.250 --> 01:18:25.890
+Physical representation of it's
+still
+
+01:18:25.890 --> 01:18:30.390
+just a straight list of values.
+
+01:18:31.490 --> 01:18:36.270
+All right, so this one here does
+some work on filling this.
+
+01:18:36.270 --> 01:18:38.710
+You can see these are fixed size
+arrays.
+
+01:18:38.710 --> 01:18:41.990
+In line two I declare this array
+that's two dimensional.
+
+01:18:41.990 --> 01:18:44.970
+I have to use constants there.
+So it looks like they're
+
+01:18:44.970 --> 01:18:47.050
+variables because rows and
+columns are up there.
+
+01:18:47.050 --> 01:18:49.870
+But rows and columns are
+actually declared as const in
+
+01:18:49.870 --> 01:18:52.050
+the line up above them.
+So that's why I can use
+
+01:18:52.050 --> 01:18:54.110
+something that looks like text
+and not numbers.
+
+01:18:54.110 --> 01:18:56.930
+It has to be either a declared
+constant
+
+01:18:56.930 --> 01:19:00.870
+or a literal in order to declare
+a C-style array.
+
+01:19:00.870 --> 01:19:05.930
+So for indexing in to like a two
+dimensional array,
+
+01:19:05.930 --> 01:19:08.290
+does this mean it's never going
+to be faster
+
+01:19:08.290 --> 01:19:14.290
+than it's going to be in a two
+dimensional array?
+
+01:19:15.030 --> 01:19:17.630
+Yes, you have to do the math
+yourself.
+
+01:19:17.630 --> 01:19:19.850
+So the question is, is it faster
+than doing something in a 2D
+
+01:19:19.850 --> 01:19:25.230
+vector, right? A 2D vector
+requires two memory accesses.
+
+01:19:25.530 --> 01:19:26.890
+Like one access to say,
+
+01:19:26.890 --> 01:19:29.290
+find me the vector that this is
+in.
+
+01:19:29.290 --> 01:19:31.230
+OK, well, it's in this vector
+over here.
+
+01:19:31.230 --> 01:19:31.810
+Great.
+
+01:19:31.810 --> 01:19:33.230
+Now that I'm there,
+
+01:19:33.230 --> 01:19:36.690
+find me the fifth item in this
+vector and it's the second
+
+01:19:36.690 --> 01:19:37.830
+memory access.
+
+01:19:37.830 --> 01:19:42.630
+Whereas if it's the 2D array
+style,
+
+01:19:42.990 --> 01:19:44.990
+those things are all just
+contiguous in memory.
+
+01:19:44.990 --> 01:19:48.470
+So I do one math operation,
+
+01:19:48.470 --> 01:19:53.230
+that plus the columns times the
+row times the column size.
+
+01:19:53.570 --> 01:19:56.690
+I do that math operation, then I
+go to that location,
+
+01:19:56.690 --> 01:19:59.030
+and I get that thing in one
+memory access.
+
+01:19:59.030 --> 01:20:01.170
+So you can get some more speed
+out of that.
+
+01:20:01.170 --> 01:20:03.370
+It's painful to look at in your
+code when you're always doing
+
+01:20:03.370 --> 01:20:04.790
+all the math yourself.
+
+01:20:04.790 --> 01:20:05.710
+You gotta wonder,
+
+01:20:05.710 --> 01:20:08.010
+like, am I getting a minor,
+
+01:20:08.010 --> 01:20:11.210
+minor fraction of a second to
+having this one memory access
+
+01:20:11.210 --> 01:20:15.490
+versus two? So if you have to
+have some super performant code,
+
+01:20:15.490 --> 01:20:18.470
+then you're gonna start loading
+your caches in particular ways
+
+01:20:18.470 --> 01:20:20.850
+and making sure you use only
+one-dimensional vectors and
+
+01:20:20.850 --> 01:20:22.450
+things like that.
+
+01:20:22.450 --> 01:20:27.150
+But in general, we can just code
+in a readable way.
+
+01:20:27.150 --> 01:20:30.230
+And not worry about how much it
+costs us, yeah.
+
+01:20:30.230 --> 01:20:34.350
+So we're applying time to time
+and just look like R times like
+
+01:20:34.350 --> 01:20:37.230
+relative time to follow up with
+what?
+
+01:20:37.230 --> 01:20:41.270
+Yes, that's exactly right.
+So this statement right here,
+
+01:20:45.190 --> 01:20:49.590
+because at compile time, we know
+what cols is.
+
+01:20:49.590 --> 01:20:51.430
+That's important, that's why
+it's a constant.
+
+01:20:51.430 --> 01:20:53.170
+At compile time, we know what
+this is.
+
+01:20:53.170 --> 01:20:55.030
+The compiler can say,
+
+01:20:55.030 --> 01:20:58.310
+what sugar am I gonna turn this
+into?
+
+01:20:58.310 --> 01:21:01.830
+The compiler says, well, since I
+know how many columns there are,
+
+01:21:01.830 --> 01:21:04.130
+I can take this rc,
+
+01:21:04.130 --> 01:21:08.770
+multiply it, and then go to that
+location.
+
+01:21:08.770 --> 01:21:12.850
+So that's how this turns into a
+single memory operation because
+
+01:21:12.850 --> 01:21:16.130
+even though it looks the same as
+the next slide, it actually gets
+
+01:21:16.130 --> 01:21:17.630
+compiled differently.
+
+01:21:21.390 --> 01:21:22.290
+Absolutely,
+
+01:21:22.290 --> 01:21:23.290
+absolutely.
+
+01:21:24.150 --> 01:21:26.930
+You keep doing the
+multiplications and modding
+
+01:21:26.930 --> 01:21:28.070
+things off and yeah,
+
+01:21:28.070 --> 01:21:29.030
+absolutely.
+
+01:21:29.030 --> 01:21:29.730
+It's crazy,
+
+01:21:29.730 --> 01:21:31.390
+but that's how it works.
+The compilers are good for
+
+01:21:31.390 --> 01:21:32.390
+things.
+
+01:21:38.950 --> 01:21:44.650
+Yes, a 2D standard array is
+still using
+
+01:21:44.650 --> 01:21:46.270
+dynamic memory.
+I think those are still in
+
+01:21:46.270 --> 01:21:47.590
+dynamic memory, right?
+
+01:21:47.590 --> 01:21:53.350
+And so your 2D standard array is
+still going to be an array of
+
+01:21:53.350 --> 01:21:54.690
+arrays.
+I don't have to mess around with
+
+01:21:54.690 --> 01:21:56.410
+2D standard array.
+
+01:21:56.410 --> 01:21:57.950
+I don't have to mess with that.
+Let's do that.
+
+01:21:57.950 --> 01:22:01.210
+I'll look into that one, give
+you a better answer.
+
+01:22:01.210 --> 01:22:04.010
+So right before we got out of
+here, this is 1150.
+
+01:22:04.010 --> 01:22:06.230
+This is the different version of
+it.
+
+01:22:06.230 --> 01:22:09.410
+This is the pointer-to-pointer
+version of it.
+
+01:22:09.450 --> 01:22:11.850
+So this is now more dynamic
+memory-based.
+
+01:22:11.850 --> 01:22:12.930
+So you can see up there,
+
+01:22:12.930 --> 01:22:15.070
+I'm saying, hey, give me the
+number of rows and give me the
+
+01:22:15.070 --> 01:22:18.250
+number of columns because I'm
+not at compile time setting this
+
+01:22:18.250 --> 01:22:20.370
+up.
+I am at run time saying,
+
+01:22:20.690 --> 01:22:21.170
+well,
+
+01:22:21.170 --> 01:22:25.010
+give me a new square brackets,
+
+01:22:25.010 --> 01:22:27.210
+give me a list of integer
+pointers.
+
+01:22:27.210 --> 01:22:31.390
+And so that line in four gives
+me this white column here which
+
+01:22:31.390 --> 01:22:36.990
+is a bunch of pointers to
+integer pointers, right? So then
+
+01:22:36.990 --> 01:22:39.410
+in this next one here, line
+seven and eight,
+
+01:22:39.410 --> 01:22:42.150
+that's where I give me those new
+square brackets to get the
+
+01:22:42.150 --> 01:22:44.670
+actual containers to hold the
+integers.
+
+01:22:44.670 --> 01:22:49.890
+So now you can see how this
+version here
+
+01:22:49.890 --> 01:22:53.430
+can't necessarily know how many
+columns are in each array
+
+01:22:53.430 --> 01:22:55.690
+because it's a runtime thing.
+
+01:22:55.690 --> 01:22:57.490
+So this one compiles,
+
+01:22:57.490 --> 01:22:59.390
+even though it looks exactly
+like the previous slide, it
+
+01:22:59.390 --> 01:23:00.630
+compiles to something totally
+different.
+
+01:23:00.630 --> 01:23:01.010
+It says,
+
+01:23:01.010 --> 01:23:01.870
+well first,
+
+01:23:01.870 --> 01:23:06.430
+go look in A at this location.
+That'll tell you where to go and
+
+01:23:06.430 --> 01:23:11.050
+when you get there look at this
+location in that thing So if I
+
+01:23:11.050 --> 01:23:16.870
+do one comma two, it'll say a
+says there I access one go over
+
+01:23:16.870 --> 01:23:19.890
+to there I'm in the three four
+five then get me two out of
+
+01:23:19.890 --> 01:23:24.310
+there two memory accesses.
+So same code for filling
+
+01:23:24.910 --> 01:23:29.290
+same code for reading But I've
+got to do this additional work
+
+01:23:29.290 --> 01:23:30.730
+here.
+It gives me some additional
+
+01:23:30.730 --> 01:23:33.170
+flexibilities.
+It gives me runtime flexibility.
+
+01:23:33.190 --> 01:23:36.570
+I I can even say I don't even
+need to have every row be the
+
+01:23:36.570 --> 01:23:38.930
+same length.
+I want to do this triangular
+
+01:23:38.930 --> 01:23:40.930
+matrix.
+I could have the top row be 50
+
+01:23:40.930 --> 01:23:43.670
+and then 49 and 48 and 47, 46.
+
+01:23:43.670 --> 01:23:46.470
+I could do that if I wanted to
+with this version because at
+
+01:23:46.470 --> 01:23:49.430
+runtime I'm making them all,
+whatever size I choose them to
+
+01:23:49.430 --> 01:23:53.030
+be, they're in line 48.
+That sets my row size.
+
+01:23:53.030 --> 01:23:53.530
+All right.
+
+01:23:53.530 --> 01:23:56.410
+So we'll pick up at
+
+01:23:56.410 --> 01:24:01.950
+some stuff here with 2D arrays
+when we get back on Thursday.

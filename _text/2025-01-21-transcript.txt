@@ -1,0 +1,1472 @@
+All right. So we left
+off right
+there, big O notation, right?
+Sound right?
+Feel like we ended up hitting that one.
+Yeah, we left this open question here.
+So what were the bugs involved with using this version? If you
+remember, we looked at this version,
+and we said it was n squared,
+and we didn't count the steps because we saw there's a for
+loop of size n
+and a for loop of size n inside of it, and then a constant
+amount of work here, even though it varies a little bit,
+right? So that's a good question here.
+I say it's a constant amount of work inside,
+but you see there's an if statement there, so sometimes
+it's different. So how can it be constant if
+it's different?
+The answer to that is it doesn't vary based on size.
+It varies based on whether i is equal to j,
+but it doesn't vary based on size.
+So if when size goes up,
+the amount of work inside the loop goes up,
+one pass through the loop. Obviously, if size goes up, we
+go through the loop more times. But the actual work inside the
+loop, if that stays the same regardless of what size does,
+then we look at that as a constant amount of work.
+So that if I is not equal to J thing does change how many steps
+happen in there, but it doesn't change it at a level where N
+gets involved.
+So N loop,
+N loop, constant amount of work.
+If j is divisible by two,
+it's still not modified by size, right, because if size is 500,
+j divisible by two doesn't change how much work is
+divisible by five million.
+Right, if the work inside,
+anything inside the loop.
+Right, exactly,
+right,
+right.
+Does that make sense?
+So we looked at this and we figured out that it was N
+squared too because we also answered the question that was
+asked,
+how many multiplications? That's what we really figured out.
+We figured out that there was N squared minus N multiplications.
+Right? Because there's n squared times this happens inside the
+inner loop,
+but n times it doesn't happen.
+So it's n squared minus n, which we were happy to call that big O
+n squared.
+And we showed how this worked.
+It just basically took all of these things and said, well, I'm
+not going to multiply this position by this value.
+I'm not going to multiply this position by the three.
+I will multiply this position the other two values so one
+times two gave us this two And I'm not going to multiply by the
+one here But three times two gives me six if I don't multiply
+by the two here, but three times one gives me three that's how
+the function worked, so that's what the goal of this function
+was and
+It talks about it there in the RME and it shows it in code all
+right So the next version said well What if we just multiplied
+everything all together,
+and then we divided out what we didn't want?
+So this ends up filling the exact same output from the
+previous input.
+Exactly the same. It multiplies them all together.
+Three times two times one,
+and then divide away the three in the first position.
+Divide away the one in the second position.
+Divide away the two in the third position.
+That's how this one works. But if you look at the loops,
+what do you see?
+I see I've got an n-based loop here, plus an n-based loop
+there,
+which makes this whole thing big O n.
+That's how many multiplications and divisions I actually have.
+That's pretty slick.
+Same amount of work,
+completely different complexity,
+especially when you talk about
+what if the size of this container is just a million
+items.
+It's not much. A megabyte,
+a million items here says there's a million
+multiplications, a million divisions,
+but what happens on the previous slide? A million items times a
+million items.
+Now we're talking about a trillion multiplications.
+So this is two million operations.
+This is a trillion minus a million.
+Vastly different,
+right?
+So this is the kind of thing that you would like to be able
+to do from an analysis standpoint and say, how could I
+write this more efficiently?
+Definitely not like this,
+but like this.
+What's the bug?
+What happens if there's a zero in the ray?
+Yeah, divide by zero and a horrible crash,
+right?
+All right, so then I guess we can't do it.
+What if we had an if statement checking for zeros? How
+could we do that?
+What does it look like when there's a zero? What does the
+answer look like when there is a zero in there?
+Where's the zero?
+In i equals zero,
+then I guess out i equals zero.
+So it, yeah, go for it.
+Well, look, remember,
+we don't multiply by the thing at that position.
+Mm-hmm, mm-hmm.
+Yeah,
+absolutely, if there was a zero in there, the first product
+would all be zero.
+But I'm saying,
+I'm not saying like how does this one work? I'm saying what
+should the answer look like?
+Perfect, so if there's one zero in there, That's the only output
+that has a value because it's the one that didn't get
+multiplied by zero all the rest can multiply by zero So they're
+all zeros and there's only one value in there and that's the
+product of all the other numbers
+Make sense and if there's more than one zero two or more then
+everybody gets multiplied by a zero.
+So the whole answer is zero
+So, how can we protect linearity?
+with that in mind
+Yeah.
+Nice.
+That makes sense?
+So,
+if we had some way to keep track of where the zeros were, while
+we were making our product,
+let's say we set it equal to negative one,
+the index of where the zero is.
+The first time I see a zero,
+I set the index to that location and don't multiply by the zero.
+The next time I see a zero,
+or if I've ever got a more than one zero,
+then I just realize that they're all going to be zeros and I keep
+track of that. So I could do this in one pass,
+like the product pass,
+with some more if stuff going on there right inside the loop at
+three.
+Does that make sense?
+Keep track of it.
+You could also say, you know,
+when I'm looking at doing a trillion operations,
+one more million pass ain't gonna kill me.
+So I could have a pass just dedicated to counting and
+locating zeroes. if I wanted to simplify the
+code.
+Just one pass dedicated to counting and locating zeros.
+If there's more than two,
+then I don't have to do the multiplication.
+If there's more than one, I have to do the multiplications at
+all.
+So it might actually be more efficient if there's a chance of
+me having zeros in there.
+Just a pass that goes through and counts how many there are.
+If there's more than one,
+I do no multiplications.
+I just spit out all zeros in the output and I'm done.
+So you could do it that way,
+Or like you said, you could do the multiplications in hopes
+that we didn't run into two of them and all the work of
+multiplying those things wasn't going to be wasted.
+But either way,
+you do an additional amount of work
+at the linear level while I'm still checking in one pass
+while I'm doing the multiplication pass,
+I do more,
+but it's still happening a linear amount of times and that
+linear amount of work can protect you from falling into
+quadratic work.
+It would be worth it,
+very well worth it, to just have a pull-pass that goes through
+counts and locates zeroes.
+If you did that and you say, okay, well, I don't have to do
+any more multiplication,
+I don't have to do any division.
+It's only when I'm sure that I've got
+one or fewer zeroes that I have to do any
+multiplication, and if I have no zeroes, that's the only time
+that I have to do any division.
+So it turns out,
+this is an approach that with a little bit more code, it's not
+about how little code there is. If you look at this, what do we
+have here? There's five lines of code inside the function.
+Five lines of code inside the function.
+So it's not like we saved space.
+So you say, okay, well, I can make it rearrange and then go
+like this and it's better complexity.
+but if I add like six more lines of code I feel bad about it
+because I feel like I added more code but if I add six more lines
+of code and it stays linear and
+protects me from having to ever go quadratic that six lines of
+code is not your problem this is not the thing you're trying to
+optimize how can I get the fewest number of lines of code.
+One would cause everything but one location to be zero.
+The location of the one zero is the only one that didn't get
+multiplied,
+right? So if there was a zero here,
+this would have a six by it and all the rest of these would be
+zero.
+So I would still have to do a product of all of the other
+things if there's one zero.
+Right because remember we say we don't multiply by the thing in
+this position, but this is the product of everything else
+So if the zeros here everything is multiplied by the zero except
+this so that's why it's the one winner
+All right, so Cuz like right here look there's five lines of
+code you say well shoot That's about the best as I can do it's
+like only five lines of code. It's not you could rearrange
+those five lines like this and be much better.
+So having less code isn't your friend.
+Having good code that does what you need it to do and not what
+you don't need it to do is your friend.
+Right?
+So if I were to change this, I might say,
+if I was gonna put some more stuff here, I'd have the if
+statement here to be counting my zeros.
+I could do it that way
+and locating my index of zero.
+The other way that I could do it and then I would have to come
+out here and say, Well, if the index of the zero is
+something within my range,
+if it's non-zero,
+if it's non-negative,
+and it's less than my size.
+So for instance, if you wanted to get really slick with it,
+you could say,
+I've got this placeholder value,
+which I start at negative 1.
+And then the first time I see a zero, I'm going to set it to
+that location.
+Then the second time I see a zero,
+I'm gonna set it to size.
+That's just way overusing a variable.
+Works,
+but it makes your code complex, right?
+So if it's set to size,
+when it comes time to do the division thing, we'll say, well,
+if it's size, they're all zeros.
+Because size means I've seen more than one zero.
+If it's less than zero, that means I haven't seen any zeros.
+But if it's anything else, that's the location of the zero
+Right, and so you have a bunch of extra coding or say well if
+I've seen no zeros then proceed as planned here right if I've
+seen one zero fill out all the whole thing with zeros and then
+go back to that index and
+Put the product that I have
+In that location and if the thing is size, I just after I
+set everything to zero. I don't do anything
+Probably one and a half times more code that I have here,
+maybe almost twice as much code,
+but still linear because there's nothing inside a nested
+size-based loop.
+So adding 10 more lines of code to this function to keep it
+linear is still what you want to do,
+as opposed to worrying about, well, I could try to squeeze
+this in.
+that's technical talk so I know it's really hard to understand
+ah make sense
+you're with me okay so here's how we want to do our thought
+process when we we get our algorithm we say this is a great
+way to do it because this this version right here is a direct
+translation of what was asked right in the output location at
+i have the product of everything but what's in at i.
+That's what this one says.
+So it goes through everything, it tries to multiply it all
+together,
+unless we're at i.
+In that case,
+that's what I'm saying, this is a direct translation of the RME.
+You think about it a little more, you say, well, what if I
+did aggregate all of that product and then divide out what
+I don't need, and you come up with this version, which is a
+good replacement of it, but it has the ability to fail if I
+can't control my input.
+Now, if I knew ahead of time I was going to get a vector of
+size n that is guaranteed to be non-zero,
+then this one just worked perfectly.
+But I don't have that in my requires,
+right? It doesn't say that you're going to have non-zero
+values. If I had the non-zero values,
+this one's better than the other one and perfect.
+All right.
+Off of complexity.
+Good.
+We are behind, by the way. I talked too much,
+but I'm hoping that you really get this stuff understood,
+and then we'll find a way to catch up.
+Big O notation.
+We've got this definition of Big O here.
+It says f of n, some function,
+is Big O of g of n, some other function,
+if and only if you logic fans, that's the IFF word,
+if and only if there are other constants,
+C and N sub zero.
+C has to be greater than zero because C is what we're going to
+be multiplying our function G of N by.
+C times G of N.
+And then N sub zero is a particular N value that's
+represented here on this graph. You see how this blue curve goes
+above the red curve?
+But not everywhere.
+If there exists some point, however,
+where the blue curve goes above the red curve and never again
+goes below it,
+that's what we call n sub 0.
+Right, so I need those two constants there.
+The one that I can multiply the function g of n by, and then the
+n sub 0 which says there might be some lower order terms or
+stuff that go on before here, but once I get past that point
+The bounding function is always bigger
+So that's what I'm looking for it says so if C is greater than
+zero and then sub zero Has to be greater than or equal to zero.
+So n sub zero doesn't have to be there, but it could be at zero
+however
+If I have those things and it shows me that f of n is always
+less than or equal to C times g of n once we've passed that n
+sub 0 then I can say f of n is bounded by g of n
+This is a rehash of some 203 stuff.
+Hopefully you got this
+Here's some more stuff on it, right? This is a much more
+complicated mathy page, but it says some other stuff It says
+we've got a sufficient condition if you remember what sufficient
+means is if that shows up, we know it's good enough
+It's not necessary though, so that means if it doesn't show
+up, we can't say that it wasn't enough.
+It's just that we don't have it.
+So if we get it, it's good enough.
+If we don't get it, it's not good enough to not know.
+So it says if I can take f of n divided by g of n and take n off
+to infinity,
+the limit as n goes to infinity of that quotient, if that
+converges on something,
+It doesn't have to be any particular value, it doesn't
+have to go to zero, it doesn't have to go to one,
+it just has to go to something that's not infinity.
+So there you see it says if the limit as n goes to infinity is
+equal to d,
+some value that is less than infinity, it does not also go
+off to infinity,
+then I can say that f of n is big O of g of n.
+And here's an example of it.
+Is log base two of n is a logarithmic function
+big O linear,
+big O 2n. I know the two's in there, it's
+kind of clunky, but it just makes the algebra a little
+easier.
+It's just as legal without the n.
+The question is that,
+right?
+Well, let's check this sufficient condition.
+What happens when I take log of n divided by 2n and then shoot n
+off to infinity?
+Well,
+log of n as it goes off to infinity is infinity
+and 2n as it goes off to infinity is also infinity, So I
+can't really tell
+This is where calculus comes in. You all loved it.
+You're happy you're past it L'Hopital's rule says if we take
+the first derivative of those two functions and
+Then see what happens.
+So what's the first derivative of log n?
+1 over n that's right. And what's the first derivative
+of 2n?
+2.
+So if I put that all together I get that 1 over 2n
+because the log n dropped the n into the basement when it took
+its derivative and the basement just ditched its n.
+So that's why I get 1 over 2n after I take the derivative of
+both the top and the bottom.
+Now when I shoot n off to infinity,
+what do I get?
+Zero.
+It has converged.
+So you can use L'Hopital's rule until that infinity over
+infinity thing goes away.
+I need to take another derivative, take another
+derivative, take another derivative until they stop
+running off to infinity,
+or sorry, until they stop having those n's that run off to
+infinity over infinity, yes.
+So,
+there you have it.
+It's very clear from this sufficient condition that log
+base two of n is bounded by a linear function.
+And that's real basic, we already talked about that when
+we talked about the order of these things.
+But this is just proof on a concrete function.
+And here is another example of it.
+Is sine of n over 100,
+big O of 100?
+What do you think?
+Yes,
+right?
+It's constant.
+It's constant, it's a 100, you could have 1,000, there's one,
+it's constant.
+Why is it constant?
+How is that true?
+Well, sine does this,
+right?
+For off into infinity. So as long as I can pick some
+constant that's above it, I say,
+yes, this constant is bounded by that value, right? I can always
+multiply it by something to get my constant up there.
+Sine goes up to 75,
+I pick 80.
+Sine goes up to 112,
+I pick 900,
+whatever,
+right? As long as there's a constant that exists above that,
+then I can say it's bounded by. So, we're pretty clear that this
+is true.
+Sine is bounded by a constant.
+Can I apply this rule,
+however, to figure that out?
+Well, f of n is sine of n over 100,
+g of n is 100.
+If I take the limit of this as n goes to infinity,
+sine of n over 100 divided by 100,
+what happens to that?
+That doesn't converge,
+right?
+Sine of n over 100 as n goes to infinity is,
+it's out there, right?
+So then you can say, well, I have not met the sufficient
+condition.
+Good news is it's also not necessary.
+So the stuff we talked about earlier that said this is true
+is true a different way. So if I get it, I can say that I
+know enough.
+If I don't get it, I've got to figure it out some other way.
+That's what sufficient but not necessary means, all right?
+All right, how do we drop these constants?
+So here's this nifty one,
+three N squared plus seven N plus 42.
+Is that big O N squared?
+And you say,
+of course it is, it's N squared,
+right?
+Well,
+I don't know.
+If you haven't quite understood those two constants,
+let's revisit.
+Remember that C.
+I said if there's some number that I can multiply the g by
+that makes it bigger than the f,
+then I might have a shot at it.
+And so it looks here like if I multiply by this g,
+if I multiply this n squared, what if I multiply that by five?
+You would say, well, five n squared is bigger than
+three n squared plus seven n plus 42,
+most of the time.
+So it's possible. as long as I can figure out when
+that most of the time starts right and so if you think right
+here at at 1 what's going on at 1 for 5 n squared
+and 3 n squared plus 7 n plus 42 well both the 5 n squared
+and the 3 n squared just contribute their constant
+because at 1 n squared is 1 so 5 n squared is just five,
+three n squared is just three.
+But,
+I also have these lower order terms.
+So at one,
+the f of n adds an additional seven n,
+seven more,
+plus 42,
+49 more,
+52 for f of n,
+five for g of n.
+G of n is down here,
+f of n is down there.
+But,
+those lower order terms don't win forever.
+We get out there far enough. What's happening at 10?
+At 10, I say three n squared is 300, five n squared is 500.
+What's going on at seven n?
+Seven times 10, that's 70 more, 370.
+Plus 42,
+412.
+F of n is 412,
+g of n is 500.
+So now g of n is up above there. So somewhere between one and 10,
+for you it's one and 10,
+somewhere between one and 10, g of n goes above f of n and then
+never gets smaller. So that's why I can say
+three n squared plus seven n plus 42 is bounded by n squared
+because I could pick five to multiply by,
+I could pick five million to multiply by.
+We still got some problems down there at that baseline.
+So,
+what's your question?
+As long as you can prove that the limit converges, it's fine.
+L'Hopital rules is the easy way to do it on that one.
+Yes.
+So, you with me on that?
+So,
+those lower order terms get managed by how many ends I
+ignore at the beginning.
+I ignore one, I ignore two,
+I ignore three.
+Once I get out there to a certain point N sub zero,
+everything after that,
+five N squared is always bigger than three N squared plus seven
+N plus 42.
+That's what that is. And I could have picked another
+number,
+six N,
+right?
+What I didn't want to pick was two N,
+right?
+Because at two N,
+three N squared is always going to be, two N squared,
+three N squared is always going to be bigger.
+If I pick something bigger than three N,
+three,
+bigger than three, I'm gonna find it eventually.
+The change that the choice of what I whether I pick 4 or 5 or
+50 is going to change where n sub 0 shows up But in the end,
+I'm not really trying to solve for one particular one All I
+want to know is is that function bounded by n squared and it is
+because I can find those values Right see here.
+It says somewhere between 3 and 4
+That's what somebody wrote here on the graph somewhere between 3
+and 4 is where n sub 0 is This is where 5n squared and 3n
+squared plus 7n plus 42 cross.
+After this number,
+so any n's greater than 4 or greater,
+as long as there's four more items, then I can say for sure
+that this curve is always bounded by the other one.
+And I know for sure that that's a fact.
+All right?
+So this is us finding the c and n sub 0 way.
+If we go for the sufficient condition way,
+all I have to do is divide three n squared plus seven n plus 42
+divided by that by n squared.
+It's hard to figure out. Both of those go off to
+infinity, so I take a derivative.
+Three n squared plus seven n plus 42,
+first derivative, six n plus seven.
+First derivative of n squared,
+two n.
+Still go off to infinity.
+Take the derivative again.
+This turns into six in the basement,
+two. that converges on three, which
+is not infinity, and therefore the sufficient condition holds.
+All right?
+This is 203,
+I know you're happy to be back.
+We're gonna leave sooner than you really want to though.
+We're gonna leave 203 land.
+So here's those two rules of thumb.
+Because I have N sub zero,
+this allows me to ignore those lower order terms,
+right? I'm going to skip the lower-order terms
+Skip the numbers where the lower-order terms contribute
+enough to beat the bigger function.
+That's what ends up zero
+Represents and then the C says as long as I can pick something
+that will beat this in the long run That's what I've got there.
+So this is where the stuff comes in This is why I can ignore the
+lower-order terms because of n sub zero and why I can ignore
+the leading coefficient is because of C.
+I can always pick my own bigger,
+better C.
+All right.
+This is a page out of a math textbook from high school.
+Some are log identities.
+The only one that really matters is this nifty little change of
+base one. They're all true.
+But the change of base one says log base a of x is the same as
+some other log of x divided by the log of a in that same log,
+right? So here's how we can look at this.
+And what does that tell you?
+x is a variable,
+a is a constant.
+So if I look at the log, this is, and you don't say normal
+math means log base 10. So this is log base 10 of X
+divided by log base 10 of a log base 10 of a is a constant
+So reality I'm saying log base a of X is
+the same as log base 10 of X
+times the constant
+It's the same as the natural log of X
+times a constant.
+It's the same as log base 4 of x times a constant.
+So any log is a constant away from any other
+log.
+Log base, I should be saying.
+So log base 2 is a constant multiplication factor away from
+log base 10.
+It's a constant multiplication factor away from natural log
+whatever.
+So that's what this cool change of base formula tells me.
+And the important thing then is,
+this is why when we talk about logarithmic complexity,
+we don't really care what the base is.
+Logarithmic is logarithmic.
+So we'll typically be talking about log base too,
+we just won't say it.
+It's not necessary.
+Logarithmic is logarithmic.
+And if we're talking about trying to figure it out, sure,
+different log bases are going to be different, so if I've got
+something that's constantly being divided by two,
+it gets small pretty quick.
+It's log base two.
+But if I'm constantly dividing by five, it gets small quicker.
+But it's still logarithmic
+as compared to linear or quadratic or exponential or any
+other complexity class that we might get stuck in.
+So we won't really be concerned about our base, But we will know
+that logarithmic is logarithmic because as I said log base 2 is
+just a constant multiplication away from log base 3
+So I gave away the answer on some of this quiz already well
+Let's answer this one is 10 to the 100 big O constant.
+Yes is
+3 n to the 4th plus 45 n cubed big O n squared
+Also, yes right I could pick something bigger than 3 here and
+and figure out something to get better than that and we're good,
+so there's a couple of trues.
+Is three to the N,
+big O,
+two to the N?
+False,
+right?
+This is basically saying,
+no matter how many threes you bring to the party, I'm gonna
+bring twos to the party and still beat you.
+Not gonna happen,
+right?
+The other one, though, works,
+right?
+So remember how many twos you bring to the party, if I bring
+threes to the party,
+my sign's gonna win, right? Agreed,
+and you can also check this one. So this is false here.
+You can also check this one here with that sufficient condition,
+right?
+What is two to the n divided by three to the n? Well, that's
+just two thirds quantity to the n.
+Something less than one multiplied by itself gets
+smaller, gets smaller, gets smaller.
+This converges on zero. So yes,
+how about 45 log n plus 45 n is that big o log n?
+That's poorly written.
+We should have the linear thing front
+because it's the bigger order term, but people make mistakes
+and you gotta be sharp eyes to make sure that you don't miss
+stuff, right? Because that's the first term, it's not the
+dominant term.
+45 n is the dominant term.
+How about log n squared is that big o log n?
+Yes, right? because we know that the log of n squared
+is just equal to two times the log of n.
+More math.
+So, we'll call this one true. How about the next one?
+X and a, that's not how logs work.
+So,
+that's how we go.
+That's what it looks like.
+And then it says, can you find f of n and g of n such that f of n
+does not bound g of n and g of n does not bound f of n?
+I read that backwards,
+but you know what I meant.
+So it's a g of n does not bound f of n and f of n does not bound
+g of n. You got one?
+Can't do it?
+Anybody do it?
+Sine and cosine, yeah, that's a tricky one, but it works.
+Yes, sine and cosine will get you there, right? Because sine
+goes up, cosine goes down,
+they don't bound each other.
+There's no way that I can get them to pass.
+There's no number that I can multiply there, so that's how we
+have it. So those are true, true, false.
+True, false, true, false.
+and sine and cosine actually do get us the bounding.
+All right, so this then is a chart of showing all three of
+them. We'll be talking about big O
+because it's the easiest way to talk about stuff.
+What's my upper bound?
+And that's the one over on the far left.
+So this is kind of just boiling down the first three or four
+slides we already saw on this.
+There's the asymptotic upper bound, that's big O.
+That's that N sub zero and C statement.
+here's the mathematical version of it we saw both of these on
+their own separate slide and then here's some of the
+consequences of it so I can say something with the asymptotic
+upper bound I look at this f of n as 2n plus 1 you say well
+that's big O of n you would be correct but what if I said it's
+big O of n squared you would also be correct because n
+squared is always bigger than 2n plus 1 once you get out there
+somewhere so So, the asymptotic upper bound
+can be really lazy.
+You could just say,
+well,
+that's exponential,
+and not be wrong from an upper bound standpoint,
+almost ever,
+right?
+It's always exponential.
+It's bounded by exponential, but it doesn't mean that the
+function itself is exponential.
+So,
+that's what the upper bound looks like.
+It's got this side effect, we could go higher and be lazy.
+So when we talk about on the exam we'll be talking about the
+tightest upper bound, right?
+If you look over here this is just the opposite this is big
+Omega that's the lower bound what function is always below
+the other function and all it is is it's just for complete
+reversal of the big O definition.
+Big Omega just says as long as there's some C and N sub 0 such
+that c times g of n is always less than f of n,
+then I can say it's bounded below by g of n.
+So that's big Omega,
+and you can see here the same sort of thing.
+I could pretty much choose constant for everything and it'd
+be below that.
+That doesn't make it really precise because f of n, when
+it's 2n plus 1,
+you can say that's really big Omega of n.
+Linear gets under there, it can stay under there always.
+As long as I've got some constant less than two,
+I can do it.
+Then in the middle's the combination.
+This is big theta.
+So this is the one we're gonna be really asking for on the
+exam.
+The only difference between big O and big theta is big O is as
+tight as it can be.
+So I can't just throw on extra ends and be correct like I can
+with big O. in big theta, it's limited
+exactly to that, right?
+Because I have to have some function that can both have a
+constant that multiplies and keeps it above,
+and another constant that multiplies and keeps it below.
+That's what the tight bound is. I can use the same curve.
+So with two n plus one, I can say, well, four n is always
+bigger than it,
+and one n is always less than it.
+That's why I know that it's bounded by this linear function.
+Same thing here, this bottom one, you see, this n squared
+plus n plus 5,
+I can say 2n squared is always bigger than that,
+and one half n squared is always less than that.
+One n squared is always less than that after I get past some
+spot,
+so it exists.
+So this is what the tight bound is.
+It's really the combination of the upper bound and the lower
+bound. If I can find a function that
+does the both of them, then that's what I would call the big
+theta, the asymptotic.
+Tight bound.
+All right.
+That's enough 203 for the day,
+wouldn't you say?
+That's what the slide says.
+Deep breath.
+Blow out those 203 vibes.
+You save them for later.
+You want them back.
+No?
+203 usually has class right after this, so we always hand it
+off the room to them. It's all warmed up.
+Okay. Okay,
+now we're talking about amortized complexity.
+Remember I mentioned this one earlier.
+This is what happens when I push into a vector and sometimes
+there's plenty of space.
+I just push it in there and it's constant time.
+Other times I'm completely out of space and I have to copy
+everything somewhere else and that takes me linear time.
+Amortized complexity is a type of worst case complexity when my
+profile, we call it spiky.
+Like this one's expensive and then there's a bunch of cheap
+ones.
+This one's expensive and then there's a bunch of cheap ones
+that's with a spiky thing so the only way to really get a good
+analysis of that is to take the cost of the expensive one plus
+all of the cheap ones that it gives you you add all of that up
+together and divide by how many of them that I did that's what
+amortize is I need to go from one peak all the way up to but
+not including the next peak or if you want to go the other
+route you can say let me start at the first cheap one and go
+all the way up through the peak.
+Either way the division works out to be the same.
+So that's what amortized complexity is and we'll see it
+in the STL.
+Some of the documentation talks about containers and functions
+being amortized constant.
+So this is us performing some analysis over now a sequence of
+operations because I wouldn't want to say well let me just
+pick two of them because I could pick two really cheap ones and
+the thing well it's always cheap and that would be wrong,
+right?
+Or I could pick the really expensive one,
+linear,
+and one cheap one.
+Say, well that average is out to linear,
+and over two.
+That's not right either, right? Because it's not linear every
+time.
+If I pick four small ones, it would look like it's always
+small, you know what I'm saying?
+So the only way to do that is to take the entire range from the
+most expensive all the way up to the next most expensive.
+So,
+for instance, if I double my container size and I go now I
+went from 100 to 200 it cost me 100 to copy them over then I get
+100 cheap ones so then the amount of work that I did was
+the 100 copies plus the 100 cheap insertions
+basically 200 work for 100
+items inserted so 200 work for 100 items inserted looks like
+an amortized average of about two work per item, which is why
+I can say it's amortized constant, and that's what this
+is going to be talking about here.
+So it considers this sequence of operations.
+It's not actually average case complexity.
+So I didn't want to say average in there.
+It's not an average,
+because average case complexity is one event that represents all
+possible events on average it's like this so any other event is
+like this whereas an amortized complexity I say well the
+average is just to work that doesn't represent all the other
+events because one of those events is n work and two does
+not represent n so we have to understand this just so we can
+figure out how this thing works so here's our example we got a
+phone in our pocket how does this work you pay at the
+beginning of the Let's say you pay a hundred dollars once a
+month, and then you got unlimited calls and unlimited
+texts
+so
+The amount of money coming out of my pocket
+Looks like a hundred dollars today zero zero zero zero zero
+zero zero zero zero zero zero zero zero zero zero zero It was
+like what's the average that I pay well if I pick five days?
+Maybe I pay nothing for my phone bill as long as I don't make
+calls on the first day of the month do Do I get a free phone
+bill every month?
+No,
+they still amortize it out.
+So say, well, if I make 1,000 calls and texts,
+how do I know what they cost me per call or text?
+Because if I make 50 calls on the second day and I didn't pay
+anything,
+it looks like every call is free.
+But I have to factor in how much I paid and what it gave me.
+If I say I paid $100 and then made these 1,000 calls, then
+it's pretty easy. I take those 1,000 calls, divide
+by the $100,
+and I get it's $0.10 a call or text or something like
+that. So this is our spiky input
+profile.
+The money goes out of our pocket,
+not like, oh, here's a call, $0.10.
+Here's a call, $0.10.
+Here's a call, $0.10.
+We're not doing that.
+We're paying once, and then we amortize the cost over the
+month,
+which is really cool in some situations, like in a phone
+situation where I have like 2,000 calls,
+now my calls just get cheaper.
+I don't have a smaller bill,
+but they do have a point where if you use too much data,
+your stuff goes up. That's when you break the
+amortization.
+But in the case of a vector, I can't slip more than the things
+in there. So I can't really break the
+amortization. I just have to go get new space
+when I run out.
+All right?
+So that's what amortized constant means.
+I take the cost of the expensive one and all the cheap ones,
+add that up,
+divide by the total number of ones, and then that's where my
+constant value comes out. So we call this amortized
+constant, and this is just a shot from that.
+If needed, allocate a bigger array and copy the data,
+add the new element, and so on. So, in this version of it, this
+is one that would give me an amortized constant profile.
+Little bit more math.
+Here's the rules.
+Analyze the asymptotic runtime complexity of the push
+operation.
+All right, so,
+let's start and say that the vector is
+size n,
+got n in it, so it's full.
+I'm trying to do a push.
+so when I go to push the first thing I have to do is get new
+memory so there's one step which is hey allocate me to n
+locations and then there's n work to copy the n from the
+original into this new one so I can say that the double the
+vector takes me one allocate plus theta n
+copy steps now I can get these
+n constant time pushes because I have space available for them so
+I get these n pushes and each one of them takes me one step
+because it's constant time so I can add those two things up
+right I say one for the allocation theta n for the copy
+plus n insertions that happen in constant time,
+that's all the work that it took me to do n pushes.
+So I take this 1 plus theta n plus n times theta 1 divide
+that by n because that's the work I did for the pushes that I
+got and you see that this comes out to something that looks
+constant,
+right?
+What's 1 plus theta n?
+It's theta n, right?
+So this goes down to theta n.
+And then what's n times theta 1?
+Also theta n,
+right?
+Constant n times is is n, right? So that's theta n.
+So what's theta n plus theta n?
+Theta n.
+Theta n divided by n, that's theta one.
+So this is why this is amortized constant.
+From the math.
+Question is, what is the average time complexity?
+There isn't an average time complexity because we can't
+reliably pick any.
+So, that's what I said in the previous slide.
+An average time complexity says,
+here is something that represents all of the other
+ones. All of the other ones look like
+this,
+right? So you say,
+well, on average it takes me two work to do this, which is
+correct for most of them.
+But for that really expensive one which takes me n work,
+two is not the right answer for saying it looks like this.
+So we can't have an average case when one,
+here's what it is,
+when one operation could be constant time but the same
+operation,
+push,
+could be linear time,
+I can't do an average.
+I have to amortize
+because the same operation has a different execution profile.
+If the same operation always had the same profile, then I could
+just pick 10, 20, 50,
+5,000 and average them out and say, here's my average, and be
+correct.
+But sometimes it's linear and other times it's constant,
+so I can't do an average.
+So what would this analysis look like instead of doubling the
+metrics like you added a constant amount of elements? Oh
+my man,
+this is my setup here,
+right? So the question was,
+what happens if instead of doubling the size,
+I just increase it by a constant amount?
+What happens?
+I got a slide for this, that's why I was so excited.
+Introduce my slide for me.
+So,
+with constant growth, you see it up there.
+Right, see I've got one plus theta n,
+Allocate,
+copy the old,
+and now since I've only growed my sum constant, we say, well,
+I'm not gonna double this. Every time I run out of space,
+I'm just gonna go get 100 more,
+because I like hundreds.
+So I get 100 more, so then I've got the allocate copy plus 100
+cheap operations.
+So that's only gonna support 100 new pushes.
+So now I don't get to divide by N anymore,
+I only get to divide by C.
+Because when I was dividing by N it said,
+well you made room for N new things, so you got to do N new
+pushes.
+Now I only made room for 100 things, so I only get to do 100
+pushes.
+So if I divide that,
+what does this look like, right?
+This looks like,
+as it did before, this is just theta N,
+and well this is just,
+Constant.
+Right?
+Constant amount of work times a constant value.
+That's constant. So when I add these two things
+together,
+I end up with theta N. Theta N plus theta one is theta
+N.
+Now I get to divide this by C.
+What's linear divided by C?
+Linear.
+So if,
+and this is the really awkward wording part,
+if I grow by a linear amount, I get amortized.
+Constant.
+If I grow by a constant amount, I get amortized linear.
+See it?
+This is why they double.
+And the double's actually kind of a choice, too, though.
+As long as I'm growing by something that's a factor of n,
+I've got amortized constant. So I could triple.
+I could quadruple.
+because it would keep my upper linear
+and would keep my lower linear if I multiplied by four.
+I could even grow by half the size.
+Every time I run out of space I'm gonna go get 50% more.
+As long as I get 50% more and that 50% grows with my
+container,
+100 gets me 50 more, 150 gets me 75 more,
+225 gets me 113 more. as long as I'm growing by some
+factor of n, it ends up being amortized constant.
+And that amortized constant factor grows or shrinks
+based on the factor that I have related to the n.
+So if I double it,
+it's looking like two work per thing.
+If I triple it,
+if I quadruple it,
+you see where I'm going with this?
+I'm dividing by a bigger number there so
+Here's my container growth options if I grow constant I
+will have amortized
+Linear
+Complexity so in the end it looks like and so here's a
+really good example Imagine you said well, I'm only gonna grow
+by 10 because I'm real cheap keep down to 10 I'm at a million
+items now. I run out of space all right
+well Let's copy a million items.
+I can push 10 more.
+I'm out of space.
+Now I've got to copy a million and 10 items.
+Push 10 more.
+Every 10 times I'm pushing a million items.
+It feels like I'm pushing 100,000 items every time I push.
+That's because I don't have the big growth.
+So you take it to an extreme level and you can see why,
+you know,
+what if the growth is small?
+What if the growth is, When I run out of space, I'm gonna add
+two more.
+I'm at a million,
+I put one in,
+put another one in, now I gotta go get a million more.
+Put one in, put one in,
+I gotta go get a million more. You know what I'm saying?
+And so it feels like every other time I'm going to get a million
+more.
+So the smaller my constant is, the more it feels like it's a
+full-on linear thing. Even with a big constant,
+I'm gonna get some linear response.
+But a small constant's gonna make it real obvious is that
+this is taking linear time to do this thing.
+All right, I skipped a blank slide in there where I was gonna
+draw some stuff but I've pretty much waved my hands and shouted
+enough,
+the example to go through.
+So I was talking about the million plus 10 here,
+all the other things.
+It's kind of like a trade-off when you trade a little bit
+better.
+That's all it is, it's always a trade-off.
+I'm trading memory for time.
+Yeah, absolutely. So the doubling it is what
+they've, you know,
+makes good sense.
+Like being off by a factor of two isn't terrible in terms of
+like how much memory it costs us and how much time it takes.
+We could have a better time response if we always grew by a
+factor of eight,
+then we probably have more memory issues, right?
+And we similarly, we could save more memory if we only grew by a
+quarter, but it would seem to be running a bit more sluggishly
+because every time I ran out of space, I would be doing more
+work and I'll be running out of space more often.
+In the case of like a vector where we double the sides,
+is it like the amortized complexity being constant, kind
+of like saying like,
+since we have to copy over n elements and then push n
+elements constant time,
+isn't that kind of thing like,
+all of those steps in total equivalent
+that the pushback would be equal to like two?
+Right, that's what the amortized constant and looks like it takes
+two steps per push,
+but one of them is going to be slow, but over the life of the
+container,
+it's not like,
+the time you will have spent totally will still look like,
+that's what amortized complexity means.
+So after I push a full end with the copy and filling it up
+again,
+it still feels like of those 100 pushes, I only did 200 work,
+right? It just didn't all happen at once, because like 100 of
+them were at one work, and then the one of them was at 100 work.
+So over the life of that,
+it looked like two end per push, even though one of them was much
+more expensive than all the others.
+Yeah.
+Yeah.
+There's some memory allocators that you can futz around with in
+the STL
+that you can sort of work on that with, right? And if you
+need to, you can always obviously roll your own vectors,
+a pretty low-key thing. But yeah, you can definitely
+mess around with the memory allocators.
+All right, so that complexity analysis.
+Balance exercise,
+right? This is not what happens when you're out driving
+too late.
+It's a completely different balance exercise which I will
+neither confirm nor deny that I have done in the past after
+dark.
+Ugh! Ugh!
+Ugh!
+Ugh! I have no-
+Moving on!
+Alright,
+so
+Uhh,
+this is a balance, this is how they used to weigh things.
+You didn't really have a scale, you would just weigh this
+compared to that.
+Did you bring me enough rice?
+Well, here's my rock that you have to bring me enough rice to
+weigh as much as this rock.
+That's what a balance does.
+So,
+here we have these billiard balls, though someone has
+monkeied with one of them, and it has different weight.
+The goal is to try to figure out which one does it, right? And
+all we have is a balance.
+Can we describe an n-squared algorithm to do this?
+That's one of the hard ones.
+Can I describe a linear algorithm to find the heavy
+ball?
+Then after that, can I describe a couple of different
+logarithmic algorithms to find the heavy ball?
+All right?
+Who wants to crack at the hard one, what's the n squared
+algorithm?
+Yeah.
+That's right.
+If I compare every pair of things,
+that's gonna be n squared work,
+right?
+So here,
+weigh all possible pairs
+and check if any was an imbalance.
+And why I said this one was a hard one was because at one
+point you will have found the heavy ball and you will still
+have work to do.
+So like the hard part is thinking of like, why would
+this,
+it seems unnecessary,
+right? But this one is something we'll have fun with throughout
+this semester. This is really just n choose k.
+Of the k things that I have,
+how many ways,
+sorry, of the n things that I have, how many ways can I choose
+two of them?
+Right, and it's just n factorial divided by k factorial times the
+quantity of n minus k factorial. That's n choose two.
+When we're comparing all possible pairs and finding
+balance,
+do we still have a bigger number,
+right?
+As a result?
+Say that again.
+When we compare like all the pairs.
+And we find out the numbers are different.
+Yeah. Or the result will be the bigger
+number. Right,
+yeah.
+So as I look at this n choose k,
+this is what it shakes out as, really.
+This is when we say approximately n squared,
+the actual number is n times n minus one over two.
+Right, and this is the same thing as the handshake.
+Remember that, it's a pre-COVID thing, people used to touch each
+other.
+Handshake when you meet somebody.
+Right now it's fist bump. So I guess it's the fist bump,
+that's fine.
+The fist bump problem, I learned it as a handshake when I was in
+school.
+How do I get everybody in the room to meet and shake hands
+with everybody else?
+Well, there's N of you,
+and everybody but you is N minus one other people.
+So you have to shake N minus one,
+fist bump N minus one other people, and there's N of you
+that all have to do it.
+But when you fist bump him,
+he also fist bumps you, So we don't have to do that twice,
+once for you and once for him.
+The one is good enough, so we can divide by two here.
+And people have to,
+so built in, have to fist bump n minus one other people, and
+every time I do it, I satisfy two people's requirements.
+So this is n times n minus one over two, which is still big O n
+squared. That's n choose two,
+that's what we say when I gotta compare everything.
+There's always gonna be something n squared there.
+All right, so I'm sure you figured out how to do the linear
+one. that's much easier, right?
+Just pick any ball and weigh all the rest of them against it
+until you find the heavy one and then you're done.
+That's pretty straightforward,
+right?
+Pick one, compare it to the other, N minus one until you
+find the imbalance.
+That's the easy one.
+How about my logarithmic version?
+How do I do a logarithmic version of this?
+Yeah.
+and then divide that one,
+okay.
+Yeah,
+make sense?
+So remember I said it's gonna be linear if you're plus-plusing or
+minus-minusing.
+And it's probably gonna be logarithmic if you're taking
+your work and dividing it by two
+or multiplying your jumper by two or something like that.
+So if we take half the balls, put them here, half the balls,
+put them there, then with one weighing,
+I can say, you know what? but it's definitely not you have.
+You have 5,000 balls,
+2,500 here, 2,500 there, with one weighing,
+I can throw away 2,500 of them.
+That is speed right there,
+compared to our previous linear and or quadratic versions,
+right?
+Then I take the next 2,500,
+split them at 1,250 each,
+and figure out after two weighings, I've gotten rid of
+3,750 balls,
+that's pretty slick.
+What do I do when it's odd though?
+Make sense?
+So we've got nine of them.
+I put four here and four there.
+If it's here,
+this goes down.
+If it's there,
+that goes down.
+If they stay together,
+that's the one.
+So that's how that version works.
+This lets us do something that this is going to be the
+two-group version.
+And there's a question. Why is it sometimes
+problematical?
+Because sometimes we run into odd numbers.
+But this one is a
+big O log base 2 of n because we're dividing by 2.
+So what's our
+other logarithmic version?
+Is there another one we could do?
+Instead of two groups, three groups.
+Same thing with that odd number thingy, right?
+So if it's nine, I go three, three, three,
+perfect.
+One of them's got it, the other two can go away.
+If it's eight, I go three, three, two,
+same thing.
+Two of these groups are going away.
+So with three,
+I can keep dividing it and dividing it when there's an
+offset,
+right? So what happens if I got seven? Seven is like three,
+three, one.
+And it's either that heavy ball there or one of these three.
+Just pick any number you like, right?
+That's 20,
+any non-base three number.
+23,
+right? What do I put 23 in there?
+I've got 11 and 11 and one.
+It's good.
+22,
+I got 10 and 10 and two.
+I can figure it out.
+So three groups.
+Now, that's what I'm looking at. I already gave this away earlier
+on the math slide here.
+If I've got two groups, I say that's log base 2 of n.
+And the question is, is that log base 3 of n? And the answer, of
+course, is yes,
+right?
+There's a change of base formula,
+right?
+So it looks kind of like this because I can say log base 3 of
+n Is the same as log base 2 of n divided by log base 2 of 3 the
+change of base formula for logs
+Right and so since log base 2 of 3 is a constant I can say that
+this thing right here 1 over log base 2 of 3 this is just a
+constant times log base 2 of n So I can say the log base 3 of n
+is
+Some C times log base 2 of n. So yes, they're the same
+complexity
+Why didn't we try for a third logarithmic algorithm where I
+said let me divide it by four because three made it faster.
+Wouldn't four make it faster?
+Faster still?
+Four starts to fall apart because now I say well I got
+these two.
+Well they're both the same.
+Well at least I know it's not in there
+but do I know where it is? no cuz I've got the other two and
+divide that and then do that so with the two or the three
+I can use the balance once with four or more I have to use the
+balance more than once right because to figure out which one
+of these four has the heavy in it in the worst case I've got to
+do these two and then do the second two on a second weighing.
+So that's why we don't go up to higher divisions because we stop
+being able to use the balance once and then that breaks why we
+were cutting it in half.
+Imagine if I just, it'd be way faster if I just divided it into
+eight parts.
+Yeah, great, but I still have to do at least four weighings to
+figure out which one of the eight it is and so I haven't
+really sped anything up because the next step takes more work to
+get to.
+To divide by eight again, I have to weigh four times.
+So,
+all right,
+there's the balanced exercise.
+You are now officially done with Thursday's lecture.
+Puts us in time to jump onto today's lecture.
+Fear not,
+we always get behind.
+The slides are improperly spaced out.
+So the other classes are also behind.
+They're maybe a little bit less behind than I am, but we always
+end up behind here. And then there's a lecture near
+the end of the pre-midterm stuff that is quite short, and then we
+always catch up at that point.
+So,
+as I said, I'm a bit behind right now, but I will catch up.
+Replace it.
+Run it.
+All right.
+We got time for a section or two out of this
+Let's get after it.
+All right, so
+Measuring runtime performance.
+Here's that function. We said earlier was a good way
+to keep that thing linear But it had the bugs in it.
+So this is the the buggy version still
+But as we looked at it,
+here you see us counting all the steps involved there, and adding
+it all up, it looks like it's linear.
+So that's what we're used to.
+We have n as our input size. This is just a review slide, so
+we're good with that.
+How about ways to measure complexity here?
+We've already been talking about analytically.
+That's what we've been going on right now.
+Analyze the code itself.
+Recognize some common algorithms or patterns.
+When we can't do that,
+we count steps.
+And we also have recurrence relations to help us with that.
+Did I miss recurrence relations?
+No, we did some recurrence in there.
+We'll do some more in a bit.
+So we can do recurrence
+relations.
+You talked about it in 203, we haven't talked about it yet.
+Empirically though,
+we can do some stuff like measuring the runtime
+programmatically, which means usually marking up your code,
+tooling it up with some stuff to measure stuff in your code.
+That's one way to do it when you own the code.
+You can also use external tools if you can't or don't want to
+modify the actual runtime.
+You can do that with some external tools.
+And you always want to make sure that you test on inputs of a
+variety of sizes.
+So when we look at it.
+Programmatically means take measurements from inside the
+code.
+The plus three n come from.
+So I've got one plus. So it looks like
+this thing is that one there.
+This for loop is two plus two n.
+And in this situation, I've got a dereference,
+a multiplication,
+and an assignment.
+And so there's three steps inside the loop.
+And so that's where this three n comes from this line right
+there.
+Right, and this is one,
+two, three,
+four, because I'm writing it into out.
+so this comes from this line right there.
+Good?
+All right,
+good call.
+Oh,
+I was trying to do a Duo.
+Yes, it's me.
+Everybody loves Duo.
+All right,
+so this code here was written by Professor Kamel.
+I don't know if any of you have had him yet.
+He was a 280 regular for a while.
+He rotates in and out.
+If not, you might see him later.
+He wrote this for us.
+Not that we couldn't have written it ourselves.
+We just thought it was a clean way to do it.
+So we give him some credit.
+But this is code that I could insert into my code to actually
+measure runtime in there.
+And you see it includes this stuff from the chrono library.
+And this one creates some class called timer.
+And the timer has two private variables, one called cur,
+which is the current time, and another one, which is a duration
+that's called elap for elapsed time.
+It's got a constructor there.
+Timer gets created. It calls the default constructor
+on cur.
+So cur sets the current time, and then it sets elap to zero.
+That's what the default constructor does.
+Then I've got these three functions,
+stop, start, and reset,
+which if you've ever used a stopwatch,
+it does exactly that.
+Start,
+stop,
+and then reset.
+So when I hit start,
+all it does is say, well, the current time is now.
+So later on, when I say stop,
+I can measure the time at that now minus the current now and
+tell you how much time has elapsed.
+So that's what you see there in line 14.
+Elap plus equals what the current now is minus the old
+now.
+Reset just sets ELAP back to zero, much like the constructor
+did.
+And so this one allows you to do sort of lap times.
+So you can do a start and stop and start and stop.
+You keep adding to it like that.
+And then there's this getter at the end that says, give me the
+total number of seconds used.
+This returns ELAP as count there.
+So this is how it could be used. You see over here in this main,
+I declare a timer tclass line 26.
+Start the timer in 27.
+Do some stuff in 28.
+Stop the timer when I get done.
+And then it feels like my iPad just decided that the lecture
+was over.
+So it left the screen.
+You can check out the rest of this code.
+It's going to help us with the rest of the demonstration we
+come back to on Thursday.

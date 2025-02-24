@@ -1,0 +1,3517 @@
+Then I scroll all the way down and it says this number leaks,
+
+could I run leak checking if I exit the air?
+
+If I had to exit one more signal a test case would leak check.
+
+All of the times that I exit the air is when you have a wrong
+
+input.
+
+Right,
+
+but you could also have this fail,
+
+there's one of the tests that we need you to pass,
+
+or we'll try it and then we do it.
+
+So in essence,
+
+there's three of them that you have to pass,
+
+with a zero,
+
+right?
+
+So like,
+
+it's not that long.
+
+But there's the test that passed, that I passed with a
+
+zero, that should have, no,
+
+I passed with a one that shouldn't have passed with a
+
+zero? Well, you didn't necessarily pass the one, you
+
+might have just crashed or whatever.
+
+You might have failed for some other reason.
+
+So,
+
+I just...
+
+One of the tests that we checked before running,
+
+we're checking them to say,
+
+okay,
+
+you're probably doing the right kind of test.
+
+Wait, but this is the wrong answer,
+
+Barry.
+
+Right, right, but it's slowly so-called.
+
+We need to pass those tests.
+
+Because while you're failing it, it's unclear to the autograder
+
+at that time, right? Okay, so in essence, there are some tests in
+
+here that I just have to not fail.
+
+For it to, well,
+
+does failure count as, what's it called, being like over memory
+
+over time, but not like too long?
+
+No, those are just penalized. Okay, perfect.
+
+So in essence, I just need to hope and pray that the ones I
+
+get,
+
+the ones I fix, the right ones,
+
+and then that's 10 to 20 points right there,
+
+assuming I do correctly.
+
+Also,
+
+do you have any issues with Marie if you don't need to do
+
+it?
+
+No, not really.
+
+That's fine.
+
+Cheers, everyone.
+
+Thank you. Yeah.
+
+I appreciate it. No problem.
+
+I'm over it for five.
+
+That works.
+
+Bye,
+
+bye now.
+
+Go back.
+
+Whistle.
+
+I'll go out closer.
+
+Ok, I'll take a nap.
+
+Smile.
+
+All right,
+
+so um zoom does this nifty little little summary thing you
+
+see here I'm in the process of putting together a site so you
+
+can access all of these things it's just gonna be a github
+
+pages site got everything out there separated up until this
+
+week so I thought I was gonna show you the actual one but I
+
+didn't realize I hadn't pushed it so it's still stuck in my
+
+laptop but this is kind of cool it's all of the stuff over
+
+there,
+
+all the stuff on that thing is, you know, transcripted.
+
+And so then at the end of it,
+
+it builds this thing. It's a quick recap,
+
+next steps,
+
+and it gives a summary of the things that we discussed in
+
+there.
+
+And I do a little bit of cleanup and then drop it into a markdown
+
+file.
+
+And I should have those accessible to you here by the
+
+end of this weekend.
+
+So I'll get something back out to you about how to track it
+
+down. It might be a nice way to recap
+
+stuff, and I am still always trying to figure out
+
+how to use these GenII tools in useful ways.
+
+And so I was just walking across the courtyard today thinking of
+
+one.
+
+I am going to try it with the transcripts and see how well it
+
+can clean up the transcripts.
+
+So I do not know. We will come up with something.
+
+Let us see if I can add that to the site as well.
+
+So this will just keep flowing,
+
+and maybe you can get something out of it.
+
+All right,
+
+so we left off talking about these
+
+2D containers,
+
+and we had talked about a 2D container that was done at
+
+compile time. This is where we were given a
+
+C-style array with square brackets and constants to use
+
+for its size because we couldn't control that at runtime.
+
+But then we looked at this version, which does allow us
+
+runtime control because we're in charge of doing the memory
+
+management ourself by using new square brackets.
+
+New square brackets goes and gets you an array of those
+
+things.
+
+So in the first new square brackets up there in line four,
+
+I say give me a new square brackets of int pointers.
+
+So now I've got an array of int pointers,
+
+and that's what a is pointing to up there.
+
+So each one of those pointers points to a section of where I
+
+can find ints, right?
+
+It's not even an array of int pointers, I said that
+
+incorrectly.
+
+Because if you look at it, what's the type in four?
+
+It's an array of pointer to pointer to int.
+
+Int pointer pointer a.
+
+So a is pointers to pointers to ints.
+
+So as I go to a, you see it pointing to that memory location
+
+that I fill in with those three blocks on the new, The 0, 1, 2
+
+in each one of them is,
+
+I hope nothing's gone wrong at the village.
+
+Yeah,
+
+I can't deal with them right now.
+
+There we go.
+
+So then now that I've got this array,
+
+I give it some size with the new thing and that's what gives me
+
+vertical rectangle there and then in line seven and eight I
+
+loop through each one of those things which start out as
+
+formless and say give me a pointer to
+
+a block of memory that holds actual
+
+ints and so you see this new square brackets ints so what I
+
+get in these horizontal rectangles are places to hold
+
+ins and then that new is going to return me a pointer which I
+
+can very happily stick in there in a at r so every time I use a
+
+new I have to use delete every time I use new square brackets I
+
+have to use delete square brackets so I'm not declaring
+
+any one object in these ones these are all sorry not
+
+declaring uh I'm not allocating any single object all of these
+
+are allocating multiple objects so you use square brackets on
+
+those allocations new square brackets so that gives me a
+
+pointer not an item new does that and then at the end here
+
+you see I have to undo everything that they did over
+
+there and I do it in reverse order so I make new for the
+
+outer one then loop through for the inners on the news in four
+
+and seven eight and then I delete the inners delete square
+
+brackets and then delete square brackets the outer there so
+
+that's the work that I have to do if I want to have my own
+
+C-style arrays.
+
+This is what Vector does for you.
+
+Vector does this.
+
+It does the memory allocation. We say I want one more, I want
+
+to push back and there is not enough room.
+
+It does all of this junk for you.
+
+It does all the news, it does all the deletes.
+
+It is nice.
+
+So delete square brackets is going to go through and call the
+
+destructor on each one of those things.
+
+So if they're objects, they'll get destructed.
+
+If they're just built-in types, there's no real destructor for
+
+an int, for instance, and to just clean that up and go away
+
+with it. But in order for this to be
+
+good,
+
+delete square brackets has to call a destructor.
+
+Just like new square brackets calls a constructor.
+
+So the constructor gets called for you.
+
+In this case, we're just making integers so there's no need to
+
+call a constructor.
+
+But if I had some, for instance,
+
+a new square brackets stock order and there was a
+
+constructor for a stock order, it would initialize all the
+
+stock orders and then it would call a destructor as well.
+
+So what was your question on memory?
+
+It will call the destructor on each one of those items and then
+
+free up any memory that those things were granted initially.
+
+Now if they went and got their own dynamic memory, it's their
+
+job in their destructor to get rid of their own dynamic memory.
+
+Yes,
+
+right, right,
+
+so if we just called delete here, it would get rid of that
+
+square, that vertical box.
+
+It would free that memory up.
+
+It wouldn't free up the memory to the horizontal boxes, and
+
+then I would no longer have an access to those horizontal boxes
+
+because that would be considered unusable memory here in the
+
+vertical A. so that would be creating a
+
+memory leak if I were to do this before that,
+
+and then this would probably end up, it might end up segfaulting,
+
+it's hard to say, sometimes it'll let you get by,
+
+but you'll definitely be in the I hope it works zone as opposed
+
+to I know it will work if I do it in this order.
+
+When you make a nested vector,
+
+does it do this directly,
+
+or will it allocate an array of vectors?
+
+So,
+
+when we're talking about nested vectors, this is something I
+
+also said in office hours the other day to somebody, is
+
+there's no such thing as a two-dimensional vector.
+
+We say it because it's an easy way to say it, that's actually
+
+like syntactic speaking.
+
+What we really have is a vector of vectors.
+
+So each vector is always only one dimension.
+
+So if I have a vector of vectors, that's just saying,
+
+here's a collection of things.
+
+Oh yeah, and each one of those things are a collection of
+
+things,
+
+right? So if I do a resize on the outer vector, I'll get
+
+50 empty vectors.
+
+Then I will have to go fill them in.
+
+And so some people are looping there.
+
+There's also some syntax in the way that the resize or the
+
+constructor works that will allow you to do multiple
+
+dimensions at once.
+
+But you could,
+
+as this one does as well, if I had a vector of size 50, then I
+
+could loop through and make each one whatever size I wanted if I
+
+wanted them to be different sizes but if I want them to be
+
+all the same size it's easy enough to do that in one line I
+
+think I have it here I'll show you I think it's on this slide
+
+somewhere yeah I think it's there I'll show you that in a
+
+minute that's how you should be doing it it's weird that it
+
+comes up at this order in the lecture series that you should
+
+have been doing your 2d map this way I found somebody's there
+
+yesterday and they weren't resizing properly right and
+
+sometimes it works and sometimes it didn't.
+
+It was a really, really interesting bug.
+
+So there we go. Let's pro and con these.
+
+The fixed arrays, this is one where I give it the sizes at
+
+compile time.
+
+The pros and cons are it's deallocated when it goes out of
+
+scope. That's nice, I don't have to do
+
+any memory management myself.
+
+And this square brackets I, square brackets J uses one
+
+memory operation because the compiler knows the width of each
+
+row and you give it two square brackets,
+
+it does the multiply the row number by the column width and
+
+add the column position and then turns it into one memory access
+
+so that's a little bit faster even though it's the same syntax
+
+it's pretty interesting the cons are it doesn't work for a large
+
+end because you're trying to put all of this in your stack frame
+
+and there's only so big that you can make your 2d or multiple D
+
+array the size is fixed at compile time that's also a
+
+limiting factor if you have dynamic data and then lastly
+
+they can be difficult to pass as arguments to functions because
+
+you have to pass them with their second dimension.
+
+So if I was gonna pass a 2D array, I would have to say,
+
+as a parameter,
+
+I would have to say something like, you know,
+
+int parameter four.
+
+That's how you would pass it in a function call.
+
+As a type, because it has to know that the width of the
+
+columns is four. and the same thing is true if I
+
+go for a three-dimensional one so I might have to do something
+
+like int p square brackets you know for
+
+10 so I would have to know that stuff at compile time because
+
+this is the only way that I can declare them as parameters and
+
+functions so what we want to do however for the most part is to
+
+avoid fixed length buffers which means all of this stuff that I
+
+have to do a compile time for setting size should really only
+
+ever be used when your size is known and accurate.
+
+An old practice was to just pick some numbers,
+
+say, hey, I'm going to put your name in there, like what's a
+
+really long first name, what's a really long last name.
+
+I bet you I can probably get it with 30 characters,
+
+and just declare 30 bytes and then use that.
+
+That works, there's nothing wrong with it in terms of its
+
+functionality.
+
+But what happens is when that memory gets allocated, the
+
+memory isn't reset so whatever used
+
+to live in that memory still does live in that memory so a
+
+nefarious actor could just repeatedly ask for bunches of
+
+memory and then go look at what's in them maybe some other
+
+program had
+
+recently used a password or things like that and so we want
+
+to avoid these fixed length buffers,
+
+like at compile time, I'm gonna use this much,
+
+I don't know, maybe 200 bytes,
+
+and then somebody asks me for four bytes and I dump 200 bytes
+
+back at them, they can go in and read documents if a document was
+
+previously in memory there.
+
+So we wanna avoid a fixed length buffer when there's variable
+
+length data.
+
+Does that make sense?
+
+Make it the size you want,
+
+yeah.
+
+It's not buffer overflow,
+
+it's being able to look past the data in a buffer.
+
+So like I said,
+
+if I gave myself 200 bytes to put some stuff in there and then
+
+somebody said, okay, well,
+
+your first name is Steve, right? So then I put an STEVE null
+
+terminator and then there's 194 bytes of data that existed
+
+somewhere else. So we haven't overflown the
+
+buffer, but we've sent back more information than we should.
+
+It is a security issue, but it doesn't throw an error because
+
+you said I wanted 200.
+
+The fact that I'm only using six of them, that's my choice.
+
+So I still have 200 and walking through the rest of them is
+
+legal because that's memory that's specced for you.
+
+But you haven't cleaned it up.
+
+Sure.
+
+But I mean, at some point there was a program running before
+
+you, right? I mean,
+
+it's not like we have your own memory forever, for every
+
+individual program. They all have to reuse some
+
+memory from a previous time. So it's not going to be like
+
+able to, I think what you're saying is, it's not going to be
+
+able to look into some active document on another memory
+
+segment.
+
+That's not the way it's going to be working, but something had
+
+already been running in there, and if I just get my software to
+
+keep running as often as possible and keep asking
+
+questions and getting terribly long answers, I can,
+
+throughout the day,
+
+I can scoop your whole machine.
+
+So,
+
+yeah.
+
+This is the pros and cons of a fixed C-style array,
+
+yeah.
+
+Fixed size.
+
+Right.
+
+So in this one,
+
+see here's where we delete the rows.
+
+This deletes each one of the rows.
+
+This is the horizontal whites going away, and then this is the
+
+vertical white going away.
+
+No.
+
+The delete square brackets calls the destructor on everything in
+
+that container.
+
+So each one of these goes through and calls the
+
+destructor. So this one here will say let's
+
+call the destructor on zero, call the destructor on one, call
+
+the destructor on two, and then free up the memory of that first
+
+thing.
+
+Then it goes back to the next loop and says call the
+
+destructor on three, call it on four, call it on five, and then
+
+free up that memory.
+
+And so the same thing goes on when we finally get out of
+
+there.
+
+It says, okay, we'll call the destructor, if necessary, on
+
+zero,
+
+on one, on two,
+
+and then free up the vertical memory there.
+
+No,
+
+it does not,
+
+right, because what if I had another pointer to that and I
+
+didn't want you to delete it,
+
+right?
+
+That's why when you get it with that new square brackets there
+
+in 8,
+
+you have to get rid of it yourself with this delete square
+
+brackets in 18.
+
+When I got it in 4, I get rid of it here in 20,
+
+yeah.
+
+All right,
+
+the pros and cons of the dynamic stuff.
+
+This is where we are doing the second version here with news
+
+and square brackets, right? The pros are we can do triangular
+
+arrays or misshapen things, jagged arrays, whatever you want
+
+to call them.
+
+Not every row has to be the same length.
+
+It allows copying and swapping rows more quickly.
+
+I could do that and say, well, I want this row to be swapped with
+
+that row, and since they're just pointers, I just change a couple
+
+of pointers,
+
+and now a whole row has been flipped.
+
+Or if I want to invert a matrix,
+
+I only have to deal with the pointers on there and not
+
+the actual values.
+
+So this allows that to happen. The size can be changed at
+
+runtime.
+
+The cons are you have to do all the memory management yourself.
+
+You have to do the deletes. You have to do the news.
+
+It can crash or leak memory if you're not careful.
+
+And then because this is now two separate locations in memory,
+
+AI square brackets J is two memory accesses, so it's a
+
+little bit slower.
+
+The STL obviously gives us a vector and we can do that if we
+
+wanna do dynamic memory with containers,
+
+the vector is a much cleaner way to do it.
+
+It's doing essentially all of the exact same stuff, it's not
+
+magic,
+
+it's just somebody else wrote it and they tested it and they
+
+debugged it and they made it as efficient as possible,
+
+that's why we use it.
+
+So beware of off-by-one errors. You hear me talking about how I
+
+love a for-loop,
+
+and I hate to see a for-loop with something like that in it.
+
+Less than or equal to, why would you do that?
+
+You're just setting yourself up for failure,
+
+unless there's a particular reason.
+
+It looks like this person was trying to- I don't know what
+
+they were doing.
+
+But when I see code like that, my eye goes right to it and
+
+says, there's got to be a reason there.
+
+If there's not a really great comment next to that, I'm gonna
+
+tell you to fix it There's some time a reason to do that Maybe I
+
+only want to start at the second one and move through all the
+
+rest of them
+
+I don't know but unless it says I equals zero I is less than
+
+size So here somebody else did something else tricky right? I
+
+is less than or equal to size minus one How does that
+
+different from I is less than size?
+
+Doesn't it's the same so you should write that one in there
+
+But here what they were trying to do is say well if I'm gonna
+
+set I equal to I plus one I don't want to get all of them.
+
+So I want to move back off the end
+
+but this still ends up doing it wrong so just be careful on how
+
+you write these things here we're gonna skip the first one
+
+you get all the rest of them which is good but you can look
+
+at that and say if I was trying to assign things in X this does
+
+not get all of them this can only assign and minus one of
+
+them so if that's what I want here and I do something else
+
+outside of this loop I should definitely comment it and set it
+
+up oftentimes I will just do the whole loop as I should and then
+
+overwrite the one odd version if I want to.
+
+So then I can look at the loop and be happy with it.
+
+So just be aware when you see four loops that don't look good,
+
+they're probably leading you to ruin.
+
+There's also range-based four loops.
+
+I think they're learning that now in 280,
+
+right?
+
+You're doing range-based four loops.
+
+So those are a nice addition.
+
+You can see here a couple of versions of it.
+
+In this range-based four loop in line nine,
+
+I can say give me this item as a reference to
+
+integer.
+
+So it doesn't make copies.
+
+It just lets me reference it. So now any changes I make to
+
+item actually get reflected back in the original array.
+
+If I remove this ampersand here,
+
+if I don't do this by reference, then I'll be doing it by value.
+
+And as I truck through my array,
+
+item will be a copy of the next item in my array.
+
+And any modifications I do to it won't be translated back to my
+
+array.
+
+So this is how this version can be exactly like the version
+
+above it.
+
+You see, we're actually changing the thing in my array at square
+
+brackets i in line 6. And if we want to change the
+
+thing in my array with the range-based for loop, we have to
+
+use the ampersand.
+
+So you can do it either way, however you want to do it.
+
+I will oftentimes, a lot too,
+
+I would just auto this out.
+
+Auto is quick and easy. Then if I do make any changes to
+
+types later,
+
+it still works just as well.
+
+What happens is the compiler can say, well,
+
+we're looking through my array. What is my array?
+
+It looks back up in the code and sees that my array is an array
+
+of integers.
+
+So the auto can be inferred as the B type int.
+
+So feel free to do that and you can use auto with or without the
+
+ampersand just as well.
+
+So that's range-based for loops.
+
+They're great. The place that range-based for
+
+loops don't work is when you really do need that index to do
+
+something interesting with it, then you still have to go back
+
+to the high-based for loops.
+
+All right. So here's a piece of code.
+
+It's got a couple of errors in it.
+
+What do you see as errors?
+
+May occur.
+
+Yeah.
+
+What if argv1 is longer,
+
+right?
+
+strcpy in line three takes everything from argv1 and copies
+
+it into name.
+
+Right, and since name is a C string, that's a str,
+
+those str functions, those are all C library string functions.
+
+So strcpy,
+
+just,
+
+you give it a place to start and a place to write,
+
+and it just writes,
+
+writes, writes, writes, writes, writes, writes, writes, writes,
+
+writes, until it sees the null terminator,
+
+and then it writes the null terminator.
+
+So if my name happens to be 20 characters long,
+
+or more,
+
+it won't fit.
+
+It says name holds 20, but this is a C string, so we know that
+
+that really only holds 19 good characters and one null
+
+terminator. So I can have an error here if
+
+argv of one is longer than 19 characters.
+
+What else?
+
+Yeah.
+
+What if argv of one doesn't exist, right? We don't know if,
+
+that's why argc exists. to tell you where can I look.
+
+I've looked where I don't know that I could.
+
+So we can make this safer,
+
+something like this.
+
+Let's first make sure that argv of one is valid
+
+by checking argc,
+
+and then if I use a C++ string,
+
+there's an overloaded operator equals that lets me set a C++
+
+string equal to a char pointer and we'll copy all that
+
+information in there. So then I get the buffer that's
+
+the right size, bigger or smaller,
+
+right? Because up there, if my name is only two characters, I'm
+
+still leaving 18 characters of fresh data out there for
+
+somebody to troll through. So this one does a better job of
+
+keeping us clean in terms of memory and dynamic memory and
+
+not running out of space.
+
+String copy always ensures the last character in the array is
+
+in one.
+
+Yes,
+
+so the question is string copy always,
+
+well, it needs an LTerminator to stop, And so it's gonna set
+
+itself up to be strcpy this, the strcpy that, strcpy that.
+
+So it always does write, all of your string operations that
+
+modify will always write a null terminator.
+
+All your str operations.
+
+And most of your string operations do too for that same
+
+reason.
+
+All right.
+
+So assume that a given array has a majority of some element,
+
+meaning more than 50% of the array is this one thing.
+
+You can see it here in that line and there's nine values up
+
+there.
+
+Five of them are 99,
+
+so more than half of them are 99.
+
+The question is, can you in constant space and linear time
+
+figure out what that item is?
+
+It's non-trivial, it sounds pretty dang simple.
+
+Linear time, so I gotta make a pass through it, maybe two.
+
+Constant amount of memory, how do I keep track of which one is
+
+the most important one?
+
+Think about that one.
+
+The next one is an extension of that one as well.
+
+Same thing, now we have an array that has an element that repeats
+
+more than n over three times,
+
+so more than a third of the time.
+
+In this next thing, it says do it in K memory.
+
+Here in this case,
+
+K is equal to three.
+
+So the same thing would be also true if I could find something
+
+that repeats more than
+
+N over four times, I'd have to have a big O of four memory to
+
+get this done.
+
+So those are a couple of two tricky little thought problems.
+
+So this one you can find as Moore's algorithm.
+
+So,
+
+think about it,
+
+and go Wikipedia the thing,
+
+right,
+
+and this one is the misregrees algorithm.
+
+Check those two out.
+
+Think about them. See what you can come up with.
+
+If you can think about it as you're going to sleep trying to
+
+figure it out,
+
+be good.
+
+All right. If not,
+
+or even if you do, go check out the answer and see what you
+
+find.
+
+Okay. So let's talk about some
+
+containers here.
+
+We know what a container is. It's just some object that helps
+
+us contain other variables,
+
+multiple data items and usually they're all the same type.
+
+This is C++ after all. If you want some list to contain
+
+all willy-nilly types,
+
+then go walk your happy self over to Python.
+
+Have some Python fun.
+
+You can do that.
+
+C++,
+
+we like all our containers to hold the same damn things.
+
+right?
+
+They allow us protection and control over what's inside of
+
+them.
+
+What most people don't realize is when you say push back on a
+
+vector,
+
+that vector makes a copy of the thing that you just pushed back
+
+so it has its own
+
+version. It owns that memory.
+
+So push back creates copies.
+
+We can do aggregate operations on them like copying the whole
+
+thing, editing them individually sorting,
+
+things like that.
+
+We can combine them.
+
+Multiple containers together make more complicated things.
+
+We've already seen a multiple container version in this map.
+
+A container full of containers, a vector of vectors.
+
+But a database is nothing more than a whole bunch of containers
+
+all wrapped up together.
+
+Database is a collection of tables, a table is a collection
+
+of rows,
+
+rows a collection of columns,
+
+and yada, yada, yada. So containers are some stuff
+
+that we're going to use quite often.
+
+The ones we'll be looking at, vector, list,
+
+stack,
+
+queue,
+
+deck, map,
+
+of course,
+
+avoid list during the semester.
+
+We probably won't have to use the stack and queue too much
+
+individually because we've got the map,
+
+I'm sorry, the deck to do it.
+
+We will be talking about map and unordered map in the second
+
+half.
+
+Those are some really cool structures
+
+and everything we're pulling is gonna be out of the STL.
+
+So most of the data structures in 281 one are gonna be
+
+containers.
+
+Today we're gonna be looking at array-based containers as an
+
+illustration to figure out how can I do this sort of thing.
+
+When I look at a container,
+
+here's some of my basic operations.
+
+I need to be able to create and destroy one.
+
+I need to be able to add things or remove things from it.
+
+Some of them allow me to get an element.
+
+Some of them allow me to, well, I should always be able to check
+
+the size. I mean, if I can't put something
+
+in there and take something out,
+
+it's not really that good a container, is it? It's just kind
+
+of a dead end. So I've got most of these
+
+operations on any container. They might behave differently
+
+because getting an element in the stack is different from
+
+getting an element in the queue, but they both have a method of
+
+get.
+
+Then it says what other operations might be useful and
+
+that can vary from container to container.
+
+So as we look at accessing containers, we've got two ways
+
+to access them.
+
+Of course,
+
+we've got two ways to store things.
+
+we talked about connected and contiguous,
+
+and as we're going through that memory,
+
+when it's connected,
+
+I can do a sequential investigation.
+
+Look at this thing, look at the thing next to it.
+
+Look at the thing next to that, look at the thing next to that.
+
+That's sequential access.
+
+In containers that have sequential access only,
+
+I can't jump into the middle of it.
+
+I have to start at the beginning and next, next, next, next, next
+
+until I get there.
+
+I can still have non-contiguous or connected memory that has
+
+only sequential access.
+
+You should be thinking,
+
+yeah, that's right. That's what a linked list is.
+
+It's non-contiguous,
+
+but it is sequential access only.
+
+It's really easy to do sequential access on connected
+
+things.
+
+To get to random access, I have to be able to calculate ahead of
+
+time where this information is gonna be.
+
+So I'll see those a lot more when I've got contiguous memory.
+
+Because in contiguous memory, I say it starts here, and if you
+
+want the fifth one, I just have to multiply by the size of the
+
+thing that I'm looking at, jump that far over,
+
+constant time I get it.
+
+So these are the ways that we access in sequential and random.
+
+Random,
+
+even though it sounds random, doesn't mean we're just picking
+
+anything.
+
+It means we have the ability to pick anything.
+
+We're not asking for some random value back.
+
+We're randomly asking for a value.
+
+So this one is,
+
+how do I copy from one array to another?
+
+You might say, well, I know how to do that.
+
+I've got this source array in line two, I've got a destination
+
+array,
+
+same size in line three, and then this nifty little for loop
+
+in five, six,
+
+looks great.
+
+Read from source array at i,
+
+write to destination array at i,
+
+perfectly good copy.
+
+Great.
+
+Now we move down a little bit though, and I start using
+
+pointers to do it, even though I said let's avoid pointers
+
+whenever possible.
+
+We're going to start with this as an example though.
+
+So if I take this source pointer and set it equal to the base
+
+address of the source array,
+
+that's what you see in lines eight and nine is the
+
+destination pointer on the destination array.
+
+So now I've got these two pointers that point to the
+
+beginning of the data in those two arrays.
+
+Then look at the loop that I've used here in lines 11 and 12 to
+
+do the actual copying,
+
+right? The copying says let's dereference the source pointer.
+
+It's on the right hand side of the equal sign.
+
+So we're dereferencing the source pointer for a chance to
+
+read something.
+
+And over here on the left hand side of the equal sign, that's a
+
+L value, I'm gonna say let's dereference the destination
+
+pointer for the purpose of writing.
+
+The equal sign does the work. whatever was that source pointer
+
+is now a destination pointer.
+
+Then both of these things have post increments.
+
+So after we're done dealing with them,
+
+those pointers move forward in their respective containers.
+
+You see that's just going to write this first thing, move
+
+over, write the second thing,
+
+write the third thing, and so on.
+
+So it's doing what the for loop above was doing.
+
+But then what about the control on this loop? This is a while
+
+loop now. It's not a for loop anymore.
+
+say the source pointer that's an address
+
+as long as it's not equal to the base address of the source array
+
+plus size that's the first thing past good memory right because
+
+if there's four things they're numbered zero one two three if I
+
+look at four I'm out of bounds so this one says as long as I'm
+
+not up to four,
+
+I'm in the good copy area and do this thing here.
+
+So it's like,
+
+this does exactly what that one does.
+
+They do exactly the same thing. So the first one obviously looks
+
+a lot better.
+
+It's got all the sugar that we like in there.
+
+For loops are pretty sugary,
+
+right?
+
+Square brackets are definitely sugary.
+
+So why not go with the beautiful one?
+
+Well, it turns out that we can do some pretty cool stuff with
+
+this and we'll learn how the STL uses this type of approach to
+
+say,
+
+if I don't restrict myself to being only able to use square
+
+brackets.
+
+So you can see for sure
+
+that that five, six code is not going to work on a linked list.
+
+It'll work on an array, but it won't work on a linked list.
+
+What about this?
+
+This code would work on a linked list if, when I say plus plus, I
+
+know that that means next,
+
+right? If I say dereference allows me to read and write, and
+
+I can compare to where I should be.
+
+So this is a more generic way of doing it, and we'll see that
+
+more in a minute.
+
+So let's look at what goes on in our containers.
+
+we've got a few options when we put things into a container.
+
+We can put things in there by value,
+
+we can put things in there by pointer,
+
+we can put things in there by reference.
+
+References and pointers are pretty close to one another, but
+
+you can't assign to a reference later.
+
+I can set in a reference up when I declare a reference variable.
+
+This also happens when I turn a reference into a parameter.
+
+It's like let's put that thing on there now, but I can't later
+
+on and say, well, I've got this int reference.
+
+I want it to be an int reference to j now.
+
+So pointers have more flexibility because I can always
+
+redirect a pointer.
+
+It's harder to redirect a reference.
+
+So when I put stuff into a container, I say if I put it in
+
+there by value,
+
+who owns it?
+
+Only the container owns it. That's great.
+
+If I put a pointer in there,
+
+I mean,
+
+the container has the pointer, but who knows what's at the
+
+other end of it?
+
+Anybody who has a copy of that pointer You can just say,
+
+delete it,
+
+and it goes away.
+
+So the container can't be sure that what's in there is actually
+
+valid if you give it pointers, which is a reason to not try to
+
+store a whole bunch of pointers.
+
+Or unless you've got a real need for a dual purpose,
+
+I need to have access to these things over here, and I also
+
+need to have another container that points at them as well.
+
+And I know that my primary access is going to be
+
+responsible for memory management,
+
+allocating, deallocating, who owns it.
+
+And my secondary one with the pointers,
+
+that one isn't going to be responsible for things.
+
+And so we don't try to do this a whole lot because we don't need
+
+it in every situation.
+
+We're much more likely to say,
+
+hey, I really want my container to run the show.
+
+I put some stuff in there, it's in there.
+
+When it comes out, I want it to be gone.
+
+If I've got just a pointer in a container to some stuff and I
+
+say, okay, let's get rid of that pointer, I take it out of the
+
+container, and it's gone.
+
+That's great.
+
+The memory, however, is still allocated.
+
+And unless I'm doing some garbage collection later or
+
+doing some other memory management, it adds the multiple
+
+steps in there. So that's why I said it's a
+
+little unsafe to put pointers in containers because you never
+
+know what's gonna happen
+
+outside of the container.
+
+And the reason why we don't do references is you can't really
+
+assign to a bunch of references.
+
+So the most common thing that we put into a container is by
+
+value, because that does allow the container to control it,
+
+own it,
+
+be responsible for making and destroying it, and that's how we
+
+like things to go.
+
+When we ask a container for,
+
+give me what's in your container, how do we do that? If
+
+we do it by value, then we're doing copies every time.
+
+What's in your array at this location? It's this four, so now
+
+I've got a copy of the four and that four.
+
+If I end up changing this,
+
+it hasn't changed this thing.
+
+So by value is a bit rarer, it's costly for objects.
+
+By pointers,
+
+that's another thing that could be kind of icky,
+
+right? So if the container owns the thing and you ask me for
+
+something in the container and the container gives you back a
+
+pointer to that thing inside the container,
+
+Sometimes it works,
+
+sometimes it doesn't though,
+
+right?
+
+So imagine you had a vector and somebody says, let me get square
+
+brackets 10 on the vector.
+
+You say, okay, well, here's a pointer to the thing that's at
+
+10.
+
+Then I write that down because I'm going to come back to that
+
+thing that's at 10 later.
+
+I wanted to know who was the 10th most blah, blah, blah,
+
+blah.
+
+Great.
+
+Then some more data gets pushed into the container.
+
+Push back,
+
+push back, push back oh wait we're out of space what does the
+
+vector do vector packs up and leaves right the vector says let
+
+me go get twice as much memory copy my old stuff into their new
+
+stuff and then we'll keep going from there and where is that
+
+pointer to 10 now pointing it's pointing to the old number
+
+10
+
+which could no longer be valid so that's why we don't want to
+
+give pointers away to things inside our container unless we
+
+know for sure that the container is not going to move or redo
+
+things.
+
+So the more common way to do it is with the reference.
+
+When you ask for it I can give you a reference and that
+
+reference isn't going to change.
+
+So as we look at our design on containers that's how we deal
+
+with it. This is an example of how memory
+
+ownership works.
+
+If I've got this block of rainbow colored dots here and
+
+I've got a couple of pointers to it,
+
+a couple of separate names. Maybe I might call it array A in
+
+one function and call it array B in some other function.
+
+And they're both pointing back at that thing.
+
+What happens when it's time to go away? If I modify A,
+
+do I realize that's modifying it for B?
+
+And every once in a while, you might come up with an
+
+application where you would wanna do this.
+
+I wanna have one container and two different people that are
+
+able to modify it separately without passing it back.
+
+You don't do that too often though.
+
+Because then, you know,
+
+whose turn is it to get rid of it?
+
+Is array A gonna go out of scope and then call delete on its
+
+pointer?
+
+If it does, what happens when array B goes out of scope?
+
+Does it call delete?
+
+If it does,
+
+we could have some problems there.
+
+We double delete,
+
+that's gonna cause a crash pretty quick.
+
+So we wanna know who owns the memory
+
+and that's why it's pretty good to keep this stuff clear and
+
+separate.
+
+When we do construction,
+
+every time I do copy construction,
+
+we have to make duplicate objects.
+
+By default, the operating system is going to give me a pure
+
+member copy.
+
+So I say something has dynamic memory in it,
+
+and then I make a copy of that object.
+
+The second object has a pointer to the same location.
+
+I got a previous slide.
+
+That's why we write our own copy constructors.
+
+so that we're sure that we get our own memory.
+
+Go ahead.
+
+The data structure is shared across threads.
+
+How does it feel to be able to,
+
+how does it feel when I can use the thread?
+
+The data structure is shared across threads.
+
+How do we know when to instruct it?
+
+Well,
+
+that's one of those multi-threaded programming
+
+skills, just trying to figure out when that does.
+
+Because somebody does ultimately have to own it.
+
+Some thread you would think would be in charge of it.
+
+Or you can do it with reference counting as well.
+
+That's another way that's done.
+
+So in reference counting,
+
+you say, well, I'm gonna get some memory and no one's gonna
+
+own it.
+
+And I'm gonna pass the pointer off to you.
+
+And I keep a separate count. It says, well, one person has a
+
+pointer to this.
+
+Right, and then you ask for it. I say, okay,
+
+I'm gonna pass the pointer off to you.
+
+Now you both have pointers to it.
+
+I upgrade that count so now two people have pointers on there.
+
+So then when you say, okay, I'm done with it, you sort of throw
+
+my pointer away. Great,
+
+now you say, well, I'm gonna decrement that.
+
+Now there's only one person there.
+
+So I can't get rid of it yet.
+
+Somebody's still counting on that memory.
+
+And then when you throw it away,
+
+say, okay, well,
+
+now there's nobody that's referencing that memory, it's a
+
+good time to go clean that up.
+
+So that's another way that that gets done through reference
+
+counting.
+
+That's a process that's normally called garbage collection,
+
+that's how Java does their stuff.
+
+Garbage collection, that's how smart pointers also work in C++,
+
+but they're not common, but that's what's going on there.
+
+Reference counts.
+
+All right,
+
+so objects could be owned by some other container.
+
+The destructor may need to delete each object.
+
+So what we really wanna do is just be aware of where the
+
+memory's going, who's got it.
+
+The autograder has the memory check on there.
+
+In project one,
+
+there's almost no reason why you would have a memory leak.
+
+You shouldn't do any news or deletes in project one.
+
+Rare that we have the project that even has news or deletes in
+
+it.
+
+So when you run into memory issues in project one,
+
+it is because there are usually a set of two or three tests that
+
+you have to pass before the autograder will run memory
+
+checking. So if you're still failing a
+
+bunch of tests and you happen to fail one of the tests that the
+
+autograder wants you to be able to pass so it doesn't get broken
+
+into a memory checking hell,
+
+then it won't do your memory checking.
+
+So if you're ever stuck getting zero out of 10 memory
+
+checkpoints,
+
+it might not be because you're having a leak.
+
+It might just be because the autogrider has deemed it unsafe
+
+to run Valgrind,
+
+which is a separate thing.
+
+Later on, when we do get into things that might have some new,
+
+then you have a chance of really leaking memory, but it's about
+
+making sure that you're not doing bad things in memory.
+
+One of these things that you can fix that with is,
+
+after you do a delete of some pointer,
+
+if you set that pointer equal to null pointer,
+
+this is a safety thing here. Because later on,
+
+if I delete a pointer
+
+and then try to delete that pointer again,
+
+that's when I get a double delete error,
+
+and it will crash my program.
+
+But if I delete the pointer and set it equal to null pointer
+
+then I tried to delete a null pointer okay that's fine I know
+
+you really didn't want to do anything bad so if you do delete
+
+and then set it equal to null pointer instead of just plain
+
+deleting it you'll get some security there if you end up
+
+doing something where you double delete things because delete no
+
+pointer doesn't do a thing because
+
+people don't want you doing stuff for them, right?
+
+Like when it could take time, you think, well, I gotta delete
+
+50,000 of these things, and I know that I'm gonna do the right
+
+thing afterwards.
+
+I don't want you deleting 50,000 things and doing 50,000
+
+additional assignments for me just to set something equal to
+
+null pointer.
+
+So that's really what it is. And that's pretty common with
+
+all of the way that C works, right?
+
+You say you wanted 50 bytes. Okay, I give you 50 bytes.
+
+Well, did you clean those bytes for me? No,
+
+because most people don't want me to clean the bytes for them.
+
+They just want to be able to stick stuff in there.
+
+And so it goes for speed by not doing things that you don't
+
+explicitly request.
+
+So that's why delete doesn't explicitly replace them with
+
+null pointers.
+
+So that whole C fills.
+
+All right, so when we finish the end of a program, you should
+
+have deallocated all of your memory.
+
+However,
+
+the system will fix that for you,
+
+right? The system already has specced out the memory your
+
+program is going to use while it executes,
+
+and then when it goes and terminates,
+
+it gets all of that stuff back.
+
+We still want to make mistakes along the way.
+
+One of the things that Windows used to do back in the old bad
+
+days,
+
+if you worked in a machine that had Windows 3.1
+
+on it, like two or three times a day, you just had to reboot.
+
+You just had to reboot the whole machine because the dynamic
+
+library system
+
+was just prone to leaking, and you would use your machine for
+
+half a day, and then you'd have leaked so much memory every time
+
+it went to go get new memory,
+
+that I can't find it, I can't find it, I can't find it,
+
+there's no money, I can't get it, I can't get it, and it would
+
+take longer and longer to find where you could get that and get
+
+to eventually one of the point where it would go out to get
+
+memory
+
+and never come back,
+
+right? Because I can't find it and I can't stop looking,
+
+and that's when a lot of the old Windows crashes came up.
+
+So that's from memory leaks.
+
+If your code is leaking just a little bit, that's sometimes
+
+okay. But if your code is leaking a
+
+little bit,
+
+and if it leaks just a little bit,
+
+the system will recover that memory when your program
+
+terminates.
+
+But if it leaks just a little bit and then loops a million
+
+times,
+
+that's more than a little bit. So we're trying to make sure
+
+that you're not going to leak here.
+
+This is what Valgrind will help you do here.
+
+Use Valgrind on your program. It does,
+
+Diorio just talked to me the other day, he's like, you guys
+
+are still using Valgrind? How come you're not using the
+
+address sanitizer?
+
+We do use the address sanitizer.
+
+But the address sanitizer and Valgrind
+
+have an overlap somewhere around 80% or maybe more, who knows,
+
+there's some things that happen dynamically that the address
+
+sanitizer just can't pick up.
+
+That Valgrind does.
+
+So the builds that you have are automatically,
+
+the debug builds automatically use the address sanitizer.
+
+If you want to use Valgrind,
+
+remember you have to type make valgrind and then you would
+
+have some executable like hunt underscore Valgrind.
+
+This one would work with a Valgrind profiler memchecker.
+
+Hunt Valgrind will work there because the standard hunt
+
+underscore debug uses the address sanitizer flags and
+
+Valgrind and address sanitizer flags don't get So if you want
+
+to use Valgrind,
+
+do a make Valgrind or if you type make all,
+
+it will build a Valgrind build for you,
+
+and then you use that one here where you would say dot program
+
+underscore Valgrind.
+
+All right.
+
+Great.
+
+All right. Let's get into this bounce
+
+checking array here.
+
+I talked already about new and new square brackets.
+
+I said earlier that new calls the default constructor to
+
+create an object.
+
+If I call new square brackets, it's going to give me an array
+
+of them,
+
+and also call the default constructor on each one of them.
+
+Delete will call the destructor to get rid of an object,
+
+and delete square brackets will take an entire array and call
+
+the destructor on each one of them in turn and then release
+
+that memory.
+
+You just have to use them in pair, delete gets called when I
+
+call new, delete square brackets gets called when I call delete
+
+new square brackets.
+
+Here we are now.
+
+We're going to add this array with bounds checking.
+
+And so this one is always in danger of me turning it into a
+
+larger assignment.
+
+I want you to do some more stuff like vector.
+
+This is kind of like a vector.
+
+This is a really cheap vector because it behaves like a vector
+
+and it's got memory that's on the heap and not in the stack.
+
+So we see we've got this class array up here and it's got a
+
+member that lets us know how many items are in there, call
+
+that length.
+
+Then it's also got a pointer to, in this case, just doubles.
+
+So you could make this one templated if you wanted to hold
+
+other things.
+
+It'll be some different amount of work there.
+
+If you wanted to make one for integers,
+
+you could do that separately as well.
+
+But for the purposes of the slides,
+
+it's just simple enough to use doubles only.
+
+That's all I need. Those are my two private
+
+variables.
+
+Then I've got some public functions.
+
+You see I've got a default constructor there.
+
+No, that's not a default constructor.
+
+I don't have a default constructor.
+
+There's no need for default constructor.
+
+Default constructor isn't going to help me here because it's
+
+going to set my length to zero,
+
+and then my data is a null pointer,
+
+and this control doesn't have the ability to change its size
+
+later at runtime, only at declaration time.
+
+So no default constructor, but you will see that these two
+
+things are written here, so even if I was to call one by default,
+
+those two things would be initialized.
+
+This is a really good way to write your structs.
+
+Hopefully that you're doing this in P1.
+
+Your tile could have the terrain always set to water
+
+and the direction always set to never been here before.
+
+Then if you make a map of 2D of them,
+
+your map's already ready to go.
+
+So use this static initialization whenever you can.
+
+with simple members,
+
+definitely do that.
+
+All right.
+
+We do have a custom constructor in line six, that says give me a
+
+length and I will set that as something I remember as my
+
+personal length and go get that many doubles.
+
+You see there in this is called an initialization list.
+
+It's after the constructor parenthesis and a colon,
+
+but before the curly braces.
+
+So there's no real code in there, but the initialization
+
+sets length,
+
+and then it also sets the data to be something that's good.
+
+Good?
+
+Yeah.
+
+Is that static initialization equivalent to using a member
+
+initialization list?
+
+This question is the static initialization equivalent to
+
+using a member initialization list.
+
+So if you wanted to be like write your own default
+
+constructor,
+
+and have those things in a list,
+
+it would work about the same, yeah.
+
+It's not going to be more or less work there.
+
+So in this case,
+
+I'm going to use these for almost all my default
+
+constructors.
+
+Unless I've got to do something special like go and allocate
+
+some memory at default construction time,
+
+do that.
+
+All right. So there's our constructor in
+
+six.
+
+We see our destructor in eight.
+
+It's got the tilde,
+
+it's got the class name with parentheses after it and no
+
+arguments. That is a destructor.
+
+There's no return type,
+
+it's a destructor. So the only thing that I really
+
+have to do is clean up any new or new score brackets that I've
+
+done, and since I've got a new score brackets in the
+
+constructor,
+
+I'm going to put a delete score brackets in the destructor.
+
+After that, I set the data equal to null pointer just for safety
+
+sake,
+
+and that's the destructor.
+
+Lastly, I've got a nifty little getter here that says, what's
+
+the size of this thing,
+
+and I just return that length member, and we're good to go.
+
+All right.
+
+There's our structure.
+
+Let's peek into this a little bit more.
+
+We're going to try to turn this into array,
+
+then when I come to access it, if I'm out of bounds,
+
+it's going to let me know rather than let me crash.
+
+Get this question all the time, should I use this as a class or
+
+struct?
+
+What's the difference?
+
+From a compiled standpoint,
+
+there's no difference.
+
+Code that you compile with a class is exact same as the code
+
+that you compile with a struct. From an access point, however,
+
+classes hide their data by default.
+
+So everything that I declare right up there at the top in
+
+lines two or three,
+
+those are private member variables.
+
+If this was a struct,
+
+those would both be public member variables.
+
+So what this does is if I declare myself an array,
+
+I can't say array.length or access array.data.
+
+They're private. So that's the only difference
+
+between structs and classes.
+
+Physically,
+
+you can make parts of a struct public.
+
+Well, you don't need to. They're all public by default.
+
+But you can make parts of a struct private,
+
+just like you can make parts of a class public.
+
+So if you really want to use one, you can always use one.
+
+But since the beginning of C++,
+
+structs already existed before C++ came about.
+
+Structs lived in C,
+
+and that's where you put aggregate data together, and it
+
+was a data-only thing.
+
+Classes came along and said, well, we want data and
+
+functions, so we're going to be able to put a function inside
+
+there.
+
+So that's why when we use types that we build our own
+
+custom types,
+
+if we use them as data only,
+
+the tradition is to use a struct.
+
+If we wanted to have some methods to do some work on its
+
+own,
+
+that's what we would jump in there and turn it into a class
+
+by tradition. There's no reason to do
+
+otherwise.
+
+You don't want people to look at you all sideways and stuff if
+
+you're doing crazy stuff
+
+like all these member functions inside a struct.
+
+I mean, it works, but why would you do that?
+
+Give you the eyes, you see what I'm saying?
+
+You got all of these functions inside a struct.
+
+People don't understand why.
+
+Same thing too, is you've got a whole class and all you ever do
+
+is make every variable in that class public and then dot those
+
+things. People are like, well, why would
+
+you put that in a class?
+
+You should just use a struct. They still give you an object
+
+either way, but that's what we should do.
+
+So, here's the copy constructor.
+
+Look at this copy constructor here.
+
+We know it's a copy constructor because it is a function with no
+
+return type.
+
+The function name is the same as the class array.
+
+This is line two here.
+
+And then I know it's a copy constructor because I'm passing
+
+in a const reference to something of this same type.
+
+You see, const reference array,
+
+So now to do the deep copy,
+
+which is important here,
+
+because even without writing this copy constructor,
+
+I get what's known as a shallow copy.
+
+The shallow copy just does a member by member assignment.
+
+So the second one's length is the same as the first one's
+
+length,
+
+but the problematical part is the second one's pointer is
+
+pointing at the exact same place as the first one's pointer.
+
+Well, it's got this thing going on in memory.
+
+this one changes it this one feels it so the deep copy says
+
+well if you've got your memory over here I'm gonna go make my
+
+own copy of the memory over there and so that's what goes on
+
+here we set our length as you might imagine and go get the
+
+data for it now we've got our own separate data separate from
+
+a and all we need to do is get a copy of everything that a has in
+
+it into ours and that's what this nice little for loop does
+
+here run through zero to length and set what's in my data,
+
+data at i,
+
+equal to a's data at i.
+
+So that's a deep copy,
+
+and this is what you need to do when you've got dynamic memory
+
+here.
+
+Once I've gotten this far into it,
+
+you see I can do all of these things here.
+
+I can say give me an array a of size 10.
+
+That just uses my simple custom constructor.
+
+Array b uses my custom constructor as well.
+
+Array C,
+
+this one uses a copy constructor,
+
+right?
+
+It says I'm declaring C and I'm creating it from B.
+
+You can also put those in curly braces.
+
+That's the more common way to do it in C++ now.
+
+A, curly braces there.
+
+That one works fine.
+
+And then this one down here,
+
+array D is equal to B. You might say, well, that looks
+
+like an assignment.
+
+And you'd be almost right,
+
+because the compiler says, well, if you're doing an assignment at
+
+declaration time,
+
+what you're really trying to do is a copy construction.
+
+So compiler jumps in with a bag of sugar, like, OK, I know what
+
+you did.
+
+Well, here's what you really meant,
+
+right? So these two things are equivalent.
+
+This one calls the copy constructor.
+
+It does not do operator equals. It does not do assignment,
+
+even though it It looks like it does.
+
+And then lastly,
+
+this one is where I have a problem,
+
+because this is me actually doing an operator equals.
+
+So this is just gonna set length equal to length,
+
+my pointer equal to your pointer.
+
+And so now A and C have the exact same data.
+
+When it comes time to destruct both of them,
+
+one of them's gonna get by and the other one's gonna cause us a
+
+crash.
+
+So, we'll fix that next.
+
+This just talks about the complexity of copying.
+
+You can see it all there in counted steps.
+
+I do length,
+
+that's one step.
+
+I go and allocate memory for data, that's one step.
+
+Then I've got this for loop that goes n times to put a constant
+
+amount of work into copying things from a to data.
+
+So in the best case, worst case, and average case, this is always
+
+linear.
+
+One other thing that I want to point out here is that the order
+
+of this initialization list is important.
+
+You see here I've got length comma data.
+
+It has to be done in that order because they were declared in
+
+this order.
+
+So I declared length in line two, I declared data in line
+
+three. If I try to change the order of
+
+these two things,
+
+the compiler will give me a nasty message and not compile.
+
+You don't have to fill every single one in your constructor,
+
+but if you do fill them in the initialization list, they have
+
+to be done in the order. So it's always a good idea in
+
+your constructor or by the end of your constructor to have
+
+initialized all of the memory.
+
+So you can either do that with static initialization,
+
+or stuff in the initialization list,
+
+or statements inside the body of the constructor,
+
+or some combination of all three of those things.
+
+But what you should be doing is making sure that when you create
+
+a new object of your own that everything gets initialized one
+
+way or the other,
+
+either static initialization list or actual lines of code in
+
+the constructors.
+
+Really good and will keep you from having
+
+horrendous crashes later that are really difficult to track
+
+down.
+
+All right.
+
+So let's talk about now
+
+operator equals
+
+Said we needed that earlier
+
+So we can think about how is operator equals gonna work right
+
+operator equals needs to make sure that there's enough memory
+
+there Then it's gonna copy all that stuff over there Say well,
+
+wait a minute Isn't that what the copy constructor did the
+
+copy constructor made sure there's enough memory there and
+
+they copied all the things over there So rather than write that
+
+code twice, which I don't ever want to do I never want to write
+
+code twice if I don't have to write that comes from a really A
+
+solid coding principle is called dry coding
+
+because in dry coding,
+
+you don't repeat yourself.
+
+So you say, okay, well, then I can write this one copy from
+
+function.
+
+You see it there in lines one through nine.
+
+What does it do?
+
+It gets rid of the old stuff,
+
+gets me enough memory for the new stuff,
+
+sets my length, and then loops through and copies things over.
+
+That's great. I can use that function, you see
+
+it here,
+
+I just call that function all by itself
+
+in the copy constructor.
+
+And with a little bit of work here in operator equals,
+
+I'm gonna call that function as well.
+
+As long as I'm not setting myself equal to myself,
+
+then I'm gonna do this copy from and then return dereference
+
+this.
+
+So this is an okay way to do it.
+
+The problem with this one is it has that, what we call the idiot
+
+check in there,
+
+right? See that there in line 16 if the thing that I'm setting
+
+myself equal to is not already me because who sets a equal to a
+
+idiots, right, but
+
+Just being an idiot shouldn't make things broken.
+
+So if you set a equal to a you would expect that
+
+It'd be equal to a
+
+If I didn't have the idiot check if I just said hey when they do
+
+operator equals copy from other What happens we jump up with
+
+this and other?
+
+Being the same thing
+
+Into line one there the first thing I do
+
+Delete all my data
+
+So now this has no data other has no data
+
+Because they're the same.
+
+I say, okay, well now set my length the other's length, okay
+
+I think it's 10 and then I give myself a new 10 set of doubles
+
+and I say well Let me copy what's in the one to the other
+
+and all that does is whatever new 10 I got
+
+it
+
+Copies them over each other. So here was the original 10 So
+
+we're just gonna delete those and then make our new stuff
+
+there So now A equals to A has completely trashed your data.
+
+That's why the idiot check is there.
+
+But then you say, well, I'm not an idiot.
+
+I would never set A equal to A.
+
+I don't wanna spend the time doing this dumb check every
+
+single time I do an operation as operator equal.
+
+I gotta do an idiot check.
+
+I don't want that.
+
+So we'll get to a better version of copying this.
+
+Here it is.
+
+Those astute viewers will look back at lines three through
+
+eight and say, hey, that's just our original copy constructor.
+
+It's what it is, it's the original copy constructor.
+
+So this best copying is known as the copy swap method
+
+because when it comes time to set our two things equal, that's
+
+where the operator equals kicks into line 10 there See the first
+
+thing we do is we make a copy.
+
+We call it temp with a copy constructor.
+
+We make a copy of other
+
+So now I've got this local
+
+Thing that is a copy and I've got my original which is this
+
+and I've got other
+
+Then in lines 14 and 15 I just swap the relevant variables from
+
+temp
+
+into this
+
+Which it does right standard swap
+
+This is my length.
+
+This is my data I swapped that with temps length and temps data
+
+now what happens temp was a full copy of other So now I have a
+
+full copy of other and what does temp have temp has everything I
+
+had
+
+So then when I get to the end of this function what happens temp
+
+goes out of scope
+
+So temp gets destructed so temp cleans up my old
+
+mess
+
+So now if you want to do something silly like set a equal
+
+to a
+
+You can go make a copy of the data throw away a copy and then
+
+use the new copy and Idiots pay for all of the dumb behavior and
+
+the smart folks
+
+They never get charged
+
+Great.
+
+All right, so let me show you how that looks here.
+
+So here's my object coming in, right? Let's say I've got this
+
+and I've already got some stuff in here, like I've got my own
+
+four doubles.
+
+That's five,
+
+not a double.
+
+All right,
+
+and then here's other that comes along.
+
+I wanna set this equal to other, and what's this got? This has
+
+got 10 of these things and it's got a pointer and
+
+there we go there's 10 of them.
+
+When I set this equal to other
+
+I am perfectly happy with all of this going away.
+
+I just want to make sure that I've got 10 and I've got my own
+
+copy of those 10.
+
+So how do I do that?
+
+Well,
+
+as I said before, I'll start out with temp and make a full copy
+
+of others. So I come up with temp,
+
+and since temp uses the copy constructor,
+
+temp gets a 10,
+
+temp gets its own vector,
+
+and then we copy all of the things in there.
+
+So now temp and other are exactly equivalent,
+
+they're just in their own separate memory.
+
+That's the copy step. Now, the swap step says,
+
+let's exchange things between this, because I'm setting this,
+
+and temp.
+
+So I'll say, well, let's make this 10 and this four,
+
+and I'll take this pointer and point at this data, and take
+
+temp pointer and point at that data,
+
+and these go away,
+
+and now you see it. It's a little bit rough,
+
+but it's there.
+
+If you look at this,
+
+what's the size on this?
+
+10.
+
+Is this pointing to 10 things? Yes, and they are a copy of the
+
+original other.
+
+Now when I go out of scope,
+
+temp goes away. So what does temp's destructor
+
+do?
+
+Temp says, well, go to this blue pointer there and delete those
+
+things.
+
+And so my original four things go away.
+
+Yeah.
+
+like the same as an avocado,
+
+the same.
+
+Standard swap is what you should use because standard swap is a
+
+little bit smarter than your average set some stuff equal,
+
+right?
+
+Standard swap will look at what needs to be done.
+
+So if I call standard swap on two vectors,
+
+they say, hey, do those two vectors have a swap method?
+
+It turns out they do, so instead of doing standard swap work, I'm
+
+gonna forward it on to vector swap and vector swap says well,
+
+we don't really need to do anything with memory We don't
+
+need to set your vector here into a temp And then overwrite
+
+your vector and then overwrite the temp back into my vector
+
+the vector swap says well, we got to do is just
+
+That pointer thing and we're good, right? And so standard
+
+swap doesn't always do a mem copy It'll do that if that's the
+
+best it can do
+
+but if there's better things they can do a little better
+
+things
+
+right
+
+well
+
+the The idiot check ends up being slower because now
+
+everyone has to pay the price for checking
+
+to make sure the idiot hasn't shot us in the foot,
+
+right? So this one's faster because it always does exactly
+
+the amount of work that's needed.
+
+It always does exactly the same amount of work as requested.
+
+And the people who didn't need to do more work
+
+but ask for it anyways, they still get it.
+
+Whereas if you weren't asking for extra work, you don't get
+
+extra work.
+
+Yeah,
+
+it's one conditional.
+
+It is a check that I don't need to do.
+
+If I'm sitting there, I'm going to copy 10 million data records
+
+in a day,
+
+there's 10 million extra calls that I don't need to make.
+
+But if you do the self-assignment,
+
+now instead of that just being a constant condition,
+
+you have to do this linear talking.
+
+No,
+
+there's no,
+
+well,
+
+in the situation where you're setting yourself equal to
+
+yourself, that's something that you don't need to do anyway.
+
+So if you're avoiding that altogether, then when you do an
+
+assignment, you do have to do some work,
+
+right? The only time you would not have to do any work is when
+
+you're assigning yourself to yourself.
+
+And that's not the kind of code that we wanna be writing in
+
+general.
+
+Yeah,
+
+all right,
+
+yeah.
+
+Other is the original, yeah. Yeah, so if you look here,
+
+that's what we're sending in.
+
+When I call it on the operator equals,
+
+it's using other.
+
+Temp is the copy of other,
+
+right? Because I had to get the data from other,
+
+right? There's some other methods that you can add as well
+
+to this.
+
+That gets into some deeper C++ stuff.
+
+We can start using some move operators, but we don't teach it
+
+in this course. If you want to learn about it,
+
+you can go learn about it.
+
+The move operator just basically says,
+
+if you're getting ready to get rid of this thing,
+
+why would you get rid of it if I'm trying to make a copy of it?
+
+Let's just trade.
+
+So we can do this without even a full copy in those situations.
+
+This is what happens if you return a vector, for instance.
+
+You have some function that returns a vector because you
+
+built the vector inside of that function and then you return it,
+
+it was on the stack and it's going to go away.
+
+But if you're setting that equal to something else and use the
+
+move operator,
+
+you say, okay, well, I'm not going to assign myself to a full
+
+copy of all your data.
+
+When you're just getting ready to throw it away,
+
+I'm just going to throw mine away and then use yours and not
+
+have to do any of that work.
+
+So that's, like I said, something we don't cover in
+
+here. But if you're interested in how
+
+move and swap work, there's a whole separate collection
+
+of them, right? So we think of the big three as the destructor,
+
+the copy constructor and operator equals.
+
+When I use dynamic memory,
+
+I have to declare all of those myself because the default
+
+version doesn't cover dynamic memory.
+
+Now in C++ with the move operators,
+
+we've got copy constructor from our value and overloaded
+
+operator equals from our value and that's what I'm talking
+
+about using move because the data are going away.
+
+Let's just not let them go away and use them instead.
+
+So we don't talk about it,
+
+but it's there.
+
+We're talking about our values here.
+
+So this is a function that I mentioned, is building a string,
+
+a vector of strings inside of it.
+
+And then it returns that vector.
+
+So this looks like you're passing things by value and it's
+
+not a thing that you want to do.
+
+It looks like it. But what you don't want to have
+
+is the objects by value in the parameter list.
+
+If the object is used by value in the return,
+
+that's fine, because this statement right here,
+
+as I mentioned,
+
+says, hey, wait, we're going to set this vector equal to
+
+something that's coming back that's about to be thrown away?
+
+The compiler can see that this return value from readData is
+
+going away. It doesn't live anymore once
+
+readData stack frame is gone. The compiler says okay.
+
+Well rather than making a new
+
+Copy of that. I'll just grab the stuff from
+
+read data. I'll just grab its
+
+Data pointer, I'll grab its pointer and call it good
+
+Um you do have to specify it I think with
+
+With this particular syntax here this syntax the compiler does
+
+know this one because it's actually written into vector so
+
+So it has to be done by the compiler, but this one's got it
+
+written already, because this operator has the, and it's
+
+called, it's a double ampersand, so when you look at it,
+
+I think I got a copy of it, do I have a copy over here? I don't
+
+have a copy, oh, there it is right there.
+
+See?
+
+That really strange look right there.
+
+And those are the things that allow me to do that.
+
+All right.
+
+We got this array class, we still can't get anything out of
+
+it. So let's get to this operator
+
+square brackets.
+
+You can see a couple of operators that we add up there.
+
+Operator square brackets give me a reference to the double that
+
+I'm asking for by i. This is where we have the chance
+
+to do our bounds checking.
+
+If i is greater than or equal to length, then I'm out of bounds.
+
+Otherwise,
+
+I'm good there. So you see,
+
+as long as i is less than length, I can return that data.
+
+Otherwise,
+
+I can throw an error
+
+and catch that thing without having it crash.
+
+So this is what we're trying to put bounce checking on array in
+
+the first place.
+
+So we needed the square brackets,
+
+and this is gonna make it happen.
+
+On the left, you see the non-const version,
+
+or the regular version.
+
+On the right,
+
+you see the const version.
+
+And so in the const version, we say we're going to return a
+
+reference to double, but it's going to be a const reference,
+
+meaning that when you get it back, you cannot change that
+
+value.
+
+As well, we mark this as a const member function,
+
+which is saying when I call this function,
+
+it will in no way change what's going on inside the object.
+
+So those two consts are used to make that const version.
+
+Now the same, the body of the function is exactly the same.
+
+A little bit lower, more text space, but the same thing, yeah.
+
+Are you doing non-constant version or is there a problem
+
+with the non-constant version?
+
+No, if you try to compile something that is asking for a
+
+const version, you cannot pass it the non-const version.
+
+That's where the problem will be,
+
+right? You can go the other route.
+
+You could maybe,
+
+if there was only a const version, you could possibly pass
+
+that around, but then if you tried to assign to it, then you
+
+would have problems.
+
+So you see here,
+
+this allows us to do some stuff, right?
+
+Here, I'm assigning to that square brackets.
+
+So if this is a const reference,
+
+when I try to set it equal to something new,
+
+fail is going to happen. So this uses the non-const
+
+version,
+
+same as this uses the non-const version.
+
+Here,
+
+this one also, a square brackets too is using the non-const
+
+version because I'm changing it. But in these two, you see that a
+
+sub zero and a sub one, I'm just reading from them.
+
+So I could use the non-cons version there and be perfectly
+
+okay.
+
+It's compiler's job, so don't get too stressed about how do I
+
+know when to use the right one. Just make them available,
+
+the compiler will use the appropriate one.
+
+So here we can use the const version for both a zero and a
+
+one accesses to read from them, and then the non-cons version to
+
+make a change to what's at two and A.
+
+All right.
+
+So now this const operator,
+
+it's read-only access.
+
+The compiler enforces this, and we're good to go.
+
+Automatically selected by the compiler, and that const allows
+
+the compiler to optimize for speed, or at least helps it to
+
+optimize for speed.
+
+Say, why would I need it, though?
+
+Look at this function here.
+
+This is a standard sort of how do I print things.
+
+So somebody has overloaded the stream insertion operator print.
+
+Let's say well if I give it some output stream like cout and some
+
+array,
+
+what does it do? It loops through the entire array and
+
+sends each item out.
+
+Great.
+
+If I only had a non-const square brackets operator
+
+this would not compile because this is passed in as const
+
+reference to a so no matter what I do inside here I can't change
+
+a if this is a non-const version
+
+this const guarantee can't be upheld so this won't compile so
+
+for something like this I have to have both why would you not
+
+make it const well why would you have your print function change
+
+your data structure?
+
+You wouldn't. Right, exactly.
+
+So and you wouldn't want anyone to either.
+
+So that's the kind of thing that you put in to your function
+
+contract. It's pretty common for all of
+
+your stream insertion operators to expect const operations
+
+because they're not trying to change anything, they're just
+
+trying to print it.
+
+When the compiler knows that it has to put in caches and various
+
+caches and things like that in terms of,
+
+what am I going to have to modify?
+
+Can I just keep this here and throw it away or do I have to
+
+worry about if I've made changes to this, I have to make sure
+
+that gets committed back to more longer-term storage and so.
+
+All right. So that's what's going on,
+
+and I've lost my ability to swipe.
+
+There we go.
+
+How about insertion?
+
+This one's pretty straightforward.
+
+It's not a whole lot of work. This one does a for loop that I
+
+don't love though.
+
+Look at that for loop.
+
+It's a negative for loop.
+
+Starting at the end.
+
+But that's really just because what I wanna do when I'm
+
+inserting something, so this says insert at location two,
+
+3.4. So I'm gonna put a 3.4
+
+right there.
+
+And push everything else out.
+
+This insertion doesn't grow the thing, it's not that smart.
+
+So, if I do this insertion, 8.4 is going to go away.
+
+Now, if I do a positive for loop,
+
+I say, well, let me write at this place where 4.2
+
+is, and then I'll write at the place after it.
+
+So, in order for me to write where the 4.2
+
+is,
+
+I've got to put 4.2 in some temp,
+
+then I can put 3.4 there,
+
+and now I've got to put 4.2 down, but I've got to put 5.9
+
+in some other temp, So I can put that in there, and I got a 7.3
+
+here and a 5.9 there,
+
+and then if I go with a push mechanism,
+
+move towards the end. If I go with a pull mechanism,
+
+though,
+
+you see how it goes pretty easily,
+
+I can just come through and say,
+
+as I go to insert that, what if I just write 7.3
+
+over 8.4?
+
+Write 5.9 over 7.3,
+
+write 4.2 over 7.9,
+
+and now I've got two 4.2s in there, but I can just write
+
+3.4 right there, and I've gotten it
+
+done. So you see,
+
+every arrow that I draw here is an assignment,
+
+and before I was saying,
+
+write to temp,
+
+put in data.
+
+Write to temp,
+
+put in data.
+
+Write to temp,
+
+put in data. And it looked like a bad 70s
+
+dance movie, but there's twice as many writes going on there.
+
+So this is faster when I go from the right-hand side by doing the
+
+pull there. So that's why the minus is in
+
+there, but this is a pretty good way to do it, and it does it in
+
+as fast as possible time in linear time there.
+
+Woo,
+
+look at me, I'm over time again.
+
+But I think I got the wrap here.
+
+So I think after this, it just talks about the complexity of
+
+it. Best case at the end,
+
+no additional work, constant time.
+
+Worst case at the beginning, average case,
+
+also somewhere in the middle is about linear time.
+
+That's the bounce checking array,
+
+and that gets us to the study questions and lunch.
+
+All right,
+
+have a good one. We'll see you in the after.
+
+Hey.
+
+I'm wondering how atomic integers work on the CPU.
+
+It's just like in hardware two,
+
+and like a protected register that is outside any individual
+
+thread.
+
+In what,
+
+give me some more context on what you're talking about here.
+
+Like atomic integers,
+
+that can be,
+
+that can have globally mutable state across threads and not
+
+interfere,
+
+yeah.
+
+Boy, that's some high-end stuff right there.
+
+It's a special instruction.
+
+Right, right, right.
+
+Yeah,
+
+and so that's an instruction there that
+
+has to do with working in parallel with multiple
+
+threads, right?
+
+So how do they work in terms of the hardware?
+
+Yeah, I don't know where it gets beyond how to get too deep in
+
+the actual I mean the actual hardware

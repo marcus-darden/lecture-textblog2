@@ -1,0 +1,3317 @@
+I'm just going to go back to the last step.
+
+What I was going to tell you is that other people have different
+
+opinions.
+
+I'm going to say four of those.
+
+As someone who is a professional leader,
+
+they said improve something.
+
+Or like, all my stuff.
+
+We're at the four moment,
+
+you have to define it, and then you're ready to do it.
+
+I'm
+
+going
+
+to
+
+go to the bathroom and see if there's anything else I can do
+
+with it.
+
+I'm going to read it for her.
+
+I'm going to read it for her. I'm going to read it for her.
+
+I'm going to read it for her. I'm going to read it for her.
+
+I'm going to read it for her.
+
+I'm going to read it for her.
+
+I'm going to read it for her. I'm going to read it for her.
+
+I'm going to read it for her. I'm going to read it
+
+for her.
+
+I'm going to read it for her. I'm going to read it for her.
+
+I'm going to read it for her.
+
+All right,
+
+well,
+
+it's a good day to be here,
+
+feeling like smiling.
+
+I can't see you out there when you're not,
+
+so you know.
+
+All right, so I talked about the machine-generated version of
+
+the notes around here.
+
+This is it. It's pretty slick.
+
+I threw it in the GitHub pages,
+
+so it's kind of got this blog format.
+
+It's got the date that the lecture took place and some
+
+nifty Gen AI-generated title and whatnot.
+
+So it's just at Marcus Darden github.io
+
+slash lecture text.
+
+See the URL right there.
+
+So it needs a little bit of publishing,
+
+but it goes in here,
+
+starts out with the stuff,
+
+talks about the stuff that we talked about in lecture.
+
+through some final thoughts in there there's some study
+
+questions some nifty little multiple-choice
+
+questions so I don't know how well this will work for you
+
+studying if it sucks tell me if it needs
+
+help tell me I'd like to add some more to it I'm gonna put
+
+some links into the the playlist videos so It'll show you right
+
+where we are in the content,
+
+and also try to figure out some way to assign some pictures from
+
+the lab slides.
+
+So maybe you can get something else here in this content too,
+
+but I don't know. I'm pretty happy with it.
+
+Maybe it has some formatting issues I had to take care of.
+
+I can see there's some stuff going on with those questions.
+
+But you can still read them, so it's not like they're illegible.
+
+So that's it.
+
+Oh, not that.
+
+So, save that, store it,
+
+go check it out.
+
+It'll be great for studying when studying time comes.
+
+Like I said, you can add to it as well.
+
+There's a link at the top of the page.
+
+If you have an issue,
+
+just throw a GitHub issue on there and hopefully somebody
+
+will get to editing that or fixing it.
+
+So none of this stuff is corrected, really.
+
+So like I said, it still has the ability to be slightly wrong in
+
+there. But it's pretty good from what
+
+I've seen so far.
+
+It's fixed some things that I said that needed fixing, and
+
+it's in good shape.
+
+So check that out.
+
+Share it with a friend who couldn't make it to lecture
+
+today.
+
+They should have.
+
+but that's where we are.
+
+All right,
+
+so let's pick up here
+
+at the standard template library.
+
+We'll be talking about the STL today.
+
+We are a smidge behind the other lectures because I keep talking
+
+about so many other things but I'm trying to get you all of the
+
+stuff that you need,
+
+not just some of this. We will catch up.
+
+We always have time to catch up near the end but I think we're
+
+trailing the others just by a little bit, half lecture or so.
+
+So some stuff I'm gonna try to go faster on.
+
+Feel free to get your questions in there, but if I'm going fast,
+
+it's because I'm trying to catch us up.
+
+So the standard template library will be using this.
+
+Obviously, you've heard the STL.
+
+It's included in C++.
+
+It's been greatly expanded in 11.
+
+It's now cruising along at C++ 17 and 20 and beyond.
+
+It's really nice, well-documented, high-quality
+
+code.
+
+You got these containers at work under some really common,
+
+some really common abstract data types.
+
+We've got some really great algorithms, all of them debugged
+
+and fast and adaptable, so you can use func doors and other
+
+things like that to make things work.
+
+It's all done in header files, so it doesn't have to be
+
+pre-compiled,
+
+which means you can use your own custom types in these
+
+containers,
+
+use your own custom objects in these algorithms,
+
+and so on.
+
+You can even look at the code if you like.
+
+You should, it's interesting.
+
+It's written kind of in that grumpy, library-written style
+
+with a whole lot of,
+
+a whole lot of pre-compiler options and weird constant
+
+declarations. But the heart of the code is
+
+there when you go see push back And you see that it runs out of
+
+space, and it needs to go get more stuff.
+
+You'll see how the code works for a deck, if you so choose.
+
+Oftentimes,
+
+when you write stuff in there, and we have these errors that
+
+get foisted upon you,
+
+you've done something wrong in your code.
+
+But the problem doesn't show up until it gets into the STL.
+
+You'll see it'll drop you into vector.h
+
+when you've done something wrong.
+
+So you can cruise around there and see how pushback works.
+
+It's worth taking a look. But you can see how people write
+
+code at the library level.
+
+The things we'll be looking at in the STL, of course,
+
+containers and iterators.
+
+We'll be looking at utilities and function objects.
+
+We won't mess with memory allocators too much.
+
+They are in there that allow you to customize the way some memory
+
+gets allocated.
+
+Not a task that we need to do in 281 this year, so we don't
+
+discuss memory allocators in class.
+
+Also,
+
+obviously,
+
+algorithms. There's stuff in there that can
+
+really get some stuff done that you want to do on a regular
+
+basis,
+
+neat and clean and in most cases in one or two lines.
+
+That's also nice.
+
+Less code,
+
+less the debug,
+
+less probability of an error.
+
+So when you write something and then it causes a crash in some
+
+other STL file, we call that an induced error.
+
+So the problem is still yours.
+
+I've never found a student's code that exposed a bug in the
+
+STL in 281.
+
+So could happen, I'm not saying they couldn't, but thus far it's
+
+always been in student code, not in the STL.
+
+The resources we have here are the book on the left.
+
+You see this is the C++ programming language.
+
+It's in its fourth edition.
+
+The author here, Bjorn Stroustrup,
+
+is the guy when it comes to C++.
+
+He created the language and still writes the book and works
+
+on the language every day, to my knowledge, at this point.
+
+So,
+
+he's not dead, still writing books.
+
+But this book is great.
+
+It is the absolute
+
+oracle on C++.
+
+It's got a couple of different uses,
+
+too. I like to read it when I'm
+
+vertical.
+
+I can learn something.
+
+And other times,
+
+if I wanna read it horizontal, I can really get to sleep fast.
+
+because it's not exciting.
+
+But it is very thorough. It is a reference book.
+
+It is not a novel.
+
+It is something that will teach you all about C++
+
+if you need it.
+
+The book on the right we used to use.
+
+We don't use it so much anymore.
+
+It is just a book that covers the STL in particular.
+
+This book is all about,
+
+Bjarne's book is all about C++.
+
+This book is all about the STL.
+
+You can get all of this information, and both of them
+
+online.
+
+So mostly we just point people to cppreference.com
+
+or c++.com if you want some information
+
+about the STL.
+
+Both of those sites do about the same.
+
+They're about the same, they're just laid out differently.
+
+I'm more of a c++.com fan than a cppreference.com
+
+fan.
+
+And it's just because of the way that the sites are laid out.
+
+C++.com works better with my mind than
+
+cppreference.com does.
+
+So find one,
+
+get comfortable with it, and use it.
+
+They both have this really cool feature on cppreference.com,
+
+it's called Run This Code.
+
+On C++ it's called Edit and Run.
+
+And so you'll go into a container or you'll go into an
+
+algorithm and it will say,
+
+here is some representative code of this because at its heart,
+
+the STL is just a specification.
+
+The standard template library is a specification.
+
+You should provide these containers.
+
+You should provide these algorithms.
+
+But different people have implemented the STL.
+
+So there's the GCC version of the STL,
+
+the GNU compiler.
+
+There's also the Clang version of the STL.
+
+There's a Microsoft version of the STL.
+
+So the STL says this is how it should be, and then the
+
+individual implementers implemented themselves.
+
+So in the documentation when it says,
+
+this is how this function would work,
+
+it's obviously not anyone's particular implementation, but
+
+it's representative.
+
+So you can look and see how a function would work like set
+
+intersection or set union.
+
+You can see that code and if you want to mess around with it,
+
+there's a button on both of these sites that says,
+
+let me drop this into an online editor where I can make some
+
+changes, compile it test it see if it works with what I was
+
+trying to do I do that all the time when I've got a small thing
+
+that I'm trying to figure out with an algorithm I'll just copy
+
+some stuff from my actual file like maybe the the struct or
+
+class definition paste it into the editor and compile it and
+
+see if I wanted to do with the things I want to do really cool
+
+feature without having to do a whole bunch of setup for some
+
+tests on stuff that you want to use.
+
+So check both of those out.
+
+Like I said,
+
+pick one.
+
+Find the one that you like the way that it looks or the way
+
+that it's laid out, however is going to make you most
+
+effective.
+
+Learn one of them because they are a primary reference for us.
+
+When we're using libraries,
+
+we got some pros and cons here.
+
+And the pros and cons are, should we use the library
+
+or should we do it ourselves?
+
+So the reason why we love libraries is because a lot of
+
+this stuff is just hard to implement.
+
+Intro sort,
+
+red-black trees,
+
+those are things that get used in the STL.
+
+You could write your own, but it's hard.
+
+Why would we want to?
+
+Some of them are hard to implement well.
+
+You could implement it, but then how do you get it to really,
+
+really be performative?
+
+The STL has already done all that work, so it's another good
+
+reason.
+
+There's also the concept that as a library as a whole,
+
+this has been discussed and worked on in large groups of
+
+people, sometimes open source,
+
+but a lot of people have contributed to this and so there
+
+tends to be a continuity across it or this uniformity it says
+
+for simple algorithms.
+
+This just means that when something happens in a section
+
+of the library that you haven't visited,
+
+it happens just like it happens in the other sections.
+
+So the or do the parameters are going to be the same, you don't
+
+have to reinvent the wheel every time you look at a new function,
+
+and that's what a broad library can give you that.
+
+And then the bottom one, which is probably the most important
+
+thing, it reduces debugging time for complicated programs.
+
+This unverified stat in the red
+
+is one that you probably wouldn't argue with,
+
+says greater than 50% of development time is spent in
+
+testing and debugging.
+
+Not as,
+
+like I said, I don't know that it's verified, but it's
+
+certainly hard to argue with. It might be even higher than
+
+that.
+
+But when you use the STL,
+
+you're taking great chunks of code that have been tested and
+
+debugged fully.
+
+So you know the problem isn't in your container, for instance,
+
+it's more in how you use the container.
+
+And so if you write your own container,
+
+then you say,
+
+well, it could be how I'm using container or it could be the
+
+container itself. With the STL, we don't have to
+
+worry about that. So that's nice.
+
+We use these high-quality libraries,
+
+limits the code, and it limits the code that we're responsible
+
+for. And that can greatly reduce your
+
+debugging time.
+
+When I was coaching the programming team from U of M, I
+
+did that for a couple of years.
+
+The people that work on those teams,
+
+man, they know these libraries inside and out.
+
+Problem shows up on the problem specification.
+
+They read it. and then five to 10 lines of STL
+
+code show up and the whole thing is done.
+
+It's really amazing what you can do when you know how to use a
+
+library and you know what's in it.
+
+So that's one of the things that you need to do.
+
+The cons, of course,
+
+is that everything in the library is written to be general
+
+purpose for everyone to use.
+
+So in some situations, there could be a better version
+
+for exactly what you wanna do that's more restricted to your
+
+problem solution. it's faster because it doesn't
+
+have to do some checks that everybody else might have to do
+
+in the general situation so it can run a little faster so you
+
+have to make those trade-offs for instance in project 4
+
+there's a function in the STL called next permutation you give
+
+it a range of things and it spits out every single
+
+permutation so you think you got five items there's five
+
+factorial different ways that you could order those five
+
+things 50 items there's 50 factorial ways and so on next
+
+permutation will run through and generate every single one of
+
+those we're gonna need that functionality in project 4 but
+
+we're gonna be doing an algorithm called branch and
+
+bound and part way through the algorithm you can say well this
+
+branch is dead.
+
+I've already violated a constraint,
+
+or I've already decided 10 steps into 50 that this isn't going to
+
+be my best solution.
+
+So with your own permutation generator,
+
+you can say,
+
+don't try to generate anything else down this branch,
+
+because I know the first steps lead me to ruin.
+
+Why take the next 40 factorial ways to take those first 10
+
+steps and finish 50 items?
+
+Next permutation from the STL is going to generate all of them.
+
+Your own personal version, though,
+
+can prune and say,
+
+well,
+
+that's something I don't need to develop.
+
+So that's one thing that we will do in particular in this course.
+
+We say,
+
+well,
+
+the STL already does this.
+
+We're going to use our own, though, because it is better in
+
+our particular case.
+
+So you're always trying to weigh whether or not you should use a
+
+library or do it yourself. And it has to do with what's
+
+custom about your solution, how much time you want to spend on
+
+debugging,
+
+and so on.
+
+So the trade-offs are we have to figure out how to use the
+
+library well before we can really fully utilize it.
+
+Know what data instructions are there,
+
+know what algorithms are there,
+
+know the complexities of some of the operations.
+
+Because as I said earlier, the STL is really just a
+
+specification, so it'll say something like, you need to
+
+generate this vector container that has an amortized constant
+
+pushback.
+
+However you want to do it at the library level, you can,
+
+but if it's going to be considered an STL
+
+implementation, it has to do it at that complexity.
+
+That's what's going on there.
+
+So knowing these complexities will tell you what I should do.
+
+You need to know some of the details, like how standard sort
+
+works. We know that it's always n log
+
+n, even in the worst case,
+
+practice.
+
+It's typically faster than quicksort.
+
+Nth element,
+
+some little factoids in here. Knowing factoids about what's
+
+going on in the library is going to be helpful.
+
+Some features the STL relies upon are, of course,
+
+bool.
+
+We use the bool type a lot.
+
+Some strange things, if you use the STL function binary
+
+It returns a bool.
+
+Yes, I found that thing, or no, I did not.
+
+Not how you think of search.
+
+You usually say, well, I'm looking for something.
+
+I want you to tell me where it is.
+
+But the STL does some things. There's ways to find it in the
+
+STL, don't get me wrong.
+
+But it uses this bool type,
+
+const correctness and const cast for speed.
+
+It uses namespaces, of course. You've seen the STL with
+
+everything as std. People say std or standard.
+
+STD,
+
+that's all a namespace where these functions are collected
+
+inside of, these functions and containers.
+
+Templates, of course,
+
+inline functions,
+
+exception handling,
+
+overloaded operators,
+
+extended syntax for new,
+
+and a couple of other keywords that the STL uses, explicit and
+
+mutable,
+
+to help things along a bit there.
+
+So these are stuff that the implementers use to create
+
+the STL version that you're using.
+
+A couple of things that I just mentioned here, the keyword
+
+explicit.
+
+You'll catch a warning from your compiler
+
+if you make a one-parameter custom constructor.
+
+You can make a default constructor, that's no
+
+parameters, or you can make a custom constructor with more
+
+than one parameter and not have this problem but if you make it
+
+with just one parameter it has the ability
+
+at the compiler space to do something like this right you
+
+see that i've declared this feet inches that's my object and it
+
+has a custom constructor that only includes
+
+one parameter Make a feet inches from some integer number of
+
+feet.
+
+You can imagine how that works.
+
+Three,
+
+should be three feet zero inches.
+
+Now, if I didn't specify this explicit keyword right here
+
+then I could write this line here at the bottom.
+
+that says feed inches B is equal to three.
+
+It would say, well I've got a constructor that can turn an int
+
+into a feed inches, I will just use that.
+
+And so you could get into a situation where I really meant
+
+three inches.
+
+And the explicit is going to be a thing that sort of pushes you
+
+away from that. So the compiler will complain
+
+about it,
+
+it won't want you to do that. So if you see that complaint,
+
+Try to figure out what it means.
+
+Just means put this explicit out in front of the single parameter
+
+custom constructor,
+
+yeah.
+
+Yeah,
+
+so it also doesn't let conversion happen
+
+when a function expects it.
+
+It's for preventing conversions on,
+
+you know,
+
+implicit conversions really is what it's there for.
+
+And the last one here,
+
+I think we're doing zombies,
+
+and Dr. P told me to warn you all, if
+
+you downloaded the project spec right at 1201,
+
+because I know you're all like midnight go-getters.
+
+If you downloaded it right at 1201, it was the wrong spec,
+
+right? That didn't get updated until about 1207.
+
+So if you were late,
+
+you're in good shape this time. If you waited till morning, like
+
+some normal humans,
+
+then you got no problem. But if you were right there at
+
+12012345, you might have got the wrong spec.
+
+We're doing zombies this semester.
+
+And in the zombies one,
+
+we don't have as much need for this mutable keyword because we
+
+use our priority queue slightly differently.
+
+But the mutable keyword, like the explicit keyword, is a way
+
+to break the rules. The mutable keyword says,
+
+if you give me a constant reference to something,
+
+but one of its members is mutable,
+
+I can still change that member.
+
+This is useful in a priority queue when you want to change
+
+something that isn't related to the priority.
+
+So let's say, for instance,
+
+you've got a zombie on top of your priority queue.
+
+The zombie's got some distance away from you, and it's got some
+
+speed.
+
+Every round,
+
+it covers some number of feet,
+
+meters,
+
+distance, whatever.
+
+When that distance is zero,
+
+your brains get eight,
+
+and you're dead,
+
+right?
+
+So if I've got these zombies in a priority queue,
+
+obviously,
+
+the zombie that's going to reach me first is the most important
+
+one. that's the one I should be
+
+trying to destroy.
+
+You can't kill them because they're zombies,
+
+so we don't say kill.
+
+We gotta destroy the zombie that's going to eat your brains
+
+first based on their distance from you and their speed.
+
+Now, if I wanted to change the zombie's name,
+
+their name wouldn't affect their distance or speed,
+
+wouldn't affect the time that they would arrive to get to me.
+
+So that would be a member variable I say, if this zombie's
+
+name is mutable,
+
+when I get a constant reference to one, I can still change his
+
+name because I'm not worried about changing
+
+the zombie's speed or distance and breaking the priority queue
+
+because I took something that was most important and now I
+
+made it less important and something else should be in
+
+front of it. So that's what the mutable
+
+keyword does. It's a rule breaker that allows
+
+you to modify const things. things.
+
+We talked about some generic programming early on.
+
+You remember this piece of code down here.
+
+We had this double pointer at a source array and another pointer
+
+at a destination array.
+
+Then we used this while loop here.
+
+This is generic programming because it allows me to do
+
+something, this algorithm here that's doing this copy from
+
+source to destination,
+
+it needs three things, right?
+
+It needs something that can be dereferenced for read or write,
+
+obviously pointer fits that.
+
+It needs something that can be incremented,
+
+the plus plus thing,
+
+pointer fits that.
+
+And it needs something that can be compared where I check this
+
+source pointer, is it equal to the source array plus the size.
+
+So if I can compare it,
+
+if I can increment it, and I can dereference it,
+
+then this copy algorithm works.
+
+It's obviously written with C pointers.
+
+But imagine that I used a C++ iterator.
+
+Iterators can be dereferenced,
+
+iterators can be incremented,
+
+and some iterators can be compared.
+
+If I use the right iterators, then this piece of code would
+
+work with iterators or with pointers.
+
+That's what makes it generic because I can go even farther
+
+and say,
+
+well,
+
+I didn't say what kind of iterator because I could copy
+
+from a vector iterator
+
+to a deck iterator.
+
+And so now I don't have to write a special version of this
+
+function that says copy a vector to a deck.
+
+I don't have to write another version that says,
+
+copy a deck to a vector,
+
+or another version that says, copy a deck to a deck, another
+
+version that says, copy a deck to a linked list, a linked list
+
+to a vector,
+
+and so on, and so on, and so on.
+
+And all of these can also be intertwined with C stuff.
+
+So copy from a C style array to a vector.
+
+I can use something like this. That's what generic programming
+
+allows me to do.
+
+And the STL uses generic programming so that reuse is
+
+much easier. That's why the STL performs on
+
+ranges and not containers. So you won't see an STL function
+
+that says,
+
+sort this vector.
+
+You'll see an STL function that says, sort this range.
+
+And you can get a range from a vector,
+
+vector.begin, vector.end,
+
+and then it will sort the things in the vector.
+
+But the STL function is not tied to the container type because it
+
+uses the generic range and that range uses iterators and uses
+
+programming tricks like this where as long as I can
+
+dereference,
+
+iterate,
+
+dereference, increment and compare then I can use this same
+
+function over and over again and that's how the STL algorithms
+
+library works.
+
+It works on ranges so then I can say sort a vector,
+
+sort a deck,
+
+copy a vector to a and so on.
+
+The cool part about the STL implementations are most of them
+
+are given the best possible complexities.
+
+That's what you have to do if you're gonna write a library.
+
+You got to get up to that level.
+
+Some of them have some poor performance even when they've
+
+got a good implementation.
+
+We talked about the link list and why we don't use it much in
+
+281.
+
+It's not very good at performance for the speed that
+
+we're looking for.
+
+Linked lists have their uses. If they didn't have a use,
+
+no one would use them. They wouldn't exist.
+
+So they are useful.
+
+I'm just saying we don't use them in this course because
+
+they're not useful to us.
+
+So for instance, when would a linked list be useful?
+
+Early on day one, I said,
+
+the answer depends.
+
+Remember that?
+
+A lot of it depends answers. So it depends.
+
+I can't actually use a linked list quite nicely.
+
+When would I want to use a linked list?
+
+Maybe I've got really large objects,
+
+and I don't want them to move around in memory.
+
+It's going to be easy for me to create them and hard for me to
+
+put them into a chunk or to put ten of them into a vector, and
+
+then when the vector grows, now I've got to copy these ten very
+
+large memory items somewhere else so that I've got room for
+
+20 of them.
+
+Linkless is great for that, because I make it the one time
+
+and it's always in that one spot in memory.
+
+I get to the next one, it might be just a little slower, but I
+
+don't have to do strange memory activities.
+
+So Linkless have a reason to be used.
+
+We just don't use one in this course.
+
+Because the main priority of the STL is going to be time
+
+performance.
+
+It's hard to beat the STL for speed.
+
+So,
+
+the linked list is going to be as fast as it can be,
+
+but its primary claim to fame as a linked list is not that it's
+
+fast,
+
+it's that it's really flexible in terms of dealing with large
+
+items and collections and stuff like that.
+
+So,
+
+there's the basics of the STL.
+
+We'll keep chugging through it throughout the semester.
+
+We've got to learn how to use it.
+
+So,
+
+I will suggest some things to you on how you should do that.
+
+But for now, let's talk about containers and iterators.
+
+All the basic containers are available in the STL,
+
+vector and deck,
+
+stack and queue.
+
+We talked about them being adapters.
+
+Stack and queue don't really have their own code.
+
+They've got a push and a pop,
+
+and a front or back.
+
+And they then call some other function.
+
+So the way that the STL adapters work is they say, If you call my
+
+push function,
+
+I'm going to call push back on something else.
+
+I'm adapting that push back to act like a stack.
+
+So as long as that thing has a push back,
+
+I can make a stack out of it, if it's got a pop back.
+
+Push back, pop back, and back,
+
+I can make a stack, and so on. So that's how some of these
+
+containers work.
+
+A bit vector is the same as a vector of bools.
+
+We'll have set and multiset. We'll be talking about them a
+
+little. We won't use them too much.
+
+We will use some unordered things like an unordered map.
+
+We won't use an unordered multi-map.
+
+But there are containers that are out there that do some
+
+pretty cool stuff.
+
+So learning about them is gonna be useful.
+
+You see lists there.
+
+This is our standard doubly linked list in the STL.
+
+If you want a singly linked list,
+
+it's called S list.
+
+But we won't in this semester. And then there's array,
+
+which is kind of like a vector,
+
+but it's fixed at compile time. So you say,
+
+I want an array of these things of size five, and then it's a
+
+constant.
+
+Does stack and queue have their own iterators?
+
+The question was, do stack and queue have their own iterators?
+
+And the answer is no.
+
+You can't iterate through a stack,
+
+right? The stack allows you access to the thing that was
+
+pushed last, That's the end,
+
+right?
+
+Queue allows you access to the thing that's been in there the
+
+longest, and that's it.
+
+So the deck allows you to kind of funk around in there if you
+
+want to with square brackets.
+
+So that's kind of what we did in Project 1, is we used the deck
+
+to perform like a stack or a queue.
+
+We didn't use the square brackets on, though, because
+
+that was not very stack-like behavior, right?
+
+And so,
+
+yeah, you can't get inside of a stack or queue.
+
+So it hides that part of the DEC interface, or the vector
+
+interface, or the list interface.
+
+Here are the linked list containers.
+
+I mentioned list on the previous page, that's doubly linked.
+
+And S list,
+
+that's singly linked.
+
+And you look on this far right, it says how do I get the size
+
+from this?
+
+And it says that under the STL specification,
+
+the list, which is doubly linked,
+
+has to store its size so that it's accessible in constant
+
+time.
+
+The singly linked list, that one's up to the implementer.
+
+If you implement a singly linked list, an S list for your
+
+container, the STL says we're fine with a linear counting of
+
+those things when somebody asks for size.
+
+Or if you choose to, you could spend the memory and give it to
+
+them back in constant time,
+
+that's up to you. So if you are using an S list,
+
+for instance,
+
+know that on some platforms your code might end up linear
+
+and other platforms it might end up constant.
+
+That's the kind of thing that you have to know about using a
+
+library.
+
+Forward list doesn't even have the ability to count size,
+
+things like that.
+
+All right,
+
+back to this generalization stuff.
+
+We're talking about iterators.
+
+Iterators are a generalization for pointers.
+
+And because the STL uses these iterators,
+
+it can then use the same algorithm on multiple data
+
+structures, because it doesn't care whether the iterator is to
+
+a vector or to a deck, and so on.
+
+These iterators,
+
+typically,
+
+we're them as doing sequential access.
+
+There are random iterators that allow us to do math and jump in
+
+the middle of things, but the general purpose of an iterator
+
+is to go from this to the next to the next to the next to the
+
+next to the next to the next.
+
+And so when we use them,
+
+we can get some pretty cool stuff out of it.
+
+So for instance,
+
+here, look at this one,
+
+it says iterators can help writing faster code for
+
+traversals here this R square brackets I plus
+
+plus versus this plus plus on an iterator
+
+so the the claim is that the one on the right here that uses the
+
+iterators is just a little faster not so much that you
+
+notice but over the long period you might so why is it faster
+
+The iterator is pointing
+
+at the thing you're looking for.
+
+Whereas this I is the index of the thing that you're looking
+
+for, but it's just a number.
+
+Similarly,
+
+R is the base address of the array, so we already saw how
+
+this R square brackets I is really like a dereference of R
+
+plus I, like that.
+
+So,
+
+every time I get what I'm looking for,
+
+I've got to do this math.
+
+I've got to take the base address,
+
+add the offset.
+
+In the situation where I've
+
+got,
+
+when I'm trying to get into there,
+
+I've got to do that math to get the thing, and then I
+
+dereference.
+
+Whereas if the iterator is pointing right at it,
+
+it's kind of like,
+
+this is the base address.
+
+I've got to add to get over here and then dereference.
+
+The iterator, on the other hand,
+
+is right here.
+
+So when it comes time to dereference,
+
+I've got it.
+
+In both of these situations, I'm going to then plus plus
+
+afterwards.
+
+So I change the iterator. So afterwards,
+
+the iterator would be here.
+
+The next time I dereference,
+
+I've got it. But the array would be here with
+
+now a bigger number.
+
+So when I say, well, dereference from the array, it says, well,
+
+let me add five steps and then dereference.
+
+So using iterator access is going to be faster for you than
+
+using indices,
+
+so that's nice.
+
+Look at this generic print function.
+
+This generic print function,
+
+it takes two iterators to give us a range,
+
+a begin and end,
+
+and says as long as the begin does not equal to the end, I'm
+
+going to dereference begin for reading,
+
+print that,
+
+and then move begin to the next thing.
+
+That makes sense? That's a really generic thing.
+
+But in terms of the input iterator,
+
+I can pass anything in there now.
+
+I can say,
+
+vector.begin, vector.end,
+
+pass them in there. I can say,
+
+deq.begin, deq.end,
+
+pass them in there.
+
+You can say, list.begin, list.end,
+
+pass them in there, and this one function will print all of those
+
+things. I can even say,
+
+give me an array,
+
+C style array,
+
+and then that array plus the size as my second parameter, and
+
+this one function can print all of those things.
+
+That's the beauty of generic programming and why iterators
+
+are so useful in the STL.
+
+Does that make sense? Yeah, go for it.
+
+Class name versus type name?
+
+No, they're totally interchangeable to my knowledge.
+
+The question is, why is this not type name?
+
+They're interchangeable.
+
+So I think some of the slides do one and some of the slides do
+
+the other.
+
+So yeah,
+
+it doesn't mean anything.
+
+All right,
+
+so what types of iterators are? I think you'll be covering some
+
+of this in lab.
+
+We talked about iterator types. Have you done this already?
+
+Yeah, depends on what day you go to lab, I think.
+
+So we use these things to access members of our container
+
+classes.
+
+They're like pointers. They can all be copy
+
+constructed.
+
+But different iterators allow you to do different things.
+
+An input iterator, for instance, can read values and move
+
+forward.
+
+You can't use an input iterator to move backwards.
+
+You can't use an input iterator to say, well, let me look at all
+
+of those things again.
+
+You might imagine an input iterator working through
+
+something like keystrokes.
+
+Unless you stored all those keystrokes somewhere,
+
+you can't take a pointer somewhere down the line and go
+
+back in the pointer.
+
+So input iterators can only be read from,
+
+can't be written to,
+
+and they can only move forward.
+
+They can be incremented, compared,
+
+and dereferenced.
+
+It's the only thing. So this is the big one right
+
+here.
+
+This is like 20 points on the midterm.
+
+So,
+
+now that you're listening,
+
+we're going to be talking about this one problem on the midterm,
+
+problem number 25.
+
+It's already picked.
+
+Problem 25 has to do with how do we implement STI,
+
+STL style iterator based algorithms.
+
+All right, so knowing what I can do and what I can't do with an
+
+algorithm is important. So if I've got an input
+
+iterator,
+
+you see that I can increment it, I can compare it, and I can
+
+dereference it.
+
+But the type of comparison is important.
+
+I cannot compare,
+
+like, is this less than that?
+
+All I can compare is, is this equal?
+
+Or I can negate that and say, is this not equal?
+
+So you'll see in the previous slide here, Look at the
+
+comparison.
+
+It says while begin does not equal end.
+
+That's very specific because I can't say while began is less
+
+than end.
+
+Imagine,
+
+if you will,
+
+an iterator to an item in a linked list.
+
+One item might be here in memory,
+
+one item might be there in memory.
+
+Who knows if it's less than or but the fact is it's following.
+
+So that's why you can only compare for equal to when we say
+
+here,
+
+as long as begin is not equal to end,
+
+I know that if these two iterators are in the same range,
+
+I will eventually get to end if I keep plus-plusing begin.
+
+And since I can only increment and I can't jump forward by 10,
+
+there's no way for me to go from begin right before end and jump
+
+over after end. So I don't have to worry about
+
+the less than thing. I know that probably for loops
+
+you were taught to use less than
+
+That keeps you safe, right? Because you say if I'm doing
+
+something wrong with a loop and I jump past my thing Then it'll
+
+keep looping because I said well if I'm not equal to that and
+
+once I'm beyond it I can't get past it.
+
+So Iterators get used in such a way that you never have to worry
+
+about that. So you can only compare
+
+iterators for
+
+equality or inequality but not for relative comparison so this
+
+comparison is equals only or not equals
+
+output iterators these are using for writing obviously inputs
+
+for reading outputs for writing I can write and move forward
+
+that's it I've got an output iterator I can't even compare an
+
+output iterator all I can do is write at it and move it forward
+
+right move forward right move It can only be incremented and
+
+dereferenced.
+
+A forward iterator is a combination there.
+
+They can read values with forward movement,
+
+they can be incremented, compared,
+
+dereferenced and stored.
+
+That's pretty good.
+
+That's what you'll get a lot of, forward iterators or input
+
+iterators,
+
+and that's why you look at the code here.
+
+Because this is templated, And we could have called this
+
+anything.
+
+Could have just called this T if we wanted to.
+
+But the convention is to tell you how this iterator is
+
+expected to behave.
+
+It's not a guarantee that it will, but the code inside of the
+
+function is going to be written in such a way that it only uses
+
+the abilities of an input iterator.
+
+So that's why it comes in here,
+
+input iterator, as that style.
+
+All right.
+
+Bidirectional iterators allow us to plus-plus increment and
+
+minus-minus decrement, so we can move back and forth with a
+
+bidirectional iterator.
+
+A random iterator is like a bidirectional iterator, but we
+
+can also do addition.
+
+So if I want to jump forward by four,
+
+if I want to jump back by 10, I can do math with a random
+
+iterator.
+
+It doesn't give me random things again.
+
+It allows me to choose randomly from what I want.
+
+And then there's a reverse iterator, which is an adapter
+
+that's pretty slick,
+
+the random iterator or bidirectional iterator that it
+
+comes from allows us to plus plus
+
+and move in reverse.
+
+That's what a reverse iterator does.
+
+So you can imagine how,
+
+as we talked about this generic print things, but what if I
+
+wanted to print these things out in a reverse order?
+
+I wanted to do a for each. That's a great thing that runs
+
+through a range of iterators. What if I wanted to work on this
+
+in reverse order?
+
+Should I write a reverse for each function?
+
+Or if I just take reverse iterators,
+
+every time I start at the end and plus,
+
+plus, plus, plus, plus, plus, plus,
+
+plus,
+
+I work my way to the beginning and I don't have to write a
+
+separate function for doing it. So that's why reverse iterators
+
+are pretty cool.
+
+Yeah.
+
+Why do we split the functions of like input iterators and output
+
+iterators?
+
+Why the difference between input and output iterators?
+
+Well, we're definitely going to be reading from and writing two
+
+things at different times, right?
+
+And depending on what you're getting,
+
+like for instance, if I'm saying this iterator stream is pulling
+
+off of a keyboard, I don't want anyone to think at some point
+
+later, I can write to that stream.
+
+And so that's why you say, well, this one is definitely
+
+locked down to just taking input or just taking output.
+
+So in some situations,
+
+it's because of what you're dealing with that you have, that
+
+you have to keep your activities limited.
+
+All right, we talked about ranges.
+
+The STL lets us call these functions here, begin,
+
+end,
+
+cbegin,
+
+cend, rbegin,
+
+rend.
+
+Every container in the STL has those.
+
+Go for it.
+
+Yeah.
+
+If you call like begin on an iterator,
+
+you're talking about?
+
+That's?
+
+Standard iterator,
+
+that's kind of the depending on how you use it.
+
+The compiler will make some of those decisions for you right if
+
+you go in and look up.
+
+Right here's talking about the types of iterators and what they
+
+can do, But if you're talking about something like a vector,
+
+Vector.
+
+So it doesn't discuss what type of iterator that it's going to
+
+show you here.
+
+It can tell you that you can get a const iterator if you ask for
+
+one.
+
+But the compiler tends to know it looks in the code and see
+
+what you're going to do with it.
+
+And then if you're going to be writing to it, it'll get you the
+
+proper iterator.
+
+So it's not something that you have to worry about too much.
+
+I mean, basically, that's really the answer that you're looking
+
+for is you don't have to know really what you're going to get.
+
+But if you are writing some stuff, if you have to know what
+
+you're expected to be able to do.
+
+So like in this slide here, where I said it says this is
+
+going to be an input iterator, I know that I better not try to
+
+write to that.
+
+That's really the best way that you can behave with them.
+
+All right, so all the containers support ranges.
+
+And so you can ask for a container.begin
+
+here, and it will give you an iterator to the beginning.
+
+Begin is getting an iterator to the beginning, end is going to
+
+use the STL convention of giving you the end
+
+as just past good data.
+
+Similar to the way that our indexing math works,
+
+if I've got four items in my vector and I ask for begin,
+
+the first will be pointing
+
+at
+
+the after the fourth item.
+
+So technically,
+
+end will be pointing at square brackets four,
+
+which will be out of bounds,
+
+which is why you should never ever ever dereference an end
+
+iterator,
+
+because an end iterator is always pointing just past good
+
+data.
+
+That's why the comparison says as long as the iterator that I'm
+
+looking at is not equal to the end iterator, then I can
+
+dereference it.
+
+While begin does not equal end,
+
+dereference and then move begin forward.
+
+That's what we saw.
+
+So these ranges,
+
+begin and end,
+
+give me two iterators that I can use like that.
+
+You see the next two,
+
+cbegin and cend,
+
+they work on the exact same range,
+
+but they're a constant iterator, meaning you can't change the
+
+thing that's being pointed And then r-begin and r-end are how I
+
+get a reverse iterator set.
+
+So the r-begin is pointing at the last item,
+
+and you plus,
+
+plus, plus, plus, plus, plus until you get to the first item
+
+and then quit after that.
+
+Begin is always inclusive,
+
+end is always exclusive. So we'll be talking about this
+
+half open range. If you remember,
+
+in math, you can kind of write that thing like this.
+
+The half-open range,
+
+which means I will hit zero,
+
+and if my range goes up to four here, then the numbers that I
+
+would be able to include are zero,
+
+one,
+
+two,
+
+and three.
+
+So if my range looks like zero comma four in this half-open
+
+one, It means it starts at 0,
+
+goes up 2, but does not include 4.
+
+And that's how the end iterator works on these ranges.
+
+All right.
+
+All the iterator functions in the STL, they're all
+
+range-based. They're not container-based.
+
+So you can see here,
+
+this is just an example of grabbing some iterators and
+
+using some basic STL functions.
+
+This one uses the STL's copy function, and it also uses the
+
+STL's sort function.
+
+Those are both found in algorithm.
+
+You see it included here in line two.
+
+And then we go through here, and what do we do? In line seven, we
+
+make a vector of integers.
+
+In line eight,
+
+we make an array of integers.
+
+Yeah,
+
+you don't want to dereference it, so it's before your memory
+
+range. It would be before it would be a
+
+basic that square brackets negative one if that was a
+
+thing.
+
+At the last one yep so you'll be pointing at and live data begin
+
+will always get you live data our begin will get you live data
+
+yep yep all right so
+
+vector of integers in seven C style
+
+array of integers in eight both of them are size n
+
+we fill the vector with a bunch of negative ones here the we
+
+didn't we don't have a simple way to do that so we just let it
+
+be full of junk in lines 10 and 11 what happens there we just
+
+generate something that looks like random ish data it's just j
+
+cubed mod n and I don't know it's pretty nonsensical but the
+
+point is we're gonna try to sort this or copy it but this is how
+
+we fill what we put stuff in the vector V at
+
+J we put
+
+So we've got these integers inside of v.
+
+In line 12 here,
+
+you see, what do we do? We copy from the beginning of v,
+
+all the way up to the end of v,
+
+and write that information.
+
+The third parameter in the copy statement tells you where to put
+
+the data.
+
+You see here,
+
+I'm writing to the C-style array.
+
+This is where the generic programming is working, right?
+
+Because this first parameter is an iterator.
+
+second parameter is an iterator and the third parameter is a C
+
+pointer but the STL copy function works because the C
+
+pointer can be dereferenced to write at it it can be
+
+incremented and that's all the copy needs from its
+
+output from its input we have to be able to dereference it to
+
+read it we have to be able to increment it to go to the next
+
+one but we also have to be able to compare two of them to say,
+
+when should I stop?
+
+There's no stopping at writing. There's only stopping at
+
+reading.
+
+So then you look at the version in line 13.
+
+What does line 13 do?
+
+Line 13 says, well, I can take this C pointer as the beginning
+
+of my range because I can dereference a pointer.
+
+I can compare a pointer. And I can increment a pointer.
+
+So this generic copy function from the STL here in 12 copied
+
+from vector to C style array here in 13 copies from a C-style
+
+array back to vector.
+
+And I could put DEC in there or any other thing that I can get a
+
+range on. I can copy from a C-style array
+
+to a doubly linked list if I put those iterators in there in that
+
+way.
+
+And that's what the generic programming is about here.
+
+In line 14 and 15, we're also being able to sort these things,
+
+right?
+
+The sort takes two iterators where things start, and just
+
+after things end,
+
+also known as .begin and .end,
+
+if we're talking about containers.
+
+Does that make sense?
+
+Does this raise any questions?
+
+Yeah.
+
+So to sort in reverse order, would you just use rbegin and
+
+rend?
+
+Question is, to sort in reverse order, would I use rbegin and
+
+rend?
+
+I believe that would work,
+
+right? The other way you can sort in reverse order is you can
+
+add a third parameter here to tell you how to compare things.
+
+And so the default comparison is standard less.
+
+If I put in a standard greater there, then it's going to give
+
+me a reverse item sort as well.
+
+They said we're both copy-ads,
+
+so the first parameter is inclusive of the second.
+
+Yes,
+
+everything in the STL, when it's talking about a range, is always
+
+inclusive-exclusive.
+
+Everything.
+
+All ranges, whether it's copy function,
+
+or some other constructor,
+
+or the sort function, or anything that the STL does in
+
+range,
+
+we're pointing at good data, and we're stopping just past good
+
+data.
+
+This version uses C++ 14 edition.
+
+It's the exact same stuff in there.
+
+You'll see, though,
+
+how I get my iterators is slightly different.
+
+Now I'm calling this standard begin function,
+
+whereas on the previous slide I was calling vector.begin.
+
+See it?
+
+And 12 there,
+
+v.begin.
+
+And 12 here, it's begin of v.
+
+So all this does is unifies our
+
+syntax.
+
+Because v.begin and begin of v aren't much
+
+different.
+
+Neither is end of v and v.end.
+
+But before, we were just using a.
+
+Now I can use begin at a and get myself an iterator that
+
+matches that pointer.
+
+That's really what's going on there.
+
+So this is the more common syntax to use.
+
+It is one less character,
+
+if you like it.
+
+So type's just a little faster.
+
+But it is more consistent here. You see,
+
+everything looks the same, whether I'm talking about this
+
+vector beginning
+
+or this array beginning,
+
+array beginning,
+
+vector beginning. You say, well, how do you know
+
+where does an array end?
+
+Because I understand being able to call n on a vector, but I
+
+don't necessarily understand
+
+how to be able to call n on a C-style array.
+
+Well, it has to be done in the right context.
+
+So in this particular function when I ask for the end of a the
+
+compiler is able to say well Where does they come from?
+
+I know what a is a is of type int Square bracket size n so the
+
+compiler can tell you where end is here if I were to just pass
+
+in some pointer
+
+To an array and say give me the end on that that wouldn't be
+
+compilable It has to be in the context and you see here because
+
+a is in the context of this function and I can call end of a
+
+and it will actually figure out where a plus n is.
+
+It's, it has to be in a context where it can discover it, right?
+
+It's not going to intuit it, it's not going to assume that it
+
+knows what it is, it has to know what it is, right? If the type
+
+is passed in as a square bracketed type you could
+
+actually do that as a variable, as you know, as a parameter, But
+
+you have to be passing that in with size at compile time.
+
+So not something you really have to worry about.
+
+If that's a bit confusing to you,
+
+just know that as long as the compiler can tell what our size
+
+actually is at compile time,
+
+then we can use end on A.
+
+Usually arrays decay into pointers
+
+when you need to get their R values.
+
+Yes.
+
+What's the type of the variable that's going inside of n when
+
+it's passing?
+
+The question is about array to pointer decay, which has gotta
+
+be one of the most complicated things in all of C++,
+
+but in reality,
+
+because of where this is,
+
+a is not a pointer.
+
+It can decay to a pointer.
+
+But what a is,
+
+is an array of size n.
+
+That's the type of a. So that's why when it can tell
+
+here that a is of type array size n.
+
+Oh Obviously, I know where end is then it's just that a plus n.
+
+So that's that's really what it is.
+
+It doesn't go to that's why I'm saying if you just to pass in a
+
+pointer and Wouldn't know what to do with it because a pointer
+
+doesn't have size in it Even though we think of arrays as
+
+being pointers. They aren't really pointers.
+
+They just can decay to pointers. And so So, that's why really A
+
+there isn't a pointer.
+
+It's really an array of size N.
+
+That's the type of A.
+
+And that's why it works.
+
+Yeah.
+
+On a vector or on the array?
+
+Okay. Well, it's different on the
+
+vector because begin and end,
+
+standard begin and standard end,
+
+they say, hey, you're calling this on some container that has
+
+its own dot begin function.
+
+So the standard begin,
+
+when you call it on a vector,
+
+gets forwarded to vector dot begin.
+
+So it actually ends up just exactly like the other slide,
+
+it's just written slightly differently,
+
+right?
+
+On the,
+
+on the array here,
+
+then it's like we were talking about, in that context it needs
+
+to know what that actual type is.
+
+If that type isn't something that it can intuit at compile
+
+time, then it won't be able to call end on it.
+
+All right.
+
+When do we not use iterators?
+
+You might be saying, well,
+
+I can just template some containers if I want to, can I?
+
+I don't feel like doing this begin end thing.
+
+Well,
+
+C++ 20 is coming to rescue you. We will be able to call range on
+
+containers in the future. but for now not so much
+
+so if I try to do it myself look at here
+
+we said I'm gonna template on this container so maybe I can
+
+say I'll just pass in I want to be able to print some stuff from
+
+a from a vector I'll pass that and that's what's gonna be
+
+templated there you see that I've got this container type C
+
+const reference there and then I'll just call begin on C inside
+
+the function this ends up with some compiler ambiguities
+
+so that's why it's got the big X on it on the slide there you
+
+don't want to do this the only way that you're gonna get this
+
+to work properly at all situations is if you declare one
+
+for a particular type here and so to clean this up to fix
+
+the ambiguity you really want to do one where you just pass in
+
+the container,
+
+then you've got to write it like this.
+
+Here, I say I'm templating on the class T.
+
+And T is not the container now, but it's the thing in the
+
+container.
+
+Looking at the second parameter there, you see I'm taking a
+
+vector of those Ts.
+
+So this function is still a bit generic.
+
+It's not written for a vector of integers or a vector of doubles.
+
+It'll work with a vector of anything.
+
+But what's not so great about it is it only does vectors.
+
+So if I want to write one of these that does DEC,
+
+then I have to write a separate function to do DEC,
+
+right, or a separate function to do list.
+
+That's what taking the iterators out of it, taking the range away
+
+from it does. It limits some of our generic
+
+usage.
+
+When I keep it as a range,
+
+then I could write this function once and work on all my
+
+containers.
+
+But if I want to be able to pass in a container, then I have to
+
+write a function for that container.
+
+So this is better,
+
+but like it says here, you need multiple versions for each one
+
+of your containers.
+
+So not so great.
+
+All right, memory allocation and initialization.
+
+As we look at putting things into a container,
+
+we've got the vector data structure, which is pretty
+
+compact.
+
+It's got three pointers,
+
+really.
+
+That's what makes up a vector.
+
+A pointer to where the data begins,
+
+a pointer to where the data ends,
+
+and then a pointer to where the memory ends.
+
+So if I've got room for 20 of them here, I've got this,
+
+that,
+
+and then this point in the middle that's pointing at one.
+
+So that's all it takes to make a vector, so that's why even an
+
+empty vector is going to cost you 24 bytes.
+
+It's got three pointers in it. And then there's going to be
+
+some memory on the heap somewhere else where it's
+
+getting at them.
+
+The list is not very compact because it's got those double
+
+pointers, the previous pointer, next pointer, so it's got 16
+
+extra bytes of memory per item.
+
+And then we'll be talking about the unordered map in the second
+
+half, which is a bit of a memory hog, but it does one of the
+
+things that we do on a regular basis.
+
+It trades space for speed.
+
+I'm going to use a bunch of space and I'll give you speed
+
+for it.
+
+You want this to be a little bit smaller, you might have to go a
+
+little bit slower.
+
+So we trade off in a lot and in the other map you can see that
+
+pretty obviously.
+
+Hopefully this stuff here is old news for you.
+
+This is about resizing a vector.
+
+By the end of P1 we should have mastered this, right?
+
+So here's one way to do it. a two-dimensional array of size
+
+10,
+
+each one of those things having 20 negative ones in it.
+
+So here we declare one, set its size to 10 at declaration time,
+
+which gives me 10 empty vectors.
+
+Then I've got this loop that goes through each one of those
+
+10 vectors and sets it equal to something new of size 20.
+
+So that's one way to do it.
+
+This version creates 20 vectors.
+
+See it?
+
+In line one, we create 10 vectors.
+
+And then in line three,
+
+I create a new vector 10 times and assign one of my old vectors
+
+to one of those.
+
+So this is probably less efficient,
+
+right?
+
+This is creating 20 vectors to get 10.
+
+So okay, well this version says,
+
+what if I were just to create the 10 in line one And then
+
+instead of overwriting the ones that are size 0,
+
+I will resize each one of them to be 20.
+
+So both of these do the same thing.
+
+This one creates 20 vectors. This one creates 10.
+
+You only use 10 of them, but you create and throw some away.
+
+And then this bottom version is the, this is the plus up way to
+
+do this, right?
+
+See how at declaration time, I say I'm gonna give 10 of these
+
+things. That's what every time you do a
+
+size and something. So this is going to be 20 of
+
+these things. So I've got 20 negative ones in
+
+this vector. Now in this two-dimensional
+
+array,
+
+I've got 10 of these things, which is just another vector of
+
+size 20 of these things.
+
+And so with this one line,
+
+I can get myself a nice 10 by 20 set of negative ones.
+
+Yeah.
+
+That's a good question, I'm not sure exactly how the mechanics
+
+on that work.
+
+I know that it's going to be,
+
+you know,
+
+in the end it's going to be 200 copies of that,
+
+that negative one. If I were to ask for,
+
+if this were not integers and some objects,
+
+it would be calling the default constructor on each one of them.
+
+So they do get created.
+
+So that's really how it's gonna go off in there.
+
+Each one of them gets assigned a negative one there.
+
+So in the end, it's about the same amount of work.
+
+The memory goes and gets got and then each thing is initialized.
+
+In the case of just integers, we're setting each one of them
+
+to negative one.
+
+All right.
+
+So I mentioned earlier the standard vector's memory
+
+overhead. It's these three pointers where
+
+the memory begins, where the memory ends, and where the data
+
+ends.
+
+Or,
+
+to be more precise,
+
+it's going to be just
+
+past...
+
+things like that. So if this is my last thing
+
+right here,
+
+the last piece of data, so in this case, you might say this
+
+looks like a capacity,
+
+and I'm imagining things,
+
+capacity of 20,
+
+size 10.
+
+That's what that vector looks like there to me.
+
+So the last thing,
+
+this would be, you know, sort of at square brackets nine, and
+
+then my end pointer would be here at 10.
+
+10
+
+It's just past good data
+
+The begin pointer of course is gonna be pointing at square
+
+brackets zero
+
+So you can think of this as zero and really
+
+You can think of this as 20
+
+So that's what the three back the three pointers in a vector
+
+are
+
+One of the things that you didn't have to worry too much
+
+about in this project p1 because p1 was just two-dimensional We
+
+couldn't really get around that. But you can still,
+
+two-dimensional and square.
+
+So here's where knowing what I'm doing can help me out.
+
+So if every vector is 24 bytes,
+
+imagine I've gotta represent 10 million items in
+
+memory.
+
+Not too hard.
+
+Which is gonna use more memory? Ten vectors of size one million
+
+or a million vectors of size ten?
+
+It's not even close, right?
+
+Ten vectors,
+
+each vector being 24 bytes, is 240 bytes.
+
+So if they've got a million things in them, the data is
+
+always going to take the data space, but the overhead from the
+
+containers matters.
+
+So if I've one outer vector so that's a two-dimensional vector
+
+right I put that in air quotes so a two-dimensional vector is
+
+just some vector that holds some stuff in it and if each one of
+
+those things is another vector that's kind of what I'm looking
+
+at so in my 10 by a million case then
+
+I've got 11 vectors the outer vector for 24 bytes and then
+
+the 10 inner vectors for 240 bytes or 264 bytes total
+
+right if I go the other route though I've got a million
+
+vectors and each one of them holds ten things I still have
+
+all of the data memory that I need I still hold ten million
+
+things but now I've got a million and one vectors so I can
+
+think of this as two six that's two four oh oh
+
+oh two four bytes right
+
+and that's just overhead that's not data so the order that I put
+
+my indices in is very important and the way that you want to do
+
+that is to put them in this
+
+increasing order here a smaller than b smaller than c so
+
+like for instance in another project one that you didn't do
+
+that would be multiple levels we'll say there's only ten
+
+levels as many as ten levels but the maps can sort of be on
+
+unlimited so how do you want to do that you don't want to have
+
+your row column first you want to have your map size first if
+
+there's ten of them then there's my ten outer vectors at most and
+
+that holds a bunch of stuff whereas if my Map size was 200
+
+by 200. I wouldn't want 200 outer
+
+vectors
+
+So that's what this is talking about here that you should sort
+
+them in the order of increasing because this is the three
+
+pointers for my outer vector and
+
+Then there's three times a pointers for my inner vector and
+
+three times a times B for my inner Inner vectors and that's
+
+what we're talking about in terms of pointers
+
+The first case because I've got an outer vector that's 24 bytes
+
+and then 240 on the 10 that are inside yep
+
+all right so
+
+and and then this this bottom one is kind of a small caveat to
+
+say or you can always ensure constant space overhead by just
+
+doing arithmetic indexing so I had some people that We're very
+
+attached to trying to do that in P1.
+
+So I'm just going to do this whole map as a 1D vector.
+
+And then I will do the arithmetic indexing to figure
+
+out what rows and columns worked.
+
+And that's another way to do it.
+
+And I think there were a couple of people that I remember
+
+working with,
+
+one that just could not get things to work in time doing
+
+that indexing, and another that did.
+
+So it's not necessarily indexing that was a problem.
+
+But it's a thing that you can do.
+
+is doing that one-dimensional array indexing, would that be
+
+slower than having a multi-dimensional array? The
+
+question is,
+
+is a one-dimensional array slower than a multi-dimensional
+
+array?
+
+And when you're in multi-dimensions,
+
+every time you go into a row and then into its column, you've got
+
+two memory accesses. So when I'm doing the
+
+single-dimensional array,
+
+all my code looks a lot junkier because I'm doing math all over
+
+the place that the compiler would have done for me if I had
+
+used a syntactic sugar or square brackets,
+
+but I am using fewer memory accesses, so it's a strange kind
+
+of trade-off.
+
+Most cases,
+
+you're way fine with just doing the two-dimensional version, and
+
+then your code reads easier, writes easier, you think about
+
+it less, and it gets done faster with fewer bugs.
+
+It's only when you get into some really small performance
+
+situations, like I've got an embedded system, and I got less
+
+memory, or I got less power, or whatever that you really wanna
+
+start playing with things like that.
+
+All right,
+
+end of STL containers and iterators.
+
+How am I still far behind?
+
+Still far behind.
+
+All right,
+
+functors and lambdas.
+
+We know what a functor is?
+
+We do know what a functor is, right?
+
+Functor is just an object that behaves like a function.
+
+Here's one for instance,
+
+this struct sort by name.
+
+The way you get an object to behave like a function is you
+
+give it an overloaded operator parentheses.
+
+So you see here, this one has in line two, it's got some operator
+
+parentheses.
+
+This is a specific kind of functor.
+
+This is a functor that we think of as using to do some
+
+comparison.
+
+So we've got a bunch of name overlap, and it's all just
+
+nicknames and cheap ways to say things.
+
+So function object, that's one way to say it.
+
+We say short version of that is functor,
+
+right?
+
+When I've got a functor that's gonna do some comparisons,
+
+also known as a binary predicate,
+
+I'll call that a comparator.
+
+So a binary predicate function object,
+
+it's a lot of stuff to say there, It's also just a
+
+comparator.
+
+So in this case, you see I'm taking two employees,
+
+constant references to them anyways.
+
+I take two employees and compare them, and I'm going to return my
+
+answer as a Boolean. That's what a predicate function
+
+is.
+
+Here's a question, give me yes or no.
+
+So this binary predicate takes two things and compares them.
+
+And in the STL, it wants all of those things to behave like
+
+less.
+
+So if I was looking at these two employees, In this case, this
+
+comparison is saying,
+
+which one of these should have the smallest name?
+
+This would be useful for sorting them
+
+in increasing order by name. And so this one says, I'll use
+
+this like less.
+
+So this is what a functor looks like.
+
+This is what a comparator looks like.
+
+This is what a function object looks like.
+
+What's the benefit of using these versus function pointers?
+
+The question is, what's the benefit between using these and
+
+function pointers From a coding standpoint,
+
+nothing really.
+
+They behave the same.
+
+Function pointers are a whole lot harder syntax to work with.
+
+But function pointer and a functor work the same.
+
+Make sense?
+
+So it says up there, don't overload operator less than.
+
+You could if I wanted to sort these employees I say well if I
+
+just wanted to see if this employee was less than that
+
+employee if I overloaded operator less than less than
+
+function would work.
+
+The problem with that is it works but it limits you.
+
+So what if I wanted to sort employees by name I get overload
+
+operator less than then I wanted to sort them somewhat later by
+
+salary less than wouldn't work for me because it's still be
+
+sorting by name and I'd have to write a func door that helps me
+
+sort by name one that or one that helps me sort by salary or
+
+seniority or whatever it is. And so the convention is just
+
+write a functor and then use it where you need it.
+
+Don't use less than unless there's an obvious one way to
+
+compare a certain thing, and that's when we're going to
+
+overload less than.
+
+So here,
+
+we talked about sort a few pages ago.
+
+You can see I'm being able to sort some employees here in a
+
+range from the beginning of that employee list to the end of that
+
+employee list,
+
+and then I can add a third parameter to the sort, as I
+
+mentioned,
+
+and this third parameter is this function object,
+
+this func door, this thing that says,
+
+here's an employee, here's an employee, which should go first?
+
+True if this one should go first.
+
+False if the second one should go first.
+
+That's how the STL sort is written.
+
+Go for it.
+
+So you're talking about tiebreaker,
+
+like,
+
+I want to sort you by name, I say, well, if you've got the
+
+same last name,
+
+then I'm going to sort you by your first name, if you've got
+
+the same first name, maybe I'll pick some other tiebreaker.
+
+That's all about whatever that thing does.
+
+Because in the end,
+
+all it has to do is return true or false.
+
+It doesn't matter why it returns true or false, right? it could
+
+be just based on one name and return true or false.
+
+Or it could say when the names are tied, then I go to this
+
+other decision to make whether I'm going to return true or
+
+false.
+
+Does that make sense?
+
+So it's in the comparator that that implementation happens is
+
+when you can make that decision.
+
+So this is what a functor looks like.
+
+I need an object here,
+
+sort by name is a type.
+
+And if I take this type and put parentheses on it,
+
+I get an object.
+
+So that's what I need in this third parameter.
+
+Iterator,
+
+iterator,
+
+object.
+
+Here you see I've got a priority queue that's being declared.
+
+And the priority queue, if I'm going to use my own comparison,
+
+I've got to give it three things at templating time.
+
+What goes in the container,
+
+employees.
+
+what the priority queue holds them in, a vector of employees,
+
+and then what is the type of object that will be doing my
+
+comparison. So you see a little bit of
+
+difference here.
+
+This version is in a function call.
+
+It needs an object.
+
+This is at a template definition level.
+
+It needs a class or a type.
+
+All right,
+
+it's our walking minute, Unless there's any other questions
+
+Let's walk
+
+I have a question about this.
+
+I'm kind of just wondering what about it,
+
+which part makes it hard?
+
+Why is it like a struct for,
+
+like,
+
+yeah, why can't it just be like,
+
+what does it need to stick to?
+
+It has this overloaded part,
+
+right?
+
+So it's got this overloaded operator frame.
+
+So that means basically if I've got some struct S,
+
+right,
+
+I can do this.
+
+And the compiler knows what to do,
+
+right?
+
+If I've got some struct that doesn't have an overlaid
+
+operator, parentheses,
+
+like for instance, you know, I had my location,
+
+which had a row and a column,
+
+right? If I had one of those and I said,
+
+let me take L and I'll put parentheses on it,
+
+it would say, I don't know how to do that anymore.
+
+I don't know any way to do that.
+
+If it had an overloaded operator parentheses,
+
+then the compiler would say, oh, I know what you want to do.
+
+You want me to call this function.
+
+So when you're doing this,
+
+it's the iterative act of parentheses?
+
+Like what does it actually do?
+
+Like what does it compile into?
+
+It's calling this function in that context.
+
+Where this is equal to pass,
+
+if I've got data,
+
+then it has to let you pass. Oh, okay, okay, okay, okay.
+
+Yeah.
+
+Okay.
+
+Yep.
+
+I'm not fully convinced on how end works,
+
+because what I learned is when you pass an array into a
+
+function,
+
+by default,
+
+it's gonna decay
+
+into a pointer,
+
+and then you lose the side. Absolutely,
+
+and so if you pass it into a function, you can't call in them
+
+because it doesn't have signs.
+
+That's what I'm saying is you have to, the one that we had, it
+
+was declared in that context.
+
+Yeah, so right here,
+
+a is an array, not a pointer.
+
+That's correct.
+
+But when I point it, when I pass it into end itself,
+
+end is taking in a parameter,
+
+right?
+
+So this parameter,
+
+the type of the parameter itself will decay into a point,
+
+but it gets passed into a function.
+
+Well, the end function knows how to deal with that, right? The
+
+end function knows how to deal with an integer of type,
+
+sorry,
+
+an array of type,
+
+an array of size n.
+
+It says, OK, well, I can make that work.
+
+I mean,
+
+I saw some lines that were like
+
+this.
+
+I was in public, right?
+
+Because I got a way you could pass an array by reference.
+
+It's like you'll have to show the side of your code.
+
+Right, yeah.
+
+Correct.
+
+So how can it do this with the size of that thing?
+
+Because it knows what it's type is,
+
+when the compiler is passing that on to X,
+
+it knows.
+
+It does have that information.
+
+You're correct.
+
+So if you use that kind of like...

@@ -1,0 +1,3743 @@
+That's
+
+better.
+
+Mm-hmm, mm-hmm, mm-hmm.
+
+All right, there's our minute,
+
+10.30.
+
+Today I did walking and smiling.
+
+So the whole way over here from Beister on the outside,
+
+I just walked,
+
+smiled all the way over.
+
+It's pretty good. The combination of smiling with
+
+other body motion might be something in that.
+
+I'm gonna look into it.
+
+But let's start there.
+
+We'll smile first,
+
+then we'll talk to ourselves.
+
+So you ready?
+
+Count of three,
+
+two,
+
+one.
+
+And that's it. See how easy that was?
+
+Next up,
+
+it's important for you to say
+
+I'm smart enough to do well in this course.
+
+Say it.
+
+You've got to tell somebody else, too, you're smart enough
+
+to do well in this course.
+
+Oh, yes, it feels good. Now,
+
+the other thing that's kind of really important,
+
+certainly important to you,
+
+is the exam.
+
+It's good to know right now,
+
+it's gonna suck.
+
+It's not gonna be great, it's not gonna be great.
+
+We don't try to write them as hard.
+
+We go back and we just sort of try to make the questions easier
+
+and then we say, okay, well let's just make them easier than
+
+that and then we get to the point where like,
+
+we can make them any easier than this, we just might as well just
+
+give them the points away and then we end up with a, like a 60
+
+median.
+
+It's just a hard subject.
+
+So right after the midterm and a bunch of people have done
+
+horribly,
+
+I often get them coming up to me and saying,
+
+how can I study for the final? I felt like I was here.
+
+I was paying attention maybe.
+
+Maybe I felt like I studied really hard.
+
+I studied a whole bunch of hours,
+
+whatever.
+
+All kind of stories, or maybe I just didn't think it was gonna
+
+be that hard so I didn't study. now I know I need to study for
+
+the final.
+
+What's the best way that I can study for this course?
+
+And the best way to study for this or anything
+
+is all along the way.
+
+It's good to be able to tune it up at the end, little cram
+
+session,
+
+but you're gonna do better if you study all along the way.
+
+And the cool part about the exam is it's only 24 multiple choice
+
+questions.
+
+Just 24 multiple choice questions.
+
+That's it, well there's two free response questions.
+
+But on the multiple choice side,
+
+there's just 24 of those.
+
+So then you ask, well, where do those questions come from?
+
+The staff writes those questions,
+
+not the faculty,
+
+the staff.
+
+That means the IAs and the GSI write the questions.
+
+The faculty goes over them, we tune them up, and we have
+
+discussions and pre-writes where they have half of the staff
+
+don't even see the test until it's about ready, and then they
+
+take the test and add more feedback, and they tune these
+
+questions up. But the key takeaway there is,
+
+these questions are written by students like you,
+
+right?
+
+We're in the second semester of the year, so we didn't really do
+
+any mid-year hiring,
+
+but about a third of the staff comes on new every school
+
+year. So that means that in the fall
+
+semester,
+
+they had half a semester's more 281 experience
+
+than you did,
+
+because they finished and you're at the midterm.
+
+Now they're at one and a half semesters more experience than
+
+you are, which is to say,
+
+not much more.
+
+They're one semester ahead of you, and then there's me,
+
+right? I've been doing this for decades.
+
+totally different,
+
+what's good is you can be as good as they are.
+
+When they get here,
+
+their first exam that they have to write for,
+
+they have to write,
+
+sorry you have to write for them,
+
+first exam they have to write,
+
+it's the first time they've written questions unless they
+
+followed my advice,
+
+right?
+
+And
+
+here's
+
+the from the material it's really easy to look at and be
+
+like oh yeah I understand that yeah yeah yeah I know that
+
+I got that and you say okay I don't even know what I'm
+
+studying here that was just a really simple lecture and I said
+
+earlier in the first lecture that I was back I was like it
+
+doesn't really matter what you know it matters what you can
+
+show that you know so just looking at the material and
+
+saying yeah I get that isn't gonna get you points on the
+
+exam,
+
+right?
+
+What's gonna get you points on the exam is like, what kind of
+
+question might they ask me to see if I understand the
+
+difference between stacks and queues?
+
+And then write that test question.
+
+Because there's 18,
+
+19,
+
+20,
+
+21 year olds
+
+just like you out there that are writing these questions.
+
+So if you write them,
+
+you get better at thinking in ways to say,
+
+not only do I know this stuff, but I can show how I know this
+
+stuff,
+
+right? Especially if you got somebody that you hang out with,
+
+that you study with in this course, and say, well, I'm gonna
+
+write some questions.
+
+You write some questions. I'll give you my questions.
+
+Maybe they're bad,
+
+but guess what? Some of the questions that we get from our
+
+staff are bad too,
+
+and then we fix them. Or we throw them away,
+
+some of both.
+
+But remember how I said a lot of what happens in this course
+
+depends on something. When you can write a question,
+
+even a bad question,
+
+when you can turn to your partner and say,
+
+the reason why this is a bad question is because you didn't
+
+take into account that you know when this container is empty,
+
+then blah, blah, blah, blah, blah.
+
+Oh yeah, that's right. And now you've just really
+
+learned something. Now you've just really learned
+
+how to show that you know that something.
+
+Does that make sense?
+
+So,
+
+what I did is try to help you with this.
+
+Let's see if we can't get to
+
+all
+
+the stuff that's on my iPad.
+
+PowerPoint, that's what we're really looking for.
+
+So here in containers,
+
+nope, not in. Yeah, that's not what I want,
+
+sorry.
+
+Remember how I was talking about having such a problem with the
+
+fonts?
+
+I went back and fixed a whole bunch of them at least in that
+
+lecture because it was in bad shape so I'll reopen this one
+
+and save it and then pull out your phone because we're gonna
+
+pull a QR code off the screen here in just a second save a
+
+copy on my iPad containers
+
+save and replace
+
+alright All right,
+
+last slide of the fun stuff.
+
+Oh,
+
+nope. I just blew it away, didn't I?
+
+I certainly did.
+
+OK, but it's still out there somewhere.
+
+Still out there.
+
+That's it right there.
+
+All right, scan that thing right there.
+
+You definitely can catch it.
+
+So that's just the link to a Google form.
+
+And this Google Form lets you write a test question.
+
+Pretty simple,
+
+right?
+
+It leads you through,
+
+like,
+
+give the thing a title,
+
+give it something decent.
+
+You know, you can write different types of, you can
+
+write true-false questions. This is just a practice exam.
+
+But what this is gonna let you do is,
+
+like,
+
+if half of you write a test question,
+
+there's gonna be 40 test questions from this lecture
+
+that you can practice, look at, throw out as a group.
+
+Maybe we can work on them and tune them up, throw some away,
+
+say,
+
+here's some good stuff.
+
+I don't want to put too much work into it myself just because
+
+then that's sort of like messing with your process,
+
+but if it needs some cleaning up.
+
+So what I can do is you submit this form and then I've got a
+
+little script that runs and this script will then turn around and
+
+generate a Google Doc that looks just like an exam.
+
+Well,
+
+it looks like an exam and you can then take the exam,
+
+right? So in that thing, you can also pick which lecture it's
+
+from.
+
+So we've been through the lecture, which I think is two on
+
+the list.
+
+This is the containers lecture, and we'll get into the next one,
+
+which is complexity analysis.
+
+So let's keep that link somewhere in your
+
+favorites so I can pause at the end of the lecture and say,
+
+okay, now go write a test question.
+
+and then I'll get this exam back to you once I get it printed up.
+
+I'll post it on Ed here.
+
+And I won't do too much editing on it, like I said, because I
+
+just don't wanna spend a whole bunch of time on it when it
+
+could be doing other things.
+
+You'll get to seeing what you can do and you can't do when you
+
+submit these things.
+
+And then,
+
+like I said,
+
+this is a good way to do it because you can go back and say,
+
+well,
+
+let me think about what 30 other people thought were important
+
+about this lecture,
+
+right? what 50 other people thought was important about this
+
+lecture,
+
+if I can brush up on that,
+
+I'm gonna be in pretty good shape because,
+
+you know,
+
+this is a statistical,
+
+it's not a zero percentage that one of those 30 or 50 other
+
+people who wrote a test question is gonna end up as an IA in this
+
+course in the next semester. And you're like,
+
+okay, well I was taking test questions from that cat before
+
+they were even an IA.
+
+And now I'm good at it. So,
+
+there we go,
+
+I'll pull that up and we can get those things going in there
+
+regularly because that's gonna make you better at the exam.
+
+All right.
+
+Then that puts us right here.
+
+We ended up talking about the deck.
+
+So we'll start up today talking about the priority queue.
+
+So we've called those other containers basic.
+
+That was offensive to them,
+
+but when you're basic,
+
+you're basic. Can't help you.
+
+All right.
+
+This is customizable container because when I put something
+
+into a queue,
+
+it always comes out in the same order.
+
+They take 10 queues and put the same 10 items in those,
+
+same 10 queues are always going to come out in the same order.
+
+Because I can't change the way that a queue behaves.
+
+I can change the way that a priority queue behaves.
+
+Right? That's why we call it customizable.
+
+We can think of a priority queue where we have each piece of
+
+data,
+
+also known as a datum,
+
+each piece of data has both its data and some priority
+
+associated with it. Usually the priorities are
+
+numbers.
+
+Sometimes we can do letters, but really when we're doing letters
+
+we're just comparing letters in a numeric way.
+
+So we really need something numeric to compare these things
+
+with.
+
+And sometimes the data has an explicit priority like this is a
+
+priority one call.
+
+other times you can say well this stock price is here and
+
+that other stock price is there and if I'm trying to buy the one
+
+with the lower price is more important than the one with the
+
+higher price so there's explicit priority and there's implicit
+
+priority but that's how we pull it off we can insert things and
+
+we can look at the thing that's most important and we can remove
+
+a thing it's gonna remove the most important thing so just
+
+like the if you think about the Q was working as importance was
+
+totally based on temporal ordering.
+
+Whoever got there first was always the most important.
+
+Priority Q works pretty similarly except it has nothing
+
+to do with time.
+
+It has to do with this numeric value that you either give or
+
+calculate out of things.
+
+And so you put stuff in there and no matter when you put it in
+
+there,
+
+the most important thing always comes out.
+
+And then once that's gone, the next most important thing is
+
+what comes out, and then the next most important thing, and
+
+so on, until you get down to the least most important, last thing
+
+that's in there, and you take it out.
+
+So this bike race, for instance, is a priority queue.
+
+We dump all the racers in, and then they pop themselves out at
+
+the end with the most important racer being the one who comes
+
+out first.
+
+It's a priority queue.
+
+So here's an example of an emergency call center.
+
+So these operators receive calls, And then when they have
+
+somebody to dispatch, they send them to a call.
+
+We got three levels of call.
+
+We're going to call them a level zero call.
+
+We got like zero minutes to wait to get this.
+
+So let's say that a level zero call is like my house is on
+
+fire. We're going to send somebody as
+
+soon as we got somebody.
+
+A level one call,
+
+let's say I heard a noise downstairs.
+
+There might be someone here.
+
+Please send someone as soon as you can.
+
+Level one,
+
+yes. But turns out it could be could
+
+be the cat cat makes noise. You don't know.
+
+Maybe it's okay So a level two call that's pretty chill though
+
+It is definitely the cat but in this case cats in the tree We
+
+need somebody to come get the cat out of the tree.
+
+Okay, great I'll come get the cat out of tree as long as
+
+somebody doesn't have a home invasion going on or
+
+Is in process of burning to death, right?
+
+That's how level one zero and two all work out So a level two
+
+call comes in. We don't have anybody to
+
+dispatch.
+
+We put them in there.
+
+There's a little kitty in a tree.
+
+Waiting for somebody to get the cat out of the tree.
+
+All right, what happens then?
+
+Another level two call comes in. Now I got two cats,
+
+maybe two trees. It could be the same tree,
+
+nobody knows. We have two calls though,
+
+both about cats.
+
+Level one call comes in. I think there's somebody
+
+downstairs.
+
+The operator says,
+
+sir, are you sure it's not the cat? I don't think it's the cat,
+
+please send somebody.
+
+Okay, we'll send somebody as soon as we can.
+
+So we get a dispatch call and we send somebody out.
+
+Go check out the house.
+
+Turns out guy was safe all along.
+
+It was just a cat.
+
+Level zero call comes in. Now this is a house on fire
+
+because cats like to step on things and chew cords and stuff
+
+like that. Cat probably stopped the fire
+
+because you know you left me in a tree and I was hungry.
+
+I was trying to get some food downstairs in the kitchen.
+
+He sent the police after me.
+
+I'm burning the house down. So house is on fire,
+
+we got a call coming in about house fire, and that's the call
+
+that's going to get dispatched to next.
+
+So this is how a priority queue works.
+
+This was one of the ones we said earlier,
+
+we talked about a container that might handle
+
+a receptionist calls that get interrupted because there's some
+
+calls that are more important than others.
+
+Is there the same priority as a queue?
+
+That's a good question. If they're the same priority,
+
+is it just a queue? In human terms,
+
+you would hope so, right? Because people would get grumpy
+
+otherwise.
+
+But in pure numeric terms,
+
+a level two is a level two is a level two.
+
+If you wanna say,
+
+I also ascribe temporal stuff to this,
+
+like I say,
+
+every two comes in, and then the twos get handled in the order
+
+that they came in,
+
+the ones get handled in the order that they came in, and so
+
+on, that's something that you can do,
+
+right? You can tune these priority queues to do whatever
+
+you like. You can have it just say, well,
+
+if it's a two,
+
+it's a two. I don't care, right? That would
+
+sometimes turn out to be unfair if you always get enough two,
+
+you get more twos than you get dispatches,
+
+you would have a situation where somebody could come in at a two
+
+and never get served,
+
+even though other twos are getting served and other ones
+
+are zeros.
+
+So when you assign how priority gets determined, you have to
+
+make that decision.
+
+Yeah,
+
+whether time matters or not.
+
+When you add it, it would be easier to add it.
+
+Right, well, in this one, it doesn't really show it.
+
+It's like a call gets dispatched because someone came and said,
+
+hey, now we've got a car,
+
+what's most important?
+
+And so at that point, if you look back and say,
+
+right,
+
+here's where we were, and then a car shows up and says, hey,
+
+where should I go to next?
+
+You say, okay, well, in that case, we've got a level of one,
+
+go to that house. So the dispatch takes off
+
+whenever something comes available,
+
+right, a service person comes available.
+
+Can you add more priority balances towards the 20s?
+
+So in the explicit case here where I've got zero,
+
+one, and two levels,
+
+you can add as many priority levels as you want,
+
+explicitly.
+
+In the implicit case, then it's like all bets are off, right? I
+
+got $1 share price. I got $1.10
+
+share price. I got $1.50
+
+share price. The stock goes up.
+
+I got a $400 stock price.
+
+There's a bunch of different priorities in there when you get
+
+to implicit. it when you're at explicit it's
+
+kind of up to you what you choose it to be I mean because
+
+you can think of representing this in memory just almost like
+
+it seems right it looks like a bunch of linked lists or you
+
+could do this into a container a vector of vectors something like
+
+that so in any case you can make this happen I'm just trying to
+
+give you the overall structure of how in explicit priorities
+
+would work all right that's good That's cats.
+
+Gotta watch out for those cats.
+
+I have a collection of feral cats that lives outside of my
+
+house. My wife and the kids feed the
+
+cats,
+
+and there's anywhere from three to six of them that you walk
+
+down, and they're just hanging outside the door,
+
+like,
+
+hand up on the glass,
+
+like,
+
+okay, we'll give you some food.
+
+They just live out there.
+
+Oh,
+
+so the question here is like, is there a way to say if I've been
+
+waiting long enough, there's a way to increase my priority.
+
+With the standard priority queue,
+
+there isn't a way to do that.
+
+Right? Because you can think of the priority queue
+
+doesn't change until you behave on it, right?
+
+When I push something in, That's when I can maybe change the
+
+priorities.
+
+But if I do that, I have to change priority and then
+
+restructure the entire priority queue because I don't know where
+
+you were in the queue when I decided to change your thing.
+
+So a standard priority queue won't really support that very
+
+well.
+
+But it's definitely a thing that happens in systems programming.
+
+You say,
+
+I've got a request that's sitting here, so eventually it
+
+does get upgraded.
+
+You can do that, but this is simpler than that.
+
+Yeah. Each code can only have one
+
+priority valid,
+
+right?
+
+Right.
+
+Yes, so there's only one priority in this system.
+
+Same sort of thing, though. I mean, if you want to get real
+
+tricky, you can have a bunch of different things you can do.
+
+But maybe if you're talking about multiple things that
+
+create your priority,
+
+like if you and I have the same start date,
+
+then maybe then we say,
+
+if they've got the same start date, then the,
+
+I don't know,
+
+something else, their age is what separates them after that.
+
+So there's just like a tie break.
+
+So you can have tie breaks.
+
+In this basic system here, there is no tie breaks.
+
+There's just one priority.
+
+But you could say, and you'll see in,
+
+I don't know if you're doing stocks this semester, but same
+
+sort of thing. If I've got two people coming in
+
+selling the stock at the same price,
+
+then the person who arrived with the sale first is the one who
+
+gets priority,
+
+right?
+
+And so then that's fair to that person because it was like,
+
+well, I was selling that at $1.05
+
+and you want to come in here and sell at $1.05,
+
+I can't ever get my sales off, right?
+
+So yes, you can do that too, all kind of things you can do with
+
+priority queues.
+
+And you will have some fun doing that.
+
+Fun, you'll do it.
+
+Second project,
+
+2B.
+
+So here's a priority queue ADT, it looks pretty similar,
+
+right? It's got a push, it's got a pop, it's got a show me what's
+
+important,
+
+right? We called it front in a queue, We called it top in a
+
+stack.
+
+We're gonna call it top here in a priority queue as well.
+
+It's the most important thing.
+
+It's on the top of the list.
+
+That's how you can think of it.
+
+You'll notice too that this one is const
+
+in that return reference because,
+
+remember the return reference doesn't remove it from the
+
+container.
+
+It just lets you access it.
+
+So,
+
+the reason why it's const is because If you could get a copy
+
+of it while it's still in the container and then change it You
+
+could make it less important, but still at the top of the
+
+priority queue
+
+So you get it as const so you can't really change it You want
+
+to change it? You're gonna have to pop it take it out and deal
+
+with it
+
+All right,
+
+yeah
+
+Okay, so for instance, let's say we're at stock prices again.
+
+Everybody's stock price is what gets you to the most important
+
+thing. I'm trying to buy stock, so I'm
+
+looking for the stock with the lowest price.
+
+Give me the one with the lowest price.
+
+This is $1.05. I was like, well, what if I
+
+change that right now to $4?
+
+Now it's no longer the most important stock,
+
+but since it's sitting at the top of the container, it's still
+
+physically in that same place.
+
+The container says, well,
+
+this is where I keep the most important thing, so the next
+
+time somebody asks for it, they get the $4 price, even though
+
+that's not the best price in the container.
+
+So that's why you're locked out from being able to change it
+
+while it's in the container.
+
+So you get a const reference to it, not a reference where you
+
+can change. Whereas in the stack and queue,
+
+remember, we just got regular references.
+
+So you can say, well, here's the first person in line and all of
+
+a sudden they have less money, but they're still first in line.
+
+It doesn't change, but nothing can change the fact that they
+
+got here before everyone else. So they will always be first in
+
+line, no matter what I do to edit them.
+
+But these I can't edit because I could change where they belong
+
+in the container.
+
+And so that's why it's const.
+
+That's the only difference between this one and the other
+
+two that we looked at, the stack and the queue,
+
+right? I've got a metric,
+
+couple of metrics there, size and empty,
+
+and so on.
+
+So think about hospital queue for arriving patients,
+
+load balancing on servers.
+
+We've got that going on now
+
+on our wonderful auto grader.
+
+Didn't have that for years and years.
+
+We just had students balance.
+
+But this is a priority queue ADT.
+
+It's pretty straightforward.
+
+We can implement this as we've talked about in multiple ways,
+
+and that is what project 2B is all about.
+
+You will be implementing a priority queue.
+
+We'll give you one way fully implemented, and then you'll
+
+implement it three other ways on top of that.
+
+So one way to do this is, what if I had just kept everything
+
+unordered?
+
+Basically, just put my stuff in a bucket.
+
+It would be really easy to put stuff in there.
+
+You just put it in there.
+
+So your insertion time is constant,
+
+but how is it to find it?
+
+Then I've got to do this linear search.
+
+I've got to look through everything.
+
+Which one is the most important?
+
+I don't know until I look at all of them.
+
+So if I go with an unordered sequence as my container, I can
+
+stick stuff in there in constant time, but it's going to take me
+
+linear time to find the most important thing.
+
+So that sorted thing would be a lot better
+
+because then I would know exactly where the thing was, I
+
+could get it out in constant time.
+
+Problem with that is keeping it sorted all along.
+
+If it's sorted,
+
+you should know that you can use a binary search
+
+to figure out where something new goes,
+
+but if I've got a sequential container,
+
+in many cases,
+
+I've gotta then slide stuff out of the way to put that thing
+
+where it actually belongs.
+
+So that's why we say in this case I mean we can always make a
+
+difference here if we went for the doubly linked list you could
+
+insert it in constant time you wouldn't have to move things but
+
+the doubly linked list now I can't do a
+
+logarithmic binary search on it right the only way I can search
+
+a binary a doubly linked list is with a linear search so even if
+
+I use the linked list I could do a linear search to find where it
+
+goes a constant time insertion still takes linear time to
+
+insert the thing.
+
+So we'll say linear insertion time with a sorted sequence,
+
+but then since I got it sorted, I know the most important thing,
+
+it's always at the end.
+
+I just grab it from there.
+
+Boom, so constant time access.
+
+So those two kind of work together,
+
+sorted and unordered,
+
+because they're either linear on the way in or linear on the way
+
+out in constant time otherwise.
+
+We'll talk about heaps later.
+
+Heaps are what we use in the STL.
+
+The STL uses them because they're far better, right?
+
+They're logarithmic on the way in and logarithmic on the way
+
+out.
+
+Yes?
+
+Right,
+
+because with the doubly linked list, you don't have random
+
+access,
+
+right? You have sequential access.
+
+So just quick numbers on logarithmic action.
+
+It's 1,024,
+
+log base 2 of that,
+
+10.
+
+So if I got a heap with 1,000 items in it, it costs me 10
+
+steps to put it in,
+
+10 steps to get it out.
+
+That same priority queue with an unordered sequence container
+
+costs me one step to put it in and 1,000 to get it out.
+
+If I got it sorted, it could be as bad as a 1,000 on insertion
+
+and one on the way out. So you can see why the
+
+round-trip on both of those first two in the 1,000 range
+
+versus the heap in the 10 range,
+
+much better with the heap on both of them.
+
+The round-trip there is still in the 10s.
+
+An array of linked list like we saw with the CAT demo.
+
+That's an array of linked list where I've got some
+
+predetermined set of priorities. That one I can get in constant
+
+time for insertion,
+
+constant time for removal.
+
+Much better.
+
+But that's when I know ahead of time what my priorities are.
+
+Right,
+
+because well there's three levels of priority.
+
+Even if there's 10 levels of priority,
+
+that's a constant.
+
+There's only 10 of them.
+
+Right,
+
+the challenge is when there's 10 levels of priority and there's
+
+40,000 insertions,
+
+I don't want to do a 40,000 item search.
+
+Looking at those 10 and say which one of these 10 things
+
+from top to bottom has something in it that's my most important
+
+item.
+
+So constant time access in constant time access out because
+
+you just say well here's the priority stick that thing in the
+
+list.
+
+So special case there but that's when we have explicit limited
+
+number of priorities.
+
+Yeah.
+
+Well, you can if you know ahead of time all of the priorities
+
+that are available, and they're explicitly listed,
+
+right?
+
+But like in the case of stocks,
+
+you don't know,
+
+there's no limited list of what the prices could be.
+
+Could be a dollar one, could be a dollar two, could be a dollar
+
+three, keep that story going on for hours, right?
+
+And so there's not a specific,
+
+and even if I did, I wouldn't wanna have a list that had
+
+40,000 different heads on it, right? So then the search for
+
+which one of those things actually has a thing in it is
+
+just as bad as doing it another way.
+
+So the explicit concept list thing works, especially when
+
+there's a small number of them. This is controllable and you
+
+know ahead of time.
+
+Good question, right? Because why wouldn't we do that all the
+
+time? Just like we talked about the deck, why wouldn't we use
+
+the deck all the time?
+
+It's not always good all the time.
+
+All right, we call it a customizable container because
+
+by default,
+
+standard priority queue uses the function standard less.
+
+Standard less is just a binary predicate.
+
+It says,
+
+is this first thing less than the second thing?
+
+True or false?
+
+That's what standard less does.
+
+And so,
+
+the standard priority queue says, I'll take any things you
+
+give me and I can repeatedly apply,
+
+is this less, is this less, is this less, is this less, until I
+
+figure out exactly where this thing belongs.
+
+That's how it works.
+
+It applies that function to figure out, hey, you've given me
+
+something new.
+
+I'm going to,
+
+from what I have already and what you've given me, apply this
+
+function to see, hey, are you more important than all of them?
+
+Are you more important than some of them? Are all of them more
+
+important than you?
+
+That's what the Priority Queue does.
+
+And it's customizable because you can change that standard
+
+less function. It uses standard less by
+
+default,
+
+but you can say well, what if I put standard greater in there?
+
+Standard greater would then say okay well sure you've got a
+
+priority queue But now the most important thing isn't the
+
+biggest thing the most important thing is the smallest thing And
+
+I know that's terribly confusing
+
+Because you think why is less give me the big thing and
+
+greater give me the small thing
+
+It's just the way it works.
+
+It's the way it works.
+
+In the STL,
+
+it is in a binary heap.
+
+When you implement your priority queues in Project 2, you will be
+
+using the comparator in a sorted,
+
+in an unordered one,
+
+in a binary heap, and in a pairing heap as well.
+
+But you'll be needing something to say,
+
+how do I decide?
+
+Here's two things that I don't know about at compile time.
+
+Because you can take the containers that you write and
+
+say,
+
+here,
+
+stick in a stock order, or stick in a Jedi troop deployment,
+
+and it will determine which one of these are based on the
+
+functions you give it. It says, well,
+
+when I'm given two Jedi troop deployments,
+
+this is how I know the one that's most important.
+
+That's what that function does.
+
+Yeah.
+
+So in terms of ties,
+
+like we said earlier with the 0-1-2 thing,
+
+that doesn't really worry about ties.
+
+If they're actually the exact same priority,
+
+it's not really deterministic about which one you'll get out.
+
+Because they say, well hey,
+
+they're equally important and you said you wanted the next
+
+Most important thing and they're both tied.
+
+So I gave you something that
+
+You know hit the constraint
+
+Yeah,
+
+so in the priority queues We'll be using a lot of tiebreakers so
+
+that we know that we're getting down to a single most important
+
+thing at least in our projects
+
+All right, so
+
+Back to this greater less thing, right when I say sort a bunch of
+
+numbers. What do you think?
+
+They're gonna end up like one, two, three, four, five, six,
+
+seven, eight, nine, 10, right?
+
+If I said sorted was 10, nine, eight, seven, six, five, four,
+
+you wouldn't argue, like those are sorted,
+
+but they're like reverse sorted, right?
+
+So by default, when I say sort,
+
+you think I'm gonna go increasing,
+
+and that's true.
+
+The standard sort in the STL also uses less,
+
+and so when you sort things, they go in increasing order.
+
+When I say give me the most important number out of this
+
+pile of numbers, what do you think is the most important
+
+number?
+
+It's the biggest one, right?
+
+So that's what it is.
+
+These two things work based on what we as a group think is the
+
+default behavior.
+
+You say priority queue,
+
+by default,
+
+I get the biggest thing.
+
+Perfect. If I say sort,
+
+by default, you go from small to big.
+
+STL is trying to save you work, and it says,
+
+hey, if you've got a custom object and you gotta write these
+
+comparators so people can put them in order and do things with
+
+them,
+
+we only want you to have to write one.
+
+So if you write one that behaves like less,
+
+when you call sort with it,
+
+they go in increasing order, like you expected.
+
+When you put them into a priority queue,
+
+they go from biggest to smallest, like you expected.
+
+That's why less causes the sort to go in the same way and causes
+
+the priority queue to give you the big thing.
+
+You wanna reverse either one of those two, you give greater to
+
+the sort, They go big down you give greater to the PQ they go
+
+small down
+
+Well,
+
+it's it's a boolean function
+
+Right.
+
+The question is if it's using less what happens if they have
+
+the same priority. So the question is is this less
+
+than that?
+
+And if they're the same the answer is no
+
+that's all right and then it makes all the rest of its
+
+decisions based on that and so I say well I can figure out which
+
+one of these is most important because if this is the same as
+
+that then I can certainly tell you that this one is not
+
+more important than that one so I won't return this one before
+
+that one and that's how it works so you can do this and
+
+Obviously,
+
+less is a standard function, so it works really great with
+
+built-in things.
+
+Strings,
+
+integers,
+
+strings aren't built-in, but standard less has been defined
+
+for strings.
+
+So standard less works with integers,
+
+bools,
+
+floats,
+
+doubles,
+
+all your built-in types, and then some of the more common
+
+types like string as well, because standard less is defined
+
+for string.
+
+Now, if you wanna say, well, I've got this stock order,
+
+standard less is not defined for your stock order.
+
+So that's when you have to bring your own comparator and say,
+
+make me a priority queue of the stock orders,
+
+stick them in a vector of stock orders, and use this comparator
+
+to look at two different ones and figure out which one is more
+
+important.
+
+Will standard less work if you have like the overloaded less
+
+than operator? Absolutely, the question is will standard less
+
+work if you overload the operator less than?
+
+And yes it will.
+
+Standard less, we'll try to call operator less than if it exists
+
+for that thing. If it doesn't exist for that
+
+thing,
+
+then it doesn't work.
+
+All right.
+
+So you can always change this,
+
+this priority queue's ability to work by changing the function
+
+that you declare it with.
+
+So it says here at the bottom, custom comparators can work with
+
+objects,
+
+perform tie-breaks on multiple object members like first price,
+
+then arrival time, and other functionality.
+
+Where do we get them from? of course,
+
+not include priority queue.
+
+That's one of the mysteries in my mind of the STL,
+
+but priority queue doesn't come from priority queue header,
+
+it comes from queue.
+
+Somewhat related,
+
+they have similar naming going on there.
+
+That's about four hours ago. So you include queue to get
+
+standard priority queue, and then here we say some common
+
+declarations. What if I just want a maximum
+
+priority queue, the default that uses standard less,
+
+a maximum priority queue of things called T.
+
+You see this declaration right here.
+
+So this one gives me a max priority queue.
+
+Whatever T type is,
+
+less has to work for it,
+
+and then it's going to give me the biggest T first as I pop
+
+them out of my PQ.
+
+If I wanted to change that,
+
+for instance,
+
+bring my own comparator here,
+
+then the declaration is a little bit more complicated.
+
+right the declaration here starts with standard priority
+
+queue then I say it has T's in it then I have to add this
+
+second parameter which says I'm gonna keep my T's in a vector of
+
+T you don't own the vector you can't access the vector
+
+don't even worry about the vector all you're telling the
+
+priority queue is you should stick things in a vector here if
+
+you wanted to customize it you could say hey I want you to make
+
+me a priority queue in a deck don't do that but that's what
+
+that's there for in any priority queue container so for instance
+
+if we wanted to make a stack we said the other day in a deck we
+
+would say I would like a stack of T's held in a deck of T's
+
+that's the default but I could also say I want a stack of T's
+
+held in a vector of T's that's how you would declare it and so
+
+the STL holds its convention such that the first template
+
+parameter is always the type that goes in there.
+
+And if the container is customizable,
+
+that's the second parameter.
+
+So in this case, the priority queue has a customizable
+
+container. You will not customize it.
+
+You should always use vector of t.
+
+But that's what we have to do to get to the third parameter,
+
+which is where we include our comparator.
+
+So this is how I've been able to declare a priority queue.
+
+This case is called myPQ.
+
+It holds T's in a vector, and it uses this comp functor to break
+
+ties when there are ties.
+
+In the sort of, in the documentation of it, or?
+
+I mean, in this one right here, I could say something like
+
+priority Q
+
+of int,
+
+held in a vector of int,
+
+and then use my comp.
+
+Yeah, I can do that. So the T is just for slides,
+
+really.
+
+Anything that you would use, you could actually put in there.
+
+Yeah, when you actually use them,
+
+at templating time, and it's gonna change it to that type.
+
+Yeah.
+
+Mm-hmm. How is the priority queue a CQT?
+
+The default container of a priority queue is that vector,
+
+right? And that's what I'm saying.
+
+If you just say,
+
+like this line right here,
+
+this priority queue T,
+
+it really ends up as T comma vector of T.
+
+You just don't have to put the second parameter if you don't
+
+want to change it. So the default is vector,
+
+leave it at the default.
+
+If you need to schedule a third thing here, then you have to put
+
+the second one there to take the place of.
+
+Yeah.
+
+The comp is a binary predicate that answers true or false to
+
+here's two of these, which one is this first one less important
+
+than the second one?
+
+You could put a different container in there, as long as
+
+it has to have random access.
+
+The good question here seems like,
+
+and it's true because
+
+all the time that we change the comparison.
+
+So the question was,
+
+feel like people would use the comp as a custom thing more
+
+often than they would change the vector.
+
+So why wouldn't they put that one first so we didn't have to
+
+do this three parameter thing even though we only really
+
+wanted to change two things,
+
+what gets held and how the decisions get made,
+
+right?
+
+It's about consistency,
+
+right?
+
+If, like I said,
+
+when you have a templated container that you can change a
+
+container on, like stack can be put in a vector or stack can be
+
+put in a deck,
+
+right?
+
+Q can be put in a deck,
+
+or Q can be put in a list.
+
+That's all I need for those things,
+
+the thing and what it gets held in.
+
+So it can say stack of Ts held in vector of Ts, and I'm done.
+
+And so to stay consistent,
+
+the STL says,
+
+if you're ever going to change the container, that's always the
+
+second parameter. If there's more stuff to be
+
+done, like in the case of the priority queue, it's after that,
+
+because there isn't more stuff to be done in the case of a
+
+stack.
+
+So that's why,
+
+because it leaves it at the part where you can go,
+
+I will do less,
+
+and it will take on the default behavior, and it's good.
+
+So in this priority queue,
+
+all the elements are gonna be the vector,
+
+the underlying vector,
+
+the thing that's gonna be the vector of the element?
+
+You don't really know or care,
+
+right?
+
+They're actually gonna be heap ordered,
+
+and that's what these functions here do, right? actually the
+
+priority queue that's in there uses these functions from
+
+algorithm.
+
+It says,
+
+hey, here's the container,
+
+make a heap out of this container if there's stuff
+
+already in it.
+
+Then if it's at the situation where you can call this,
+
+say I've got a container full of stuff,
+
+make a heap out of it. Now, I want to keep it as a
+
+heap, but I want to put something new in there.
+
+You call push heap on that container and that's all it
+
+does. It takes a vector and uses these
+
+three things to do its work. That's what the STL does.
+
+But these functions do exactly that.
+
+Push something into a heap while maintaining heap ordering.
+
+Remove something from a heap and make sure that the heap isn't
+
+broken when we're done.
+
+So if you want to do a standard priority queue,
+
+you can. If you want to make your own
+
+really customized priority queue, you can play around with
+
+this container.
+
+Really customized,
+
+you could do all the work yourself.
+
+All right.
+
+PQs,
+
+done. This is a good time to think
+
+about a test question.
+
+There was a lot of stuff we talked about in a very few
+
+slides.
+
+Lots of questions.
+
+Think about what's interesting about priority queues.
+
+How do they differ? What if I had a priority queue,
+
+a stack, and a queue, and I didn't know which one was which,
+
+and I started sticking stuff in there.
+
+What would come out?
+
+It would depend on what container I had.
+
+So,
+
+some things there.
+
+So after we get to these sections, I won't have a whole
+
+lot of time to pause for you,
+
+but when you see slides that look like this,
+
+especially if you're taking notes,
+
+scribble that little, just a little hint of a question,
+
+like some thoughts about what a question might be, then turn
+
+around and come back during study time and write a real
+
+multiple choice question for it.
+
+Great place to do it.
+
+All right.
+
+End of the show. So, let's go on to the next,
+
+we'll discard here,
+
+and then we need to download from there.
+
+All right.
+
+This one, I like to make fun of this guy.
+
+Seems like you should be on a TV ad that says binary got
+
+you down are you feeling blue about ones and zeros
+
+all right but not to be insensitive
+
+he looks depressed well that's okay complexity
+
+analysis will depress most of us so if you have real problems
+
+with depression,
+
+you should definitely talk to somebody.
+
+It's terrible.
+
+On the middle here, I've got this stopwatch because we will
+
+be doing some actual measurement of time.
+
+We're trying to figure out what time is going to look like.
+
+And over on the right there,
+
+I don't know, that just is a thing that has a curve that
+
+looks somewhat quadratic. I don't know why that one is
+
+there.
+
+It seems to have nothing else to do with this lecture content.
+
+So,
+
+here we go.
+
+On to complexity analysis.
+
+This one is the tough one.
+
+These questions are really hard to write.
+
+You can't really write nice complexity analysis questions.
+
+They're kinda gotta be a little mean, they're a little tricky,
+
+because it's just really straightforward stuff.
+
+And unless you put a little bit of hiding
+
+what's going on in there, it's just like, oh yeah, that's
+
+obvious.
+
+I don't even have to understand things, I just write stuff down.
+
+So,
+
+what is complexity analysis?
+
+We're gonna take algorithms and some input size, which we'll
+
+always measure with n, to figure out how many steps it's gonna
+
+take to process these n data. We think of each step as taking
+
+a constant amount of time and then we look at as input size
+
+grows How does the number of steps change? It's this trend
+
+that's most important to us How do we measure the complexity?
+
+Well, we want to
+
+Express the rate of growth of the time that this function
+
+takes or the computation takes this f of n And then we'll use
+
+big O notation to figure out what is the order of magnitude
+
+of this f of n The f of n is how much work it takes to process n
+
+data.
+
+Why it's important is it just tells us how an algorithm's
+
+gonna scale when we get larger data.
+
+Given two algorithms, we can say, well, this one is gonna be
+
+better than that one
+
+because it's got a better asymptotic complexity.
+
+We can do that before we implement it.
+
+Because remember,
+
+implementing is coding it up,
+
+debugging it, testing it,
+
+right? That's the time that you don't wanna realize that you've
+
+picked a bad horse,
+
+right? You want to pick the good horse before the race starts.
+
+Not after you figure it out, I'm never gonna catch that guy.
+
+This is terrible.
+
+I go change my jockey shorts,
+
+still not gonna catch him. That's debugging, sorry.
+
+I don't know why changing your shorts is debugging,
+
+but go with me, I'm always on the flow up here.
+
+All right, so we don't want to get into the middle of the race,
+
+though, and figure out, hey, we picked the bad horse.
+
+This is what the complexity analysis will tell us.
+
+This will always be better than that when the size gets big.
+
+So great, I'm going to use the better one first.
+
+That's when I want to spend my time coding,
+
+spend my time testing and debugging,
+
+not working on something that's never going to work for me.
+
+So here's some metrics we'll be looking at best case,
+
+we'll be looking at worst case,
+
+we'll be looking at average case.
+
+So here if I'm looking for something in this container,
+
+you can see that red square represents the best case.
+
+The best case is where I have to do the least amount of work to
+
+find what I'm looking for.
+
+I started looking through this list,
+
+I find that red one there.
+
+What's my worst case?
+
+Worst case is the purple star or the blue oval.
+
+See the purple star isn't there.
+
+How do I know that?
+
+I look at all the things before I realize the purple star right
+
+there.
+
+Same thing here.
+
+I can look at all the things before I find the blue oval.
+
+So those are my two worst cases. It could not even be there.
+
+If you don't know, then you still end up doing a linear
+
+amount of work. You look at all of the things,
+
+right?
+
+The one in It's an over to do n over
+
+2 comparisons The cool thing is in this case the worst case and
+
+the average case are the same asymptotically because here I'm
+
+looking at n and
+
+Thanks here. I'm looking at n over 2 things,
+
+but this is really just n times a constant the constant 1 half
+
+So I've got n at the bottom and n times a constant.
+
+Well, this is n times 1 This is n times 1 half so
+
+asymptotically. They're both linear worst case
+
+linear average case linear
+
+Yes, I think of them in the
+
+This is n.
+
+This is n over 2 correct.
+
+I wasn't even reading. I was just talking
+
+Good though good at it Make sense good.
+
+It's complex analysis. This is not too challenging
+
+stuff
+
+We look at what affects runtime.
+
+Obviously, the algorithm is going to affect things.
+
+After that, we're going to see implementation details.
+
+It says underneath that skills of the programmer.
+
+That's going to be what you're working on here a lot in these
+
+first couple of projects.
+
+Not doing things that gets the job done, it's just really
+
+inefficient.
+
+We don't really work too much on efficiency in CS1 and CS2.
+
+It's time now though.
+
+So we'll learn how to implement things more skillfully, And that
+
+will look that will affect runtime CPU speed and memory
+
+speed of course that gets us into
+
+Copper arms race so if I need a faster computer if I need my
+
+software to run faster Do I just go buy a faster computer?
+
+No, I like that I get better software and I can keep the
+
+really expensive investment down to a minimum though
+
+So we'll try to ignore how CPU speed and memory of speed works
+
+At the auto greater level though So that's exactly how we do
+
+stuff, is measure your clock-on-the-wall time
+
+for how things happen. And so we've got the two
+
+autograder machines that are exactly the same, down to the
+
+same card,
+
+same driver, same everything, so that when you run your software
+
+on one or the other, it doesn't really make a big bit of
+
+difference.
+
+So that's how that works there.
+
+The compiler will change how your stuff runs.
+
+We see a couple of flags here. the minus G3 flag,
+
+the minus G is for debug,
+
+turns on debug information,
+
+which includes extra stuff in your executable,
+
+so debug tools like GDB and LLDB and whatever debugger you wanna
+
+use,
+
+they need to know what's going on while execution happens.
+
+Without debugging information in the executable,
+
+nobody can tell what's happening, it's just executing
+
+some steps.
+
+You put a bunch of information in there, that's where the three
+
+is, That's setting the maximum amount of debug information.
+
+Minus G by itself is the same as G2.
+
+No G is no debug. You can also put a G1 in there
+
+that gives you a little bit of information.
+
+So we'll just go with the maximum amount of debug
+
+information, we'll always put G3 on there.
+
+That doesn't change your runtime so much.
+
+But the minus O flag does though, that's the optimization
+
+for speed.
+
+By default,
+
+dash O is a dash O2,
+
+but O3 is as big as you can go. So you could put any number
+
+there bigger than three if you like.
+
+But three is the last that there is.
+
+So you put minus 0400,
+
+you'll still get level three optimization.
+
+That's going to make your code go as fast as it can.
+
+So the compiler looks at stuff and tries to take shortcuts.
+
+It says, well, this is a really small function.
+
+I can inline that. That'll make things faster.
+
+It does some tricky things there.
+
+So when you're running your code at testing time on your own
+
+machine, you're probably going to use debug builds.
+
+Otherwise, your debugger is not going to be useful for you.
+
+That will be different from a release build when we put the O3
+
+on there.
+
+Isn't there also an OFAS flag?
+
+There is an OFAS flag, but it's probably the same as O3.
+
+That's the fastest we can get.
+
+Other programs running will also affect your runtime.
+
+It happens.
+
+There's one processor,
+
+three programs using it.
+
+They take the process and they share it.
+
+really, really fast, but they share it.
+
+And then lastly, in this big red bullet, it says the amount of
+
+data processed is what's gonna affect the runtime.
+
+That's what we're gonna care about, affecting runtime.
+
+How does the N that we're working on affect us?
+
+So input size versus runtime.
+
+We look at the rate of growth independent of most of the
+
+factors on the previous page. I'm just wondering why the
+
+autograder used time instead of like a blank graph or analyze
+
+it.
+
+How many lines are you expecting it to take?
+
+Ah, that is a long,
+
+long answer.
+
+The question is why do we use time?
+
+Time works.
+
+Time works,
+
+right?
+
+Especially when things started and there was only one
+
+autograder. Everybody's using the same
+
+machine. You all have the same stuff.
+
+We get to multiple autograders, we have so many people,
+
+you get to similar things and they're close enough that they
+
+really are pretty close.
+
+We're in the process of trying to overhaul the thing to look at
+
+the actual number of instructions executed,
+
+cache misses and all that things, because it's not just
+
+executed instructions,
+
+it's what the instructions are doing and how they all shake
+
+out.
+
+So the clock actually still helps do some of that stuff.
+
+All right, so we're looking at what is fast,
+
+always fast. Is it fast on a large input, or
+
+does it get slower? You see here a couple of curves.
+
+That blue one's linear. That red one is approximately
+
+quadratic.
+
+It's definitely a higher-order function of n.
+
+But this is n put size down here,
+
+n on the bottom, and then our time going up there.
+
+These are the kind of graphs that you'll be analyzing when
+
+you're thinking about what's going on with my runtime.
+
+How do we measure input size? That's the next good question.
+
+Is it the number of bits?
+
+Is it the number of bytes? Is it the number of strings?
+
+when you're working on this,
+
+there's two things that are important.
+
+Figuring out what n is,
+
+and then imagining that n is beyond your control and always
+
+very large.
+
+You start trying to do your analysis thinking that you can
+
+control n, you're not really doing complexity analysis.
+
+So,
+
+that's what's going on there.
+
+So what we'll look at is the number of items, do I have an
+
+array of integers,
+
+what's the most important?
+
+How many integers there are,
+
+how many digits there are in each integer, it's going to
+
+depend,
+
+once again it depends,
+
+on what your problem is,
+
+right?
+
+That one string is a several strings is a character in a
+
+string.
+
+So you'll have to figure out what n is before you can get
+
+your analysis done.
+
+Then we'll say, once we know that n is the input size f of n
+
+is the maximum number of steps it takes to process those n
+
+data.
+
+And then the big O of f of n is the complexity class of the
+
+function there. And that's what we're gonna be
+
+looking at as we look at these common complexity classes.
+
+Starting from our fastest at the top,
+
+we've got constant time, big O of one.
+
+And we've got logarithmic time, big O of log n.
+
+Slower than that is linear time.
+
+After that is log linear or linear rhythmic.
+
+That's n log n.
+
+You'll find that in your sorts.
+
+Some priority queue work,
+
+anything that deals with the heap or sorting.
+
+You're going to see n log n.
+
+Quadratic is n squared,
+
+but really quadratic is just a polynomial with its own special
+
+name. So cubic and then to the fourth
+
+and all those things. They're all just polynomials
+
+quadratics faster, though
+
+Exponential factorial doubly exponential that one's there
+
+just for fun. I don't know why but
+
+That's the order of these things so this is a thing that you
+
+should know the tough ones are these two it's always
+
+We ever get stuck. Just give yourself an example.
+
+Well, it was 10 well to the 10th That's about a thousand with 10
+
+times 9 times 8 times 7 times 6. Well, that's bigger
+
+Right, so figure out how to remember these in the right
+
+order can be challenging, but other than that, the rest of
+
+them are pretty straightforward.
+
+But this is the order of functions that we'll be using
+
+throughout the semester to analyze what we got going on,
+
+and we're going to, a lot of times we want to be kind of
+
+right here in this quadratic range.
+
+Quadratic is pretty good,
+
+I mean certainly linear is better, when you get linear you
+
+always take linear if you ever got a chance at constant or
+
+logarithmic you always take the fastest you can get but usually
+
+a lot of times quadratic isn't too bad we'll get into some
+
+later stuff where we're trying to avoid
+
+factorial in project 4 because it's out there so
+
+remember these maybe put that on your sheet here they are all
+
+graphed up next to each other you see this constant time here
+
+in blue at the bottom just stays there then I've got this
+
+logarithmic time in red.
+
+Linear is yellow.
+
+I get to my log linear or linear rhythmic in green here.
+
+That's what sorting looks like.
+
+And then the last two are really, really deceiving.
+
+You look at n squared and two to the n.
+
+It looks like they're friends, right? It looks like they hang
+
+out. They're just crossing each other
+
+and hanging out, they're real close.
+
+But what's n?
+
+It's like five. That is not a real n.
+
+50,000,
+
+that's a real n.
+
+100,000, those are real n's. Remember I said n is so big you
+
+can't control it.
+
+That less than 10 is very controlled.
+
+So,
+
+it looks like two to the n and n squared are about the same.
+
+They are not,
+
+and you know it.
+
+Just don't be fooled by the graph here, right?
+
+Even if I get out to 10,
+
+n squared is 100.
+
+Two to the n is 1,000.
+
+They're not close anymore.
+
+But that's what they look like, so you can see them all snugged
+
+up together.
+
+Here we got a graph.
+
+I said, what is N?
+
+See this graph?
+
+Got these five green dots,
+
+six black edges.
+
+So what is N? Is it the dots?
+
+Is it the vertices in my graph?
+
+Or is it the edges in my graph?
+
+And of course, you know the answer to that already, right?
+
+It depends.
+
+Depends on a few things.
+
+How do I store the data in my graph? Is my graph stored in a
+
+contiguous or is my graph stored connected?
+
+It also depends on what algorithm I'm using.
+
+Some algorithms are vertex-based algorithms.
+
+Other algorithms are edge-based algorithms.
+
+So you have to know what you're doing to figure out what n is.
+
+So,
+
+and we'll get into graph algorithms in the second half,
+
+but we'll see some examples here like e log v, the number of
+
+edges
+
+times the log of the number of vertices, or e times v, or v
+
+squared log e. These are all real
+
+complexities based on graphs, but you have to know what n
+
+is when you're going at trying to do some complexity analysis.
+
+So we'll think of our algorithm analysis
+
+as being independent of the hardware,
+
+because we can, like I said, we can always just get better
+
+hardware if it's bad,
+
+so that's not really a good measure of whether I've got good
+
+software if I've got to get better hardware to make it work.
+
+We'll say, well, I can compile things equally, so I don't want
+
+to worry about that,
+
+or implementation tweaks, getting stuff just right.
+
+What really is going to be important is,
+
+when I've got large enough inputs,
+
+how does it work?
+
+N squared time algorithms will take longer than N algorithms.
+
+Quadratic takes longer than linear.
+
+Constants often get ignored because we're doing this
+
+asymptotic complexity.
+
+In the long run, It doesn't really matter.
+
+5n squared is always going to be worse than 100n.
+
+n gets big enough.
+
+That's why we ignore the constants.
+
+Complexity analysis,
+
+great place to pause.
+
+Jotted a note down right here.
+
+Maybe even a question that you still have.
+
+How do I turn that question into a test question?
+
+We talked about step counting,
+
+number of steps it takes to process some input.
+
+So let's work on step counting.
+
+What counts as one step in a program? This is a very
+
+simplified approach to complexity analysis.
+
+It works,
+
+it's our lowest level base case. After we get into this a ways,
+
+we won't step count. But to get things started,
+
+we will.
+
+Right, so we'll think of these primitive operations as each one
+
+of them taking the same amount of time, or one step.
+
+If you know anything about how processors work, you know that
+
+they don't all take the same amount of time.
+
+They're pretty close, but like I said, doesn't matter.
+
+We're not worrying about that. Right now, we're just gonna
+
+count individual steps,
+
+meaning a variable assignment,
+
+any arithmetic operation,
+
+a comparison,
+
+getting something out of an array or dereferencing a
+
+pointer,
+
+making a function call or getting a function return in
+
+both cases,
+
+ignoring the data that's used with them.
+
+So that's the six simple things that we can look at as steps we
+
+think like it says the runtime of one step is independent so if
+
+i have a step that takes me this long so what i'm saying is if
+
+i've got to add two numbers the add operation takes this amount
+
+of time if i've got to add 500 numbers the add operation still
+
+takes the same amount of time just 500 times so the amount of
+
+data that i have doesn't change the speed of any one step
+
+all right we'll see in the end that it's really the loops that
+
+matter so we're gonna start by learning how to count a for
+
+loop.
+
+We know what a for loop looks like here, right? We got a for
+
+loop.
+
+I say something like i is equal to zero,
+
+i is less than size,
+
+plus plus i.
+
+That's how we write a lot of for loops.
+
+That's my favorite kind of for loop.
+
+They look nice. I can look at them right like
+
+that. I know what's going on.
+
+You get tricky stuff in there with funky math and other than
+
+plus pluses,
+
+then I have to spend more time. But if I see a zero less than
+
+size plus plus, I know right away,
+
+this is an n base loop and n is size.
+
+So, that's what our common for loops look like.
+
+We need to learn how to count for loops though.
+
+So I can say when I set i equal to zero,
+
+that is what?
+
+A variable assignment.
+
+That's one step.
+
+How about this question here? Is i less than size? However, I got
+
+size.
+
+Let's just put it there like that.
+
+We'll call that one step. It's just what,
+
+a comparison.
+
+So I say is i less than size though, how many times does that
+
+happen?
+
+It happens and it works size times.
+
+Works at zero,
+
+works at one, works at two, works at three,
+
+works at four.
+
+I'm going up to five of them.
+
+It works at zero, works at one, works at two, works at three,
+
+works at four.
+
+Five times it works.
+
+But then it gets called one more time so that it fails.
+
+That's how I get out of the loop.
+
+So finally at the point when I is five,
+
+that's when it quits.
+
+So I can say that this size comparison happens n plus
+
+one times.
+
+The initialization is one,
+
+the test is n plus one, and then every time that I'm in the loop,
+
+I get done and I do the update step.
+
+So the update steps has me starting at zero, And then I go
+
+plus,
+
+plus,
+
+plus,
+
+plus, plus,
+
+plus,
+
+plus,
+
+plus,
+
+hey, it's five now, we're out.
+
+So my update happens n times.
+
+So I look at a for loop.
+
+How many steps does the for loop take?
+
+It takes one for initialization,
+
+n for the testing,
+
+plus one for the failed test,
+
+and then n for the update. So I think of them as taking two
+
+n plus two steps
+
+for the for loop,
+
+just the loop,
+
+nothing inside of it.
+
+If I had a for loop that did nothing,
+
+it would still take me two n plus two steps to get that done.
+
+Yeah, waving our hands at some stuff.
+
+The question is, isn't calling size doing something that's a
+
+function call? Yeah, it is. but I could also have that just
+
+be some constant number too right like in the case of dot
+
+size on a vector that returns in constant time so yes it's a
+
+function but it's a constant time function so that really
+
+behaves just like a step
+
+The auto grader ends up taking your big O by running tests and
+
+clocking them, right? It doesn't look at steps, right? Your
+
+analysis at the step level is going to be for you.
+
+The auto grader is not quite that mean.
+
+Yeah,
+
+it's mean enough.
+
+Yeah.
+
+Oh, man, you're so tricky,
+
+you're so tricky,
+
+you're so tricky,
+
+it's true.
+
+Question is,
+
+isn't plus plus i two steps,
+
+because I'm doing an i and I add a number to it and then I assign
+
+it back to i.
+
+So yes,
+
+the answer to that is yes. What does that do though?
+
+That changes this from two N plus two steps
+
+to three N plus two steps.
+
+And what does that do in terms of big O?
+
+Nothing,
+
+right?
+
+It's still linear.
+
+Two N plus two
+
+is big O N.
+
+Three N plus two is big O N. So yeah, we got some hand waving
+
+going on all through this step counter.
+
+It's like,
+
+that's close enough,
+
+I'm waving my hands.
+
+So for now, we're going to leave it at that.
+
+But you'll see why real quick.
+
+We can change it to what you had.
+
+Well,
+
+that's now we're not seeing how we're getting into the one step,
+
+the plus plus i can mutated in memory.
+
+But I mean, it still has to do an operation.
+
+It can be done in one. it can be done in one
+
+instruction,
+
+right? It can be done in one instruction.
+
+So that's why, that's why we have our hands.
+
+We say that's close enough, because two n plus two is close
+
+enough to three n plus two. That's close enough.
+
+We're getting into the finer points here.
+
+So now look at these two functions.
+
+First one is named func one.
+
+I've got some numbers next to it.
+
+Int sum equals zero. That's an assignment, I'll call
+
+that one step.
+
+Line three, I've got a for loop. We already decided if that's
+
+going up to n, then I'm gonna have two n plus two steps for
+
+the for loop itself.
+
+Inside that loop, let's say this sum plus equals i takes one
+
+step.
+
+Let's say that it does.
+
+Takes one step,
+
+but you see it's inside the loop and it's indented over here in
+
+my count as well.
+
+It's inside the loop that happens n times,
+
+so really that one step,
+
+sum plus equals i happens n times,
+
+so I'm gonna say that it contributes n to my overall work
+
+there.
+
+And then lastly, when I return sum,
+
+that takes one step. So if you add those things up in
+
+lines 2 3 4 5 & 6, it looks like 3n plus 4
+
+That's a linear function That's what step counting will do for
+
+me. What's going on here? I got this
+
+other one in func 2 I've got a for loop in line 10 takes 2n
+
+plus 2 steps. I've got a for loop in line 11
+
+also 2n plus 2 steps but that for loop inside
+
+happens n times.
+
+So you can think of this really as being n times 2n plus 2
+
+steps.
+
+That's how much that inner for loop contributes just like this
+
+one step sum plus plus it's one step but it's doubly indented so
+
+it's gonna happen n times for its inner loop and that inner
+
+loop happens n times so that's gonna add a full-on n squared to
+
+the gang right so this looks kind like that that's how when
+
+you add all of this up you'll end up with something that looks
+
+like and see I could have done that here call this and call
+
+this and then when I put all of this into a pile here you'll see
+
+that I get something looks like 3n squared plus 7n plus 6 so I
+
+can say that this first function is linear and a second function
+
+is quadratic
+
+you will
+
+not be asked to count steps,
+
+no.
+
+You can count steps if it's how you get to the big O,
+
+right, because if you can't figure it out, counting steps
+
+will get you the big O.
+
+Good news is,
+
+we're not gonna do that.
+
+We're gonna start recognizing patterns here, right? I see in
+
+that first one,
+
+there's a constant amount of work that's happening inside of
+
+the for loop,
+
+and it's an n-based loop,
+
+therefore I've got an n function,
+
+that's all,
+
+right? Counting steps will get me that but when I get better at
+
+I say well Here's an end loop inside of an end loop that's
+
+looking like n squared and that's way worse than all of
+
+this So I can just ignore this stuff and say it's n squared
+
+because of that and I would be right
+
+So step counting is a way to explain it and a way to get
+
+there when you don't understand something that's going on But we
+
+won't ask you a pure step counting question on the exam.
+
+We will be asking you. What is the complexity of such?
+
+Alright so those are polynomial ones
+
+Here's a logarithmic one.
+
+Welcome to the worst,
+
+the first bad for loop of the semester, right?
+
+Like I said, I like them to start at zero, go less than
+
+size,
+
+and plus plus to get there.
+
+This one does none of that.
+
+None of that.
+
+So when I look at that for loop, I say, I've got to scratch my
+
+head and really pay attention. I might have to write something
+
+down to figure out how many times this loop goes.
+
+Turns out this is a logarithmic loop.
+
+It's looking at some n,
+
+and as long as n is greater than one, I'm gonna divide it in
+
+half.
+
+So I cut it in half, and I cut it in half, and I cut it in
+
+half, and I cut it in half,
+
+and that's what's being illustrated here with this big
+
+yellow bar. There's n items,
+
+and I cut it in half,
+
+and then I cut it in half, and I keep cutting in half until I get
+
+down to one item and that's when I stop.
+
+How many times did I cut it in half?
+
+K times.
+
+Well, what the heck's K,
+
+right?
+
+We feed K back in there and say, well, if I started at one and I
+
+doubled it and I doubled it and I doubled it and I doubled it, I
+
+doubled it, K times, the number I would have was two to the K.
+
+Great,
+
+well, two to the K would be N then or something just like it.
+
+So now that I know that two to the K is N,
+
+I can figure out how to solve for K.
+
+Take the log base two of both sides of that.
+
+So log base 2 of 2 to the k is equal to the
+
+log base 2 of n.
+
+And this is just k log base 2 of n.
+
+So k is how many times the loop goes.
+
+So this is where my solution comes from.
+
+k is log base 2 of n. So that loop up there happens k
+
+times,
+
+not n times.
+
+And you see that the rest of this stuff here is updated
+
+accordingly.
+
+Where previously we said it was two n plus two.
+
+Now we're talking about two k plus two in the case of k being
+
+approximately log n.
+
+All right?
+
+Now,
+
+yeah, go for it.
+
+Because,
+
+for instance, let me start at something like 12, right? I cut
+
+that in half, I go to six, cut that in half, I go to three, cut
+
+that in half.
+
+I go to one, cut that, and I'm done, right?
+
+Then if I turn around and exponent my way back up to that,
+
+one,
+
+then I go to the two, then I go to the four, then I go to the
+
+eight, and then I go to the 16.
+
+And 16 is not 12.
+
+I started at 12, divided to get down there, and I squared to get
+
+back up, and I got up farther. So that's why it's approximately
+
+log n, because when we get to numbers that aren't exactly
+
+perfect powers of two, then we still got to get something close
+
+all right let's make life a little
+
+easier here's a couple of examples on the left I've got
+
+something that looks like some thing that counts the binary log
+
+of a number here rounds up so while n is greater than 1
+
+and divide by equal 2 plus plus R so you You can look at what's
+
+going on inside of that loop.
+
+No matter how many steps you want to say that is,
+
+you can say n div equals two is two steps.
+
+You could also say n div equal two doesn't compile.
+
+Okay, now it does.
+
+You say n div equal two is two steps if you want,
+
+and you could say r++ is even two steps if you want.
+
+You could say it's one step, you could say it's two.
+
+Whatever. But what happens is,
+
+if that loop goes 500,000 times,
+
+those two lines will still take the same amount of time.
+
+So that's what I say. There's a constant amount of
+
+work inside the loop. It doesn't change.
+
+If n grows,
+
+n divided by two doesn't take longer.
+
+It still takes the same amount of time.
+
+Yes,
+
+yes, n does have a size here, but I'm trying to figure out
+
+what's controlling it. The work inside the loop doesn't
+
+change,
+
+right? So then I can say, well,
+
+if the work inside is constant, I see the return statement is
+
+constant,
+
+I see the initial r equals zero is constant, the only thing that
+
+would dictate my complexity of this function is how many times
+
+does that loop go?
+
+That's what I'm trying to figure out.
+
+Otherwise, it's a constant function.
+
+Same thing over here, what's going on? This one says while
+
+high is greater than or equal to low,
+
+now this one is binary search. You know how binary search
+
+works?
+
+We're looking for a thing in this sort of container.
+
+I look in the middle.
+
+If this is it, I'm good. If it's not it,
+
+then what I'm looking for is either over here on the big side
+
+or it's over there on the small side.
+
+And so then I just divide and then go over there and then jump
+
+in the middle of that.
+
+That's what binary search does.
+
+This is how you look things up in a dictionary.
+
+I turn too far, I go back this way.
+
+Not enough, I go that way. We've been binary searching
+
+since we were in
+
+second or third grade.
+
+But this is one written for C++.
+
+So I'm going to pass in some pointer to integers.
+
+This is where the integers begin,
+
+and high is where the integers end.
+
+Just pass it.
+
+And then val is what I'm looking for.
+
+So this little function here says, so if you look at it,
+
+what's going on in there? From a complexity standpoint,
+
+you can put a whole bunch of step counts on all of this
+
+stuff.
+
+But from a high level, you can see,
+
+well,
+
+I return,
+
+and that's constant, and so I don't even have to worry about
+
+that.
+
+The only thing else I have going on in this function is this one
+
+big loop.
+
+So if I figure out how long that loop goes,
+
+I got my answer.
+
+All right?
+
+Okay, that one's off by three minutes.
+
+We're in good shape.
+
+So how long do I stay in as long as high is greater than or equal
+
+to low? Great.
+
+How do high and low get modified? High or low?
+
+So I look in there, I see,
+
+when I'm scanning theorem, I say,
+
+well, those two keyed me in. Let's see how they get modified.
+
+And I look down at 17, I say, well, here's where high gets
+
+modified.
+
+I can find 19 and say, well, here's where low gets modified.
+
+So how do these things happen?
+
+They both use mid.
+
+Well, where's mid?
+
+Mid comes from up there. You see, mid is this calculation
+
+that says, what's the difference between these two?
+
+And then give me the middle.
+
+So it's finding the middle. It's cutting it in half.
+
+So that's what's going on there.
+
+And these two are both logarithmic
+
+because of that cutting in half, right? and that's where my big
+
+speed up is coming in for you.
+
+If your loop has plus plus or minus minus,
+
+it's probably linear.
+
+Because it's looking at this thing and then the thing right
+
+next to it and then the thing right next to it and the thing
+
+right next to it.
+
+If your loop has divide by two or multiply by two or bigger
+
+numbers,
+
+probably logarithmic.
+
+That's where I start and then I have to verify.
+
+Because if I'm dividing by two, I'm taking the data, cutting in
+
+half, and cutting in half, and cutting in half.
+
+Or maybe my counter is like multiplying by two, and then
+
+multiplying by two, and then multiplying by two.
+
+Those are what cause logarithmic behavior.
+
+So as you look through your loops,
+
+if you see some division going on there controlling it,
+
+that's controlling division. This division by two here
+
+controls mid,
+
+which is who updates high and low.
+
+Over here, this division,
+
+I got a plus plus,
+
+But the plus plus doesn't control my loop.
+
+What controls my loop is n and n is being divided by two.
+
+So when the division controls the loop, then you're looking at
+
+something that could be logarithmic.
+
+So there's how we go from step counting to pattern recognition
+
+right away. And then we can go one step
+
+further and say,
+
+hey, you know what? This function has a binary search in
+
+there. I'm like, well, that's log n,
+
+done. I already know the name of
+
+binary search. I don't have to count the steps.
+
+I don't even have to look at the loops.
+
+Binary search is log n. So we'll go from step counting
+
+to, oh yeah, I see two loops nested and I can measure this
+
+loop and that loop and multiply and get my answer.
+
+Like there's a logarithmic loop inside a linear loop, that's n
+
+times log n,
+
+done.
+
+You can count steps,
+
+you recognize patterns,
+
+and then you can start putting names on things as well.
+
+All right. So here's our quick algorithm
+
+exercise.
+
+Yeah,
+
+a minute or two to get this done.
+
+This is what I've got. I've got some input here and
+
+then what my out looks like is it looks at each location as
+
+long as I is not equal to J then I multiply those things together
+
+so in this first position I can say I'm not going to multiply
+
+the three in there so this is just one times two in the second
+
+position I'm not going to multiply the ones was just three
+
+times two and the third position I'm going to multiply the two so
+
+it's just three times one so that's what this function
+
+generates see how that works you look at the code it says it sets
+
+out I equal to one and then multiplies by all the other ones
+
+just not when I is equal to J right when I is equal to J we
+
+don't multiply that so I'll start with one not multiply by
+
+one but not multiply by three multiply by one multiply two get
+
+that so that's how it works how many multiplications happen when
+
+size is n that's the question
+
+Where does multiplication occur?
+
+It occurs inside the nested loop, right?
+
+So think this outer loop is an n-based loop,
+
+where n is size.
+
+Inner loop is an n-based loop, where n equals size.
+
+And if this was all by itself, I would say it would happen n
+
+squared times.
+
+But this thing says when they're equal, which happens once per
+
+loop,
+
+n times,
+
+don't.
+
+So the answer here then is n squared
+
+minus n multiplications happen. So if I look at this function as
+
+you might expect with nested for loops.
+
+This is a big O and
+
+squared
+
+algorithm
+
+All right
+
+This version of it's a little bit cleaner because somebody
+
+said you know what if I just multiply all of those things
+
+once
+
+Then all I have to do is divide things out So I I got two loops
+
+that are for loops of size N, but they're not nested anymore
+
+So the first one multiplies everything into one big chunk,
+
+and then you divide things out on each location So I got all
+
+three times two times one I divide out the three for this
+
+divide out the one for that divide out the two for that I
+
+got the answer. So that's what this one does
+
+same work
+
+Completely different complexity case right because this is a big
+
+O and loop and this is the big O and loop So the whole thing is
+
+big O and we'll talk about the bugs in this function when I see
+
+you next
+
+Okay, walk out of here smiling.
+
+Yeah.
+
+With the priority queue,
+
+what was that note slide where you showed it being an unordered
+
+sequence and an ordered sequence,
+
+and they had a constant linear coefficient.
+
+In that case,
+
+was that different from the linked list kind of example that
+
+you showed where you assigned?
+
+Yes, it's different.
+
+Because those were sort of implicit or like open-ended
+
+priorities,
+
+so even with even with a
+
+fixed set of priorities as i said there's only zeros ones
+
+twos and threes and i stick them all into a container i still
+
+have to look until i find the zeros right it could be the case
+
+i have no zeros in there so really what i'm looking for is a
+
+one and i won't know that so i i could find a one in the first
+
+position and wouldn't know that's my most important thing
+
+till i got all over the internet there's there's no zeros,
+
+that one was it. So it's still the case, even
+
+with that structure of having the predetermined priorities.
+
+So in the ordered sequence,
+
+there was no predetermined priorities and they were just
+
+getting some error by,
+
+like a new error in the base?
+
+Yes,
+
+yeah.
+
+Okay,
+
+so that's like basically a sorted array, sorted list? Yeah,
+
+yeah.
+
+Okay, and then with the binary search algorithm You showed that
+
+it was like the I was one past the N.
+
+If the I was inclusive,
+
+how would that change the algorithm?
+
+It wouldn't change the complexity at all, it would just
+
+make it a lot.
+
+The math one is a bit more complex.
+
+Yeah, how does the math change?
+
+Because then you have to do the plus one minus one thing.
+
+Okay, so you just have to keep the same and it's inclusive.
+
+Yeah, it's faster this way because we don't have to do a
+
+puzzle in my world.
+
+I have a question about the generating section that I just
+
+covered.
+
+Yeah, we skipped it because we don't use it until Project 4 and
+
+it just slows us down. So we'll come back to it.
+
+I was going to ask a question about it.
+
+Sure, absolutely.
+
+So,
+
+you asked in the video what the difference between the
+
+implementation of generating permutations Is versus the
+
+standard library next permutations,
+
+but I don't think that was ever answered.
+
+I was just wanting to confirm The implementation on the slides
+
+to use it personally, but the ones in next permutations

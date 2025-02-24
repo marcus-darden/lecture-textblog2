@@ -1,0 +1,16 @@
+{% if page.videos %}
+<h2>Videos</h2>
+
+  {% for video in page.videos %}
+  <h3 id="{{ video.id }}">{{ video.title }}</h3>
+  <iframe id="kaltura_player"
+    title="{{ video.title }}"
+    src='https://cdnapisec.kaltura.com/p/1038472/embedPlaykitJs/uiconf_id/54883762?iframeembed=true&amp;entry_id={{ video.id }}&amp;config%5Bprovider%5D=%7B%22widgetId%22%3A%221_ooy8pnre%22%7D&amp;config%5Bplayback%5D=%7B%22startTime%22%3A0%7D'
+    loading="lazy"
+    style="width: 960px;height: 540px;border: 0;"
+    allowfullscreen webkitallowfullscreen mozAllowFullScreen
+    allow="accelerometer; autoplay *; clipboard-write; encrypted-media *; fullscreen *; gyroscope; picture-in-picture"
+    sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation">
+  </iframe>
+  {% endfor %}
+{% endif %}

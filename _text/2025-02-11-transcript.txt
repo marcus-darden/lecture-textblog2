@@ -1,0 +1,1588 @@
+All right,
+let's do it.
+Where did we leave off here? We left off talking about heaps.
+So this is kind of crucial to what's going on in this
+project to be,
+as we deal with,
+priority queues that are heap-based.
+So we left with this heap here, and we looked at it and said,
+the most important item is at the top.
+In the case of a max heap, we think of the most important item
+as the largest item.
+And you look at it there,
+81 is bigger than anything. And then we look at the rest of
+the tree and we see that the heap ordering principle holds is
+that no item is more important than its parent.
+If that's the case,
+the root must be the most important item.
+But you can see that different items can be more important than
+other items, but as long as they're not more important than
+their parent here,
+one is higher up the tree than two and four,
+but one is still not more important than its parent.
+So you can imagine a much more skewed version of this tree
+with putting different things in different orders, so there's not
+one particular heap ordering that exists.
+There's multiple heap orderings as long as we don't violate that
+principle.
+Here is the physical version of that.
+If we look at how a heap gets stored in contiguous memory,
+if we look at the first item in index one here, it makes our
+math easy. We multiply two to get the left
+child,
+multiply by two plus one to get the right child,
+or divide by two to get the parent.
+So this thing logically looks like this on the left.
+Physically,
+it's gonna look like this in memory.
+And if you look at it, remember I said,
+it's not going to look sorted.
+It's gonna look sorted-ish.
+If it were sorted,
+it would still be heap ordered. It'd be more ordering than
+necessary to get to a heap, right? Because if this was
+sorted in reverse order,
+we'd have 81, 18,
+14,
+9, 7,
+5,
+4,
+2, 1.
+And that would just require us to sort of move things around
+like this, right?
+This is a 5,
+4,
+2, 1. That's what it would look like
+if we reverse sorted it.
+You can see that, too, is heap ordered.
+That's a more restrictive order than we have to get to.
+So heap ordering looks like that and this is where we pull in all
+of the things that we've talked about with heaps so far.
+We take arrays or trees that's connected or contiguous memory
+to make heaps.
+Once we have heaps,
+we can build priority queues out of heaps.
+We can also use a heap as a tool for a type of sort known as heap
+sort.
+we talked about max heap that's the one where the most important
+item is the largest item or a min heap that's one where the
+most important item is the smallest item
+one of the things that also is good in the STL
+the STL uses less than to get to a max heap and it uses greater
+than to get to a min
+that's what the comparator looks like it has to respond like if
+the thing on the left is less than the thing on the right and
+you return true you will get a max heap or if you make it
+behave like the thing on the left is more important than the
+right it's greater than the right and we return true then we
+will get a min heap.
+Come back.
+All right.
+So there we go. There's the basics on our heaps.
+Now let's get to modifying this heap because it's great when we
+have one,
+but no use of keeping them static.
+We need to do stuff with them.
+So in There we go So here I've got this heap the same heap
+We've already been looking at so in this case what I'm gonna.
+Do is. I'm gonna increase the key at
+heap 8 right That's this 2 here. I'm gonna check change it from a
+2 to a 35 You can see it in the logical version and the physical
+version now. I've definitely got a broken
+heap 35 is more important than its parent 9
+So how do I fix this I'm gonna use this behavior known as fix
+up
+Great,
+I got a problem and I fix it up the tree.
+So all I have to do is look at its parent and see, hey, what's
+going on there?
+I'm more important than my parent.
+What have I just swapped with my parent?
+Now everything from me down is a perfectly good heap.
+I may or may not have fixed everything totally though.
+So let's look up again.
+Here we see that 35 is still more important than its parent.
+So I've got a problem there.
+Perfectly good place to swap those things.
+and once I do,
+now I have restored my heap.
+So no matter where I put this thing, you saw that I put at the
+very bottom, the lowest level I could get to,
+I could have possibly done one more swap
+if it wasn't 81 at the top.
+That would have been like a 25,
+I would still have to swap 35 up to the top.
+That make sense?
+But I know that in a fix, The worst I could do is go from the
+bottom,
+log n steps to the top.
+That's it.
+There's no more distance I could travel that thing.
+So that's good. This is how I can damage and
+repair a heap.
+This is what the code looks like.
+You should use this code in part 2b.
+When you're writing your binary heap, You're gonna have to
+modify it some way to make it work,
+because the math in this one is based upon that one index thing
+that we saw on the slide there.
+So is there a case where after you fix up a few levels that you
+then have to compare to either a weak node,
+not just the one that you came up the path from?
+So the question is,
+as I'm fixing up, Is there ever any need for me to check
+anything else,
+right? Check to the side to see that.
+So remember how this works.
+If we know that,
+sort of I've got this rooted, I'm fixing,
+sub-rooted or even if it's a real root,
+as I'm fixing my way up to that,
+everything below here that was already in good shape is less
+than this.
+So even if I get up here and I'm bigger than my new sibling or
+less than my new sibling,
+doesn't matter. The heap ordering says,
+as long as you're not bigger than your parent,
+you're where you belong.
+So we don't have to check side to side.
+We just have to check that path of ancestry up until we're
+either the root or we're not more important than a parent.
+So this is the code here.
+Let's read it in English.
+I've got this loop that goes on. while k I'm fixing up from k, I
+pass in the heap itself, and k is the location where I'm fixing
+up from.
+So it says while k is greater than one,
+what does that mean? While I'm not fixing up from the root,
+right? Because when k is one,
+that's the root.
+So if I'm somewhere below the root and what's
+that k over two?
+That's my parent. and at K is just what I'm
+looking at it's going off here sorry so as long as I'm not the
+root and my parent
+is less important than I am do this body what does it say
+just swap you with your parent great and then
+point at you again.
+K div equals 2.
+So if I swap you with your parent,
+because this was your index and I divide that, now I'm pointing
+back at you.
+So this just says as long as this thing isn't the root
+and it's more important than its parent,
+move it up,
+move it up,
+move it up.
+We will stop at the root or we'll just stop when we're not
+too important.
+Real simple.
+It's converted. like I said when you write yours
+in p1 part p2b you've got a situation where all the math and
+the stuff we've shown you is one index you can rewrite the math
+so that it's zero indexed you can insert a dummy element
+so that there's something that you never look at that
+physically at zero and then you can actually do the one based
+math you can write translation functions that lets you sort
+of ask for it in one-based but then you receive it in
+zero-based so there's a few different ways you can modify
+this that's why it's not just a super low-hanging fruit but this
+is the hard part all right so what happens when
+we decrease something's priority right so In this case,
+we're changing that 18 at position two down to a three.
+Now you see,
+as we lower something's priority,
+we're never going to have a problem with its parent.
+You are already less important than your parent.
+If we lower your priority,
+you are in fine shape.
+However,
+if your priority gets lowered as such that your children are now
+a problem, then we have to do some fixing.
+So you see here,
+three and 81 are still perfectly fine.
+if there were no children of three,
+I could just leave this and be done.
+But as I have to work on fixing myself down,
+now I've got two options.
+I could fix down to the left, I could fix down to the right.
+Which one should it be?
+Always left?
+Is it always right?
+Since the heap doesn't have any relative comparison left to
+right, we can't make a rule that says we will always go left
+because we know the left is the bigger,
+we know the right is the bigger or whatever.
+We can't always do that because heap ordering doesn't care.
+As long as the both of them aren't more important than their
+parent,
+they could be any kind of way.
+So,
+let's just find the smallest,
+I'm sorry, let's find the most important child
+and swap with that.
+So I look at nine and seven and say,
+well,
+Which one's bigger?
+Nine's bigger.
+Swap a nine then.
+That makes sure that the nine is where it belongs.
+Had I swapped, for instance, with the seven,
+I'd have the seven up top and the nine and the three down
+below, and I still wouldn't be right because I'd have to fix
+the seven in response to fixing to the nine there in relation to
+the nine.
+So we'll do this again.
+Now we're here,
+we can only fix our way all the way down to the bottom or until
+we don't need to.
+We take the largest child,
+that's four.
+If four is more important than three,
+then I should do a swap.
+And now I got heap.
+Pretty good?
+Yeah.
+Yes,
+absolutely.
+You have to implement this.
+This is for the binary heap PQ.
+So here's that code. It's a little bit more involved,
+but we can read it just the same.
+Right? We're doing the same thing.
+We're passing in the heap.
+In this case, because we're passing it in C style, we need
+to know where the heap ends.
+You're gonna be putting yours in a vector, so there's no need to
+pass in that second parameter of the size Because you know it.
+You just ask the vector what's the size, right? And then the
+last thing in this is where we're fixing down from,
+right?
+The while loop that goes on in two, while two times k is less
+than or equal to heap size.
+What does that say?
+Two times k,
+if that's less than or equal to heap size then the left child is
+in the tree, right?
+Basically we're just saying as long as we're not at a leaf
+node,
+do some stuff.
+While we're not at a leaf node, let's find that left child.
+J, we'll call it.
+J is the index of the left child.
+So we say,
+if J is less than heap size,
+what does that mean?
+That means that a right child exists.
+Because if J is heap size,
+then it's the last thing.
+And there's no other right child, which is at plus one.
+So as long as there's a right child
+And the left child is less than the right child.
+Let's talk to the right child.
+See that?
+If what's at j is less than what's at j plus 1, if the left
+child is less than the right child,
+then plus plus j,
+move on from the left child.
+Now j is pointing at the most important child.
+This is the index of, I should say.
+Started out as the index of the left child.
+and then if the right child existed and was more important,
+we switched it to the right child by plus-plusing J.
+It's just two times K plus one for the right child.
+So now we know that J is the index of the largest child.
+The next step says, well,
+if K is more important than the most important child, there's
+nothing to do here, break out.
+If what's at K is not more important than the most
+important child,
+swap them, however, and then follow the thing that we're
+swapping down set K equal to J it's good enough yeah
+that check
+right there on the other half of the and in four right four
+starts with let me see if there's a right child and then
+the second half says if what's at J if what's the what's that
+the left child is less important than the right child,
+increment J.
+Because plus one is then we're looking at two times K plus one,
+the right child.
+Yeah,
+one up there?
+Okay, you got it?
+Sweet.
+Okay,
+so I think the look you're looking at here is if something
+is bigger than both of these leaf nodes
+over here
+okay
+so if I back up I guess I can't
+back up a that there we
+go so from the three stage right
+here where I'm trying to get because night now if it's if
+it's smaller than both the leaf nodes you're saying if
+cave it's bigger than both leaf nodes and I just stop right
+because then heap ordering is good.
+So if this was like a 10 or something like that,
+so now it's bigger.
+So in this case,
+I wouldn't have swapped it down to where it was.
+Right, I'm gonna stop when it,
+when the swapping is no more fun, right?
+So let me clean this up.
+So here, if it was a 10,
+I wouldn't swap it down Because it wouldn't be out of position.
+It's all good.
+Ten here,
+eight there.
+Six here.
+Right?
+Well it still takes the most important child, which is the
+ten, and swaps it,
+right? So then we get a swap here,
+we look like 10 there,
+six here,
+and then we'd be following the six because that's the one that
+we're fixing down,
+right?
+Because you see from 10,
+10 is good.
+10 is more important than both its children.
+The question is, is six more important than both its
+children?
+And in this case it is, so I would just stop here,
+right,
+so I either go until I'm not less important than my children,
+or until I'm a leaf node.
+All right?
+Sweet.
+There was one other one?
+Good?
+All right.
+So we got code for this.
+You've got to modify them.
+You've got to put that into your P2B.
+You should be working on P2B as in parallel with P2A.
+Remember, you've only got two submits on P2B a day.
+And every day that you don't work on it is two submits that
+are just gone forever.
+So work on it a bit.
+When you're working on P2B,
+the sorted PQ should be like six or seven lines of code.
+That's all you have to write if you use the STL.
+Just use the STL. It's six lines,
+seven lines. You've got a modifier,
+add,
+done.
+Then the next one is the heat-based one.
+That one,
+all the code is here. You just kind of got to massage
+it in there to get it to work right,
+right?
+And then the third one is a pairing heap and that one's much
+more complicated. Definitely save multiple days to
+get that done at the end because it's all about pointers and you
+have to do it right.
+You have to do it right.
+The good news is the pairing heap behaves in most cases
+just like Project 1
+where you take a container,
+you seed the container,
+and then you say, let me get something out of the container.
+If it's got
+things near it, I put them back in the container to deal with
+them later.
+I process this, then I go get the next thing.
+If there's something near this,
+I put it in there,
+and I keep doing that same project one algorithm for the
+pairing heap.
+That goes for the copy constructor,
+the destructor, and operator equals,
+it also works like that in pop except pop doesn't go forever
+pop just goes one level so that's that all right priority
+queue implementations we talked about PQs we know what a
+priority queue is it's a data structure that supports these
+three operations put stuff in take stuff out and look at the
+most important thing push top
+and pop some pretty familiar names in the way that we've
+already done with other things so this looks exactly name wise
+like a queue or a stack right we push into a stack and we take
+the top thing out of a stack even though this is a queue so
+it's great for good confusing language here and it also if you
+want use a priority queue you don't include priority queue you
+just include Q which is also confusing but you include
+Q and then it's based on a vector that's where it is
+so how do we insert into a priority queue one thing that we
+know is if we keep these things as a heap we said that we were
+gonna keep our heaps as these complete binary trees.
+So if I were to insert something,
+I know,
+regardless of where things end up,
+what the tree is going to be shaped like,
+right?
+After I insert one more thing,
+there has to be another thing right there,
+all right?
+My next node is going to be, There is going to be a left
+child of index 5 at index 10.
+So to make this happen then,
+the thought is, why don't I just take the new thing and put it
+there?
+Sounds like a good plan.
+So push as something's going there,
+let's just put the number we're putting 100 in there.
+Now, my memory is the right size.
+I've got things where things are going to be, They're just not
+where they all belong.
+But what do I need to do here?
+Fix up, right?
+I put something in a low position that could be more
+important than its parent, so let me fix this thing all the
+way up to the top or as high as I need to.
+In this case, I do need to go all the way to the top.
+I can swap seven and 100 and find its parent,
+18 and 100,
+find its parent,
+and that's how push works.
+Super easy you master fix up and you push something at the very
+back and fix it up
+The STL priority queue does it if you just push it is does this
+right the STL just has that interface push pop and top
+Whatever you push push push push push, and then you say hey top.
+Here's the most important thing You say pop is they remove that
+thing and make sure that the next most important thing is at
+the top again
+All right, so you're going to have to write this for your
+priority key.
+My suggestion is to write the fix up and fix down functions
+and then call them as helper functions in this stuff here
+because this is really simple. Look at that.
+This is how push works.
+What does it do?
+It says make the heap size a little bit larger,
+write our new item at that position
+and then fix up from there.
+That's what we just saw. So yours is like I said gonna be
+C++ based so we don't have to worry about heap size you can
+probably just do a push back on the vector that is your data
+push back and then fix up from back or the index of back
+however you want to pull that off all right how about deletion
+same thing is true I know what the shape of this tree is going
+to be when I get done nine will not exist what I don't want to
+do is get rid of the value that's at nine because four is
+not the most important thing it should not be removed it should
+be saved for later I want to get rid of the most important thing
+that's the 81 so let's do that and think of it
+as gone now I need to get rid of this node at nine but I don't
+want to get rid of the value at nine so why don't I just replace
+the 81 with that four?
+Is that good?
+I lopped that off, my tree is perfectly shaped,
+but I broke some stuff with an easy fix down to get me out of
+it, right?
+Because I know if I take something from the last position
+in the container and move it up to the root, it has probably
+broken my heap. It's probably gonna be less
+important than at least one of its children.
+So now let's just fix down from four.
+As we saw fixed down earlier,
+that one's pretty easy. I find the largest child, 18 or
+14.
+I pick 18,
+swap with it.
+Now I find the largest child,
+nine or seven,
+nine,
+I swap with it.
+And now I pick my largest child,
+two.
+I'm not more important than that.
+I am more important than that, so I don't need to be swapped,
+sorry.
+Yeah,
+the fixes are assuming that we have a perfectly good heap that
+we broke in one position,
+and we're fixing from that one position, yep,
+everything else is already
+So,
+after the nodes popped,
+did we take the second-to-last node instead of the last node?
+We took the last node,
+yep,
+right,
+so I was here,
+I deleted the top thing, and I took the four from this last
+position,
+yep, and pushed it up there, right, so the shape is correct,
+and the values are, nothing's lost,
+yep,
+then we fixed it on down,
+wop, Wop, wop, wop.
+We're good.
+All right, so you can write this one too.
+It's just about as easy once you've got this fixed down
+helper.
+What do we say?
+Let's overwrite the root with our last item, make the heap one
+smaller, and then fix down from the root,
+the end,
+right? We pass in heap size here.
+Remember I said you won't need to pass in heap size because
+you'll be able to ask the vector inside that function what is
+your size what is the last one all right
+you can do this this is something can get you some
+points pretty quickly right get that code in there start trying
+to mash it up XKCD to help us out of this one
+it's a Christmas tree with a heap of presents underneath,
+and then mom and dad are so over it that they're not going to
+invite him home next year.
+Not only is that terrible, so any time you go see an XKCD, if
+you hover over it, there's some extra text that pops up.
+This is the extra text. Not only is it terrible in
+general, but you just know Billy's going to open the root
+present first, and then everyone will have to wait while the heap
+is rebuilt.
+Huge nerd humor,
+right? What happens if we take the root off, right? We've got
+to fix our way until everything is rebuilt.
+So that is heap humor.
+Here's our summary.
+A priority queue is an abstract data type that supports
+inspection, insertion, and removal.
+We can do this multiple ways.
+We will have given you the unordered PQ.
+That one is good because it's got a constant time insert.
+You just put data anywhere.
+It's bad because it's got a linear search then involved to
+find the largest item.
+If you want to remove the largest item you've got to do
+that same linear work if you've forgotten where it was the last
+time you found it but if you remember where it was when you
+found it you can remove it in constant time as long as it's
+following a linear inspection so we can never get away from
+constant in linear out.
+Unordered fast says if you do a top I will remember where that
+most important thing is, so if your next step is pop,
+we can do it in constant time.
+And it does that by saying, well I found it in the middle,
+how do I get rid of something in the middle of a vector in
+constant time?
+It's pretty hard,
+unless you swap it to the back and pop it off.
+So that's what the unordered fast PQ does,
+and that's what you should do even in the unordered slow
+version, is you should just swap things to the back because you
+don't care about the order. It doesn't matter if you change
+the order to get rid of something.
+In the sorted array, it's much better, because I will always
+keep the most important thing
+at the end,
+which makes it really easy to get rid of.
+It's gone.
+But keeping things sorted at the insertion step is more work,
+because not only do I have to do a log n search of where the
+thing belongs, but I have to do a linear possibly insertion to
+slide things away to make room for it.
+So that one comes out in constant time, but takes linear
+time to add to.
+With the unordered array fast,
+with insertion equal,
+then can you build your algorithm to make sure the
+highest one didn't get changed?
+No,
+so the question is the unordered fast,
+does the insertion require a linear lookup? It doesn't.
+So you still stick it in in constant time, but in the
+unordered fast it just says, okay, now that you've changed
+it,
+I don't know where the most important thing is.
+so the next top requires the linear search right
+the same thing with a pop I mean once I've popped I don't know
+where the most important thing is either it doesn't do
+additional linear searches unless you ask for it so I mean
+you could keep it that way but then I would turn that into a
+linear thing as opposed to a constant thing
+No, so when you call top you have to find the most important
+thing. So it does a linear search and
+identifies where that is and it returns it and you could be done
+there but the unordered fast says well I'm gonna remember
+what that index because if you choose the top next if you
+choose the pop next I
+won't have to do linear search I can just look it up right but
+anytime you modify it it automatically forgets what the
+most important thing is right so if you add it forgets what the
+most important thing is if you pop it forgets what the most
+important thing is you're gonna have to do another linear search
+to find that yeah
+If you do the swap,
+then it does it in constant time,
+right?
+Because what we're trying to get rid of is,
+like, I want to take the fifth thing out of 20 out of here.
+I don't want to delete number five and then move six and seven
+and eight and nine and ten. I don't want to move all of them
+back one space to keep that full.
+Right, and because I don't care what the order is, I can move
+that 20th thing into the fifth position,
+and it's just as good, right?
+Alright, the heap one is the one that we're gonna be doing we're
+gonna do sorted and we're gonna do heap But the sort is pretty
+easy. Like I said, if you use insert
+if you use
+lower bound, which is an STL function to find stuff and
+insert you should be able to get this done in
+Six lines code seven lines of code.
+The heap is efficient because it's n log.
+It's the log n
+Insertion it's a log n removal
+And I get constant time inspection at the top.
+So my two functions that are involving work are only log n.
+And the inspection, I can get that in constant time.
+That's pretty good.
+You have to maintain the heap property, though, to do it.
+All right.
+That's our PQ implementations. That's 2b.
+How about heapify?
+How do I get a heap when I don't have a heap?
+That's what this one is.
+it's easy if I've got an empty thing and I want to make a heap,
+they just keep it in heap order as I put things in there.
+I insert,
+I fix up,
+it's great. But what if I got a whole bunch
+of data that I want it to be a heap?
+And that's what heapify is.
+And we've already learned about these two modifying functions,
+we're still just going to use them, that's all we have,
+fix up or fix down.
+So it turns out that I can work in two directions,
+I can work from the bottom up and I can work from the top down
+and I've got two operations so I can work from the top
+down everywhere I go I can also fix down
+right I can work from the bottom up and everywhere I go I can
+also fix up then I got the two Contras where I can work
+from the top down and everywhere I go I fix back up.
+Or I can work from the bottom up, and everywhere I go,
+I fix down.
+So those four ways of sort of modifying a heap and
+looking at every item are how I'm going to get to heapify.
+Turns out that two of them don't work.
+Same direction,
+same motion, just don't always work.
+So if I work from the top down,
+fixing down,
+I'm not guaranteed to get a heap.
+If I work from the Bottom up, fixing up,
+also not guaranteed to get a heap.
+I could just sort the thing in reverse order,
+that would work,
+but it would also cost me n log n,
+and I'd like to go faster than that if I could.
+If I go in opposite order of the way I'm fixing, so I start at
+the last item, let's say I start at
+nine and then eight and then seven and then six and then five
+and then four and then three and two.
+If I take each one of those and fix down from that position,
+nine fix down, eight fix down,
+seven fix down,
+six, fifth down.
+So that's me working up the tree, but fixing down.
+That one works.
+Right?
+It also works if I work from the top down, say take from the
+root,
+fix up.
+Go from two, fix up, go three, fix up,
+four, fix up,
+five, fix up, six fix up that's me working down the tree as my
+indexes increase and my fixing up going in the opposite
+direction so both of those work but if I work from the top down
+I get something that's not so great right
+here's the four options right and this is what the
+STL does it works from the bottom to the top largest index
+to smallest index and every new index it finds it fixes down
+contra motion there if I go the other route start at the top
+and fix up everywhere
+I go it also works but it ends up being n log n
+which is no better than just reverse sorting so we're not
+gonna do that one and you see these two in the middle here
+going the same direction fixing the same direction as I'm
+traveling they both just don't work and there's a couple of
+examples you can just try these numbers of if this is what I
+start with and I want to work my way repeated fixed down fixed
+down from one fixed down from two fixed down from three I'll
+end up with a non heap
+you do
+have a bunch of leaf notes which is great because you don't have
+to do any work there right so fixing down from a leaf node
+you're right there's nothing to do it has no children which is
+why we actually end up keeping this thing as linear it's a big
+part of it
+yeah
+well I'll show you I'll show you a good example of it and so but
+that's why it why it does work because we we can cut out a
+whole lot of work all right so here's Here's my Heapify
+exercise.
+We're going to use bottom-up fix-down.
+So right away,
+we already pointed out over here,
+fixing down from five, six, seven, eight, and nine are
+guaranteed to do nothing.
+Fix-down says,
+let me swap places with my most important child if it's bigger
+than me. And none of them, five, six,
+seven, eight, and nine, have children.
+So I can sort of just like,
+hey, they're good. if those were the heap I'd be
+done now okay so what next then now I move so this is this has
+all happened in sort of one big flash but in reality we said
+nine no work eight no work seven no work six no work five no work
+now we're at four what happens in four I'm gonna fix down
+from four so four is in bad shape I'm gonna find its largest
+child that's the 81 we do the and I'm done,
+fixing down from four.
+Now we go to three,
+fix down from three.
+Three is out of place,
+we find its largest child, that looks like the 14,
+we do the swap,
+and three's done.
+Now we go to two,
+two's got two in it, its largest child is 81,
+so we're probably gonna have to swap there.
+We're gonna follow two all the way down though, because a fix
+down doesn't stop after the first swap, it stops when we hit
+a leaf node or we're not less important than any of our
+children.
+So I look at 2 has children 18 and 1, 18 is the largest and 18
+is larger than 2, so I should do a swap there.
+Now 2 is a leaf node and I'm heaped from 2 down.
+Yeah.
+That's where we were when we did that swap.
+When 3 was the place we're fixing down from, I said well
+which one of these two children is larger? Because I don't care
+about the children's relative priority,
+right?
+9 and 5 could be in either position as long as they're
+below 14,
+right? because a relative five could come before nine or come
+after nine and they'd still both be less than 14 so that's good
+all right so we get to two we fix two swap it down twice and
+now we've fixed everything except for the root so the root
+is the last place i have to fix down from it's four its largest
+child is the 81 let's swap with that four is largest child after
+that as the 18, we'll swap there,
+and then four is not smaller than any of its children, so we
+just stop.
+And that's my heap.
+It's different, same numbers as before,
+but slightly different ordering,
+but still a perfect good heap.
+So that's how Heapify worked.
+Now, what was key about that is I did this in linear time.
+It's a little harder to see,
+but I did it in linear time. How do I know that I did it in
+linear time?
+Well, let's just do some hand-wavy 203,
+right?
+Well, for five of those nodes, I did no work.
+Five, six, seven, eight, nine, I did no work.
+The most work I could do for four was one swap.
+The most work I could do at three was one swap.
+The most work I could do at two was two swaps.
+And then the most work that I could do from the root was three
+swaps
+So the most work I could do with this method is Seven
+swaps how many items there's nine items?
+Make sense
+As you grow the tree
+it grows in the same way I'll show you a better mathy slide
+for that but you can see here that I just didn't have to do
+that much work because I'm fixing down we already figured
+out there's nothing to do from the leaf nodes but then though
+the nodes that are one level above that they've only got one
+swaps worth of work and they're either fixed or you don't even
+need to do the swap all right so here we can look at it that was
+the logical version we'll see the physical version they're all
+good we're fixing our way down from one,
+we need to swap with the larger of those two,
+and that gets me there. Then I work my way down from
+five,
+I swap with the largest of those two.
+This gets me a good and heap-like.
+I work from the two down,
+I swap the largest of those two, that's the 81.
+It's still not deep enough,
+so I look at its children now, that's the 18 and the one,
+I swap it there.
+And this is just the code that you're writing here for heapify,
+which is the range-based constructor on the binary heap
+priority queue.
+Fix down,
+fix,
+fix,
+fix,
+fix,
+fix.
+Good?
+Yeah?
+So like, when you're calling heapify,
+is it like,
+kind of assuming that at a particular layer
+all the fun nodes in the layer below that are valid heaps?
+In Heapify,
+I'm starting from absolute garbage and going to heap.
+But yes, because we're traveling from the bottom up,
+I know that everything below me is already heap ordered when I
+get there, right? So I can say,
+here I'm fixing, you know,
+index 2. I know these two things are
+heaps.
+I don't have to worry about fixing anything underneath me.
+Just make sure I'm not more important than my children.
+Or I am more important than my children.
+Keep saying that backwards. All right, perfect.
+So let's look more mathy at the complexity slide here.
+So now you see this one has got a full depth four all the way
+filled, which gives me a solid 15 items.
+What happens when I've got this?
+I know for a fact that there's zero swaps to be done for eight
+of those nodes.
+They're already leaf nodes.
+How about at the next level there can be at most four nodes
+there and at most one swap per node so we're maxing out at four
+swaps and I've already got 12 of my 15 items
+heaped right with four swaps at the next level there can be only
+two nodes and they can only be swapped twice and they will all
+be all the way down as a leaf node so two nodes two swaps
+that's four more swaps max if I have to swap everything and then
+lastly at the root in this particular instance at depth 4
+to get up there I've got three swaps to get me down to the
+bottom and there's only one node that can go through that much
+work so you put all that together and you end up with 15
+total nodes with a maximum of 11 swaps to get it fixed that's
+linear time if I make this larger so I got a 5 height tree
+that's got 31 nodes I can do that in 26 swaps if I got a 6
+height tree that's got 63 nodes I can do that in 57 swaps a 7
+height tree is 127 nodes I can do that in 120 swaps I can
+always get this fixed from garbage to heap using this
+algorithm in linear time
+faster than inserting them one at a time, because that's log n
+work,
+n times,
+n log n,
+and it takes me the double memory of having this pile over
+here and the new heap over there.
+I could do it in place by sorting in reverse,
+that's n log n work.
+This is linear, it's in place and it's linear,
+heapify.
+This is what you'll do with with your range-based constructor p2b
+heap.
+Copy all the stuff into your new data vector and then heapify.
+All right, new topic.
+Sorting with a heap.
+So the heap is great. It's got the most important
+thing out there.
+If I look at how it looks logically, I'm pretty
+comfortable with that. I'm comfortable with this
+physical thing as well.
+Now, when I end up with something sorted,
+what do I want? I want this most important thing down here at the
+end.
+Then I want the second most important thing next to it, and
+the third most important thing next to it, and so on.
+So,
+that's what Heapsort does.
+Let me start with a heap,
+and then I will turn this heap into a sorted range.
+and it does it by dividing into the container into like two
+parts right so we got the part that has a heap in it and we
+have the other part that is the sorted area all right so here's
+what we do let's just swap the route with the tail there so
+now this is exactly right for my sorted thing right because it's
+the biggest thing it should be at the end but my heap is busted
+up What I'm also going to do is say let's just ignore the 81
+from now on and say this isn't even part of the heap.
+The only thing that's part of the heap is that red root that's
+broken and all these other white nodes that need to be fixing the
+heap. So when I go to fix my heap
+down,
+I'm not gonna fix the one all the way down to 81.
+I'm gonna fix the one all the way down here to index eight,
+and stop,
+right? So what would happen?
+One would swap with 18,
+one would swap with seven,
+and now I've got a perfectly good heap in the white section,
+and a perfectly good sorted array in the green section.
+Every time I go through a step of this,
+I make the heap smaller,
+I make the sorted area bigger. So let's swap 18 next to 81.
+you see my sorted area is growing my heap is shrinking
+it's a broken heap now if I fix from two down as long as I stop
+before I get to 18 I've got a perfectly good heap now and a
+perfectly good sorted container one growing the other shrinking
+push 14 down to the end fixed down from five
+Swap 9 to the end.
+Fix down from 2.
+You see it?
+Make sense? This is heap sort. So what does this cost me?
+If I have a heap,
+then I do this swap thing. That's a constant amount of
+work.
+I got a broken heap,
+and I fix it down, which is, in the worst case, log n work.
+I do that n times.
+Heapsort is n log n if I have a heap.
+What if I don't have a heap?
+Well,
+making a heap just cost me n.
+I throw the n in underneath there and still do the n log n
+work and end up with a sort. So heapsort is an n log n sort.
+Even if I don't have a heap, I turned it into a heap in linear
+time
+and then I do this n moves where I put the most important thing
+remaining farthest back and shrink the heap up until the
+heap is gone and I just have a sorted array so I'll go on from
+here I'll swap the seven down into good position now I've got
+a broken heap in those first four I fixed down go for it
+yes you're saying that you've got a smaller end so in our
+fixed down version from before, the fix down that you probably
+wrote in P2,
+you just used the size of the container.
+Here, you've got to be able to pass that size where you want to
+stop.
+So the original fix down that we added in the earlier slides
+would be much more useful in this.
+For the time complexity,
+you just say it's still in.
+Which is in?
+The log n.
+The log n time of fix down, yes.
+Worst case is log n fixing all the way down to here, but you're
+right. As we get smaller and smaller,
+our fixes are shorter and shorter and shorter.
+Yeah.
+All right. So what's left? I got these four
+more moves. I'm going to put five where it
+belongs,
+fix this 2-4-1 thing,
+put four where it belongs,
+and life is good.
+That's heap sort.
+So we talked about heaps, we can use them to make priority
+queues. We can also use them as a tool
+inside this heap sort algorithm.
+So there's heap sort in real short terms, right?
+We start out in line two. We turn the data we have into a
+heap.
+And then we've got this reverse for loop that just swaps the
+current thing that we're trying to get out of there from the
+root down to its lowest position.
+And then we fix down and ignore that place where we just put the
+root.
+So that's heap sort.
+Real simple if you've got heap,
+if you got fixed out.
+So,
+take the given n elements, convert them into a heap,
+which I can do that in linear time.
+If I don't have a heap,
+I spend the linear time to get there.
+Then I remove the elements one at a time, filling the original
+array from back to front. So I get to do this in place,
+which is also important. I didn't have to copy the data
+to sort them.
+I do it in place and then fix down a smaller section, a
+smaller section, a smaller section, and it ends up being
+big O,
+n log n in time,
+constant memory in place.
+All right,
+where we at?
+Questions on heaps and heap sort?
+Question on heapify,
+fix up, fix down,
+priority queues.
+It's good?
+All right.
+Well, I am going to load up another deck.
+It gives you a second to breathe feel free to stand up shake it
+off
+that's
+why that's making so much noise
+All
+right.
+Let's get after it again.
+We're starting our catch-up here.
+We're earlier in the lecture and we're starting, we have 30
+minutes to get after this one.
+We see here a collection of peas,
+beans maybe,
+I don't know.
+This one is sort of an ordered set.
+You can think of this,
+an ordered container,
+ordered collection,
+things in this pea pod don't move around.
+That's the short version of what order it is.
+Things don't move around unless you move them around.
+I mean, I could come up here and physically pull this P out and
+pull that one out and swap them.
+I could.
+But they're not going to change by themselves.
+And that's what's important about an order container.
+And also, it's worth noting that the opposite of sorted
+is not unsorted it's unordered
+so ordered and sorted are two opposites there so you see how
+that goes into B right we've got the unordered container and the
+sorted container we don't have an unsorted container it's
+unordered and sorted so we know about binary search
+we've seen that one before so let's just run it through an
+example here I'm trying to find 21 you say there it is I found
+it but I need an algorithm to do this as well so what do I do I
+look at the thing in the middle and binary search only works on
+my data are already sorted so when I look at the middle I can
+say what am I looking at versus what am I looking for if what
+I'm looking at is what I'm is less than what I'm looking for I
+need to move past that if what I'm looking at is more than what
+I'm looking for I need to stop when I get that high.
+So in this case,
+I picked the 13.
+I can look to the right from here.
+When I've got an odd number of items,
+I take the actual middle item.
+When I've got an even number of items, because of the way
+integer division works, I always end up with the thing just to
+the left
+of the midpoint.
+So here were the four of them.
+I'm going to take the second one, because there is no true
+middle item.
+Now I compare that to what I'm looking for.
+It turns out that it's greater than, so I'm going to look to
+the left of 25. I don't need to look at 25
+anymore.
+I can just look at everything but the 25.
+Same thing was true when I found the 13.
+I don't have to look at the 13 again, so I can start after the
+13.
+Now when I'm down to the 21,
+I have found what I'm looking for.
+So that's how binary search works.
+And we see this nice solid dividing my container in half,
+dividing my container in half. You see why this is log n right
+Nothing new there
+Binary search requires assorted elements.
+This is what a binary search function might look like so this
+is the STL style where we're looking at something that is
+a Half open interval
+So my left index is going to be the index of the very first item
+and my right index is going to be the index just past the last
+good data item.
+I've got the array, I've got my indexes that I'm sorting on,
+and I've got the searching on, sorry, and I've got the value
+that I'm looking for.
+We've seen this code already before in a couple of slides.
+While right is greater than left,
+meaning I have some place to search,
+because as soon as right and left are equal, that means I've
+got a zero size search area,
+right? Because remember I said, the right is always pointing
+just past good data.
+If the right is pointing at the first thing,
+there's no good data there.
+So if right is equal to left,
+I'm done,
+or greater than is fine, I'm out as well.
+Sorry,
+less than is out.
+But what do I do? I find the middle item and I say in line
+five,
+if what I'm looking at, If what I'm looking for is what I'm
+looking at,
+then I found it, return it.
+If what I'm looking for, if val is equal to what's in a at mid,
+if what I'm looking for is what I'm looking at,
+return that location,
+mid.
+Otherwise,
+if what I'm looking for is less than what I'm looking at,
+I should ignore that thing that I'm looking at and grab
+everything to the left of it.
+So I'll leave the left boundary exactly where it was and update
+only the right boundary. And what do I update the right
+boundary to?
+I update the right boundary to the thing that I'm looking at.
+Because, once again, I move on,
+right is always pointing just past good data.
+I will never look at the thing I'm looking at again.
+That's why I set right equal to mid when I want to ignore it.
+If I want to ignore it from the other side, I have to set left
+equal to one plus that.
+That gets me past it.
+So that's how this one goes. In the end, if I don't find the
+thing that I'm looking for, it's not there,
+then I return negative 1.
+This is a really straightforward binary search implementation.
+We understand it?
+Questions?
+It's good?
+It's great.
+Excellent.
+Needs to be sorted first.
+I've got some extra writing there.
+It loops at most k times, one step, one step, one step, One
+step, one step,
+one step, there we go.
+Looks like that.
+Big O of k, we know that to be k is equal to log n.
+All right, there's binary search.
+How do we compare elements that are objects?
+I can't use this type of comparison or this type of
+comparison when I have an object.
+This is where I need to have some function that looks at
+these two things,
+and tells me yes or no how I need to order them.
+That's what this red question is.
+I've got to do it with some function that's going to apply
+on those things. Probably a function object,
+func door,
+but I could also do it with just a regular function.
+So this one jumps into C++
+17's optional.
+So what do we have going on here?
+I've got that same binary search
+code.
+But it's returning this optional thing now,
+right?
+An optional UN32 type there.
+And when I've got nothing found there, it returns this curly
+brace thing. So as I go for this bsearch
+function up there,
+I say auto position equal to that.
+If pos has value,
+then I found it at pos.v. value.
+So this is what optional does in C++ 17.
+You don't have to worry too much about it.
+This is just an aside sort of thing so you can pick up new
+syntax.
+All right.
+We said we would be able to use some functions if we needed to
+compare objects.
+So we're getting into comparators again.
+We've seen comparators before.
+Here is an xy coordinate in a thing called struct point.
+It's got a default constructor that gives me the origin x
+equals 0 y equals 0 It's got a custom constructor that I can
+pass in an XY and assign them to X and Y There's my
+point
+This is a comparator that would allow me to compare two points
+and
+What does it do it returns true if?
+A's X is
+greater than B's X
+So if I were to use a comparator like this to sort a bunch of
+points,
+how would they come out?
+For a whole array full of vector full of points,
+I said standard sort begin to end and use this compare by x
+comparator.
+How would they end up being sorted?
+Yeah.
+Not priority queue, just sorted.
+So yeah, so this would be a decreasing sort in the
+x-coordinate, right?
+You can always tell by the shape of that arrow,
+right?
+That shape of that arrow says we're going to take the big
+things and get down to the small things.
+So if I were to use this in a sort algorithm, it would put
+them in reverse order by X biggest X down to smallest X if
+I were to use this comparator inside a priority queue of these
+things what would it do it would give me the ones with the
+smallest X first right because the greater
+style comparison makes me have a min
+pq so if I use this in a Priority queue,
+this would give me the smallest x, then the next smallest x, and
+the next smallest x, and the next smallest x, all the way up
+to the largest x at the very end.
+That's how this one would work.
+This one is a compare by y comparator that you see the
+alligators bite in the other direction.
+So this is going to give me,
+yeah, go for it.
+Oh, yeah, it's gonna be totally dependent on what your
+application is right sometimes you need things sorted sometimes
+You just need the most important thing so
+It really depends on the problem that you're facing yeah
+So if I were to use this one and sorted them they would be an
+increasing order by why I If I put them on a priority queue, I
+would get the largest y first.
+So this is how to read these things in function objects.
+All right. Back to binary search.
+Let's see if we can make it faster.
+Faster is better.
+We like faster.
+We're not going to get it faster than log n.
+That's the first thing. But we can still do it faster
+than,
+we can change our constant factors.
+So what we're going to do is look at the fact that when I'm
+in a binary search,
+the is equal to rarely happens,
+right? It happens at most once per search, right? If what I'm
+looking for is there, I will find it, and that last time I
+find it,
+equals equals will actually have return true.
+All the other times, though,
+it's going to return false.
+If it's not there,
+what I'm looking for is not there, it will never return
+true.
+It could, in the very worst case,
+return true at the very last thing.
+So then the question becomes,
+if I want to optimize,
+shouldn't I be doing the thing that's going to happen the most
+often first?
+We say,
+optimize for the common case.
+Commonly,
+that's just gonna say no.
+So there's more work to be done after that.
+and I'm just asking for a no that I'm expecting so they can
+do more work later.
+So what if I said, well, let's just not ask that question?
+Or at least let's ask it later.
+What if I checked less than first?
+So less than is pretty opinionated.
+You either are less than or you aren't, right?
+So if I check less than first,
+I'm always going to know where what I'm looking for is.
+Now if I check equals,
+I got these two halves.
+Say this thing in the middle equal?
+Yes,
+well where,
+no.
+So well where's the thing I'm looking for then?
+I don't know. It's either over there or it's
+over there.
+But if I say let's try less than, say nope it's not less
+than,
+it's definitely over there, isn't it? Or if it is less than,
+it's definitely over there.
+So after that one test, I have a side picked.
+Whereas if I start with equals, I don't have a side picked.
+I just know I haven't found it yet
+So if we do that we go pick a side first then we say well If
+that's not the side, let's go to the other side and if that's not
+the side then it must be equal So that's how we're gonna
+rewrite this
+Look at this version. It just sort of well.
+This is the original version. Sorry
+This is the one with a negative one in it so in this one we see
+that every time through the loop We've got these three
+comparisons Do I have some data to search? That's right versus
+left, first comparison.
+Did I find the thing I'm looking for?
+No, that doesn't almost never happens.
+Then if not,
+should I look to the left, or should I look to the right?
+So every time through the loop,
+the only time that I don't have three comparisons is when I
+actually find it and I'm done.
+So if we reorder things like this,
+this one gives me two comparisons half the time.
+I'm always gonna have the comparison to see do I have
+data.
+Is right greater than left?
+Yes.
+Then my second comparison to say,
+well,
+is what I'm looking at less than what I'm looking for? If that's
+the case,
+then I know it's over there.
+So let's adjust left.
+Otherwise, let's adjust right if it's over there,
+right? So I've got an else if there.
+So half the time I'm good with six and I go to the right side
+the correct side. I should say
+Also the right
+The other half of the time I've got to make this second check so
+now I've gone from three
+comparisons per loop
+to two and a half
+It's pretty good.
+I know you're not wildly impressed yet.
+It's like two and a half comparisons, but
+Look at this version.
+Now this version is a little trick on there.
+So watch the name of this function.
+That's bsearch.
+That's lower bound.
+It's a different function.
+It's using a binary search algorithm, but it returns
+something that's always
+in the range.
+Remember the previous one I said, if I couldn't find the
+thing, I'm gonna give you a negative one.
+Great.
+This one, though,
+has no equals check in it.
+We say, hey, I'm going to make sure that I stay in bounds.
+That's one.
+And then I'm going to either go to the right
+or I'm going to go to the left,
+always.
+So now this is down to two checks per loop.
+But what do we get when we return it, right?
+Sometimes we get the right answer, sometimes we don't.
+But in the old version,
+what was the first thing we did after we called binary search
+anyways?
+We said, hey, was that negative one?
+Because if it's negative one, then you didn't find it.
+Then we'll use what you got.
+So this version says,
+hey, I think this is it.
+They say, well, is this what I was really looking for? No,
+okay, then what I was looking for wasn't there.
+Or,
+if this is what I'm looking for,
+yes.
+Well, hey, I found it for you.
+So that's how this one works.
+It returns this left here,
+whatever left is.
+And what the lower bound is,
+is the first item
+that's not less than what I'm looking for.
+I gotta sort a container.
+The lower bound is the first item not less than what I'm
+looking for.
+So,
+if what I'm looking for is there,
+found it,
+right?
+If I'm looking for four,
+the first item not less than four is four.
+If it's not in there, though,
+I might get five or six.
+But what this does is it takes that check for equality and
+removes it from the loop entirely.
+after I get done searching I have one check say hey did I
+find what I was looking for if so then here's where it is
+otherwise what I was looking for wasn't there so this one's
+better because now it's two checks per loop every time
+why is that better is it slightly different factor
+it's
+not
+Let's do like some simple math on that.
+Imagine you have a job, and your job is you sit at this computer
+all day,
+and you perform binary searches.
+That's all you do.
+You've got a list of binary searches you've got to get done
+every day,
+you've got eight hours to do it.
+You're using that old algorithm.
+Somebody comes along and says, well, you could use this factor
+algorithm.
+Now, what happens? like two hours and 40 minutes before five
+o'clock you're done and you can go home so
+seems like not much you go from two comparisons and three
+comparisons but over time that adds up quick right so
+this is why we want to reduce our constant factors whenever we
+can even shaving off a little bit can really make some some
+good time for you because I would love to go home every day
+just after 2 in the afternoon.
+It'd be a great job, wouldn't it?
+Full-time pay,
+home by noon,
+home by 2 on a good day. Well,
+there we go. So this is known as lower bound.
+And this is the binary search function that you'll probably
+use the most in the STL.
+There is a binary search function in the STL,
+but all it does is return a bool,
+which confirms that what you're looking for is there or not.
+So if you wanna know where it is, you still don't know.
+Binary search true if it's there, returns false if it's not
+there.
+So not really that useful unless you're really just trying to
+locate whether the thing is in there or not.
+So the second example you brought up where first you look
+at less than, then you go to greater than.
+And then there's the equivalent check.
+There's no real check, but it's the third else, right?
+Like, if it's less than, I go over here.
+If it's greater than, I go over there.
+Otherwise, I must have found it.
+That's half a check, because half the time, it is less than,
+I just go over that way.
+The other half the time, I say,
+well, if it's less than, I would go over there.
+Well, it's not less than. Well, is it greater than?
+So half the time, I have to do this second check.
+But half the time,
+the first check is enough. I don't know,
+okay,
+but the important thing is it's not having to execute the if
+statement.
+For the equal.
+Well,
+it's not that it's important that we don't have to execute
+the equal, because we're still getting the response back.
+Let's say, if it's less than go over there,
+if it's greater than go over there, otherwise I found it.
+All that's done is reordered, because in the first version I
+was saying, hey, did I find it? I was like, no,
+okay, well, I still don't know anything.
+I have to do another check every time to figure out, it's not in
+the middle, should I go to the left side or the right side?
+Right, in this one I say, should I go to the left side?
+And half the time I should.
+And so that's all I need to do check-wise.
+The other half of the time I say,
+should I go to the right side? And then that one last nth time
+when you find it, I've already checked right and left,
+or left and right,
+and then I fall into the middle.
+So,
+if you start by checking for equivalence, you have to do
+another check if you don't find it.
+If you start by checking less than, half the time you don't
+have to do another check.
+You see what I mean?
+If you look for less than half the time, you're like, yep, it
+is less than this,
+let's get over there. That's it.
+Right, exactly,
+yes.
+Whereas when you start with equals, we have to do two checks
+every time no matter what.
+If we start with less than, we only do half,
+we do one check half the time,
+we do two checks half the time.
+All right, so there's lower bound, and I already mentioned
+that it finds the first thing not less than what I'm looking
+for.
+That's where we start with lower bound.
+That's what you wanna do is to find the thing because when
+you're looking for it,
+if it's there,
+that's it,
+right?
+I got a list of numbers.
+One,
+three,
+seven, 11,
+nine,
+10,
+15. I can't even say numbers, right?
+What is the first thing in this sorted list that is not less
+than nine?
+It's nine.
+Great.
+What is the first thing in this list that is not less than 12?
+It's 15.
+What I'm looking for is not there.
+So, after I get the thing back, I can do one last check.
+Say, hey, now I can check for equality.
+Or,
+get this,
+if I know that what I'm looking for is in there, if I'm
+guaranteed that it's in there, I just need to find it,
+It's always going to give back to me.
+I don't even ever have to check for equals.
+I just know it's coming out.
+So that's what lower bound can do for you.
+Upper bound is not great for finding things, it ranges stuff
+for you. Go for it.
+Yeah, because the upper bound says, I'm going to find you the
+first thing greater than your target.
+So if you're looking for nine with upper bound, it's gonna be
+like, how about ten?
+Right if nine isn't there you don't know if it's there or not
+So upper bound won't help you in that way, right?
+So I say what's the what I'm looking for a thing? That's in
+there. I say what's the upper bound on
+nine?
+It'll say ten because it's the first thing greater than my
+target Then what's the upper bound on twelve?
+It'll say fifteen
+Where does upper bound help me then?
+Well, it's like it sounds.
+Bound, range,
+what do we do for the right thing? We say the right thing is
+always pointing just past good data.
+So now imagine that I had a 10 here,
+and let's make this a 10 as well.
+And if I were to do that, because I've got duplicates,
+lower bound is going to be right here.
+That's LB right lower bounds the first thing not less than 10 is
+10.
+What's the first thing greater than 10?
+18
+So that's what upper bound is going to give me now if I take
+this I Should make that a B
+Now I've got a range though, don't I if I start at left the
+lower bound I
+I got a 10,
+I got a plus plus, I got a 10, I got a plus plus, I got a 10,
+until I get to the upper bound, which is no longer a 10.
+So everything in this range,
+from lower bound to upper bound, is equal to the thing that I'm
+searching for.
+So if I've got multiple things,
+I can use this binary search to find all of them.
+That's pretty slick.
+That's why it gets combined into this other function called equal
+range basically just calls both of those things and gives me
+back a pair this is a really good reason for pairs gives me
+back a pair where the first thing is the lower bound and the
+second thing is the upper bound and everything in that range in
+between is equal to the thing that i'm searching for does that
+make sense on equal range upper bound and lower bound like i
+said if you're looking for a thing lower bound is your friend
+if you want to know if a thing exists you can go ahead and use
+binary search if you want to to play and
+or equal range.
+Yeah.
+Exactly, that's right, exactly right.
+So lower bound is an inclusive find and upper bound is an
+exclusive find.
+It's the first thing, just pass what you're looking for
+just pass good data. It's just like the left and
+right bounds, yeah.
+Yes,
+and that's what lower bound is,
+is what I'm saying is lower bound is that same binary search
+algorithm that will return you the thing if it's there but it
+will return the next thing after it and it's faster because the
+lower bound uses that third version of the algorithm where
+we always do two comparisons every time through the loop.
+So that's really what's going on there.
+And I think the lower bound, I'm not quite sure how binary search
+is actually implemented. It could be implemented like the
+original one,
+just returning a bool. I would imagine it would
+probably be faster.
+Maybe doing one more check on the lower bound to see if you
+found what you've got and returning true or false on that.
+So all right. so that's binary search
+in the STL
+so this is just a picture of how all of those things work when
+I'm trying to find something so you see that this has lower
+bound and upper bound for when the thing that you're looking
+for is there and when it's not so lower bound on 7 find 7
+lower bound on 26 when it's not there finds 31 upper bound on
+21 finds 25 after that and upper bound on the thing that's there
+go on and so on so that's really how those two things work learn
+them use them they will help you in p2
+and that gets me to that side all
+right lunch time

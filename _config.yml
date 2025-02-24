@@ -74,6 +74,7 @@ defaults:
       layout: "page"
 
 exclude:
+  - _text
   - "*.gem"
   - "*.gemspec"
   - tools

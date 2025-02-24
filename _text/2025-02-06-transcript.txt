@@ -1,0 +1,3473 @@
+I'm just going
+
+to
+
+put it in the fridge.
+
+I had a question about the hardware and how it,
+
+how it get rich and increased,
+
+I'm really happy for this.
+
+That's a system call?
+
+I'm not exactly sure how that happens.
+
+System call. It's a UNIX system combo program
+
+called a JL machine.
+
+It runs your program under it, so then
+
+it's going to basically be a supervisory control so it can
+
+see what's going on in terms of your allocation costs.
+
+So as far as the memory requirement on text,
+
+is it in raw bytes?
+
+Or is it might be preferable to, you know,
+
+for somebody to keep a keyband stack? It's gonna get both of
+
+them.
+
+Okay, so it's just looking at like some of keyband stack.
+
+Yeah, there's no place to sort of put it to save it to.
+
+Okay, I was thinking,
+
+okay,
+
+you know if I'm like running out of stack space, It's deep.
+
+It's big.
+
+Yeah, it's great.
+
+Use the heat.
+
+How are you running on a sex face?
+
+Well, it's just thinking if that was something coming up.
+
+You know, it's thinking maybe just allocate all the big
+
+objects on the heat. On the heat, which is always a
+
+good idea anyway.
+
+But as far as the autograder is concerned, it's just taking some
+
+time.
+
+Yeah.
+
+Okay,
+
+let's see
+
+what
+
+we've
+
+got here.
+
+I'm going to put it in the fridge for a little while.
+
+I'm going to put it in the fridge for a little while.
+
+I'm going to put it in the fridge for a little while.
+
+I'm going to put it in the fridge for a little while.
+
+I'm going to put it in the fridge for a little while.
+
+I'm going to put it in the fridge for a little while.
+
+I'm going to put it in the fridge for a little while.
+
+I'm going to put it in the fridge for a little while.
+
+I'm going to put it in the fridge for a little while.
+
+I'm going to put it in the fridge for a little while.
+
+I'm going to put it in the fridge for a little while.
+
+I'm going to put it in the fridge for a little while.
+
+I'm going to put it in the fridge for a little while.
+
+I'm going to put it in the fridge for a little while.
+
+All right,
+
+let's go.
+
+So we talked about functors,
+
+which I said is a combination of some words that we can sort of
+
+look at these things at when we're talking about it.
+
+So you'll hear people call them function objects.
+
+A short version of that is a functor,
+
+and then there's a couple of specific types of function
+
+objects that we use. One called a predicate,
+
+which is also short for a unary predicate,
+
+which is a function object that is expecting to take one
+
+argument,
+
+unary,
+
+and then return true or false based on some criteria in that
+
+function.
+
+A comparator is another version of a functor, which is just
+
+another nickname for a binary predicate function object.
+
+And in the binary predicate function object, it's going to
+
+take two parameters and give you a true or false.
+
+with the thought being that those two things will be
+
+compared.
+
+And then, additionally,
+
+in the binary predicate
+
+slash comparator tradition,
+
+the way that that works is, is expected to work by the STL, I
+
+should say. The way that it works is, it's
+
+expecting that if the first item is less than the second item,
+
+the comparator should return true.
+
+it wants things to behave like less so we
+
+saw this one here and this looks like a proper comparator and
+
+it's returning true when the left employees name would show
+
+up earlier in the dictionary than the right employees name
+
+that's what this functor does so this will be a great functor for
+
+sorting your employees by name in ascending order,
+
+and this less than is going to be key to look for there.
+
+That less than is kind of shaped like the direction of growth,
+
+right? So if I've got the less than like this, I can think of
+
+smaller things over here to the left at the beginning and bigger
+
+things over there at the right. So that's another way to
+
+remember it.
+
+The choice of whether or not less makes things sort
+
+increasing or decreasing is 100% arbitrary.
+
+It was chosen at the design time of the FTL,
+
+though,
+
+and then everything else responds with that in mind.
+
+Do you call the string less than the puncture, I guess you'd call
+
+it, I don't know.
+
+Do you just need the less than symbol?
+
+To compare two strings?
+
+Yes. Yes,
+
+strings,
+
+the C++ string object has operator less than overloaded
+
+for two strings.
+
+So that's why it works.
+
+Yeah,
+
+without that, the less than wouldn't work for a string.
+
+It's just a class. It's just another object.
+
+But the string library has it overloaded, and that's why it
+
+works.
+
+All right, so you see down at the bottom here, it's used to
+
+sort this range of employees from beginning to end.
+
+And then every time the sort algorithm says, because I'm
+
+trying to put these in order,
+
+which one of these two should go first?
+
+It ships it off to that thing and it says, well this one's
+
+less,
+
+okay, well this one goes earlier,
+
+and that one goes later.
+
+And that's how these algorithms work.
+
+And so you can see here when an object has,
+
+when a class,
+
+sorry I shouldn't say object or class,
+
+when a type has a proper response to standard
+
+less
+
+or has overloaded the operator less than, And we don't need a
+
+third parameter.
+
+If you look at that struct up there,
+
+I guess we don't even have a copy of the employee struct.
+
+But whatever is in the employee struct, it's an object.
+
+And there isn't a certain way that the compiler knows that
+
+these things should be sorted. So if I just called sort with
+
+just employee begin and end,
+
+it wouldn't know how to compare those things.
+
+It would get to a point where it was trying to do a less than on
+
+one employee to another. and it wouldn't be an overloaded
+
+operator,
+
+less than,
+
+so it would then just do it by memory address, which probably
+
+wouldn't get you what you wanted.
+
+Why is struct instead of a class?
+
+It just has to be an object if you're gonna go with the func
+
+door.
+
+This could be a function pointer, as someone asked me,
+
+this could just be a function, I could pass that in there as the
+
+third parameter as well. But the typical use of a struct
+
+here is because I don't have any private members.
+
+I'm not trying to protect anything.
+
+I have full access to everything in there.
+
+The easiest way to make an object here is like that.
+
+If I were to make this out of a class, I'd have to have another
+
+line of code that would say, make sure that this is public.
+
+Not to say that we won't make some comparators out of classes,
+
+but this one is simple enough to just require a,
+
+it just doesn't require,
+
+but simple enough to just be easily done with a struct.
+
+Yeah.
+
+Does the function object require arguments when you're passing it
+
+into sort?
+
+Okay, so that's a good one. So right here you're talking
+
+about?
+
+So this is not the actual function,
+
+right? If we look at this,
+
+it says sort by name, which is the type.
+
+So when I take a type and put parentheses after it, it's going
+
+to call the default constructor of that type, and that's what
+
+gives me the object.
+
+Now,
+
+the function that gets called by sort
+
+is going to be a two-parameter function that takes left and
+
+right.
+
+And so that function is always going to be passed to those two
+
+arguments by sort. You can't change that.
+
+You can't make sort pass it another argument.
+
+Well, I want to have these two things and sort of the third
+
+parameter or fourth parameter. If you want another parameter in
+
+there, you've got to do more work.
+
+And that's what we're going to look at in a minute.
+
+But this parentheses set right here isn't calling that
+
+function.
+
+This parentheses set is creating one of those objects.
+
+And you see here in this priority queue declaration,
+
+because the priority queue declaration is about building
+
+this template I say type employee
+
+container type vector of employee followed
+
+by comparator type so sort by name is a type here and that's
+
+how it should be you can't put objects inside template
+
+declarations any more than you can put types inside function
+
+calls so this makes an object this stays as type
+
+for when the object gets created,
+
+it instantiates its own, when this EPQ gets instantiated, it
+
+creates its own version of this.
+
+If you're ever going to store a priority queue with an employee
+
+and a vector of employee,
+
+will there ever be a vector of something else?
+
+No,
+
+yeah.
+
+So why put it there, right?
+
+If I wanted to store them in something else.
+
+So I could say, I want a priority queue of employees
+
+stored in a deck of employees.
+
+Use this type.
+
+So this is always going to be the same as that.
+
+This is the type,
+
+and this is the things in the type.
+
+But this could be a different container.
+
+I could have my own container that I want,
+
+if I wanted to.
+
+Yeah.
+
+It's the way that the STL convention goes,
+
+just like if we were to say, I would like to make a stack of
+
+integers based on a vector of integers.
+
+I would say stack int vector int,
+
+right? Or I could say stack int deck int.
+
+I wouldn't have to, because a stack is by default over a deck.
+
+But this second parameter, if there's the ability to bring
+
+your own container,
+
+is always that container.
+
+And that's why it seems at odds that all we really want to do
+
+most of the time is change the comparator, but I still have to
+
+say type container type, this to get the third one out there
+
+would be nicer if this was second because I'm much more
+
+likely to change my comparator than I am to change my
+
+underlying type but the convention the STL says type
+
+container then other stuff all right all right
+
+let's get a little bit more complex with this defunct or
+
+here we're gonna see look
+
+at this one right in lines 1 through 10 I've got a class now
+
+this is an object classes give me objects and you see this one
+
+is called sort by coordinate it does have a private member which
+
+is just a reference to a vector of doubles so it doesn't have
+
+the vector itself, it's just got a reference to them.
+
+And in order to fill that, we're gonna have to put that into some
+
+sort of constructor, which is what you see there in line 5.
+
+It says, sort by co-ord can be created with a custom
+
+constructor up there as long as you pass in a reference to a
+
+vector,
+
+a constant reference to a vector of doubles.
+
+Then it assigns that incoming Z into coords.
+
+Now you see the function that sort or
+
+whoever wants to call this
+
+funcdoor is going to use is just that overloaded operator
+
+parentheses in line seven right and this is a unary this is a
+
+binary predicate it takes in i and j so it returns true so this
+
+is some sort of comparator but you can see inside the body of
+
+the comparator it says return what's in the coords at i is
+
+that less than what's in coords at j.
+
+So this one doesn't compare i to j.
+
+It has some third-party information.
+
+But the sort function is only ever gonna pass you two things.
+
+The only place that I can get this third-party information is
+
+if I give myself some member variable there and then
+
+initialize it and use it afterwards.
+
+You see how it works?
+
+Yeah, go for it. So how would you define a
+
+priority to look like a decent,
+
+something like so-and-so coordinates?
+
+Ah,
+
+that would be more complicated.
+
+In that one, you would have to have,
+
+and you'll see that when you do the part 2B stuff.
+
+When you've got a,
+
+at the instantiation time, you've got a chance to bring
+
+your own
+
+Compared or object, you say,
+
+here's my templated type, but the actual object I'm bringing,
+
+so you would have to instantiate the object yourself and pass it
+
+to the priority queue at construction time, so then it
+
+would be able to use it.
+
+That's a little opaque,
+
+don't worry too much about it.
+
+We won't have to do it this semester, but.
+
+So what does this one do,
+
+right? This one allows me to look in coords and compare
+
+things inside of coords as
+
+Opposed to I and J. So this leads to this thing
+
+that's in the title slide. It's called indexed sorting So
+
+rather than sort the data Itself,
+
+I'm gonna sort the indexes of the data, right? So You can see
+
+in this lower part here. I've got a vector of size T's
+
+those are my indexes I got ten of those and then I've got a
+
+vector of doubles these are my x-coordinates I've got ten of
+
+those in this for loop what do I do I go in and set all of the
+
+indexes equal to just what they should be like zero one two
+
+three four five nine so that's what's an index and then in the
+
+next step in line sixteen I generate some random number
+
+mod it by a thousand and then multiply that by 10.
+
+So rand in that situation gives me an integer I turned it into
+
+some integer from 0 to 999
+
+divide by 10 and I get some double that looks like a number
+
+between 0 and 100
+
+with a single tenth
+
+Does that make sense?
+
+So they're randomly ordered inside of X cord.
+
+It's a bunch of randomly ordered doubles
+
+But what I'm going to do is sort them
+
+remotely.
+
+So I'm not going to change the order of them.
+
+So they might be ordered like this,
+
+like 1.7,
+
+0.5,
+
+3.4,
+
+10.9,
+
+8.7. So that's what my doubles might
+
+look like in some random execution,
+
+right?
+
+So now, if I were to look at those and say,
+
+which one of those is the smallest one,
+
+you can see it right there.
+
+It's at 0.5.
+
+So my index sort might look like one,
+
+zero,
+
+well, my index sort would look like two,
+
+four,
+
+three.
+
+So, if I traverse these indices,
+
+and then indirectly go look up in the data,
+
+then I will get them in order. So the first thing I get is 1.
+
+Okay,
+
+1 isn't the thing I'm looking for.
+
+Let's go into XChord at 1, and that's where I get the smallest
+
+item.
+
+The next thing I'm looking for is 0, but it's not the value 0,
+
+it's at index 0 in the data, so the second thing I get is 1.7.
+
+The third thing I get is index 2, which is 3.4.
+
+The fourth thing I get is index 4 which is 8.7
+
+and the fifth thing I get is index 3 at back at 10.9
+
+Do you see what that is?
+
+So now I've got the data in the original order I still haven't
+
+moved them at all, but I have taken this vector of indices and
+
+reordered them
+
+So if I want to traverse these things in Increasing order I can
+
+just go through the indexes and do an indirect lookup because
+
+it's not directly to the thing I've got to say,
+
+well, this is the index.
+
+Go find it.
+
+Does this make sense?
+
+This is going to be very useful to you in project 2A.
+
+You're going to have to have these zombies where you've got
+
+some container that has all of them,
+
+and they need to be in the order that they got created.
+
+But you also need to see them in some statistical order.
+
+So let me see if I can reorder them.
+
+I've got some other way to do that, and I actually don't even
+
+have to move the zombies themselves.
+
+I just change the indices that refer to them.
+
+It's an indirect sort.
+
+Does that make sense?
+
+Yeah?
+
+How did you determine which indices you bought and which
+
+were the rate?
+
+When I wrote 102.43,
+
+I just did it by eye,
+
+right?
+
+I eyeballed it, but how would I do it in code? I would call this
+
+sort right here. You see I called sort from begin
+
+to end on the indexes
+
+So if I just did begin to end on the indexes with no third
+
+parameter It'd just be like okay zero one two three four five six
+
+seventy nine. They're sorted enjoy
+
+Right,
+
+but I've added this third parameter that says Use this SBX
+
+variable
+
+So here's where I'm bringing my own
+
+instantiated comparison object, right?
+
+Well, SBX is just this thing that I declared here in line 19.
+
+It's one of these types.
+
+I use the custom constructor to say,
+
+here's a reference to those data right there.
+
+Use that when somebody says,
+
+here's I and J.
+
+Okay, well don't compare zero and one.
+
+Compare what's at zero and what's at one, and then give me
+
+the answer.
+
+So, when I call sort here from begin to end of index, it
+
+reorders the integers based on the doubles values
+
+without reordering the doubles.
+
+Yeah.
+
+It would be about as addition and sorting a container of
+
+pointers to a specific level.
+
+Sure, I mean, because the pointers are just a level of
+
+indirection,
+
+right?
+
+So yes.
+
+Yep.
+
+Does this make sense? we're calling sort not on the data
+
+we're calling sort on the indexes hence the term index
+
+sorting I'm reorganizing indexes I'm not reorganizing data so
+
+this is what you would do when what happens well I really want
+
+them in the initial order for something but I also need them
+
+in another order or
+
+maybe I need them in four different orders and I don't
+
+need three copies of them in memory so I'll keep one in the
+
+original or the one I use the the order that's most important
+
+I keep them in that order and then the other orders that I use
+
+alternatively I'll make some index sorts on them and I can
+
+use them when I need them
+
+it's that was my second thing right
+
+the second reason why I might want to index sort these things
+
+is what if they're really large things in memory and I don't
+
+want to do a whole bunch of swapping and moving things in
+
+memory it might be a lot faster to just take some indices and
+
+swap those around,
+
+right? And then the third reason why I might do this is what if I
+
+don't own the original list?
+
+What if I can't sort the list?
+
+Somebody said, here's a const reference to my data.
+
+You can look at it.
+
+Well, I want it in a different order.
+
+Well, that's fine, but I'm keeping it in my order and it's
+
+mine.
+
+Okay, well then I'll just build an index sort and I can hustle
+
+through my indexes to get the things in the order that I want.
+
+So a few different reasons why you might do an indirect sort.
+
+You can't do it yourself,
+
+you want it in multiple orders,
+
+it's too expensive to move things around,
+
+it's a great way to do it.
+
+So,
+
+this is a technique, index sorting, that you'll be using,
+
+plus it's also us looking at writing functor's comparators,
+
+right? So,
+
+we see this one as a binary predicate,
+
+line 7,
+
+takes two things and returns a bool.
+
+That const here,
+
+what does this const say?
+
+That const says, when I call the function,
+
+parentheses,
+
+on this object, nothing in this object will change.
+
+Meaning I'm not gonna change this,
+
+and that's gonna be important, because if I didn't say const,
+
+it might say, well, you only have a const reference to those
+
+chords, and if I let you go, you could do something to them.
+
+And so,
+
+that's why that const has to be there,
+
+otherwise it won't compile.
+
+All right,
+
+we're good?
+
+Yeah.
+
+So, the way that the predicate checks the condition,
+
+the left-hand side is less than, so the left-hand side will go
+
+after the right-hand side and go to the same sort.
+
+So, that's a good question there.
+
+It's covering me up here. Going back to what I said here.
+
+When the predicate behaves like less than, the things that it's
+
+sorting will be in increasing order.
+
+So what's in coords at that location will be in increasing
+
+order. As my i's and j's go up,
+
+the things in the indirected version will be in increasing
+
+order.
+
+So if I had to use the less than there,
+
+then it would have given me those things maybe in reverse
+
+order.
+
+So with a less than,
+
+sorry, a greater than would've made things look like,
+
+let's go with three,
+
+four,
+
+two,
+
+zero,
+
+one.
+
+Would've looked like that.
+
+Right,
+
+and that would've been my indexes,
+
+and now I can do this in reverse order.
+
+So if I look at,
+
+the largest thing would be at zero there, and that's the index
+
+three, I go to the index three, I get 10.9.
+
+Alright,
+
+in that little piece of code you saw we filled this thing with
+
+integers.
+
+If I was going to do that all by itself, there's actually a
+
+function in the SCL that just does that.
+
+It's called iota.
+
+So we'll also use that to describe a container full of
+
+variables as well to do iota that.
+
+Whether or not you used iota to do it, if I say did you iota
+
+that, does that mean that you have zero, one, two, three,
+
+four, five, six, seven
+
+in it, because the iota function is a cross-language thing that's
+
+been there for years and years.
+
+But you see here, you just give it a place to start, a place to
+
+end, and something to start at. So usually you start at zero.
+
+But if you wanted to say, I wanna go from one to 100, you
+
+just pass in one there, and it sticks in one, two, three, four,
+
+five, six, seven, eight, nine throughout the range.
+
+So if you have to fill it, this is a faster way to do it than
+
+this way. But since I already had a loop
+
+going, everything, I chose to stick it all in the loop.
+
+All right?
+
+Yeah?
+
+Execution faster, yep,
+
+yep.
+
+Complexity wise, nope, it's still linear, right?
+
+So can't do better than filling everything.
+
+You,
+
+yeah,
+
+go.
+
+The zero says that's where we start.
+
+Right, because I can start at one if I want to go from 1 to 10
+
+in this particular instance. If I wanted to go from 20 to 29,
+
+I just put a 20 there or whatever,
+
+whatever it is. It gives you a little bit of
+
+control.
+
+What if you're just like,
+
+your, why the coordinates has to be constantly remembered?
+
+The coordinates,
+
+this doesn't have to be constant, but it is passed in as
+
+constant, right?
+
+It's declared at constant time, which is making good sense.
+
+I mean,
+
+I'm building this object to compare things, which means I
+
+don't expect to be changing anything.
+
+So I say, give me a const reference to that vector, but
+
+then if I've got a non-const function that somebody's gonna
+
+want to call on there,
+
+compiler's gonna complain because you've got const data
+
+and somebody's calling this with a non-const function, you might
+
+be doing things that you don't want.
+
+So that's why it's important to have that const
+
+in the line, that one.
+
+That one says,
+
+when you call this operator parenthesis, we won't be
+
+modifying this,
+
+the this object.
+
+All right,
+
+now let's get to lambdas.
+
+Lambdas are just anonymous functions.
+
+Lambdas are great,
+
+especially when you use the STL.
+
+They can really clean things up quickly instead of having to go
+
+somewhere.
+
+So we saw in this previous version,
+
+I had this class,
+
+sort by chord, I had to define that somewhere else.
+
+So when I'm using the sort function down here,
+
+I say, if I look at somebody else's code and see this SBX,
+
+I say, oh yeah, that's a sort by court, I wonder what that does.
+
+Now I gotta go find it.
+
+It's somewhere else in the code base, in the H file or a CBB
+
+file, or something.
+
+I'm strolling to go get to it. Okay, there it is.
+
+Great.
+
+Lambdas say, well what if you could just declare and define a
+
+function right there? So,
+
+lambdas allow me to do that. They give me anonymous functions
+
+that work just like regular functions.
+
+It can improve your code readability just because I can
+
+define a function in line
+
+and then use it.
+
+So, I don't have to go back and find where the stuff is.
+
+A lot of STL,
+
+people that use STL algorithms really well will use lambdas
+
+because it keeps their code close and quick and easy to use.
+
+and you can also use them as actual function objects for
+
+callbacks and whatnot.
+
+So here's how the Lambda syntax works.
+
+We've got square brackets
+
+with a list of captures inside. We'll talk about that in a
+
+minute.
+
+Then we've got a parameter list, and you can think about this
+
+just like any other function.
+
+And then inside some curly braces,
+
+we've got the function body itself.
+
+So we get to use all the separators in this one syntax.
+
+see this one down here at the bottom right so like I said
+
+we'll talk about the captures list in a minute but I can say
+
+here in my parameter list this is gonna take two integers n1
+
+and n2 and then here in the body of the function it's gonna see
+
+if these two things are five apart really that's what this
+
+one does it's gonna return true if it is false otherwise so this
+
+one you You see that we didn't say what the return type was
+
+in this function, when normally we would have to.
+
+But the compiler knows what you're doing,
+
+right?
+
+The compiler says, well, you just return the result of a
+
+comparison.
+
+That's going to be a bool.
+
+So this would be a function that takes two integers and returns a
+
+Boolean.
+
+But that's all I need to define it.
+
+So you can put something like that inside of a call to sort.
+
+You'd have sort,
+
+first part of the range,
+
+second part of the range, and then a lambda.
+
+It would use that to differentiate between them.
+
+So here you see somebody wanted to be very explicit about the
+
+return type.
+
+So this is some alternate syntax.
+
+If you want to make sure that a return type is specified,
+
+because it might be different here.
+
+Here you see the incoming values are doubles,
+
+x and y,
+
+so if I just said return x, y, the compiler would give me back
+
+a double.
+
+Great.
+
+Unless I really want ints, in which case you'll see this
+
+version says take those two doubles, add them together,
+
+and then return the value as an int.
+
+So if you need to control that,
+
+you can.
+
+And here's a lambda in practice.
+
+Lines one through five,
+
+nice little predicate.
+
+Is odd,
+
+pred.
+
+If the number I get is odd, it returns true.
+
+If it's not, it returns false.
+
+Can you define a lambda outside of a function and find it for
+
+sure,
+
+just like so?
+
+Yeah, just like in a line, yeah, you can't, I don't think you can
+
+define a lambda outside of a function.
+
+At least I've never tried that.
+
+I know you can define it inside a function and then use it
+
+inside of something. You can also just set it equal
+
+to a variable, if you like, because I've got a variable
+
+equal to this lambda, then you can call that.
+
+So I mean,
+
+the thing is a lambda is an anonymous function, but you can
+
+still assign it to a name if you want.
+
+All right. So there's this isOdd predicate.
+
+It takes the value as an integer and returns true or false if the
+
+thing is odd.
+
+Really basic.
+
+So you can go through this line of integers here in this vector,
+
+and what does it do? It says, give me an iterator,
+
+auto it one is equal to the find if call from the STL.
+
+The FindIf takes a range,
+
+and it's going to go through that range one at a time, and
+
+every time it gets one of those things, it's going to call the
+
+predicate that it has
+
+to tell you whether it found something or not.
+
+So if I call FindIf, begin, vec,
+
+end, vec,
+
+with isOdd, pred there, what does it do? It looks at 24 and
+
+says that's not odd, 32 not odd,
+
+54, 86 not odd,
+
+53 is odd, so that call returns me an iterator pointing at
+
+53.
+
+That's what this does.
+
+All right?
+
+You see that isOdd pred, remember, that's a type.
+
+I need an object here, though, because it's a function object,
+
+so I call the constructor to make one.
+
+That's fine, that's stuff that we've already covered in this
+
+lecture.
+
+But now look at this stuff down in line 14, 15,
+
+16. it does exactly the same thing
+
+it says start up again a vector and
+
+that end of vector but then when I want to call my predicate use
+
+this this function object
+
+and here I've got some function given to me by this lambda
+
+so when I call
+
+that findIf, it looks at each thing in between begin and end
+
+and applies this to it. It says take that integer,
+
+return if it's true or false, and then it works.
+
+So you see how I don't have to go...
+
+In this one,
+
+obviously isOddPred is a pretty good name, so I know what's
+
+going on there, but if I really wanted to see how it was done,
+
+I'd have to go somewhere in the code and find isOddPred,
+
+way back up there in line 1. Now,
+
+this function right here,
+
+I've got everything I need.
+
+I see it right now.
+
+That's what's gonna happen.
+
+And I don't have to worry about building
+
+a separate object to do it.
+
+Performance change, no.
+
+Yeah.
+
+What is the square brackets? The square brackets is the capture.
+
+Now,
+
+the capture list is when I want to bring something from outside
+
+of the function into the function.
+
+We'll put it in a parameter.
+
+Well, I can only put one parameter in here because find
+
+if only sends you one thing. Here's the thing, is this what
+
+I'm looking for?
+
+What if I say,
+
+I want to find everything that's greater than five,
+
+and five isn't a number that I know at compile time, it's
+
+actually just a number somebody gave me.
+
+Say you give me a number, and I'll find the first thing bigger
+
+than that
+
+This function only takes one thing where do I get that bigger
+
+than number I?
+
+Can't I can't change that function, but The captures list
+
+says anything that I put in here Will also be available
+
+inside the body of the function
+
+So if I say,
+
+I want to return everything greater than something,
+
+right?
+
+So maybe I've got some entered. Let's modify this when we say,
+
+I've got some int x,
+
+and I'll say cn into x. That lets the user tell me what
+
+they want. And then I'm going to go ahead
+
+and put x in here in my captures list.
+
+And now I can rewrite this to be like, hey, return n is greater
+
+than x,
+
+so this will find the first thing greater than the number
+
+that the user put in there but you see that this function here
+
+is only a single it's a it's a it's a unary predicate no matter
+
+what that's what find if is going to do and if I want more
+
+information in there I have to put it in this captures list it
+
+takes stuff from the outer scope and and injects it into the
+
+inner scope of the lambda.
+
+Does that make sense?
+
+So, in the previous one, now think about how we did
+
+sort by chord.
+
+I had to declare that object, I had to write a constructor,
+
+I had to have a private member variable.
+
+I could write a really simple lambda to do exactly what that
+
+one did,
+
+but I needed access to those chords,
+
+right? I could be like int i,
+
+comma, int j.
+
+And if I put chords in here,
+
+then chords would be available right there.
+
+And I could do that without having to rewrite this, right?
+
+So I'm talking about something like,
+
+and you still want to do this by reference.
+
+So I'm going to say like ampersand xchord.
+
+and then I've got some int i int
+
+j
+
+and my curly brace here just says return
+
+x cord at i is less than
+
+x cord at j.
+
+Curly brace. And I'm done.
+
+Right,
+
+so that's how the lambda keeps it all in line there.
+
+Because the only thing that's gonna get passed to the body of
+
+the function
+
+is the stuff that the function wants.
+
+But if I want something else inside that function, I can
+
+inject it by putting it in the captures list.
+
+We get it?
+
+In this,
+
+the first version?
+
+Or which one?
+
+Well,
+
+in this first version, before I started scribbling things,
+
+all I needed was the value to be passed in to make my decision.
+
+If I need some external information,
+
+more than just the thing,
+
+or things, depending on what kind of function it is,
+
+if I need more information, that's where the captures list
+
+brings it in.
+
+It has to be there. It's part of this index.
+
+Yes, that means I'm passing X cord in by reference.
+
+I don't need to be I don't need to be copying it cuz they'll
+
+copy it if I do if I don't if I don't right
+
+yep and since X is an int I'm perfectly fine with that yeah
+
+to export, send in as a third parameter.
+
+How do you get that algorithm to send in your special third
+
+parameter?
+
+What if you want four parameters or six parameters? How do you
+
+get sort,
+
+how do you get find if to know,
+
+oh, I need these three extra parameters.
+
+Please pass them in with every time you call it on this one
+
+number.
+
+Not gonna do that for you.
+
+You see what I mean?
+
+Yeah, so I guess I'm kind of confused how it would determine
+
+what the other characters were like.
+
+So I guess if we have one,
+
+okay, it's gonna,
+
+it's gonna set that record and you start adding like j.
+
+Right, it depends on the function that's,
+
+yeah, it's the function that you're using.
+
+So when you look up the documentation on find if,
+
+it says, I'm gonna pass one of these things at a time to that
+
+predicate object.
+
+If you look at the documentation on sort, it says, well, I'm
+
+gonna need to compare two things in order to organize them, and
+
+the first one's gonna be of this type, the second one's gonna be
+
+of that type.
+
+You know, something in the range and something in the range.
+
+Okay,
+
+so for the sort,
+
+it's... Sort always calls it with two,
+
+right.
+
+Sort always calls two,
+
+find if always calls with one.
+
+Yeah.
+
+And I can't do anything about that, that's what those
+
+functions are written to do.
+
+All right?
+
+All right.
+
+So this one is some more with capture on there.
+
+you can see that the user has been able to enter some factor
+
+here in line six.
+
+And now, since we pass factor into the captures list,
+
+the body can tell,
+
+what if I divide n by factor?
+
+This is an even multiple of the number that you passed in.
+
+And some enterprising TA wrote this slide, So all of those
+
+numbers are multiple of anything between one and 25.
+
+So you will always find one of those numbers in this one.
+
+It's kind of slick.
+
+But you see here that it's using find if, which goes through this
+
+range,
+
+passes those things one at a time into this function.
+
+In this case, it happens to be a function object created by a
+
+lambda.
+
+We need this factor so that we can do some external information
+
+on this. We return n divided by, the
+
+remainder of n divided by that factor.
+
+You could put like a bunch of variables in the capture.
+
+You could put a bunch of stuff in the capture.
+
+It would just want to access everything.
+
+Right,
+
+there we go.
+
+Right,
+
+so this is getting way deep in the weeds.
+
+We don't have to know or use lambdas, so I don't want to
+
+stick on it too much, but you see if I put nothing in the
+
+square brackets, you get nothing.
+
+If I put equals in there,
+
+it takes everything from the surrounding scope and does it by
+
+value.
+
+If I put ampersand in there, it takes everything from the
+
+surrounding scope and puts it in there by reference.
+
+If I name a particular variable,
+
+like foo there, that was the only one captured,
+
+and it's by value,
+
+ampersand foo captures only foo by reference.
+
+If I want to carry multiple variables, foo comma bar lets me
+
+get more than one in there. If I want to do one in
+
+particular,
+
+like I want foo as a container, I want to pass that definitely
+
+by reference.
+
+The rest of the stuff I want to have equal access to, I have
+
+access to all of them. I can make copies in there just
+
+as well. So you can do that and do that
+
+sort of stuff. If you're in an object,
+
+you can pass in this.
+
+So we've got now access to all the member variables of this
+
+object.
+
+So, yeah. Yeah.
+
+How does const work on this one?
+
+I wouldn't mess around with the const on it.
+
+Yeah, I'd have to mess around with const on it.
+
+I'm not sure.
+
+So,
+
+the assignment operator passing in the items by
+
+value,
+
+that is calling
+
+It's making a full copy of the thing that you have.
+
+So if it's a type with a constructor it would call that
+
+for sure, yeah.
+
+With a copy constructor, right, yeah.
+
+Exactly,
+
+so the question is,
+
+this is there and it points us to the fact that even if I
+
+declare a lambda inside of a class, it doesn't have access to
+
+the rest of the class members,
+
+unless I include this in the capture.
+
+So when you do passing in everything by value, does the
+
+compiler only copy things that you actually use or does it copy
+
+everything?
+
+That's a great question,
+
+and one I don't actually have the access to.
+
+But from the description here, it says it captures all the
+
+variables in the surrounding scope by value.
+
+That's putting them in there, right? They've got to be in that
+
+scope. So you can imagine that this is
+
+a function.
+
+So it does have a stack frame.
+
+If you say, I'm going to take everything from the surrounding
+
+scope and put it in there by value,
+
+there's room for every single one of those things as a copy of
+
+every one in there. And so that's really how it's
+
+going to go off in there.
+
+I was wondering the difference between
+
+this and the ampersand, Uh-huh. I'm guessing,
+
+like,
+
+if we did this on a lambda inside of a class, it would
+
+capture the whole class, whereas ampersand would only capture the
+
+things that were like- In that function.
+
+In that function. In that function that you're in,
+
+right? In that member function.
+
+Yep.
+
+All right, like I said, not a whole lot we gotta do with
+
+lambdas,
+
+but they're a thing.
+
+If you wanna use them,
+
+they're kinda cool.
+
+You can help yourself out a little bit.
+
+So,
+
+this one,
+
+it's just an example. Like I said, we gotta move off
+
+of these.
+
+It's just some more examples of using lambdas.
+
+Here you see this lambda in line three
+
+and another lambda in line nine.
+
+The one in three is a binary,
+
+it's a unary predicate or just a predicate.
+
+We call them predicates for short.
+
+And then the one in nine is a comparator.
+
+This one looks like the time on the left hand message is at less
+
+than the time on the right hand message.
+
+So this is gonna be sorted in increasing order if I use this
+
+in a sort,
+
+right? And it is used in a sort here,
+
+if I use it in a priority queue,
+
+and stuff like that.
+
+All right.
+
+All right,
+
+awful functors and landers,
+
+on to the STL, this question, why does so much of this stuff
+
+on top-coder still get used in C++, even though you've got the
+
+chance to do it in Java, you can do it in C++, you can do it in
+
+Python.
+
+The STL is so awesome,
+
+that people that are really the nerd geeky coders,
+
+they just learn the STL and then they use it, because it's really
+
+nice,
+
+so that's why.
+
+Learning the STL,
+
+how do we do this?
+
+There's a bunch of online tutorials and examples.
+
+Obviously, there's C++.com,
+
+CppReference.com.
+
+Practice with small programs. There's detailed coverage in
+
+books.
+
+There's a PDF that's on Canvas under files, resources,
+
+algolist.pdf. It's a nice little one-pager.
+
+I found some other course was using it somewhere.
+
+I pirated it.
+
+And it's just a one page to just sort of skim what's going on
+
+inside of algorithm.
+
+So you can look at that. And that's a good way to learn
+
+how to use the STL
+
+is skim sections of it.
+
+Because you don't need to know everything in the STL.
+
+And no one here is probably going to be able to steel trap
+
+the memory thing to remember
+
+everything in the STL.
+
+You just need to know what's there.
+
+And you think, well, I know there's something like this over
+
+there. then you go look that up.
+
+And if it's something that's used on a regular basis, then
+
+you'll obviously remember it and you won't have to look it up.
+
+But it's just like going to the grocery store.
+
+You can't tell me exactly
+
+where this brand's can of beans is.
+
+But if it's a grocery store you go to,
+
+you know the aisle where the vegetables and cans are there.
+
+You just kind of go to it and then you do the linear search
+
+and you come up with a can of beans.
+
+But it's way faster than looking through the entire store because
+
+you know nothing. So the same thing is true when
+
+you're trying to learn a library.
+
+You don't have to learn everything.
+
+You don't have to know where every book in a real library is,
+
+but you know,
+
+well, this is the reference section over here.
+
+Here's the kids' books on this floor.
+
+They're sort of organizing this A to B to C to Z order.
+
+And so when I want to find something, I have to know that
+
+it exists.
+
+And then I go get the particulars on it.
+
+So Algolist is a good practice for that.
+
+You can look at the names of each of the functions in the
+
+algorithm and like a one-liner about what that function does.
+
+If you can remember even half of that
+
+and just have a feeling for the other half,
+
+next time you've got something to do, you're like, oh,
+
+I know there's an STL function for that.
+
+You go look it up, well, yep, there's the range, and then I
+
+have to bring this type of comparator predicate with it,
+
+and this is gonna work.
+
+So this is what you have to do when you learn a library.
+
+It's nearly impossible to remember it all, so you just
+
+skim through the documentation, study something that's
+
+interesting,
+
+learn how to use those pieces, and come back when it's
+
+necessary.
+
+You know, it's familiarity and look up skill versus being able
+
+to memorize the whole thing.
+
+The STL is gonna give you errors.
+
+We call these induced errors. Typically this is when your code
+
+is causing the problem in the STL.
+
+The problem is never in the STL. The problem is always you.
+
+Just remember that.
+
+So you're going to have to sift through a bunch of lines of
+
+messages.
+
+Typically, if it crashes in the STL, it might be three or four
+
+calls deep in the STL.
+
+So you look at the top call,
+
+and you work your way down until it's the first call in some of
+
+the code you wrote.
+
+That's where the problem was.
+
+That's how you do it.
+
+Here, we say 90% of STL-related crashes are due to users
+
+dangling pointers or references going out of scope.
+
+I have no idea how you might be able to verify that statistic,
+
+but once again, it doesn't seem wrong.
+
+So, I don't know if it's truly accurate,
+
+but the feeling is there.
+
+It's almost always you losing something.
+
+Out of scope,
+
+pointers that don't go where they're supposed to go,
+
+you can do that.
+
+Randomization,
+
+this is a random library to support random number
+
+generation.
+
+This one might be good for writing test files.
+
+You could write a little random number generator and I told
+
+people over and over again in office hours on P1, just write a
+
+random number generator and make your own 15 by 15 map.
+
+At 20% of the time their water and 40% of the time their land
+
+or whatever percents you want, just generate a map.
+
+You can do the same thing with,
+
+in P2, we're actually doing the same thing.
+
+We've got a random number generator that helps you
+
+randomly generate zombies.
+
+So learning how to use this random library is a pretty good
+
+way to do some testing because we know that writing our own
+
+tests isn't always the easiest thing to do.
+
+And when I can't think of anything that I would do wrong
+
+and then you fail half the autograder, I was like,
+
+I couldn't think of anything but obviously there's a whole bunch
+
+of things out there that I couldn't think of.
+
+The random number generator is how we got them in the first
+
+place. We got these gigantic, randomly
+
+generated tests.
+
+Well, it's a really strong way to test your code in general,
+
+learn how to use randomization there.
+
+This one is just a simple example
+
+of using a random number generator.
+
+It uses this thing right here called an MT-19-9-37.
+
+Right, that's a specific algorithm
+
+for a random generator known as a Mersenne Twister.
+
+So this Mersenne Twister is a very highly researched and
+
+appreciated algorithm so it's actually implemented here and
+
+the cool part about this one is as we talked about the STL being
+
+a specification you can do whatever you want on your side
+
+but it turns out if you in your library implemented
+
+MT-19-937 then it has to be exactly the same as somebody
+
+else's because it is a particular specification so the
+
+MT-19-937 is a way of randomizing things.
+
+What do we do in line 14?
+
+We use an iota.
+
+Give me zero, one, two, three, four, five, six, seven.
+
+Blah, blah, blah.
+
+Then shuffle them.
+
+And the shuffle starts from begin to end and uses this
+
+Mersenne twister right there as the thing to move things around.
+
+So say, how do I know to use that empty object?
+
+In the documentation of shuffle,
+
+it'll tell you what this third parameter type has to be.
+
+In this case, that MT937 with the random device created there.
+
+That's how it goes. And so,
+
+you can see this. This will just run through a
+
+bunch of values,
+
+kick out random numbers.
+
+This version of it is doing something similar here,
+
+right? It generates a random number and then mods it by 21,
+
+subtracts 10. so now I've got something
+
+between negative 10 and positive 10.
+
+It's a random device,
+
+like,
+
+does that give you a random seed?
+
+Yeah, it's a whole thing. So the question is, does a
+
+random device give you a random seed?
+
+In this case, if I run this code over and over again, no, I
+
+haven't seeded it.
+
+You see that random device is created with no parameter.
+
+If you wanted to seed that random device, you'd have to put
+
+the seed in the constructor,
+
+and then you would be able to get a different chain.
+
+So if I ran this 15 times, it'd give me the same thing every one
+
+of those 15 times.
+
+So if you know about random numbers,
+
+they're not really random.
+
+Computers can't do random things.
+
+They're computers.
+
+But they can do pseudo-random things.
+
+So really,
+
+you look like PRNG,
+
+you'll see that.
+
+There's a pseudo-random number generator.
+
+A lot of games use PRNGs.
+
+I had somebody on a game talk about PRNGs-es
+
+because it was like we were waiting for stuff to come out
+
+and you know what you're gonna get every day and so I was like
+
+PRN Jesus grants you the thing that you wanted like oh no it's
+
+another common common common when am I gonna get a rare when
+
+I get an epic PRN Jesus just doesn't love me so that's the
+
+pseudo random number generator and
+
+that's what MT 99 37 is is a pseudo random number
+
+generator and in order for the computer to work on that,
+
+you have to seed the random number generator.
+
+So as you seed the random number generator,
+
+that means that it will always generate that exact same
+
+pseudo-random sequence.
+
+So if I seed it with five and then run 1,500 numbers,
+
+and then seed it with five and run 1,500 numbers, they will be
+
+exactly the same.
+
+To a human, they'll look totally random, but they are a
+
+progression, they will be exactly the same.
+
+If I seed it with six and get 1,500 numbers, they'll be
+
+totally different from the 5 seed.
+
+So that's how the pseudorandom number generator in P2 works, is
+
+we give you a seed and then your zombie generator generates
+
+exactly the same zombies that we generate on the autograder.
+
+That's how that works.
+
+All right,
+
+using the STL container performance, this is just a
+
+quick one looking at some empirical testing here.
+
+This is relative performance of some STL containers and you can
+
+see here what's going on.
+
+It's going to give me a task up at the top left there.
+
+It says let's fill an empty container with different values.
+
+That's all it does.
+
+It tells me about what they've got there.
+
+I've got a vector pre which uses resize before it does the
+
+insertion.
+
+And then here's the hardware it was done on back in the time
+
+that it was done.
+
+But you can see that as we insert 100,000 items, 200,000
+
+items, 500,000 items,
+
+a million items,
+
+you can see that the list, they're all linear.
+
+They look linear, right?
+
+Fairly straight lines, a little bit of wiggle going on there,
+
+but for the most part they're linear.
+
+So,
+
+bigger constant factor on the list,
+
+lists are slower.
+
+You see that decks are slower than vectors.
+
+See that a vector is even slower than something that's pre-sized
+
+because we don't have to do the hey I've run out of space let's
+
+double and move to a new spot.
+
+Yeah that's just this is just experimental data so the
+
+question is why aren't these lines perfectly straight?
+
+Well the bumps come from any number of factors and you take
+
+large numbers and multiple tests like this to get a feeling for
+
+this stuff because you're never gonna get anything that's
+
+perfect right so next task fill the container with
+
+numbers 0 to N then shuffle at random and then search for each
+
+value using standard find once again
+
+list as expected slower
+
+deck as expected
+
+slower deck is a bunch of List is a bunch of single-item
+
+collections.
+
+A vector is one big collection.
+
+So it's faster to get this stuff done in there.
+
+So, so far,
+
+vector's pretty much ruling.
+
+How about number three?
+
+Fill the container, shuffle them at random,
+
+pick a random position,
+
+and then insert a thousand items.
+
+Now, all of a sudden, who's fast now?
+
+That linked list. Because inserting a thousand
+
+items in the middle of a vector is much slower.
+
+I have to move everything out of the way
+
+So the list is much faster here It's almost constant time speed
+
+is just whatever it takes to get that stuff done in the middle
+
+You see the deck the deck is substantially faster than the
+
+vector and why is that?
+
+We know how the deck works it's a collection of chunks So I
+
+figure out here's the spot where I want to insert some stuff I
+
+can go make all new chunks and not have to move any of the
+
+original stuff
+
+so there's a lot less data movement in the Deck than there
+
+is in the vector.
+
+So the reason why vector isn't the end all be all can get beat
+
+If I don't want to move my data around yeah, I got big chunks
+
+So this one is, similar to the last one, find a spot,
+
+then remove a thousand elements.
+
+So as you might expect,
+
+removing elements in a vector means moving all the rest of the
+
+stuff. So that's going to be our
+
+slowest up there.
+
+And doing it in the list is just like,
+
+hey,
+
+pointer,
+
+new pointer.
+
+Done.
+
+Right? And deck shows up in the middle there.
+
+One of the cool things about a deck is,
+
+as you insert things near the beginning, it's able to push the
+
+stuff at the beginning farther forward,
+
+or if you insert things near the end,
+
+it pushes stuff in the end farther backwards.
+
+The deck looks at where your insertion point is.
+
+I don't know exactly what happens when it is in the
+
+middle, but whenever it's on one half or the other,
+
+it's always faster to move one half of the data,
+
+like one quarter versus moving three quarters.
+
+It'll move the smallest part.
+
+This one is interesting. Inserting new values at the
+
+front.
+
+Vector, of course,
+
+the worst.
+
+We've got to move everything.
+
+But then list and deck are so close to each other that you
+
+can't even tell the difference between the red line and the
+
+blue line.
+
+That's because inserting at the beginning of a deck doesn't take
+
+you any extra time, right?
+
+It's just there.
+
+You've got space, and we can put things in front of the deck
+
+and just point to the new chunks and we're in good shape.
+
+So, this is the kind of thing that you can look at and say,
+
+what is the common behavior for my application? What am I going
+
+to be doing with this container? Am I always going to be finding
+
+stuff in the container?
+
+Am I always going to be finding stuff and then inserting stuff
+
+in the container? Am I going to be removing stuff regularly from
+
+the container or just build it once and I keep everything that
+
+I've ever had in there?
+
+So,
+
+you make decisions by knowing things like this.
+
+All right,
+
+end of slideshow,
+
+discard,
+
+onwards and upwards.
+
+Heaps and heaps sort.
+
+This is the Eiffel Tower built at a bookstore.
+
+I'm having a whole lot of free time.
+
+Trees,
+
+we've done trees, right? You did trees in 280?
+
+Let's go really fast on these trees then.
+
+We know what a tree is,
+
+a tree is just a graph.
+
+And a graph is just a collection of nodes and vertices,
+
+every tree is a graph,
+
+but not every graph is a tree.
+
+We think of a tree as a connected graph, so there's
+
+nothing that's floating off to the side, and a connected graph
+
+with no cycles, which can also be said a graph where any two
+
+nodes are connected by some unique shortest path.
+
+In a directed tree, the ones with the arrows like we see here
+
+on the right,
+
+we think of relationships by child and parent.
+
+The parent child is at the sharp end here.
+
+And the parent is at the dull end.
+
+I don't know what that says about me as a parent,
+
+but that's where I live.
+
+All right, so this is what trees look like.
+
+You know how it works.
+
+In a binary tree,
+
+a node has at most two children. It can have zero, it can have
+
+one, but it can't have more than two.
+
+So there we are,
+
+breezing through trees.
+
+Some more definitions here. We've got root,
+
+which is the node that everything flows from in a
+
+directed tree,
+
+the one with no parent.
+
+And then parent and child is this sharp and pointy end
+
+relationship I described earlier,
+
+but between two things that are directly connected.
+
+In the ancestor relationship,
+
+this is something that has to travel up the tree.
+
+So you can see here the parent is an ancestor,
+
+sure.
+
+But so is the grandparent and the great-grandparent.
+
+and so H has D,
+
+B,
+
+and A as ancestors.
+
+Now, if you're thinking about how a family might work,
+
+this could be me, this could be my dad, this could be my
+
+grandfather,
+
+this could be my aunt.
+
+My aunt is definitely my elder,
+
+but she's not my ancestor.
+
+Because in order for me to get to her,
+
+I've got to go up a level,
+
+up a level, and then down a level.
+
+So even though she's higher than me in the tree, that doesn't
+
+make her my ancestor.
+
+So the ancestor relationship has to be in a direct line.
+
+Similarly, the descendant relationship
+
+has to be straight down. So I can see that
+
+my
+
+grandfather's brother here
+
+has a child,
+
+definitely a cousin of mine, definitely older than me,
+
+but I'm not a descendant of my grandfather's brother because
+
+the only way to get from my grandfather's brother to me is
+
+to go up and then down.
+
+So if you have to change directions,
+
+the ancestor and descendant thing gets broken.
+
+But if we can go in only one direction, I can find
+
+descendants or I can find ancestors.
+
+Internal nodes are nodes that have children.
+
+External nodes are all the rest.
+
+We call external nodes leaf nodes because it makes fun out
+
+of the tree paradigm.
+
+Leaf nodes,
+
+external nodes, the same thing. Every node is either internal or
+
+external,
+
+either internal or leaf.
+
+Got it?
+
+Good definitions.
+
+You know these things.
+
+How might we represent this in code?
+
+Here's a nice little templated node.
+
+So this is for connected memory version of a tree.
+
+We make a connected version.
+
+I got this struct node,
+
+and it's templated so that the data that I stick in there in
+
+line 5 is of type item, and it's named item, and then when I
+
+compile it with different things, it holds different
+
+things. So I can make a tree of doubles.
+
+I can make a tree of zombies.
+
+I can make a tree of stock orders or whatever you want.
+
+Right? I see a node pointer to the right and a node pointer to
+
+the left in lines three and four, and that's what gives me
+
+my binary tree-connected version.
+
+It's efficient for moving down the tree,
+
+it's not so efficient for moving up the tree.
+
+I wanna find the parent of myself, and I'm looking at
+
+myself, the only way I can do it is if I don't have another
+
+pointer,
+
+is to just start at the root and keep going down the tree until I
+
+find whoever's pointing to me, and that's how I get the parent.
+
+Let's go over to the directed tree.
+
+If you wanted to make it a directed tree, Can you give that
+
+to a parent?
+
+The question is, can I make this a non-directed tree by including
+
+a parent?
+
+No.
+
+That just gives me access to the upper levels,
+
+right?
+
+So it's still directed in the sense that I'm thinking that
+
+left and right are children and there's a direction to go
+
+in terms of a non-directed tree you would probably represent it
+
+differently,
+
+yeah.
+
+like more like a more like a graph because there isn't a root
+
+we need to be able to get even because even in a even if I were
+
+to include the parent pointer
+
+I mean I'd set the parent pointer on the root to be an all
+
+pointer but I would say where do I start on this tree oh I start
+
+at the root okay everything flows down from the root so it
+
+is still directed you see what I mean
+
+All right,
+
+so this is how I can do this in connected memory.
+
+We know that trees are recursive structures.
+
+Any subtree is just as much a tree as the original,
+
+even if I'm just taking this node three here.
+
+It's a tree. It's one node.
+
+It's its own root.
+
+I can do tree-like things even on a single node.
+
+Here's how we measure some metrics for trees.
+
+I've got this height property and I've got a depth property.
+
+They sound similar and they are related.
+
+They are not the same. The one in the middle, that's
+
+the easiest one though.
+
+Size, how many white circles are there?
+
+Well, it's a recursive structure, so I've gotta define
+
+this function recursively.
+
+And the way I'm gonna do that is with a base case, of course,
+
+because it's all about that base.
+
+All about that base.
+
+Gotta have the base case.
+
+So if the tree is empty, I say the size is zero.
+
+Great, got that part. then other than that, if the
+
+tree isn't empty, I say that the size of some given node is one
+
+for that node, plus the recursive call to the size of
+
+its left child and the size of its right child.
+
+That's how size gets defined recursively.
+
+The other two, height,
+
+I'm gonna measure height like I do in a real tree,
+
+from down to up.
+
+Right, so in my CS trees, that starts to my leaves and works to
+
+my root.
+
+So I go up.
+
+Depth I measure like falling in the water,
+
+here and I go down.
+
+So depth is measured from the root down,
+
+height is measured from the leaf's up.
+
+And they're both also recursive definitions because it's still a
+
+recursive data structure.
+
+When I am at any leaf node,
+
+my height is one.
+
+If I've got an empty tree, my height is zero,
+
+that's what it says up there.
+
+But at any leaf node,
+
+the height is one more than the height of
+
+its two children,
+
+right? And so in a leaf node,
+
+there's zero over here, zero over there, I take the largest
+
+of those and add one to it. So all my leaf nodes end up as
+
+one. What about a that recursive
+
+definition says the height of a is 1 plus the height of
+
+B and C Who's ever larger? I can see B is a
+
+height 3
+
+C is of height 2 So to figure out a side I say max of 3 and 2
+
+is 3 plus 1 4 on a
+
+of the inverse depth equal to 2, there are two values.
+
+Well, when we're in a binary tree, we can always,
+
+we can always upper bound to the depth,
+
+I mean the width,
+
+right?
+
+Because it's two times two times two times two, so we don't
+
+really, I've never seen a problem that's metric width on
+
+them,
+
+but you could always give it an upper bound, right? Because I
+
+know if I'm three levels deep,
+
+then the widest I could be is four in a binary tree.
+
+And something else that could be wider if it was a ternary or
+
+some higher order.
+
+So, yep.
+
+And then the other one I have here is depth.
+
+It starts up at the top as well. If I'm empty, I got zero.
+
+But then the depth says,
+
+the depth of any given node that's not in an empty tree is
+
+the depth of its parent plus one.
+
+Root having no parent, you can think of that as being zero.
+
+So the depth of the parent,
+
+the depth of the root, sorry,
+
+is one.
+
+Then the depth of B and C
+
+are both 2,
+
+the depth of D, E, I, and F are 3,
+
+and then there's a 4 there at that next depth,
+
+right?
+
+On the other hand, if I'm measuring my heights,
+
+right,
+
+F, I,
+
+E,
+
+G, and H are all of height 1. They're leaf nodes, even though
+
+they're not at the same depth.
+
+So That's why I said height and depth aren't completely
+
+interchangeable, but they are related.
+
+We'll see that in just a second here.
+
+So the height at D is the max of H and G plus 1.
+
+The height at B is the max of D and E,
+
+2,
+
+plus 1.
+
+This is a 2 there, and then we go there.
+
+So you'll see there that the maximum height
+
+And the maximum depth are going to be the same
+
+Yeah
+
+Similar right because
+
+These like if you look at so in this in this row right here is
+
+where the key is, right? So I've got all of those things are at a
+
+depth of three
+
+But the height of D and the height of E are not the same
+
+So where does size come in?
+
+Size is just how many there are, right? So in this particular
+
+instance,
+
+what is it, nine?
+
+Yeah, there's nine circles there, right?
+
+So size just says, well, for the root,
+
+it's one plus however many over here plus however many over
+
+there,
+
+yeah.
+
+And then C says, well, I'm just one plus how many over here and
+
+how many over there.
+
+This comes back, this is three,
+
+this is five,
+
+that's nine.
+
+Alright, so that's how we do some metrics inside of trees
+
+Lightning fast introduction to trees if trees have gone by too
+
+fast one You should have seen them in 280 and two we will
+
+definitely dig deep into trees
+
+If you dig in the trees you dig around trees We'll dig around
+
+some trees in the second half and we do all of our tree
+
+algorithm stuff So don't worry about it.
+
+We will go into trees in depth Oh man, there's too many.
+
+All right, okay.
+
+All right, how about heaps?
+
+We have talked about heaps.
+
+I've talked about you're going to use one.
+
+So one of the three things that you have to write for project 2B
+
+is a priority queue based on a binary heap.
+
+So let's discuss what a heap is. It's a great song by Frank
+
+Sinatra.
+
+King of the Hill,
+
+A number one.
+
+Top of the heap, right?
+
+The most important thing. That's really all it is.
+
+So we think about stack memory and heap memory, and say, well,
+
+how is heap memory related to a heap?
+
+Turns out,
+
+back in the 70s,
+
+somebody wrote a stupid article in a magazine,
+
+and said, well, we got the stack memory, and then we just got
+
+this whole heap of memory over there,
+
+meaning a lot. That's all they meant.
+
+And that just turned into the name for that memory.
+
+It's been called the heap ever since.
+
+It has no relationship to a technical heap,
+
+but that's the name of it. So it's a poorly chosen name,
+
+but that's the name that everybody's gonna use from now
+
+until the end of time.
+
+An actual heap is something where the most important thing
+
+is on the top.
+
+And you know, if you were in a fighting situation,
+
+the closer you get to the top,
+
+the better off you're gonna be. So maybe you might not be at the
+
+top, you might not be able to beat the top person,
+
+but if you're right below them you're in pretty good shape,
+
+right?
+
+The farther down you get in the heap, the more people you have
+
+standing on your head,
+
+the worse off you are.
+
+That's all. That's all a heap is.
+
+A heap is a good way to do it. So first thing we're going to do
+
+is look at this way to describe trees, because we're still
+
+talking about trees and I need this to set me up.
+
+So I've got this complete tree definition that says,
+
+a complete tree says that every level,
+
+except possibly the last, is completely filled.
+
+And then if the bottom level is not filled,
+
+I have to make sure that it's filled from left to right.
+
+So you can see here at depth one,
+
+two,
+
+and three on this first tree, they're completely filled.
+
+The only place where I have some gaps is down here at the bottom
+
+level in depth four,
+
+but depth four is filled from left to right.
+
+I've got two items in the fourth level, and they're both children
+
+of the farthest left item from the third level.
+
+so this is a complete tree this one here in the middle is not
+
+complete right because I've left the third depth and started
+
+filling things of the fourth depth before it's full so not
+
+complete right and then the last one here does have depths one
+
+two and three filled but at depth four we have left a blank
+
+spot it's a little less easy to see but there is no right child
+
+of D before I started putting a left child on E.
+
+So that's what complete looks like.
+
+The tree with like all of its sort of else filled with all of
+
+it.
+
+Right, exactly.
+
+So that's where it says,
+
+every level except possibly last.
+
+So if the last row is also completely filled,
+
+it's still complete.
+
+Yep.
+
+All right.
+
+So here's the cool thing about complete binary trees.
+
+I've given these things numbers now.
+
+We're going to start at one, which is something we never do.
+
+We're going to do it now.
+
+We start at one and say, let's say the root is one,
+
+and its left child is two, its right child is three,
+
+four, five, six, seven, and so on.
+
+If I draw these out like this,
+
+put some numbers on them,
+
+and then stick them all into a container like this,
+
+how does that work? Do you see the pattern?
+
+Without looking at the picture, so I'll call this the logical
+
+version of the tree,
+
+and I'll call this the physical version of the tree, because I'm
+
+going to store it physically like this,
+
+although logically this is what I mean.
+
+So what is the child of D? You
+
+look to the logical version and you see it.
+
+Where is the logical,
+
+where is the child of D here?
+
+Eight,
+
+right?
+
+That's the left child.
+
+How do I get to the right child of D?
+
+Nine.
+
+Is there some math in there that you want to bring to me? Yeah.
+
+Is it two times b to the left, and two times b plus one to the
+
+right?
+
+Exactly.
+
+So,
+
+now I can build a tree knowing that
+
+any node I get,
+
+if I wanna know what its left child is
+
+I multiply its index by two, and I'm there,
+
+if I haven't gone off the tree.
+
+Multiply by two and add one, I've got its right child.
+
+Any node I have, if I divide its index by two,
+
+I'm at the parent.
+
+If you start at zero, then it gets a little clunkier, right?
+
+But if you start at one, then it's just I times two for left,
+
+I times two plus one for right.
+
+So you'll have the chance to decide how you want to do that
+
+when you implement your heap. you can do it physically or you
+
+can do it logically so when you do yours you could say well I'm
+
+actually gonna have this thing be size plus one I'm never gonna
+
+stick anything in zero so then I really will just look from one
+
+to nine and my math will be easy or you could stick it in from
+
+zero to eight
+
+and do the offset math and it would still work so
+
+why does it work
+
+just because of the way that the binary tree grows,
+
+right?
+
+It grows, so you say,
+
+well,
+
+here's where A is my root,
+
+and then its two children take up the next two spots,
+
+and then B's child take up the next two spots,
+
+and then C's children take up the next two spots,
+
+and B's first child was here,
+
+and then its two children just have to go after the last place
+
+we put things, and it just works.
+
+I mean you could have,
+
+if you wanted,
+
+you could put a ternary tree in memory like this as well.
+
+You could have a tree that had 10 children at every level as
+
+long as it was complete,
+
+then you would know that you're not missing anything
+
+all
+
+right so when we have a
+
+complete binary tree it turns out that I can represent it in
+
+contiguous memory not connected memory anymore it's like this
+
+logically but physically it's like this we know this is way
+
+faster it's a the next level
+
+really quick I can actually even get to the previous level
+
+just as quickly so this this representation is pretty nice
+
+for us we did this the index of a parent the index of his left
+
+child links of his right child and over to
+
+2n and 2n plus 1
+
+how do I know if an index is a Leaf node.
+
+There's a trickier one.
+
+Which ones are my leaf nodes?
+
+Can you check if the index of a child is outside the size?
+
+Not outside the size, but in the second half is what you're
+
+really looking at,
+
+right?
+
+Or I guess if the index of a child is outside the size, oh
+
+yeah, that works too.
+
+It's a lot trickier.
+
+Works though.
+
+So the index of its child is outside of the tree, Then it is
+
+definitely a leaf node But the easier way to say that is like
+
+there's nine of these things that by divide nine by two I get
+
+four and everything after four is a leaf node
+
+right
+
+The same thing though, right?
+
+Because what would be the child of e the child of e would be 10
+
+and 11 and they are outside there Which is what you said? I
+
+didn't hear it the first time but yes, that's correct
+
+Alright, so now I can pretty easily do some math on these
+
+things and get around inside these trees.
+
+Here's our definition of what a heap is.
+
+This heap ordered tree is one where every node is not
+
+greater than the priority of that node's parent.
+
+So that's what heap ordering is.
+
+It's like a sorted order,
+
+but it's a little less restrictive.
+
+So you see here 81 doesn't have anything in the tree more
+
+important than it.
+
+18 doesn't have anything in its subtree more important than it.
+
+14 similarly has one and five below it.
+
+Now, if these were sorted,
+
+it would also represent a heap-ordered tree because a
+
+sorted order is more restrictive.
+
+So if this just went 81,
+
+18,
+
+14,
+
+9, 7, 5, 4,
+
+2, 1,
+
+I would still be a heap.
+
+But it doesn't have to be sorted to be heap-ordered,
+
+right? The rule for heap ordering is each node's priority
+
+is not greater than the priority of its parent So what if it's
+
+equal it could still be down below its parent So if I were to
+
+put a seven in there I could put seven here
+
+Because sevens priority is not greater than its parent sevens
+
+priority
+
+it's less than or equal to
+
+if I allow duplicates in my pq
+
+So then I've got the second definition that says a heap is a
+
+set of nodes with the keys arranged in complete heap
+
+ordered tree So that's what we'll think of as a heap is
+
+one of those physical arrays of things in heap ordering
+
+All right,
+
+I think that's gonna kill our last minute here
+
+But I'll show you one of these things right before we go So
+
+heap having these two crucial properties,
+
+it has to be complete,
+
+has to be heap ordered.
+
+So logically, this is what the heap from the previous page
+
+looked like.
+
+Physically, this is what it would look like in memory.
+
+And so if you look at this, you say, it looks like it's sorted
+
+in reverse order.
+
+It's close.
+
+It doesn't have to be.
+
+If it were sorted in reverse order, it would definitely be
+
+heap ordered.
+
+But you can see here, I go down 81,
+
+18,
+
+14,
+
+9, 7, And then that one is there, and I promise you there's
+
+going to be somebody in office hours this cycle going to be
+
+like,
+
+yeah, it's just not working. Look at this data.
+
+They're not great.
+
+They don't have to be in reverse order.
+
+If they are, it's good enough.
+
+But it's not necessary. It's sufficient, but not
+
+necessary, right?
+
+Because what is six?
+
+Six is the left child of three.
+
+Six is not more important than three.
+
+So that's what our heaps are gonna look like and all you're
+
+gonna have to do is maintain one of these things in
+
+Project to be and then that's gonna make your life work.
+
+So we'll come back here talk about heaps
+
+Finish up heaps on Tuesday
+
+You can just divide it by two.
+
+And that's because in size it's something we're always keeping
+
+track of. Yeah, you've got the heap size.
+
+See, it's written in that one. It's nine.
+
+And if I've got it in the container, I know how many items
+
+are in the container.
+
+Nine divided by two.
+
+Yeah,
+
+and that's if I'm using that one base indexing.
+
+So a leaf node has no children,
+
+right?
+
+So how does nine divided by two give you the leaf node that
+
+gives you four?
+
+Does that change?
+
+Oh no, a leaf node doesn't have children, but it does have
+
+parents.
+
+So nine divided by two gives me four means that nine has a
+
+parent,
+
+but nine times two would be its child.
+
+So if you wanted to determine if it's a leaf node, you want to
+
+determine if it has no children.
+
+Right, and that was the more evolved way.
+
+It works.
+
+But I said the simpler way is just take the heap size and
+
+divide it by 2.
+
+If you're bigger than half,
+
+then you're a leaf.

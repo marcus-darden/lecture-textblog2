@@ -1,0 +1,3659 @@
+Oh
+
+I'm going to do it again.
+
+I'm going to do it again.
+
+I'm going to do it again. I'm going to do it again.
+
+I'm going to do it again.
+
+I'm going to do it again. I'm going to do it again.
+
+I'm going to do it. I'm going to do it again.
+
+I'm going to do it again. I'm going to do it again.
+
+I'm going to do it again. I'm going to do it again.
+
+Okay, we're going to come down to the other side.
+
+Okay, we're going to come down to the other side.
+
+Okay,
+
+we're going to come down to the other side.
+
+Okay,
+
+we're going to come down to the other side.
+
+Okay, we're going to come down to the other side.
+
+Okay, we're going to come down to the other side.
+
+All right,
+
+it's time.
+
+I'm Professor Darden. I wasn't here for you last week.
+
+Sorry, I was out of the country, but I'm back now,
+
+ready to do this.
+
+Hopefully you are too.
+
+I'm gonna try to get you through a lot of stuff today because the
+
+lecture is already pretty tight and then I didn't get to talk at
+
+you on Thursday so we don't really know each other too well
+
+yet.
+
+But I'm gonna try to squeeze all that in there.
+
+If I do run out of time we'll have to overlap it and pick it
+
+up on Thursday.
+
+All right so this is how I That's kind
+
+of an interesting dude up there.
+
+You see that on his channel,
+
+there are like 327 videos,
+
+and each one of those videos is him sitting in a room,
+
+like you see there,
+
+mostly about four hours.
+
+He just sits there and he smiles.
+
+That's why the name of the channel is called Sitting and
+
+Smiling.
+
+So I don't have the time to sit and smile for four hours, and
+
+I don't expect many of you do either,
+
+but smiling is this amazing thing
+
+that does stuff mentally and physically
+
+to you when you smile. So, I'd like to start out
+
+lecture here with you all and me
+
+sitting,
+
+I'll be standing,
+
+and smiling.
+
+You only got to do it for like five seconds,
+
+but you got to get that smile all the way up there and just
+
+like be looking at, you don't have to look at me, look at
+
+something if you want to. If you look right in the eye,
+
+you can do that too.
+
+But the smiling thing sets your body up for success.
+
+It's gonna make you feel better.
+
+It does all kind of things when you smile, so
+
+That's where we start
+
+So let's try that for right now, and I'll just count it down on
+
+my fingers and then During that time you just smile you can
+
+think about something if you want you can think about nothing
+
+if you want But smiling still makes a difference so here.
+
+We go smile it out. I'm looking at you
+
+All right, see how easy that was?
+
+Next step,
+
+imposter syndrome, we're always on the road to getting
+
+better.
+
+So,
+
+when I got time or when I can remember it,
+
+I like to start you out with something there too, right?
+
+Something real simple like,
+
+I'll say a thing and then you turn around and say the same
+
+thing,
+
+right? So, I'll say,
+
+I'm good enough to be here.
+
+I'm good enough to be here.
+
+Then you try and somebody nearby and say,
+
+you're good enough to be here.
+
+You're good enough to be here.
+
+That's right, I'm serious,
+
+this shit ain't real.
+
+This is not a joke.
+
+We're trying to get better at this, right?
+
+We'll feel better when we know where we're supposed to be.
+
+If you have some time later tonight,
+
+spend four hours in a, no.
+
+All right, so this is sitting and smiling dude and you see
+
+like he'll just,
+
+he gets in,
+
+he gets himself all set up,
+
+gets all adjusted.
+
+It's gonna be a lot of sitting,
+
+right? So he gets it right.
+
+Sits there, it's different rooms, different places.
+
+and then it gets to the smile and just holds it for like
+
+four hours so you can do some smiling throughout the day I
+
+like to do some smiling when I really need it like when I'm
+
+pissed off or when I'm angry that's pissed off I'm upset
+
+you know smiling even I'll just be walking one of the ones I do
+
+too is I'm just gonna smile all the way to the bathroom, right?
+
+If I see somebody, I'll be smiling.
+
+If I don't see anybody, sometimes I'll be looking at
+
+people.
+
+Sometimes I'll just be looking over people's heads,
+
+smiling,
+
+that smile will make you feel better.
+
+There he goes,
+
+four more hours of this, and that's how he goes.
+
+So that's part of what we're gonna do here is get our smile
+
+on,
+
+fight our imposter syndrome,
+
+and then we're gonna go to work on some 281,
+
+all right? So one of the things that's really important to me is
+
+you doing well.
+
+So I'm going to be working on how you can do well in this
+
+course, obviously by teaching the material, but we also want
+
+to be successful because in the end it's not what you
+
+know,
+
+it's what you can show that you know,
+
+right? If you know all this stuff and you can't show it,
+
+nobody's going to pay you to do it,
+
+right?
+
+You know all this stuff and you can't show it,
+
+your GPA isn't going to be what you think it should be.
+
+So we're trying to get you there, and I'll be working on
+
+that all the way through here. Up to the exam,
+
+we'll be working on getting this exam right, because I've got
+
+some strategies that I like to use and impart upon people.
+
+hopefully you can get something from it and we'll get you moving
+
+forward that way so this is the first content lecture here
+
+number two it's about stacks and queues is where we get started
+
+here on the front I've got this strangely sideways picture of
+
+Pringles I don't know why it's always been sideways who knows
+
+but if you ever had Pringles they come in a stack They're a
+
+little stack of things that also include potatoes among all of
+
+the many ingredients inside Pringles.
+
+But they're in a stack, and over here on the right-hand side,
+
+I got a piece of ancient technology
+
+that you might not recognize.
+
+It's one of the very early Netflix websites.
+
+So on Netflix,
+
+when Netflix first started,
+
+they were a snail mail operation, And they would snail
+
+mail you a DVD and that's how you watch the movie.
+
+And then when you're done watching the movie,
+
+you put it back in the envelope and you snail mail it back to
+
+them.
+
+But the stuff that you wanted to watch, you put in this big old
+
+queue.
+
+And so whenever a movie became available and you had enough,
+
+because you could buy how many discs you would be out at a
+
+time, maybe one movie or three movies at a time.
+
+So whenever you had Headspace having returned enough videos
+
+and there was something,
+
+they would take it here from the top and say, well, that's what
+
+you're gonna get.
+
+But this is how Netflix started. It's amazing to think that we
+
+used to do that.
+
+So on the front of these, sometimes we'll get some fun
+
+stuff,
+
+ancient technology,
+
+strange food stuffs, but they usually have something related
+
+to what we're doing. So this is a cue.
+
+The first thing that you put in the cue is the first thing that
+
+comes out.
+
+Those of you that are from the UK
+
+might think of standing on a queue.
+
+Those of us here in the United States,
+
+we just stand in line.
+
+But it's the same thing.
+
+First person that gets there is the first person that gets
+
+served.
+
+So let's talk about it.
+
+We'll start with these sort of intro slides here.
+
+We'll have a chance to set anything up.
+
+Then we'll talk about it.
+
+The QR code that you see here is the short, chapterized videos
+
+that I made during COVID, so they're all studio stuff,
+
+just me in a studio.
+
+But you can scan this to pick up that section.
+
+So if we get to a thing and you want to know where it is, this
+
+is on the front and the back of it, and then you can go check
+
+out that thing in particular.
+
+So we'll start here with data structures and abstract data
+
+types, which we lovingly abbreviate as ADTs.
+
+So when we're trying to store and organize our data, we gotta
+
+figure out how to get this done.
+
+An abstract data type is how we usually communicate this
+
+information,
+
+right? It combines the valid data that can be used and also
+
+the operations that can be performed.
+
+That's what an abstract data type is.
+
+It's one of the worst definitions I've ever heard,
+
+but after you get past how bad that definition is, it still
+
+covers what you need to have.
+
+All the data that can be used and the valid operations that
+
+can be done on it. So for example,
+
+insert and delete are two types of operations.
+
+So you can think of,
+
+I want to add something to this container, I want to remove
+
+something from this container, or this collection or however
+
+you want to think about it,
+
+and these are the things that the abstract data type has.
+
+But it also has to say, well,
+
+you can't just insert anything in there, right? This is a
+
+collection of integers. So the abstract data type might
+
+say, well, this includes the type of thing that I can put in
+
+there and what I can do with it. Maybe I can sort them,
+
+maybe I can search for a thing, but the interface that gets
+
+defined by the abstract data type is what's important.
+
+Then if we go into data structures, that's kind of what
+
+we do in this course, is now a concrete implementation of an
+
+abstract data type. So there's a thing called a
+
+queue in theoretical terms, but then there's also a container
+
+called the queue in the STL.
+
+And they're similar,
+
+one is the implementation of the other's interface,
+
+right? So the implementation is the data structure,
+
+that's real code,
+
+the abstract data type, that's an interface,
+
+that's a story we tell and things we like to discuss.
+
+All right, how about measuring performance? That's gonna be
+
+probably the most painful thing that you deal with for at least
+
+these first three projects, because the autograder in this
+
+course grades for correctness,
+
+but also is really tough on bad coding practices.
+
+When you do things inefficiently,
+
+it measures it and then complains about it and marks you
+
+down.
+
+You'll be trying all through this first project to make sure
+
+that your project doesn't run too slow,
+
+doesn't use too much memory,
+
+but when we start trying to figure out how am I going to
+
+implement a thing,
+
+we always have to figure out how that's going to work because our
+
+plan is,
+
+let's not code this up,
+
+realize that it sucks,
+
+and then try to fix it,
+
+right? The plan is,
+
+let's think about it,
+
+make some good plans, and then implement something that's going
+
+to be useful. So as we go into talking about
+
+these containers or arrays,
+
+sorry,
+
+these containers or algorithms, all the stuff, we're gonna have
+
+to figure out how it happens.
+
+And so our primary design choices have to deal with where
+
+does the data get stored and how.
+
+So we've got the two primary ways, which is like contiguous
+
+memory.
+
+This thing is right next to that thing, is right next to that
+
+thing in memory. Contiguous,
+
+they're all touching.
+
+Or connected,
+
+think linked list.
+
+Here's one item and it points to where the next one is and then
+
+that one points to where the one after that is,
+
+and that one points to the one after that.
+
+So,
+
+there's contiguous or connected, and how those things get
+
+implemented affect both the run time capabilities of containers
+
+and algorithms, and also the memory usage.
+
+So, we'll be checking those things out.
+
+We want to know how much time it takes to perform some operation
+
+in a sort of abstract sense, because we know if this thing is
+
+going to take me linear time to do,
+
+and I have to do it linear times, then there's n squared
+
+behavior,
+
+right?
+
+So we'll look at what time it takes to say, well,
+
+if n squared is gonna be okay, then I can implement it with
+
+this. How much space is it gonna take?
+
+So we'll be doing all of this stuff through probably the worst
+
+section of the course for most people here.
+
+This is the part where I also have a lot of fun throughout the
+
+semester,
+
+making fun of everyone's favorite course,
+
+EECS 203.
+
+So,
+
+I love EECS 203,
+
+I used to teach that course.
+
+Loved it,
+
+but I like making fun of it too.
+
+So,
+
+the reason why I say this is the worst part of the course is this
+
+is the part that's most like 203,
+
+the complexity analysis stuff. So,
+
+apologies to any EECS 203 IAs that are in the room with us
+
+here, we usually have some.
+
+Like I said, I love your course and your instructors,
+
+all the things. But I'm still going to tease
+
+you.
+
+So complexity analysis is the stuff that's least like code.
+
+Most of the stuff we do in the first half, somebody told me the
+
+midterm exam is kind of like the 203 test, and the final exam is
+
+kind of like the 280 test.
+
+It's kind of how it works. We get much more into the,
+
+not that we're not gonna be coding all semester, but the
+
+more codey-based stuff is in the second half,
+
+the more thought-based theory stuff is gonna be in the first
+
+half. So complexity analysis is really
+
+tough because it's not that hard to do, But it's really hard to
+
+write good test questions for.
+
+And the test questions kind of have to be a little opaque
+
+because it's really hard to write a test question
+
+that just doesn't give away the answer.
+
+It's not really obvious. And so we don't know if you know
+
+something. And so we're not trying to be
+
+really tricky with the complexity analysis questions,
+
+but they tend to be clunky.
+
+They take points off of people's exams, you know, in a way that
+
+we would hope that they wouldn't, but complexity
+
+analysis is gonna be tough.
+
+All right here's an example of some analysis.
+
+What you see here is a linked list.
+
+I got a pointer to the front,
+
+I got a pointer out the back.
+
+The question is how many operations are needed to insert
+
+a value at the end of this singly linked list?
+
+Right then the second question is can you generalize this for a
+
+list with n elements?
+
+All right so when we start out with something like this and say
+
+well the first thing I do I say access that first pointer to see
+
+if there's something there if it's not null I can go ahead and
+
+do that I can go and pull that thing out it's got a pointer so
+
+I can check to see if
+
+that's a null pointer it's not so then I can go access this
+
+next data item and see if it's got a pointer when I check to
+
+see that's not a null pointer then I can go access the next
+
+thing and see well it's got a pointer And yes,
+
+it is a null pointer, so now I've found the end and I'm ready
+
+to actually do the insertion. And that's just three simple
+
+steps. I create the object, put the
+
+stuff in it,
+
+and point to it.
+
+So,
+
+to add something to the end of this list,
+
+I would say it's nine steps. And these steps are kind of a
+
+nebulous thing, but sometimes they're an instruction,
+
+sometimes they're a concept, but you can see here that this is
+
+how I'm going to have to move through this.
+
+Every time I've got to deal with one of these nodes, I've got two
+
+things. I've got to go see if it's
+
+available,
+
+then I've got to go to where it tells me.
+
+Right?
+
+So what about the second question? How would you
+
+generalize this for n elements?
+
+This is nine right now.
+
+What is this?
+
+Yeah, yeah.
+
+2n plus 3.
+
+Outstanding.
+
+So when we say this is 2n plus 3, the good news is we know this
+
+is a linear expression,
+
+right?
+
+So that's what it takes to insert something at the end of a
+
+linked list when I don't have a tail pointer,
+
+it's going to cost me linear time.
+
+The 2n plus 3, we know those are numbers,
+
+the 2 and the 3, and those are going to vary with how things
+
+get done.
+
+But what's really important in this is,
+
+if I double the length of this list, I'm gonna be doing twice
+
+as much work, essentially.
+
+That's why we care about linear functions.
+
+If it's quadratic and I double the length of the list,
+
+then I'm gonna be doing four times as much work.
+
+And that's what complexity analysis is all about.
+
+We're gonna try to figure out what are the right operations
+
+because I need the container to do what I need it to do so
+
+that's probably the most important thing.
+
+The right operations, can I put something, I can't even put
+
+something into this container? Well,
+
+what good is a container, can't put anything in it? Well,
+
+we'll figure out what can we do. Then we've got to figure out if
+
+it does it the right way.
+
+Sure, I can put something into a queue, but if I want it to
+
+behave like a stack,
+
+that doesn't help me. It's the right operation, but
+
+it's the wrong behavior.
+
+So I get the right behavior, and then we go for trade-offs on the
+
+runtime and memory complexities,
+
+right?
+
+And so that's where I'm going to make these choices.
+
+You'll see a bunch of times throughout 281,
+
+half our questions,
+
+the answer's gonna be,
+
+it depends.
+
+It depends,
+
+like what does your data look like?
+
+It depends,
+
+should I put it like this or should I do it like that? It
+
+depends, and what's gonna make you good at answering questions
+
+on the exam is,
+
+when you say,
+
+well,
+
+I know that this answer depends and here's the things that it
+
+depends on and if it's this one, that's the right answer, but if
+
+it's that one, that's the right answer.
+
+So that's what we're gonna be doing here as we try to figure
+
+out what's the right thing to do
+
+Those are the things that it depends upon
+
+We'll be looking at some other concerns like how do I protect
+
+my data limit the interface to avoid some problems?
+
+We can't insert something in the middle of a queue.
+
+That would be violating the constraint That is our invariant
+
+there. So some examples of containers
+
+that might be useful. How do I track orders at a fast
+
+food drive-through?
+
+What kind of container would be useful for that?
+
+How do I deal with interrupted phone calls?
+
+I'm a receptionist.
+
+What does the to-do list look like?
+
+How would you store this stuff so it'll be useful and
+
+efficient?
+
+All right, so there's our run-through on what an abstract
+
+data type is, how we'll use them, and what's gonna go on
+
+throughout the rest of this complexity analysis stretch
+
+here.
+
+First container we're going to talk about here is a basic
+
+container,
+
+it's a stack.
+
+We saw it on the front with the chips over here,
+
+we see it with the pancakes,
+
+they're stacked.
+
+But the abstract data type shows me that if I've got these five
+
+things implemented I can say, well, that thing works like a
+
+stack.
+
+Stacks support us inserting and removing items from the same
+
+end, essentially.
+
+I push things in here,
+
+they come out of there.
+
+Like a queue is the opposite, right? You go to the back of the
+
+line,
+
+you come out of the front of the line.
+
+A stack, we put something on the top,
+
+and then the last thing we put on the top is the first thing
+
+out.
+
+So we call it this LIFO structure, last in, first out.
+
+You put it on the top of the stack.
+
+The next thing you take off, you take it off the top of the
+
+stack. So here's my five real interface
+
+methods.
+
+Push,
+
+which is how I add something to the container.
+
+Pop is how I remove the thing that should be removed.
+
+And then top is the thing that gives me a reference to that
+
+element.
+
+And Google Drive might just kill me one day,
+
+but there are some serious font issues going on in the slide.
+
+I am trying not to lose my biscuits.
+
+It was on the last slide, too.
+
+Okay,
+
+so those should be fixed with fonts just for clarity's sake.
+
+That is real sort of function stuff here.
+
+Element by reference to the top. So you have a reference to the
+
+element.
+
+You do not own the element.
+
+but you can get a reference to it.
+
+And then there's a couple of metrics,
+
+size,
+
+which gives me a number, tells me how many things there are,
+
+and empty is just a Boolean telling me yes or no,
+
+size is zero.
+
+Can pop sometimes just return the top element as well?
+
+So in the STL,
+
+that is not the way that it works.
+
+So in some other languages, when you deal with stacks, the
+
+question was,
+
+can pop return the thing? And in some languages it does.
+
+Some languages you can call it in one sort of one method.
+
+You'd be like set my local variable equal to container.pop,
+
+which would give me a copy of it and remove it from the
+
+container. But the STL doesn't work like
+
+that. The STL keeps them separate.
+
+The STL says if you want to look at it, you call top.
+
+If you want to save it, you've got to look at it and save it.
+
+And then to remove it, you separately call pop.
+
+And what you want to do is you really do want to keep those two
+
+things as close together as possible in physical code,
+
+right?
+
+It leads you to really bad practice.
+
+People get grumpy with you when they're looking at your code.
+
+Say, well, you used that thing on the top of the stack but then
+
+you didn't take it out. Was there a reason why?
+
+Was there a reason why you left it in the container
+
+to get to the bottom of the loop to be like, pop?
+
+Well, no.
+
+The last time I needed to access the container was right when I
+
+accessed it.
+
+My new value is equal to container.top.
+
+Pop,
+
+now the only place that it exists is in my local variable,
+
+not in the container.
+
+So you always want to put your tops and pops,
+
+your fronts and pops as close together as possible.
+
+Please do that,
+
+it's helpful.
+
+And like I said,
+
+other people who don't know you will look at your code and feel
+
+like, oh yeah,
+
+they know something,
+
+right? They look at your code and like, I see you top it.
+
+And then page later, I see you pop it.
+
+that's really bad form.
+
+So put your tops and pops together and you got some other
+
+language, you might be lucky enough to have that B1 command,
+
+but not today.
+
+All right,
+
+so some examples of stack-like behavior,
+
+any back feature,
+
+if you think about when you go back in browsing,
+
+you've sort of stacked up a bunch of pages and then you pop
+
+and go back in them. You can stack more,
+
+remove some,
+
+right? There's even that little kind of drop-down thing where
+
+you can jump back like five pages,
+
+right?
+
+But that's still just a speed-up on stack.
+
+If you jump back five pages,
+
+it pops for you and then sticks you at that one, right?
+
+Those other things that you skipped over while backing,
+
+they're gone, so they have been pop, pop, pop, pop.
+
+Now you can have that one. So even that is a stack,
+
+no matter how you get in there and tweak at it,
+
+right?
+
+Any, it says the text editor's undo feature here, but any
+
+editor's undo feature, right?
+
+You're editing something in Photoshop.
+
+You make a change, you make a change, you make a change, you
+
+undo a change, you undo a change, you undo a change.
+
+Right?
+
+That's a stack. So we use stacks all the time in
+
+real life. I'll be trying to point out
+
+stacks and queues and all of the algorithms that we may mess
+
+with. We do them all in real life, all
+
+the time. Some of them we invented when we
+
+were,
+
+I watched my kids when they were two and younger
+
+inventing algorithms.
+
+I mean, we use them now, we formalize them, but we all come
+
+up with some of this stuff.
+
+So, exactly,
+
+that's all it is, right? So the question is, there's a redo,
+
+and all that is is like, we got two stacks, right? We put all
+
+the stuff that we're doing here.
+
+And then as you undo a thing,
+
+it takes it off the top of this stack
+
+and puts it on the bottom of a new stack.
+
+So if you undo two things,
+
+then you want to redo them,
+
+they go back.
+
+It's two stacks.
+
+Yeah.
+
+So that's how undo and redo work together.
+
+Is there any way to get rid of the empty and the expected by
+
+2.0?
+
+No. Oh,
+
+in terms of efficiency in your code?
+
+I mean, because at a conceptual level,
+
+it is that. In some container in project 2B,
+
+you'll be writing a priority queue, and you'll have to
+
+implement empty. And so it'll be your choice at
+
+that point whether you're returning empty as is size equal
+
+to 0 or yeah. I mean, it's the same thing,
+
+right?
+
+But it kind of gets into how you think while coding, right?
+
+If it's empty,
+
+that's a more common way to say, hey,
+
+is that size zero?
+
+We don't think that, you know what I mean?
+
+And the closer to your natural language thought processes you
+
+make your code, the more likely you are to get it right and have
+
+somebody else understand you. So yes,
+
+you can say,
+
+if size is equal to zero,
+
+don't do this thing.
+
+You can also say,
+
+if is empty,
+
+don't do this thing.
+
+But they're equivalent,
+
+especially in terms of execution time.
+
+They're the same execution profile, so you can do whichever
+
+one makes you the most happy.
+
+All right, let's implement a stack here.
+
+And as I mentioned earlier, we're talking about contiguous
+
+memory and connected memory. So as we talk about how do I
+
+make a stack, First let's see what happens when we make it in
+
+contiguous memory and you see here I've got this block of
+
+these five things so you can say that my capacity is five and my
+
+size is three Capacity is how many it can hold
+
+Size is how many I'm holding
+
+So in this case, I've got a base pointer and the top pointer and
+
+you'll see that we keep the top pointer Actually pointing just
+
+past good data. So the top pointer isn't
+
+pointing at the tap just kind of awkward if you think about it
+
+but if you do some calculations and how this is gonna work and
+
+be efficient that's a great place to do it because one of
+
+the things that you do the most is say well what I'm gonna
+
+process this entire thing well Wow Wow for loop I is zero
+
+I is less than size you almost always call dot
+
+size before you do a thing so in the In the case of .size,
+
+how do I calculate .size?
+
+I just take the base pointer and subtract it from the top
+
+pointer.
+
+If the top pointer was pointing at the yellow thing,
+
+how would I get size?
+
+I just take the base pointer, subtract it from the top
+
+pointer,
+
+and then add one.
+
+Twice as many mathematical operations
+
+for my most or second most common operation.
+
+So that's a bad thing. Let's take the thing we do the
+
+most and make it twice as slow
+
+It's better this way right and then what happens when I want to
+
+do a push
+
+When I'm ready to add something in there I say well the top
+
+pointer is ready to go right now you give me something new I
+
+write it at top pointer, and then I plus one I was always
+
+gonna have to plus one
+
+I mean I could have stored at the yellow pointer and say well
+
+write this new thing then I could have moved over and
+
+written it
+
+So it's the same amount of operations as just writing it
+
+and then moving over.
+
+It's just the order of them doesn't really matter in that
+
+case, but not having to do the plus one every time I check my
+
+size is going to be a great way to do it, right?
+
+You also end up with this weird combo of like, what
+
+happens when it's empty?
+
+If my top pointer is pointing at data,
+
+how do I know that I shouldn't access it?
+
+Right, where do I point it so that it's numerically in the
+
+right place so that I can do the size math if I'm used to
+
+pointing at data?
+
+If I point past data then my math is easy.
+
+This minus that, we're done.
+
+So that's why we do that, and it makes these five operations
+
+pretty easy.
+
+Push,
+
+I just write at that location and increment.
+
+We'll skip step one for now, come back to it in a minute.
+
+So just write the element to top pointer and increment top
+
+pointer, it's good.
+
+Pop,
+
+we can decrement the top pointer.
+
+That's all I have to do. So now you say well if I wanted
+
+to pop the yellow thing I would just move the top pointer to be
+
+pointing at it and that would work because I've already got
+
+the agreement that I'm never going to dereference top pointer
+
+so even if top pointer is pointing at the yellow thing
+
+that still means I can't access it.
+
+So just decrementing the top pointer if my container holds
+
+objects I should call the destructor at this time though
+
+because it's no longer available to me so if I've got objects
+
+after I decrement I'll delete the thing if it's an object if
+
+it's not an object it's just a bunch of integers it is minus
+
+minus and I'm done it's there but it's not accessible
+
+top
+
+dereference and return top pointer minus one so that's
+
+where we got to do a little bit of mathy things in there say you
+
+want to copy a top well hold Let me move this over and then give
+
+you that
+
+So that's where that one comes in D reference and return the
+
+top pointer
+
+Size we talked about how we do that and empty is pretty easy as
+
+well. You say well size is zero or
+
+That's when the base pointer in the top pointer are equal
+
+So the question is, this is the top function a little slower
+
+because we have to subtract every time to get there.
+
+Yeah, it would be faster if that thing was just pointing at data,
+
+right?
+
+But then you think, well, how often do I have to get the thing
+
+in the top I do it once, and then my other operations are
+
+faster, right? For every object,
+
+I'm usually only going to top it one time, and that's the time
+
+right before I pop it.
+
+So it is a little slower, but our more common operations,
+
+size and empty,
+
+get sped up because of that.
+
+Yep,
+
+it's good, it's good.
+
+All right,
+
+so how many steps are operations for each method? That's kind of
+
+the question as we try to do some complexity analysis here.
+
+So we'll be thinking about that, then we'll come back to it.
+
+I left one out here.
+
+I said in the push method,
+
+we're skipping step one. Now step one only happens when
+
+my capacity and size are equal when my capacity and size are
+
+equal. I have no more room
+
+So you can't push something in when it's full when capacity is
+
+five and the size is five There's five things sitting in
+
+five baskets and I need to put in a sixth item Right.
+
+So that's where it says here if needed
+
+Allocate a bigger array and copy the data over there So, when it
+
+comes time to push, if size is equal to capacity, I will go get
+
+a whole new container that's twice the size,
+
+put all the old data in there,
+
+and then I can start sticking things into that.
+
+So, that's where the one happens sometimes,
+
+right? And so, that's important to think about, and that one
+
+says, well, how many steps does that take?
+
+Oh, did you ruminate?
+
+All right.
+
+Connected memory.
+
+Here's a stack in what is essentially a linked list,
+
+We've got a head pointer and I've got a size as
+
+well, so I'm going to be keeping the size with it,
+
+that way I don't have to recalculate the size.
+
+So every time I push,
+
+I increment the size, every time I pop,
+
+I decrement the size, that gives me quick access to size.
+
+So in this case,
+
+we're going to keep all of our accesses, remember stacks only
+
+need to access one end so I'm gonna push things on one end and
+
+I'm gonna pop them from the same end pretty easy then push just
+
+says create something new and inserted that head pointer
+
+increment the size top or pop sorry
+
+the thing that I'm pointing at is the thing I want to get rid
+
+of so take my pointer point past it and then delete that thing
+
+top the head pointers pointing at Just dereference.
+
+We're good.
+
+Size,
+
+if I'm storing that size separately,
+
+I just return that value.
+
+If I choose not to store that size separately,
+
+then what do I have to do?
+
+I can start at the front, and next, next, next, next, next,
+
+next till I get to the end.
+
+That's how I count the size.
+
+Empty just says, is size equal to zero? Here we can be checking
+
+our size variable.
+
+Or you can also just say, well, if the head pointer is a null
+
+pointer,
+
+then same thing. It's empty.
+
+So you can do that one either way.
+
+You can implement that using either one of those if you store
+
+the size.
+
+All right.
+
+So,
+
+yeah?
+
+I noticed that the last element, the top element, is at the end
+
+pointer.
+
+Why did we do that instead of putting it at the last?
+
+Good question, right?
+
+Why wouldn't we put the newest item at the end there? Well,
+
+we already did that thing. And the very first thing was, it
+
+takes me 2n plus 3 steps to put something at the end.
+
+And then it's going to take me 2n steps to go find the thing to
+
+get rid of it. So if we store our newest data
+
+at what feels like the end,
+
+then every one of our activities is linear in time, where if we
+
+store it in the front here,
+
+everything is constant in time. I'm pointing at it.
+
+I put it here,
+
+right? So that's why it's it's it's it's a great question And
+
+that's the the crux of what we're trying to get at when we
+
+implement these things. Why would I do it this way?
+
+Well, it depends if I put it over there all my operations are
+
+linear, but put it over here All my inner operations are constant
+
+time
+
+All right, so yeah
+
+Well, if you implement it that way you can that's very true so
+
+if I wanted to implement it with essentially a tail pointer,
+
+some pointer that was pointing at the last object,
+
+then I could go that route.
+
+It would be just the same as accessing one or the other.
+
+So in this simplified version, we said all we really need to
+
+get this done is a tail pointer. If you wanted to do it the other
+
+way, you could.
+
+If we use a tail pointer,
+
+wouldn't popping be linear because we'd have to go to the
+
+second to last element?
+
+Exactly,
+
+exactly. So that's a good point here.
+
+So if we had a tail pointer,
+
+popping would still be linear because this is a singly linked
+
+list, right?
+
+If I go to the last item, hey, great, it's real cheap and easy
+
+to insert there,
+
+but how do I remove the thing here?
+
+I gotta tell the thing before me, I'm gone.
+
+And the only way to do that is start at the beginning and next,
+
+next, next, next, next till I get there.
+
+So pop still is linear, even if I have a tail pointer, as long
+
+as I've just got singly linked list, right?
+
+If I got doubly linked list,
+
+now if I'm pointing at the last item, I'm gonna say, okay,
+
+previous,
+
+we're out.
+
+So, and that's what it is. As we talk about these
+
+implementations,
+
+well, what does that mean? Well, if I'm gonna go with an
+
+implementation that's doubly linked,
+
+now I've got some freedoms that I didn't, but I've also got
+
+twice the memory overhead.
+
+So now I have a pointer in each direction.
+
+Eight bytes per pointer and I'm up to 16 bytes of overhead per
+
+node. And,
+
+you know, if I've just got a linked list of integers,
+
+I got a four-byte integer and 16 bytes for the pointers,
+
+that ain't so great.
+
+Yes, and yes. Why would that be more of an
+
+operation to determine size rather than the integer? I mean,
+
+like, eight times the size of the integer.
+
+That's what I'm saying. This version actually does keep
+
+size separately. But that's still a design
+
+decision.
+
+Like, if you want to say,
+
+well,
+
+I would like to trade memory for time, I'm going to save some
+
+memory. But every time somebody asks me
+
+the size it's gonna cost me in time to go calculate that So
+
+we'll be doing that trade-off a lot throughout our code You'll
+
+be it's really hard to get both a memory improvement and the
+
+time improvement because if you think about it, what's
+
+happening?
+
+Well, I calculate this once and I store it
+
+Now the next time I don't have to spend so much time
+
+calculating. I just go look it up It's
+
+faster, but if I can't stand to store all this stuff Well, then
+
+I can save a whole lot of memory But every time you ask me a
+
+question, I'm going to have to go work on it.
+
+So we'll have the time and memory trade off a lot.
+
+You have one here?
+
+Yep, that's good.
+
+All right,
+
+sweet.
+
+All right,
+
+so here's what they look like stacked up.
+
+You see how I did that?
+
+All right,
+
+push is constant or linear when
+
+I resize in the contiguous memory.
+
+and it's just playing constant all the time in the linked list.
+
+The rest of them are all just constant all the time unless I
+
+don't track my size in the linked list.
+
+But nowadays we've got plenty of memory.
+
+It's way easier to just track the size,
+
+save the time on size.
+
+So you can look at those things and say,
+
+well,
+
+they're almost all the same except for that really slow
+
+linear thing when I do the vector version.
+
+So it looks like I should probably do the linked version.
+
+And that's where we get from analysis to execution because on
+
+an analysis phase,
+
+you say, yeah, that's probably a better idea.
+
+But it turns out that when actual execution is happening,
+
+vectors are still more efficient than linked lists.
+
+It has to do with the way that processors are built.
+
+They go access memory.
+
+They usually realize,
+
+hey, if you're access a thing there's a good chance you're
+
+gonna access some other things near it so it's faster than to
+
+just go read four bytes let me just go read 2k go grab 2k I
+
+grab all that stuff over here now it's not in storage it's in
+
+memory and the memory is faster than storage so we get it into
+
+memory we get it into our cache even which is even better so
+
+it's really close there so as I go to the next thing and when
+
+it's in the cache it's super-fast so
+
+Though the thing that we call this when we have this behavior
+
+where sometimes it's lit
+
+My mom no, it's my wife
+
+Tell these people
+
+All right, it'll be one of them all right
+
+So So when I have this behavior where sometimes it's constant
+
+and other times it's linear,
+
+that's a special type of analysis and we call that
+
+amortized constant,
+
+right? And that's when I have one really expensive operation
+
+that supports a lot of cheap operations and it's the same
+
+operation.
+
+So in the case of an insert when it's full, it takes me linear
+
+time to do that.
+
+But then once I do that, if I make the container big enough,
+
+I get a whole bunch of cheap ones after that.
+
+So when I got this one really expensive one followed by a
+
+bunch of cheap ones,
+
+we call that amortized constant.
+
+It looks like a constant over a bunch of runs is how that works.
+
+So it turns out that the asymptotic complexities are
+
+pretty similar.
+
+The constant factors attached to dealing with this contiguous
+
+memory are smaller than the constant factors attached to my
+
+connected memory. That's the crux of it there.
+
+They're faster because the constants are smaller We've
+
+talked earlier like 2n plus 3 think 2n plus 3 is linear But so
+
+is 47 n plus 12 also linear, but certainly slower than 2n plus 3
+
+So it's kind of how this is going here.
+
+These constants are constant. They're bigger constants So it's
+
+gonna be better to use this thing Says the linked list has
+
+higher memory overhead as well because I've got these pointers
+
+I got, you know, if I had a linked list of booleans,
+
+each booleans one byte,
+
+even if it's singly linked list, each pointer's eight bytes.
+
+Memory overhead.
+
+So we'll be thinking about that. And as one of the things that
+
+I'll often say, if you're thinking about using a linked
+
+list in 281,
+
+what part of,
+
+do not disturb,
+
+do not disturb zone.
+
+If you're thinking about using a linked list in 281,
+
+you should probably come talk to me because you've got some bad
+
+idea,
+
+right?
+
+Linked lists are not inherently bad,
+
+but there's just no really good reason to use one in 281.
+
+So that's what it is. I'll tell you about times when
+
+linked lists are good. I'm going to stop this.
+
+No, there we go.
+
+Tell you when times when linked lists are good,
+
+but none of those times will be in 281.
+
+Is there like a pretty big risk of like taking up memory?
+
+Yeah,
+
+yeah, that's one right there. So the question is,
+
+well, when I push and I make it bigger, if I double it,
+
+isn't that crazy sometimes? It turns out,
+
+you know, if you're off by a factor of two in most
+
+situations, you're not too bad. I mean, unless you're building a
+
+bridge, right?
+
+And then you're like, well,
+
+that ends in the water.
+
+That's a bad factor of two.
+
+It's a bad factor of two. But if your bridge kinda goes
+
+way longer than the river, at least you get on the other side.
+
+But in general,
+
+a factor of two isn't too bad.
+
+I say that until you go buy a car.
+
+Like, well, I'm not gonna pay $200,000 for this car.
+
+But when we're talking about memory and execution times,
+
+those factors of two turn out to be okay, right?
+
+It's usually if you run out of space,
+
+you are on your way to about twice as many of those anyway,
+
+right?
+
+And then if you run out of space again, then maybe you're on your
+
+way to twice as many of those.
+
+There's always the case that if you know the size
+
+ahead of time, or have any way of knowing,
+
+if you can set that ahead of time, you will do better on
+
+memory. So a lot of our inputs you'll
+
+see in 281 will tell you, here's the size of the ship, or here's
+
+the size of the map.
+
+So you can say ahead of time,
+
+this is what I need to build this map,
+
+right?
+
+So whenever you know ahead of time, always reserve a resize.
+
+If you don't know, then this multiplying by two behavior
+
+actually works out to be pretty good.
+
+Yep?
+
+How do I elaborate on the
+
+factors being bigger or smaller here?
+
+It has to do with the cache, right?
+
+So when you go load something,
+
+like I said,
+
+it grabs a bunch of stuff around there.
+
+So you say,
+
+let me square brackets one.
+
+It says, well, let me go grab square brackets one through 50
+
+and sticks them in there. The next one is right there in
+
+the cache, and you get it really quick, right?
+
+You can't do that with a linked list, because it'll say,
+
+well,
+
+you just asked for memory in this area, let me get a bunch of
+
+memory around that,
+
+great. And then you say, well, where's
+
+your next pointer?
+
+My next pointer's over there.
+
+Say, okay, well, let's throw away all this stuff we put into
+
+memory, and then go get a bunch of memory from over here.
+
+And then where's your next pointer?
+
+Oh, we'll throw that away.
+
+And so you end up with these things that are called cache
+
+misses.
+
+What you're looking for is not in the cache, and then you have
+
+to reload the cache. and then that's the sort of
+
+thing that slows you down, is those accessing of things.
+
+Whereas I know that I've got an iterator,
+
+a pointer, or an index, I'm looking at a thing,
+
+the next one is just plus one later, and I'm there.
+
+So it's faster,
+
+I don't have to do another huge memory access a lot of times, I
+
+just keep it in the cache.
+
+All right.
+
+So yes. That
+
+is
+
+totally an implementation lover's dream there.
+
+I have no idea how that does. I mean,
+
+it's obviously going to be dependent on the size of the
+
+thing.
+
+Because if I go,
+
+if I got say, I've got 2K that I'm going to put in there.
+
+If I got 2K and it's just a vector of integers, I'm going to
+
+get a whole bunch of integers, right?
+
+But if I got 2K and I got this thing that's like 120 bytes,
+
+then I'm only going to get four or five of them into memory.
+
+but it does the best that it can, right? It still will be
+
+speeding you up. And it's something that, like I
+
+said, is totally implementation dependent.
+
+And if you get into the deep, deep end, you can start making
+
+some processor do that stuff, but that's not where we're at
+
+here, so.
+
+All right,
+
+next up,
+
+how do I get a stack?
+
+Oh, the fonts are just broken.
+
+Include stack,
+
+super easy.
+
+Is it include stack, gets your standard stack.
+
+But what's pretty cool about stack is it's not even really
+
+that well implemented.
+
+Stack is what's known as an adapter class.
+
+So this adapter class doesn't do anything.
+
+It takes some other container that does stuff and adapts it to
+
+look like a stack.
+
+So as long as your underlying container can provide
+
+push back,
+
+back,
+
+and pop back,
+
+then you can say, well, I can wrap that in a stack.
+
+And so we say push.
+
+The stack says, well, I'm going to use push back on that thing.
+
+You say top, and you say, well, I'm going to use back on that
+
+thing.
+
+You say pop, I'm going to use pop back on that thing.
+
+Vectors do all three of those things, which is why I can
+
+implement a stack either myself with a vector or I can have the
+
+stack class wrap a vector and behave like a real stack with a
+
+real stack interface.
+
+By default stacks are wrapped around decks.
+
+We'll talk about decks in a bit.
+
+So the default container is the deck because the deck provides
+
+push back, back,
+
+and pop back.
+
+So I can make one.
+
+So does the vector.
+
+So I can do it on either one of those.
+
+And so does the list.
+
+So if I really wanted to,
+
+I could say,
+
+make me a stack,
+
+but use a linked list to do it. It's got some design reasons why
+
+I've got these really large objects.
+
+I don't want them moving around in memory.
+
+Keep them where they are. Use this linked list.
+
+All right,
+
+stack will do that for you.
+
+So if you don't say anything, you say, give me a stack of
+
+integers,
+
+what you're really saying is give me a stack of integers held
+
+as a deck of integers.
+
+If you want, you could say,
+
+give me a stack of integers held as a vector of integers.
+
+Once again,
+
+you'll have no reason to do that in 281,
+
+but it's worth noting that that's a thing that you can do.
+
+All right?
+
+That should wrap the stack.
+
+Onto the queue.
+
+Queues,
+
+slides, and stack slides are only slightly different.
+
+The primary difference here is a little bit of wording.
+
+You see here now we're talking about a FIFO order,
+
+first in,
+
+first out.
+
+This is what I talk about standing.
+
+The other thing that I like talking about the most is lunch.
+
+So all my examples about stand in a lunch line,
+
+or you want to get some of the, my lunch is on my brain here,
+
+sorry, so.
+
+But you go stand in a line at lunch, and you're pretty happy
+
+when you get there before a whole bunch of other people show
+
+up.
+
+You ever done that, you get to a restaurant, a whole bunch of
+
+people show up after you?
+
+Like, well, great, it's a good thing that this place doesn't
+
+serve stacks,
+
+because they'd all get served before I did.
+
+They serve queues, right? So I got here before them,
+
+I get served before them. That's a good thing.
+
+So that's what a queue is. You see the only difference here
+
+in the naming if we've got a push and a pop and a size and an
+
+empty,
+
+but instead of a top,
+
+as we get off of stacks,
+
+we've got a front.
+
+Get something from the front of the cue.
+
+Our push goes to the back,
+
+our pop comes from the front so pop removes the thing from the
+
+front and front gives us a reference to that thing there.
+
+So,
+
+waiting in line for lunch,
+
+adding songs to the end of a playlist,
+
+these are cue-like behaviors.
+
+Drive-through at McDonald's.
+
+So, let's get to implementing one.
+
+We've got there two ways. We can implement in contiguous
+
+memory.
+
+We can implement in connected memory.
+
+We'll start with contiguous memory.
+
+Back to the restaurant.
+
+If you own a restaurant,
+
+anybody here a family restaurant?
+
+Nobody?
+
+Yeah, family restaurant.
+
+You know,
+
+there's some maximum number of tables you have at the
+
+restaurant.
+
+Maybe you got a good restaurant, 20 tables.
+
+Does that mean that you can only serve 20 people all day?
+
+Of course not.
+
+You've been to a restaurant before that served more people
+
+before you got there. What do they do?
+
+They go clean off a table and they sit you in that table.
+
+So,
+
+we still have this concept of a queue, but how we store it in
+
+contiguous memory is a little bit more challenging than it is
+
+with a stack.
+
+With a stack, I write,
+
+write, write, write, write, write,
+
+read, read, read, read, read, read, read, read, read.
+
+With a queue,
+
+though,
+
+I got to write here and read there and write here and read
+
+there and write here and read there and write here and read
+
+there.
+
+Once I get all the tables used in a restaurant, I don't sit
+
+people in the parking lot, right? I just clean some tables
+
+and say, well, this one's done.
+
+You're back over here.
+
+We call this a circular buffer. It's also referred to as a ring
+
+buffer,
+
+discussed in 280.
+
+So here you see I've got a capacity 3.
+
+I've got size 0.
+
+I'm keeping my size stored on the side there.
+
+I have got these two.
+
+They look like arrows.
+
+You can call them pointers, but really we are using indexes.
+
+You can use pointers or indexes. They work the same here.
+
+Here, since I know that the capacity is three,
+
+right, that is stored somewhere, it is just not here on the
+
+slide. But I know when I ask for my
+
+memory, how much memory I have. So I know my capacity is three.
+
+And this circular array,
+
+when I get to the end, I am just going to go back to the
+
+beginning.
+
+Pretty easy.
+
+Fill,
+
+fill,
+
+fill,
+
+go back to the beginning,
+
+right?
+
+So the back index is equal to front index.
+
+I'm one of two things.
+
+The back index is equal to front index, I'm either empty or I'm
+
+full.
+
+The only way I can tell is by checking my size.
+
+If my size is equal to my capacity, then I know that I'm
+
+full. If my size is equal to zero,
+
+then I know that I'm empty. So since the back index is the
+
+front index,
+
+I know that I'm empty when it comes time to push something.
+
+I write at the back and
+
+increment the back When I write another one in there right at
+
+the back and increment the back
+
+So every time I do something with these pointers, it's just
+
+like the other pointers or indexes I write there because
+
+it's not pointing at good data and then I increment in the
+
+circular buffer case
+
+when I do that increment there's also this hidden mod thing there
+
+when I get to the end if I've plus plussed and plus plus then
+
+I hit the end the next time I plus plus I don't go past that I
+
+go back to the beginning all right so here we are at push B
+
+what happens now I've pushed C you see back index and front
+
+next are the same if I were to push at this point and write
+
+something more I would definitely be overwriting good
+
+data because now I say, you know,
+
+the back index is never pointing at good data.
+
+Well, it is pointing at good data.
+
+It's not the data that I want right now.
+
+So if I write at back index now, I've totally flubbed it because
+
+I'll have lost A.
+
+So when it comes time to pop,
+
+what I do, I just read from the front.
+
+The front is pointing at the thing you want.
+
+The back is not.
+
+Where I enter things is not pointing at it.
+
+Where I get things from is.
+
+So when it comes time to read the front index, I can just read
+
+at front index if I want to remove a thing I just plus plus
+
+the front index if I get to the end I wrap around the beginning
+
+Circular buffer here. So now we've popped we removed a
+
+see it's it's a question mark there because the value a More
+
+than likely is still sitting right there in memory Memory
+
+doesn't get cleaned up just gets forgotten about so when nobody's
+
+pointing at that a
+
+it's still a but it's not really dated us so it's kind of like
+
+written here as a question mark because I'm not gonna use it
+
+it's never gonna be accessible to me again I can never get my
+
+front index there with the operations that I have so it's
+
+as good as dead to us push D what happens I write at back
+
+index and increment back index wrapping if necessary so now you
+
+see I've got this here. Now what happens when I want to
+
+push again?
+
+I'm full.
+
+Size is equal to capacity.
+
+I need new space.
+
+So to push E,
+
+I'm going to go get twice as much space in this case.
+
+Now I've got six of them, but I'm also going to unwrap things.
+
+We call it unwrapping,
+
+unrolling it.
+
+We see the front index was started somewhere other than the
+
+physical front of my old container.
+
+So rather than trying to mess with that monkey-ness,
+
+why don't we just take the front index and start that here? So
+
+you see that I've unrolled it, because up there,
+
+it went B, C,
+
+D.
+
+So now when I copy it into the new memory,
+
+I just unroll it. Here's B, C, D.
+
+And now I've got room for E.
+
+So you see what I refer to unrolling it or unwrapping this
+
+stuff here.
+
+I can say that I know that the front index is somewhere.
+
+Let me start reading data from there as I fill the new
+
+container. So now, as it comes time to push
+
+E,
+
+you see that I've gotten room for E now.
+
+And back index, once again, is pointing at nothingness.
+
+I've got a size of six.
+
+I've got a size of four, a capacity of six.
+
+And that's good.
+
+Questions on this one?
+
+Does unwrapping provide any performance boost?
+
+The question is, does unwrapping provide any performance boost?
+
+It's simpler.
+
+It makes your life simpler. because if you didn't want to, I
+
+mean,
+
+for instance, you could have started and written B,
+
+C,
+
+D, and then E here, but you would also have had to declare
+
+this new thing,
+
+move your front to a different spot,
+
+write those things,
+
+and move your... So it's one more operation, so
+
+it's a little bit less efficient to do it this way.
+
+Well,
+
+when you're doubling, you say, well, I'm at size three,
+
+so that's actually where I'm going to write,
+
+right?
+
+Because you say index 0 index 1 index 2.
+
+I've doubled it. I've got room for 6 and my back
+
+index is 3
+
+And that's where I go. So you don't even have to do
+
+math on that one. My old size is where I want to
+
+be
+
+Well, the the X is there to refer to the fact that I can't
+
+do it in that container right so D was pointing right there
+
+after inserting D then when it came time to insert E I said
+
+well my size is equal to my capacity so I can't go here I've
+
+got to move into some new new digs yep yep
+
+the ordering
+
+ah right because that was circular,
+
+right?
+
+So,
+
+in this situation, because front is right here,
+
+this was zero,
+
+this was one, and this was two.
+
+Logically.
+
+Physically, no.
+
+Right?
+
+Physically,
+
+they are what they were. So, that's what the unrolling
+
+comes about because the front index is always pointing at it,
+
+and then we plus one and wrap until we get to the end.
+
+And so, that's why they got reordered because we physically
+
+reordered them, but we didn't logically reorder them.
+
+So would you do this by creating a new vector with double the
+
+size and then popping elements?
+
+Yep, that's exactly what you do. The question was,
+
+how would I do this physically? I just create a new vector,
+
+linear copy everybody over from zero,
+
+I mean,
+
+from logical zero to physical zero.
+
+That's what the unrolling is. It's taking a logical zero and
+
+putting it at physical zero.
+
+Yeah,
+
+it's just an artifact,
+
+I don't know why it's still there.
+
+It's not a thing though,
+
+it's not a real thing, yeah.
+
+So the question is, the reason why we do it instead of a stack,
+
+why do we do it circular?
+
+because if I was to do it in some other container where I
+
+only had access to the one end, then I'd have to move
+
+everything.
+
+Every time I insert I'd have to move all of the other things,
+
+right?
+
+Like if I'm only gonna pop off the top here,
+
+how do I get stuff underneath it? I have to move everything.
+
+So now my insertion cost me linear time if I'm moving things
+
+out of the way.
+
+Yeah.
+
+The size doesn't actually matter here, right? I could have,
+
+so you're talking about a size four or capacity four?
+
+Capacity four, right?
+
+Yeah,
+
+so I could be,
+
+like here, this could be my front index,
+
+and you know, if this is also my back index,
+
+then logically this is still going to be zero,
+
+one,
+
+two,
+
+three, like that, because it's just wrapping around.
+
+Does that make sense?
+
+Yeah, I was wondering,
+
+like,
+
+because it's the middle two,
+
+I guess,
+
+elements instead of just one,
+
+instead of even,
+
+instead of top.
+
+Like, but it doesn't matter if it's one,
+
+it's just one for,
+
+like, zero.
+
+Well, the front index is a thing, right? I'm keeping track
+
+of the front index at all times to tell me where I am.
+
+Because this could be even and 40 items long, right? I would
+
+still have this is where my front is, and this is where my
+
+back is. And so this will be 0,
+
+1,
+
+2, 3, blah, blah, blah, blah, blah,
+
+n minus 1.
+
+You see what I mean? So it's not about the middle.
+
+It's about where is front.
+
+And then as I work my way around through all the items, I have to
+
+wrap around at the end.
+
+All right?
+
+Here one?
+
+No?
+
+Good.
+
+And then there one.
+
+So, for the bottom example, if you pop B, C, and D, and then
+
+insert three more elements,
+
+would that just make it a capacity to do that?
+
+Well, no, I mean, because the question is, so if I pop B, C,
+
+and D, and then I push three more, I can always still wrap.
+
+I mean, because if I pop B, C, and D, it's like people just
+
+left these tables.
+
+I can serve at those tables, right? So,
+
+hey,
+
+hey,
+
+come back.
+
+So if I get to pop in B, C, and D,
+
+right, and then I want to come sit F,
+
+G,
+
+and H,
+
+right, and then my front would be here,
+
+because that's the next thing to come out,
+
+and my back would be here, because that's just after good
+
+data.
+
+And so that's what would happen every,
+
+because remember,
+
+as I pop,
+
+I say, here's the thing,
+
+plus plus front index.
+
+Here's the thing,
+
+plus plus front index.
+
+Because that jumps me back in,
+
+forward in time with the plus plus thing.
+
+It's good?
+
+Sweet,
+
+yeah?
+
+Good,
+
+all right, so that's circular buffer.
+
+Not a huge thing, but when we talk about how can I do it
+
+physically in contiguous memory without the circular buffer,
+
+then, like I said, every time somebody new shows up to the
+
+restaurant,
+
+I gotta go build a new table.
+
+I gotta build a new table, and we're all the way into the
+
+neighbor's parking lot just because I got three people at
+
+the restaurant, and they're all sitting at tables in the
+
+neighbor's parking lot because we use the tables inside the
+
+restaurant. That doesn't make any sense,
+
+right? So that's why we need the circular buffer there to get
+
+that right.
+
+Yeah.
+
+Yeah.
+
+Well, the circular has to do when you're not running out of
+
+space, right? Because when you're actually at 20 tables and
+
+you have 20 customers in the real restaurant,
+
+you don't double the size of the restaurant.
+
+You just tell some people to wait,
+
+right? You gotta wait until we can serve you.
+
+But in the case of the circular nature here,
+
+once I get my restaurant up to a certain size,
+
+I never really run out of capacity,
+
+right?
+
+Once I've got a big enough restaurant,
+
+it's just not my lunch crowd is never going to be 400 at a time.
+
+My lunch cow might be like 40, and so I got 45 tables,
+
+then that's all the tables I need.
+
+And from the rest of my behavior there,
+
+then it's circular. So when I run out of space,
+
+you're right,
+
+it's still just some in-order memory.
+
+But while I'm in the space that I can use,
+
+then I'm going to behave on that circularly.
+
+Every time I push,
+
+I write here,
+
+increment, and wrap.
+
+Every time I pop,
+
+I delete there,
+
+increment,
+
+and wrap.
+
+And so when I don't run out of space,
+
+then it is circular.
+
+When I run out of space, all bets are off.
+
+We just got to get new space.
+
+But then we'll treat that space circularly.
+
+You keep track of size and capacity.
+
+You can ask a container,
+
+if you ask a vector,
+
+dot size.
+
+You probably haven't used vector dot capacity, but it's always
+
+been there. it tells you how many can I
+
+hold.
+
+And that's something that I know, because when I said I
+
+needed to have the system allocate me some memory to hold
+
+this thing, I said, well,
+
+get me enough to hold six of them.
+
+So somewhere, I know that I have six spaces.
+
+And if I've also stored that I'm currently using four of them,
+
+I can then behave accordingly. I know that when size is equal
+
+to capacity,
+
+I can't push unless I unroll.
+
+all right pop there we go so here's our
+
+implementation and this one is going to use the circular array
+
+I've got this front index and back index you see that it says
+
+my capacity is up there it's five my size is three so now I
+
+know that when I push an element if size is equal to capacity
+
+this is the step one of the previous one I'm full let's go
+
+get some new memory
+
+unroll it as I go this puts my physical zero and my logical
+
+zero at same data item.
+
+Other than that though, I can just copy the back index and
+
+increment the size and the back index and wrap around as needed.
+
+If I get to capacity,
+
+I'm always taking my back index
+
+back index plus plus mod capacity.
+
+So back index plus plus mod capacity goes zero one two,
+
+three,
+
+four,
+
+zero.
+
+Because four goes to five,
+
+five mod five is zero. So zero, one, two, three, four,
+
+zero, one, two, three, four,
+
+zero, one, two, three, four.
+
+That's why we call it the circular thing right there.
+
+Pop, delete the element,
+
+and decrement the size,
+
+and increment front index.
+
+That's what pop's all about.
+
+Front,
+
+whatever front index is pointing at.
+
+Size gives me that size that I've stored in a variable.
+
+And then in this case,
+
+because the two pointers are out there floating around,
+
+the only way to know if this is empty is if my size is equal to
+
+zero. Because those two pointers could
+
+be pointing at each other. Those two indexes could be the
+
+same.
+
+When it's full or when it's empty.
+
+So just where they are isn't enough to tell me whether or not
+
+it's empty. I have to have that separately
+
+in size.
+
+Connected memory.
+
+Now you see I've got this tail pointer because I do need to
+
+access both ends. something goes on the back and
+
+comes out of the front so I've got a tail pointer
+
+and I've got a head pointer let's keep things logical I'll
+
+put things at the back after the tail I'll read things from the
+
+front the head now I can do these things in constant time
+
+when it comes time to add something new I create it have
+
+tail pointers next point at it that's how I push when it comes
+
+time to pop I say well head pointers pointing at it head
+
+pointer point at head next,
+
+delete head,
+
+we're good.
+
+There's a temp in there.
+
+Don't get it twisted.
+
+But pretty easy.
+
+I don't need two directions because I'm only accessing this
+
+side to do this thing and accessing that side to do
+
+another thing.
+
+Right? I'm writing in the back and reading from the front.
+
+So once again,
+
+here we are, same chart, looks the same,
+
+all the asymptotic studies that we've done here are the same.
+
+These are all constant except when I have to expand
+
+over the life of the container,
+
+we call that asymptotic constant.
+
+Did I say that right?
+
+No, that's wrong.
+
+Amortized constant, I'm like, that word did not sound right,
+
+all right.
+
+Amortized constant, when I can do that really expensive linear
+
+copy of these 50 things,
+
+But since I doubled it, that means I got 50 really cheap ones
+
+because I've got room for them.
+
+And so that's why the amortized complexity analysis says that
+
+over the life of the container, it feels like things happen in a
+
+constant matter.
+
+So it feels like it's constant,
+
+and because the constants here are smaller than there,
+
+once again, we're going to take our contiguous memory more often
+
+than not.
+
+All right,
+
+how do I get a queue?
+
+Include queue, just like before,
+
+it's pretty good.
+
+Now, you can see that the queue has a default underlying
+
+container, same as the stack.
+
+It uses the deck.
+
+Why? Because the deck has push back,
+
+front,
+
+and pop front.
+
+The deck supplies those three things.
+
+I can't wrap a vector because Because the vector has push
+
+back,
+
+it has front,
+
+does not have pop front.
+
+So lists do,
+
+decks do, by default you get a deck,
+
+always use the deck,
+
+unless you need something crazy and that's not going to be us
+
+here.
+
+All right,
+
+so there's queues,
+
+basic container queue.
+
+You've heard about it,
+
+let's talk about it. Deck there it is see that word
+
+It's a made-up word
+
+It's a made-up word, but the way that we pronounce it is like
+
+deck like a deck of cards
+
+What is it for it's for double
+
+Ended
+
+Q
+
+That's what a deck is
+
+Like it says here,
+
+it's pronounced dec,
+
+D-E-Q-U-E-U-E, as in double ended Q,
+
+is actually another word.
+
+DQ is how you take something out of line.
+
+So you DQ somebody,
+
+now they can't get lunch.
+
+So we don't want to make anything too confusing because
+
+you say, well, am I declaring a thing or am I doing some action?
+
+They simplify it and say, well,
+
+we'll call this deck without the additional UE.
+
+So, that's where the name comes from, and if you wanna use
+
+standard deck,
+
+it's pretty easy.
+
+You just include deck,
+
+right? What's so cool about a deck?
+
+Well, it's got push back, pop back, back,
+
+push front, pop front, and front,
+
+all of those in constant time.
+
+That's pretty impressive.
+
+Vectors can't do that.
+
+Vectors can't push on the front in constant time.
+
+They can access the front,
+
+they can access the back,
+
+but they can only access the front for reading in constant
+
+time.
+
+That can allow you to do both.
+
+And we've got size and empty, that's great.
+
+We can even traverse it using an iterator, meaning we can go
+
+through them in sequence.
+
+And if you use the STL version,
+
+it's got a constant time operator square brackets.
+
+So I can find something even in the middle of it in constant
+
+time. So this sounds like the magic
+
+bullet,
+
+doesn't it? We should just always use this container
+
+because it does everything so fast.
+
+Yes and no,
+
+right?
+
+Because the way that decks actually work
+
+is they are partially connected
+
+and partially contiguous,
+
+right? And if I was to do this,
+
+you see I could do this with a circular buffer,
+
+and I could sort of write things into both ends and pop things
+
+like that. I could do that pretty easily,
+
+right, and I run out of space. I could even say, well, I've
+
+popped these things way into the middle.
+
+I'm here. I wanted to write some more.
+
+I could still be sticking things on there.
+
+So I could have a circular buffer, which would make things
+
+even more confusing.
+
+But it could be done.
+
+I could have a circular buffer version of it.
+
+I can also have a doubly-linked list version.
+
+As long as I got a tail pointer, I can read and write things here
+
+at the end. I can read and write things here
+
+at the front and do that.
+
+But then I've got all these pointers hanging around there.
+
+The real way that it gets done is much more like these things
+
+you see here. It is connected, and it is
+
+contiguous.
+
+So I've got these things that are lovingly called chunks,
+
+and a chunk will hold some number of items.
+
+Where that number comes from,
+
+these are what people who go to school to write libraries to
+
+figure out.
+
+I don't know what that number is.
+
+You can't control it.
+
+So you see here, if I've got this chunk layout,
+
+and the interesting thing is the first chunk
+
+fills from back to front.
+
+The last chunk fills normally, like you might expect from front
+
+to back.
+
+But you see here, if I wanted to push front,
+
+what could I do? I could just write something in front of data
+
+zero
+
+and then point to it and say, hey, look, I can do that in
+
+constant time. I just write a new thing here
+
+and think of this as the new zero.
+
+If I wanna push something on the back, I just write it here after
+
+data eight,
+
+and it works just fine in constant time.
+
+If I wanna remove one,
+
+I can remove things from zero,
+
+then one, and then two.
+
+If I get that entire chunk empty, then I just move on to
+
+the next chunk and say, well, now this chunk is the only one
+
+that has stuff that I care about.
+
+If I run out of space, What if I push, push,
+
+push back, push back, push back, push back?
+
+Well, I don't have to move them. I just go get another chunk.
+
+And then tell this thing over here, which we call the map,
+
+not to be confused with the data type map,
+
+but this map helps me find things,
+
+helps me locate my chunks. So when I want to add a new
+
+chunk at the end, I just grab a new block of chunk size and
+
+start writing into that one.
+
+So is this implemented using chunks so that we need to
+
+allocate a new one faster?
+
+Well, it's a really complex type
+
+because it does those constant time operations, right? That's
+
+really what it is.
+
+The question is, why is it implemented in chunks?
+
+Because then my expensive operations don't have to be that
+
+expensive, right?
+
+Because as long as I do it in chunks,
+
+then when I run out of space at the front,
+
+I just go get a new chunk and I don't have to move everybody.
+
+When I run out of space at the back, I don't have to move
+
+everybody, I can just go get a new one.
+
+So are the operations really more like advertised constant?
+
+The operations are still constant time.
+
+They're slower constant time, right? Because now if I know
+
+that I want to go access
+
+square brackets four in a vector,
+
+I start at the beginning,
+
+I move over four, and there it is.
+
+What if I want to access square brackets 20? I start at the
+
+beginning,
+
+I move over 20,
+
+and there it is.
+
+Physically the beginning is always zero, And physically,
+
+20 is always 20 after the beginning.
+
+In this version, this is another representation of it.
+
+Here,
+
+those gray things are the ones that actually have data in them.
+
+Where is square brackets 20?
+
+I've got to do a little bit more math.
+
+I've got this shift.
+
+You see that shift up there says 3.
+
+That tells me how many are blank at the beginning of my first
+
+chunk.
+
+And then with my chunk size of 6, I say, well,
+
+oh, it's pretty easy.
+
+If this thing was completely full,
+
+I could just say, well,
+
+how many times does six go into 20?
+
+The 20 mod six, right?
+
+And I'm gonna get, is that square brackets two?
+
+But my shift says, well, these first three are blank, so you're
+
+gonna have to move back three as well.
+
+So if I wanted to get square brackets 20,
+
+I would just have to go and find
+
+where is this 23rd item,
+
+figure out which chunk that's in, and then go square brackets,
+
+that thing like that. So it's still constant time,
+
+but that discussion was a lot more complicated than add 20 to
+
+the beginning,
+
+right?
+
+So that's why the deck isn't the best thing
+
+since pick a thing.
+
+I don't know, right? Because it's not as fast as a vector.
+
+It's not as fast as a vector.
+
+It's good,
+
+it's just not great.
+
+Vectors are better at contiguous memory because they are one
+
+contiguous chunk.
+
+Here these small chunks require you to jump from chunk to chunk.
+
+As we talked about sticking things in a cache,
+
+you might go read and get a whole chunk in memory.
+
+And then when you get to the end of iterating through those five
+
+things,
+
+where's the next chunk? Well it ain't here,
+
+it's over there. So dump this,
+
+we'll go grab that chunk, and now we've got this.
+
+So even traversing through it is a little slower because as I go
+
+across the chunk barrier,
+
+it takes me time.
+
+Well, in Project 1, you're going to use it because you can use
+
+the same container
+
+and decide whether you want it to be a queue or a stack.
+
+You take the same deck,
+
+and you always push things in the back,
+
+and then if I'm in stack mode,
+
+I read from the back. But if I'm in queue mode,
+
+I read from the front.
+
+And I don't have to write two big old functions.
+
+So, well, this is the stack function.
+
+And every single, like,
+
+98% of those letters are exactly the same as the letters in the
+
+queue function.
+
+Right?
+
+I don't need to do that.
+
+So we can use something like this.
+
+Another thing that, when I run out of memory here, we saw that
+
+we've got these chunks.
+
+We know what happens in a vector.
+
+We go get twice as much memory,
+
+copy all that stuff over there, and use it.
+
+In a deck, I don't need to. When I run out of memory,
+
+I get a new chunk.
+
+The old chunks stay exactly where they are.
+
+So there's some different behavior in the way that they
+
+manage memory and time.
+
+It can be, yes. It can be in terms of like the
+
+same sort of thing because I wouldn't want to have a map that
+
+keeps going through memory like this either, right?
+
+Just like anything.
+
+So,
+
+yep.
+
+is it creating the largest size?
+
+Is that like memory,
+
+or is it a line?
+
+Well, the chunks require a map, so I've got to have a little bit
+
+more overhead memory-wise to keep track of all of them and to
+
+navigate them. And like I said, because they're
+
+in different locations in memory,
+
+reading them also takes me a little bit more time.
+
+So,
+
+decks are slower and less good on memory than vectors.
+
+That's another good reason why you don't use them for
+
+everything. They do have some pre solid uses
+
+though, and you should definitely use one for your
+
+treasure hunt search container All right, you get it out of
+
+deck the file include that and then that's the wrap on this one
+
+So we'll be back here on Thursday getting it
+
+If you've got those skills,
+
+if you've got objects,
+
+if you can do that,
+
+then yes, that's great.
+
+Not everybody is a master of that,
+
+but also at
+
+some point though too, if you've got
+
+Where your object in a dash?
+
+If it's got a Square where that outfit goes it's going to want
+
+to write the next object in there
+
+Move it out. It should be at the same
+
+location
+
+Yes,
+
+we're going to set something up here, look for an e-mail, we're
+
+going to get it out here the next day or so, we'll go to that
+
+and then talk to you, that's the other one.
+
+Yep,
+
+correct, yep. I'm wondering if you can talk a
+
+little bit off topic,
+
+but is the school you have access to, like the Apple
+
+developer program for students?
+
+Ooh, what does that do?
+
+Like Apple wants me to like pay,
+
+they didn't even test my app on my devices,
+
+and you have to like do code signing and stuff.
+
+I'm wondering if you can talk about that.
+
+I don't know of one, But are you using test flight at all, or not
+
+using test flight? I am using,
+
+like,
+
+without using test flight.
+
+Okay,
+
+so test flight, I don't know what test flight costs you, but
+
+that does allow you to get paid as up and running on device,
+
+right?
+
+So look into that, and then I'll see if I can figure out if we
+
+got any places to come in. Okay,
+
+thanks.
+
+I'm trying to understand why we have that shift,
+
+and why even this is the first place where we have these
+
+different chunks.
+
+Right, so in this one you see how I'm like, when I push front,
+
+I don't want to have to push things out of the way to push
+
+front. That's why the front chunk fills
+
+from back to front. Where it's like, here I push,
+
+push, push, push. On that one,
+
+I push front, it just writes in front of data 0,
+
+and that's the new square bracket 0.
+
+See what I mean?
+
+And so that's why it slides that way.
+
+And that shift tells me how many are open.
+
+In this case, the shift factor is 2, because there's two unused
+
+at the beginning of that chunk.
+
+Here,
+
+it's 3.
+
+But the shift,
+
+you can kind of come up but the equation is to pull off the
+
+whole how do I do square brackets.

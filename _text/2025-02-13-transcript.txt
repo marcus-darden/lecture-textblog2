@@ -1,0 +1,1655 @@
+making random test files. I thought that was really
+helpful.
+I think for P2, though, I'll keep talking about P2.
+Absolutely.
+It's really large numbers of randomly generated time that's
+been around, or five rounds that's been around, and so on,
+and so on. Thank you.
+Yeah, that was a good one there. Question was, should we do
+something with those randomly generated input files, like I
+suggested on P1,
+so you can really get some larger tests?
+And that's a great thing. This one's got a built-in P2
+random thing going on with it, right?
+So you can pretty easily generate 5,000 zombies in a
+round,
+in 10 rounds of that, to really get to the point where your
+comparator is seeing all different tie breaks that
+it might see in terms of who's got the most hit points or who's
+closest or who's got the best name or whatever
+it takes to get those tie breaks really thoroughly checked out.
+Obviously,
+you're not going to know what the right answer is unless you
+get some of that to trigger on the autograder.
+But you can get some larger tests to see what's going on
+there.
+Definitely give that a run. And you can augment that with
+generating a bunch of random zombies along with some really
+targeted named zombies. That's why the whole setup is
+the way it is. You put some targeted named
+zombies in there so that you have some specific values that
+you're trying to see how they go in the priority queue.
+So definitely push your code as hard as you can.
+The same thing is true with part 2B.
+In 2B, there's a test PQs file that comes with it
+that's very,
+very light.
+There's almost no testing in it whatsoever.
+It's not really there for a testing, though.
+It's there to make it easier for you to write tests, because some
+of the stuff might not be as clear when you're dealing with
+what we're dealing with in P2B, with templated code,
+with polymorphic code, with templated polymorphic code.
+So that test PQs thing is really, really meant for you
+to add some tests to it.
+Try some stuff. Push your priority queues and
+see what you can do with it. Same thing there if you want to
+add some random number generation to just a bunch of
+testing there.
+It's a great way to do it.
+I mean, it's a pretty simple test.
+You can say, give me 5,000 numbers.
+And then you just keep popping them off.
+And if ever the number goes up,
+then you know it's broken,
+right? So you don't even have to do a whole lot of work on it.
+You know what's gonna come out, the most important thing, then
+the next most, then the next most, the next most, and you can
+try that with a reversed
+or a greater than style comparator so that you can see
+things go in the opposite direction so definitely add
+testing to everything.
+Everything, everything, everything should be tested.
+That's how I code all the time. I take the smallest part that I
+can write, see if I can get it written, and then test it and
+test it and test it. As I integrate it back into the
+hole, I know that my problems can only be at the integration
+space,
+not at the real workspace.
+And so when you get those large chunks of code tested and you
+know that they're perfect,
+for instance, if you wrote the median
+in a separate file, in a separate class,
+and it's just like a normal container, except it really only
+has two primary methods. There's insertion and
+inspection.
+You don't even need size or you can add those things,
+metrics,
+but you don't need a removal operator for your median queue.
+And then the same sort of thing. You say,
+well,
+I can scramble up these one through 50
+and I know what the median is regardless of what order they go
+in.
+So I write a 10,000 times loop and every time through that loop
+it scrambles all those numbers and then inserts them and then
+pops them all out.
+Oh, sorry, wrong problem.
+Inserts them all and then checks the median and tells me if I got
+the right median so they can get every possible ordering that you
+might,
+far more than you could think of, let's put it that way.
+And then just implement that with large scale testing.
+Then when you know that,
+you know that your median queue is working perfectly.
+Then if you got the wrong answer on the project, you know it has
+nothing to do with how you calculate median,
+it's just what values you're calculating median with.
+And so that's the way I code.
+It seems like it might take a little bit longer as you write
+tests, and you go back and test things.
+But it really takes less time, because with less debugging,
+you're wasting less time. The programming is the fast
+part. It goes quick.
+So if you're writing stuff that then works,
+testing it is not that much work.
+So that's why the makefile works the way it does.
+If you name any file test blah blah blah dot cpp,
+the makefile knows how to make a separate executable for just
+that thing. So I would do sort of like a
+median queue dot hpp
+and build my median queue in there and then write a test
+median dot cpp.
+And then it would have its own main, not the main to go with
+the project, but I could keep it all in the folder.
+Anything that I wanted to do, I say, OK, well, let me just build
+the zombies and then stick a bunch of zombies in something
+and test zombie.
+And when I'm sure that they go into the priority queue and come
+out of the priority queue like I like,
+then testzombie.cpp is no longer that important for
+me. I just can start ignoring it.
+But then I know the PQs that I use in the simulation,
+they never get it wrong.
+So
+it's not exactly test-driven development.
+That's a style of programming that if you haven't heard about
+TDD, you might want to look into it.
+Not everybody does it, but it's got some really good tenants to
+it, where you're really trying to test, test, test
+to support your development.
+All right, let's get into work here.
+We were on beans, right?
+Yeah, we were talking beans.
+Is that where we stopped?
+Oh, yeah, there we go.
+OK, and these slides are,
+there we go.
+Got through there, got through there.
+Yeah, we stopped on this slide right here.
+And all this was a combination of calling
+lower bound when what you were looking for was there and when
+you were looking, what you were looking for was not there to see
+how it responded.
+As well with upper bound,
+calling it with something that exists in the container and then
+calling it with something that doesn't exist in the container.
+So we said the lower bound is the first thing,
+not less than what you're looking for.
+So if it's there, what you're looking for,
+you find it. If they're in order, the first
+thing not less than what you're looking for is the thing you're
+looking for. And if there's multiple copies
+of it even,
+the first thing not less than what you're looking for is the
+first of those,
+which is important as well.
+Right, if there's five threes, I don't get the middle three or
+the last three.
+Lower bound gets the first three.
+Similarly, upper bound is the first thing greater than what
+you're looking for. So if what you're looking for is
+there, it will not return that.
+It will do like a normal STL range does though and give you
+the iterator to just past your good data.
+This is great because you can combine lower bound and upper
+bound to find what's known as an equal range.
+So if there's a bunch of threes,
+lower bound will point at the first one, and then upper bound
+will point just past the last one and so then if you wanna
+process that as a range,
+there you go, those two iterators process that range of
+threes.
+So,
+what's the difference between calling with the begin function
+in this way and using it as the member function of the vector.
+So the vector versus standard begin.
+So vector begin versus standard begin.
+So this slide uses standard begin.
+Notice how it's got begin of v instead of v.begin.
+So standard begin will forward the call onto the container if
+the container has its own begin.
+So in this case, there's no difference whatsoever.
+If we use something that doesn't have a .begin,
+in, then this will wrap it and try to put an iterator on it.
+So you can use this in a C-style pointer
+or any one of those containers that we would be using.
+So yeah.
+And it's one character less,
+like that matters.
+How critical about return random iterators?
+They do not return random iterators.
+It depends on the container, right? Not all containers
+support a random iterator.
+so typically upper and lower bound will give you forward
+iterators I believe
+forward iterators I'd have to look into that though I always
+end up using them
+roughly the way they should be so I don't know too much you
+know what I mean it's like you don't try to do the wrong thing
+with them you don't actually have to know what the right
+thing is so somehow you figure out how to not do the wrong
+thing though I don't know where that came from but Yeah,
+I think it's a forward iterator.
+All right, so if seven is there, obviously our binary search is
+gonna hop around and find the seven on lower bound.
+26 is not there, so our binary search is gonna hop around and
+find the first thing larger than 26,
+first thing not less than 26, I should say.
+And the upper bound is gonna not find the 21
+because it's gotta find the first thing larger than the 21
+and so we end up with 25 even when the 21 is there then if I'm
+looking for four which is not there the first thing that is
+greater than four is that five so that's how lower bound and
+upper bound work and the bounds and the binary search anything
+else on that rockin lower bound is your friend you should be
+using lower bound in the sorted PQ that's gonna to tell you
+where to insert the thing. Think about it.
+If I'm trying to insert a six into a container
+that has a seven in it,
+but no six,
+lower bound is gonna find that seven for me,
+and then I would insert the six right in front of it.
+And that's great,
+right?
+If it finds another six in there,
+the first thing not less than that, I can insert it in front
+of that six and be in good shape.
+Two sixes next to each other.
+So the insertion point using standard insert or vector insert
+is at the lower bound location.
+All right,
+sets a little bit. We'll kind of breeze through
+these.
+This is like, you know, sets from math.
+You know, sets, intersection,
+union,
+that sort of stuff. We've got all of those things in
+the STL,
+Intersection, Union,
+Set difference,
+which is in one set but not the other.
+The Symmetric difference,
+which is also known as XOR.
+Symmetric difference is in one but not the other.
+We know how to add things, check to see if they're an element,
+see if it's empty.
+So the STL supports a bunch of this stuff.
+But the way that we're going to do this is we're going to
+implement a set because what we really want to know is very
+easily if what we're looking for is a member of the set.
+That's really what sets are good for.
+do I know if this belongs or doesn't?
+And a really easy way to do that is with a searchable container,
+I can just go look for it and find it.
+That's great, we'll see how efficient we can make that.
+Let's look at setUnion though.
+setUnion is an STL function,
+and this is very important,
+very important.
+This is 20 points on the exam right now.
+This is problem 25. so problem 25 on the midterm
+exam is the STL question so it won't be set union
+unfortunately it'd be really easy if it was but it will be
+something like set union there's a whole section of functions in
+the algorithm library these modifying and non modifying
+sequence functions that work on a range in linear time and
+constant space and do something this case it works on two sets
+in linear time and creates the union of those two sets.
+And what's the union?
+That's every item that's in one of those two sets
+in a new set.
+Just like a normal set union.
+If it's in A, put it in there. If it's in B, put it in there.
+But we only need to put it in there once because sets don't
+really deal with duplicates.
+All right?
+Yeah.
+Yeah,
+keeping it sorted makes our life really easy.
+So, if you want to do this set stuff, these set functions are
+going to assume that the range that you give it is a sorted
+range.
+And we'll see how that makes our life really easy.
+That keeps us at linear time instead of needing to do
+quadratic time.
+Because imagine if I've got two lists of things and they're in
+no order whatsoever.
+To find out if this thing from list one is in list two,
+I've got to look at everything in list two to find it.
+So, if I want to check all of the things in list one to see if
+all of them are in list two,
+that's n squared behavior, and I don't really like that if I
+don't have to.
+Now,
+if they're sorted like these two sets,
+set one,
+Amy, Beth,
+Brian,
+Dan, Emily, and Frank,
+set two, Amy,
+Blake,
+Bob, and Brian,
+we've got some arrows in there to point us towards
+what our iterators are going to be passed into the set union
+function. It takes, the basic version,
+takes five inputs,
+right? And that is the beginning and end of set one,
+my blue arrows here,
+and the beginning and end of set two, my red arrows,
+and the beginning of where I can write the answer to.
+That's my one green arrow.
+Remember, I don't need a second green arrow.
+Why? Well,
+the green arrow in this slide is representing an output iterator.
+And remember,
+output iterators can't be compared.
+So if I were to say, hey, well, that green one should stop down
+here, how would I ever even know?
+I can't take that green one and compare it to this one.
+It just doesn't work.
+You cannot compare output iterators.
+So there's no need to say where I should stop.
+Okay, well, how do I stop from going out of bounds? How do I
+stay inside my segment?
+Well,
+that's not set union's problem.
+Set union says, you're going to give me these five iterators,
+two for where I start data,
+two for where I start data, and one for where I start output.
+And you better make sure that there's enough room to write
+everything that I might possibly write
+at the end of that green arrow.
+So what do I need here?
+My calling function could say, well, there's six things on the
+left, there's four things on the right.
+In the worst case,
+they could all be unique,
+and we'd need 10 things in the output.
+So that's the calling function's responsibility.
+It says, okay, well,
+when you get this green output iterator to write things that
+you're going to pass in there as an argument,
+you better make sure that there's room for 10 things,
+at least 10 things, because we know that this could, in the
+worst case,
+write 10 things. So if you pass me a green
+iterator to four things and I got this kind of data going on,
+there's no way I'm going to survive that, right? I'm just
+gonna go off the end and things are gonna be terrible so it's
+the calling functions
+Responsibility to make sure that there's enough room at the end
+of green
+How do we communicate though the calling function says do this
+thing for me
+The called function still has to respond a little bit right
+obviously has to make The intersected set.
+I'm sorry the union set, but it also has to tell Well,
+the calling function,
+well, I'm happy that you gave me room for ten of these things,
+but I really only filled eight of them.
+That message has to go back to the calling function because the
+calling function may imagine calling function said, well,
+give me a vector with ten things and then do the set intersection
+or set union.
+Like,
+does the calling function know that these last two are garbage?
+It has no idea that they're garbage.
+unless the called function says hey you told me to do this union
+and I stopped right here then the calling function can say
+great I'm just going to erase this and now I've got the answer
+erase doesn't really get rid of it in memory but it it lets the
+vector know that its capacity may be 10 but its size of real
+data is only 8 so that's what the return is so this is This is
+super important because the function that you will have to
+write for problem 25 from the STL,
+the way that we give you the problem is we erase the name of
+the function and then give you actual STL documentation and say
+write this function with everything but the name of the
+function.
+So if you understand the style of STL iterator-based
+linear sequence operations,
+then you won't make the mistakes that cost you points.
+It's like a four point deduction for improper iterator usage.
+What is that?
+Like dereferencing end.
+If you ever do that,
+it's terrible.
+And it's also terrible on the exam.
+If you dereference end,
+there's four points off for sure,
+right?
+If you say,
+well,
+what if I take this iterator and add four to it.
+Well,
+the problem gives you forward iterators,
+and adding four to an iterator is a random iterator behavior,
+and that's also illegal.
+It's also worth four points that you won't ever see.
+So,
+what is it that we can do? We know that we can take forward
+iterators,
+input iterators, and output iterators, so we know that we
+can take,
+I think you get two forward iterators and an output
+iterator,
+or sorry,
+for this problem you'd have four forward iterators and one
+output-out iterator.
+So,
+how can I compare forward iterators?
+I can't say, well,
+is begin less than end?
+That's an invalid comparison.
+They can be compared, but only for equality.
+So,
+you have to learn this style because those simple things,
+which would lead to a normally logical good solution,
+do not work with iterators. Iterators can be incremented,
+compared,
+and dereferenced.
+Forward iterators,
+that's it.
+And the comparison has to be equal or not equals only.
+Output iterators can be incremented and dereferenced,
+and that's it.
+So if you mess that up,
+you will lose points unnecessarily.
+You can copy forward iterators, but not input iterators.
+You can copy forward iterators, but not input iterators.
+Correct.
+That's worth noting. I think you're going to get
+forward iterators on this problem.
+Well,
+when you see the code,
+this one sort of says that they're in iterators.
+You see how that is up there in line one?
+So that's the author sort of telling you how those things
+should behave.
+I mean, it's not a guarantee, obviously,
+from the code. But that's how you get that
+information.
+And also, in the documentation for the actual stuff, it'll tell
+you what you have.
+Yeah?
+So you say you can only check out integers based on things,
+but would it be the six-parameter in the function?
+That would be the six-parameter version.
+So if I was trying to do a set union with things is that the
+compiler didn't know how to compare.
+In this case, I'm doing with strings,
+and strings have an overloaded less than operator,
+so it works just fine. But if I was to do this with
+zombies and I was trying to get a set of zombies,
+I would have to give it some other comparator in the sixth
+parameter that behaved just like less.
+And then it would work just great.
+All right, so let's get at this intersection.
+You see where I start and end, blue start and end, red set one,
+set two, and then my output goes at set three.
+So all I need to do is look at this with less than.
+If what's blue is pointing at is less than what red is pointing
+at, I'm definitely gonna write it over there, because that's
+how I keep things sorted in my output.
+Well, they're not.
+So, well, if red is less than blue, then I will definitely
+write that. But this also fails.
+So I know that they're equal,
+so I'll just write one of them
+and increment both of them.
+Also incrementing my output iterator because now if I was
+done,
+let's just say that the whole thing is done,
+look at what green is responding with.
+If I return green and say hey, my union had one thing in it and
+I'm pointing just past it with this green thing.
+That's how the output iterator works.
+Yeah.
+Yeah. Yeah.
+Like the letters and like how you looked at this and knew that
+you had to use like
+forward iterators and stuff. When we get to the codes on the
+next slide.
+Yeah, it's on the next slide. So let's go through the rest of
+the algorithm and then we'll make some more sense of it.
+So now you see what's gonna happen, right?
+I'm just always gonna be comparing at,
+you know, basically you can call it
+start one or first one or last one or wherever you're at,
+name convention. I'm gonna be comparing first one
+and first two to say who's less than if I've got a positive on
+one of those less than That's the one I'm gonna return.
+I'm gonna I'm gonna push over to green.
+So Beth is less than Blake. So let's push Beth
+We increment green because we wrote there and we increment off
+of Beth because we're never gonna have to write her again
+And you see how I'm building up a nice sorted Union on the right
+hand side. What about Brian and Blake BL
+comes before BR So we'll write Blake in there and increment the
+red and after we write to the green we increment the green and
+so far my Union has three things in it my
+Green iterator would be pointing at something that looks like
+square brackets three Remember, I can't square brackets because
+this is still iterators But it would look like square brackets
+three because it's at the third thing which is just after
+012 the three good ones all right Brian and Bob Bo before
+Br,
+we write Bob over there, increment green,
+increment red,
+and then lastly,
+well not lastly,
+it's last for the reds, right? Brian and Brian are equal,
+so I just write one and increment both the red and blue,
+moving past them in those sets, and write the green and
+increment past it, so I'm ready to write again.
+Now,
+set two is empty,
+there's no more things that need to go from set two,
+so what do I do? I just write the rest of the things in order
+from set one and I get Dan Emily Frank And I got this perfectly
+good set 3 union over there That is sorted because it came from
+sorted and you saw how that happened in linear time
+every time I did a step I added something new to green and
+Then the number of green things was on the order of the total
+number of things. It's a linear function
+Well if they weren't sorted let's just imagine they weren't
+sorted so how would I know if Amy should go in there and
+let's just do it like this all
+right
+so let's put Blake in there so when I got down to Blake how
+would I know if I should put Blake in there or not I would
+know that it wouldn't already be in set one that's good but I
+would have to look at everything in set two and say have I
+already inserted this from set two or if I just did well I
+could say well let me just insert everything in set one
+great now if
+these things in set two are in no order I gotta say well
+where's Amy look at all of these where's Blake look at all of
+these where's Bob look at all of these where's Brian look at all
+of these before I could put it into the green that makes sense
+when they're not ordered I've got no idea where to look, so I
+have to look everywhere.
+When they are ordered, we see that I've got this,
+I've got a stopping point. It's gonna be before this or
+not.
+It's not before this, then I'm good with it.
+If it is, then we go.
+Yeah.
+So when do you compare the two sides between the two things,
+right?
+So that's a bigger single value.
+I only need to compare things from the two sides when there's
+two things,
+right?
+So the algorithm actually changes that at that point and
+says,
+once we're done here,
+I'm done comparing,
+I'm just gonna copy everything else that's left.
+Similarly, if I'd have ended over here first,
+and I say, okay, well, there's still stuff in set two,
+but set one is empty, I'll just copy all of the remaining
+things,
+they'll have to be organized,
+they'll have to be needed, and I'm good to go.
+Set three, that's what I was saying, is set three had to be
+set up by the caller.
+Whoever called set union was responsible for making sure that
+there was room for all of these things.
+Well, they know that there's six in the one hand and four in the
+other, and in the worst case, I could only have 10.
+So you would set 10,
+right? If you were doing setIntersection, similarly you
+could say, well, if there are six in this set and 10 in that
+set, the most I could have would be six.
+So I only really need to get six in my touchdown area, right? So
+it's up to the caller to set that up.
+And then the called function will return this green arrow to
+let you know what work it did.
+So just to be clear, is that with resize or reserve?
+So they need to be good,
+right? This green thing needs to write at that location.
+So, it can't be a reserved thing.
+Reserved gets you enough memory for it, but remember,
+the reserved thinks that it's empty.
+So, it doesn't think that there's those things there.
+You could reserve it and write into memory.
+It would work.
+I don't think that it would be,
+you wouldn't be guaranteed anything.
+So if you resize,
+you would be guaranteed that that memory was initialized,
+right?
+And then you would be guaranteed that those were items.
+I would feel like it might work if you did reserve and then you
+would have to resize the container at the end,
+right? So if I reserved 10,
+it had capacity 10,
+size zero.
+I wrote like eight outlaws in there, right? They're in good
+memory, they're good data, but no one knows they're there.
+Then I can take that container and say, well, resize this
+container to eight.
+And since I already had capacity of 10,
+it would be like, fine, okay, I'll point at eight.
+And all your data would be good in there.
+They would go from outlaws to good stuff.
+But I don't think that that's a good way to do it because you're
+not guaranteed that things won't happen that way.
+So I would make sure that you resize it so that the data is
+actually there and the data is actually initialized.
+so then when I write to it even if it's an object I've got an
+operator equals that says take this thing from the right and
+set it equal to this
+initialized thing on the left and then the operator equals
+would take over and it would be fine so I would definitely use
+resize there not
+No,
+it doesn't have to be a vector, it has to have a range that can
+write to it, right? I could have a length list,
+and if my green iterator starts at the beginning of the list,
+we write at it, plus plus it, and it does an X,
+and it does an X, so it could be it could be a vector, it could
+be a deck, it could be a list,
+anything that responds
+with an output iterator.
+My question was about the resize,
+so can we use that for sure,
+like vectors passing with that be that big, but then when we're
+using the output iterator to write to it,
+the vector doesn't know what we're writing to that data.
+I think that size would be. Right,
+but when you got done, its size would be still zero, even though
+you had eight good things in it, And that's why I'm saying you
+would have to resize and then it would say,
+okay, well, now I think I have eight of them in there and
+should be okay.
+Should be, like I said, it should be, it's not guaranteed
+to be though, so.
+So,
+whenever you resize on that memory or on that vector that
+has a size of zero but capacity of some set of size,
+it doesn't affect any of the. Depends on how much you ask for,
+right? You know,
+whenever,
+say you don't have a vector to start and you just resize from
+the beginning, doesn't it default initialize all that
+stuff? Yeah,
+yeah, yeah, you're right. I think it would initialize
+them,
+especially if they were objects.
+Yeah, and it might even initialize them.
+So yeah,
+that's what I was saying. You're not guaranteed to resize
+it's going to work for you.
+So that's why I wouldn't try it.
+And then the way that the memory also works, remember, So if I
+had reserved 10 and then resized to 8 it wouldn't need to go get
+new memory If I had reserved 10 and then resized to 20 It would
+have to go get new memory and I would be all the way out at that
+point, right? It wouldn't know to copy those original things
+over there and I'd be sunk
+All right, so there it is in pictures and arrows Here it is
+in code
+We've got these five parameters coming in.
+This one even has
+the sixth parameter here the sixth parameter is how I'm going
+to actually compare the things and if you're given a problem on
+the exam it's gonna be a problem with a comparator in there and
+that's one more place for you to fall into a pit so the algorithm
+that you're going to be doing is probably going to be based on
+less than if you use the less than anywhere in code it's a
+reason to give you the wrong answer right because in this
+case if I want to know less I only know how to get it with
+that comparator right and I certainly won't be comparing two
+iterators as less so you can just think if there's a less
+than on my page I definitely things up all right
+so the compare is here so as I'm looking at the blue arrow we'll
+call that first one and I'm looking at the red arrow we'll
+call that first two the blue dashed arrow that's last one the
+red dashed arrow that's last two and then result that's my green
+arrow so all of these things are here from the previous page and
+you can see that there's three while loops in this
+they're not nested so we had a good chance at being linear
+because what controls them the first while loop looks at last
+and first in both one and two situations so well how do those
+things change and you can look through and see in line 7 line 9
+line 11 all I ever do with the first one and stuff is like a
+plus plus probably gonna be linear what happens after that
+this next loop what do I modify I'm modifying first one to
+control the loop and I'm plus-plusing that.
+Same thing,
+first two controls this third loop and I only plus-plus that
+inside there. So it's a really good reason for
+you to believe that this whole thing is linear.
+There's no nesting and the way that I get out of the loop is by
+incrementing one at a time.
+The first loop says as long as first one is not last one,
+meaning there's good blue data,
+and first two is not last two,
+there's good red data,
+do this loop and that just does that comparison thing that we
+said you know say if and that's where the compare comes in line
+six this is where if you write the less than you just lose four
+points right if what first one is pointing at is
+less than what first two is pointing at you have to
+dereference there because an iterator is not data it's a word
+of fine data the compare function works on data it takes
+two pieces of data and says yes the first one is less than the
+second one or no it's not so if what's that first one is less
+than what's that first two that's the one we got to put in
+the set so write that to result dereference result for writing
+dereference first one for reading set them equal and then
+increment the both of them move the blue arrow move the green
+arrow and that's the end of the while loop where we go back to
+the top they
+are different iterator types so like up at the
+top you see like in iterator 1 iterator 2 this is exactly the
+way that the STL does these maybe non-congruent range types
+right so in this particular situation I could have in
+iterator 1 pointing at a vector and in iterator two could be
+pointing at a deck and I would still be able to set intersect
+or set union them if I said there was only one in iterator
+type then I could only Union vector and vector deck and deck
+list and list but as long as there's the two types this one
+could be one which it could be a vector and it could be two which
+could also be a vector but it could be a list or it could be a
+deck and so that's why the the types are there
+At compile time, it gets known when you're asking for it.
+But in your code, when you're like,
+deck.begin,
+deck.end,
+there's my set one,
+and vector.begin, vector.end,
+there's my set two,
+it says it's OK with keeping those as two different types of
+iterators.
+Because one is a deck iterator,
+and one is a vector iterator.
+And they have to be separate types for them to compile.
+No because this isn't a header file.
+It never really happens until you actually include it and then
+do it.
+Yeah it's that template emission time when it turns your
+templated code into real code it can say okay they're calling
+this iterator from a deck and that's my first two parameters
+and they're calling this iterator set from a vector and
+those are my second two parameters and then it makes the
+code special for that.
+Yeah.
+How do you, like,
+output iterators you can only write to write.
+Write and increment.
+Yeah, so how does that iterator enforce that invariant?
+Because whenever you do it, you remember it's not like object
+but you're gonna get the elbow to show up in here.
+How is that enforced?
+I mean, if you are writing to the location,
+right,
+even if it's an iterator that you can read from,
+it's not,
+it's just not being used that way in this code, right? And so
+the code in the STL is going to live within that contract.
+Now, you might be able to say, well, I've got an iterator that
+does allow me to read and write, and then I just happen to do the
+wrong thing with it.
+And it'll work fine until somebody compiles your code with
+an iterator that doesn't allow that, and then it literally
+won't even compile.
+It'll crash,
+and it won't even crash.
+It just won't compile. So that's why some of the stuff
+that happens in the P2B testing file, we see there's that thing
+in there where you have to write something that has a,
+it's like an integer that's just inside of a struct.
+That's what the data type is.
+And the reason why is,
+if we just gave you stuff with testing integers,
+you could write these things with less-thans in them for the
+comparison,
+and it would work, and you'd get all the right answers.
+And then you would submit it to the autograder, and it would
+literally not compile.
+Because we'll say, well, what if we don't use an integer? What if
+we use a struct?
+And the struct doesn't know how to be compared,
+so the compiler doesn't know how to compile that and say, well, I
+can't do less than,
+so there.
+So this is a similar situation where you can use the iterators
+improperly
+until you can't.
+So for first one, like first one, first two,
+the last one, are they ordered or are they just being pushed?
+In this one, it says input iterators.
+We would have to look at some actual docs.
+Let's get into other.
+Let's get into algorithm.
+Let's get into set union.
+Garbage
+All right, so Not surprisingly that stuff that we have on there
+is exactly the STL documentation.
+So this looks at it as an input iterator
+So you might be in this case past the forward iterator in
+here But you would still only that the function still only
+works on it as if it's an input iterator, right?
+So that's the that's the minimum sort of requirement, right? so I
+could pass in two random iterators and they would work
+because the function itself only tries to compare dereference and
+increment it doesn't try to random access it even though it
+might be able to but it doesn't know that every iterator that's
+going to get can do that so it
+doesn't
+okay so
+that's a back
+inserter is,
+is a slick way to do things. It works kind of well.
+So you don't have to do the ahead of time, let me organize
+how much space I have.
+But a back inserter essentially lets you write to it and
+increment it
+by doing push back.
+Let's say here's a vector.
+I'm gonna get a back inserter on it and stick that in as my
+result parameter.
+Then every time that it writes to result and increments it it's
+like a pushback if the vector needs to grow it does so back
+inserters can be used similarly so if you need to look that up
+look up back inserter it's a good plan alright so what's
+going on here the rest of what we already saw right the second
+branch that else if there that's when the set to item shows up
+earlier than the set one item does
+Else if compare dereference first two comma dereference
+first one.
+That means if it's true that the thing in set two is less than
+the thing in set one,
+so we write the thing in set two and increment both first two and
+result.
+Otherwise the third branch is when neither of them is less
+than the other, they must be equal.
+Write one,
+increment all three of the iterators.
+First one, first two, and result.
+Yes, so the question was,
+if the special type that you have has an overloaded operator
+less than,
+yes,
+it will call compare with standard less,
+and if your less is overloaded,
+then it'll work just fine.
+All right, so this is to the point where one of those sets,
+possibly both,
+is empty. When I get out of this first
+while loop, I know one of them first one has reached first last
+one or First two has reached last two could be both, right?
+If it's both then I'm done done because both of my input sets
+are empty or completely unioned I should say If not, like we saw
+in that first version remember first one was not equal to last
+one when we got out There was still stuff left in blue
+So then what we do we just wrote all of the blue things there
+until first one was equal to first to last one
+That's done. We move on here and say well
+this first two equal to last two
+Yeah, they're equal so I don't have to do anything there either
+return result
+So what what does it say up in the contract right the contract
+says we're going to return an output iterator Do you know how
+to create an output iterator?
+No well you work with the one you got then Right, I don't know
+how to create a reasonable output iterator in this sense
+because the only way I could get an output iterator that I
+created was if I was to go
+Get some memory right and then write to that and say here's
+where you can write. So Imagining that I've got the
+one output iterator that I know about.
+I just have to return it. So result gets passed in
+results gets returned
+Almost always you can just return results in this problem
+25 and get four points
+Almost always.
+But you do want it to be pointing at the right thing to
+get more points.
+But that's why I return result here because you see that every
+time I write to result,
+18, 16,
+11, and nine,
+and seven,
+every time I write to result,
+I also increment result. So it's pointing just past the
+thing that it wrote.
+And when I stop,
+it's pointing just past the last thing I wrote, no matter how
+many I do write.
+So this is the style that you have to master.
+Think really quickly,
+how could I change this function
+to set intersection?
+What needs to be done on this?
+Right, so here's the only place where I would actually do the
+writing,
+and if the comparison failed, or if the comparison succeeded,
+I just wouldn't write,
+right?
+Same thing here, and I wouldn't even need to dereference it,
+really.
+So I could do something like that.
+If the first thing is less than the second thing, it's
+definitely not in the intersection,
+move past it.
+First thing is less than the second thing,
+move past it.
+If the second thing is less than the first thing, move past that.
+It's only when they're equal that I want to take one of them
+and then move past the both of them.
+So, yeah, you can do set intersection here, and what
+happens when I get to the end of one list?
+Just done, right?
+So,
+that's what set intersection would look like, see?
+And so, when I'm talking about this stuff on the STL,
+let's go back here,
+look in algorithm.
+There's this set of non-modifying sequence
+operations. I can't scrabble on this page
+because it's a web page not a slide, but you see it right
+there this
+non-modifying sequence operations one of those could be
+your problem right and what 26 is gonna look like is gonna be
+like
+Problem 26 I can't even do it right instead of adjacent fine.
+It'll be like problem 25
+Blah blah blah searches the range first to last for the
+first occurrence of two consecutive elements that match
+and returns an iterator to the first of these two elements, or
+last if no such pair is found.
+Right, and then all you have to do is literally write that code
+right there, you see it?
+That's exactly getting that done, right? You would be given
+the template line, and you'd be given the return type.
+It'll say problem 25, and then it'll give you the parameter
+list.
+And that's what you get. Maybe a curly brace to start
+with, that's all.
+You go ahead and write the rest of this stuff,
+lines four through 13,
+close it up with a curly,
+and rock off with 20 points.
+So is this problem going to be in linear time?
+Yes,
+it's always going to be in linear time.
+It's always going to be constant space.
+Well, it might not be in constant space depending on your
+output, right?
+But it'll tell you all about it, right? It'll tell you about the
+return value you'll get document.
+It's not from the c++.com site.
+It's from another
+STL documentation site so the style is a little different, but
+the the heart is always the same
+As what I was gonna show you so it's gonna be one of these
+non modifying sequence operations or a modifying
+sequence operation I
+I think the set operations are all off the table
+because we show them all.
+But they're not that hard to get once you get the style.
+The key is the style,
+right? The key is the style because the function is not
+hard.
+We saw how easy set union was. We saw how easy set intersection
+was from set union.
+So you know those kind of things.
+And now we say,
+well,
+what does replace if do? it replaces all the values in a
+range, or generate n,
+or unique copy,
+or reverse copy, or rotate copy.
+You just have to do what it says, and don't mess up the
+iterators.
+So in constant space, you wouldn't have,
+you can have like a variable or two or 10, but if I'm giving you
+50,000 items, you don't have 50,000 variables.
+So it does have 50,000, but then you set,
+right?
+Does that not count as a function? Well,
+that function setUnion did not create a new set.
+Right,
+no,
+because the caller had to do it.
+The caller had to set up that memory.
+So in reality,
+setUnion doesn't create anything.
+So that's the notion that callers are the two? Yes,
+if it's going to be that way with an output iterator,
+that has to be taken care of by the caller.
+Did you mention,
+are we expecting to be able to like,
+like, define any of these functions that are,
+like... Yeah,
+yeah, like I said, we'll tell you all about it.
+And we'll also give you the template line and the function
+header, you know,
+without the name.
+Yeah,
+yeah, absolutely.
+Yeah, yeah, so I mean, if it was, for instance,
+let's say it was set union,
+set union,
+right? You'd have everything one through five.
+That's what's gonna be on the exam for you.
+Yep, and then all you have to write is,
+you know, six through 15,
+16.
+Yeah, they're all, because those are all linear time sequence
+operations.
+Right,
+yeah. It's one of these things from
+algorithm itself, so that's where you start studying
+tomorrow if you're
+laid-back or Tonight you want to get on it
+Go through these don't they go through it super hard
+Understand the kinds of things that are being asked for dig
+into
+One of these and be like okay the behavior of this function
+template is equivalent to this
+understand the style
+make
+sense so I mean this one is different from the version that
+we have but it works it's the way to get it done
+it
+doesn't
+do in line eight and nine.
+I see iterator comparisons for equality.
+Well, that one's wrong.
+This one is not the comparator version, so it's fine.
+So in line 11, I've got value comparison with less than,
+which I would have to replace with calls to the comparator if
+I got the comparator version,
+right?
+But then also,
+all I have is dereferencing iterators, setting equal and
+incrementing and all of my iterator uses is good and that's
+what I got all right way extra time on this but I want you 20
+20 points on 25
+20 points you should get them sorry
+24 is just a multiple-choice question
+25 and 26 and 26 is some free response question that I don't
+know whether or not it's written already but it doesn't follow a
+pattern either it's whatever somebody comes up with so 25 is
+always the STL question 25 on the final exam if you're ready
+to start studying for that is always a dynamic programming
+problem so if you want to start reading up on dynamic
+programming or practicing some geeks for geeks problems on DP
+that's how you get 20 points on the final two so as the kids
+say let's go all right so
+So this one talks about coding this function two ways.
+So here,
+we had somebody talk to us about using a back inserter.
+So you see this back inserter in line 15.
+The back inserter works as an output iterator.
+And you don't have to do the sizing ahead of time.
+In the first version, we say we're going to put our outputs
+in the string,
+this vector of strings called out,
+and we resize it to hold all of the values I could possibly put
+in there.
+v1.size plus v2.size.
+So it's resized to hold all 10 of them.
+I call setUnion.
+You see that it's called it with less of string there, which I
+wouldn't really have to do. It would use less of string
+anyway.
+But at the end,
+we erase from the output iterator to the end.
+Because the iterator,
+the output iterator is pointing just at the end, so it's
+basically pointing at the ninth thing,
+if there was 10 in the thing. So if I erase 9 and 10,
+then I only do have 8, which is what I wanted.
+So these are the two ways to do this.
+You can either resize it ahead of time and then do the erase,
+return the iterator.
+Auto it is a really good way to do that.
+You don't have to know the type. You don't have to care.
+It's like give me what you want to give me and the compiler sets
+it up. That's good.
+Auto it. And then you just erase from it
+to the end.
+You could also, if you knew where that was,
+you could resize to that many.
+But you would have to say, how far away is it from
+begin? And I can't really compare output iterators,
+so I don't know.
+All right, so here's the two ways you can do this.
+This is a back inserter.
+The back inserter doesn't really need the resize.
+So the stuff inside the comment block between four
+Sorry,
+the comment block from three and 11 is one way to do things,
+and then from 13 to the end is the other way to do things.
+So that, I could have said all that by doing this,
+right?
+That's this stuff is all one step, or this stuff,
+there's only the two ways.
+Yeah.
+Yes,
+always one pass,
+yep.
+Well,
+the function setUnion is saying I'm using this as an output
+iterator so I will not try to read from it.
+Nothing prevents it, it just doesn't,
+right? In the case that I think
+the back inserter doesn't give you an input iterator anyway, I
+think the back inserter gives you an output iterator.
+I'd have to look at the docs on it.
+I haven't looked at it recently.
+But that was what I would think. Anybody need a ring?
+Go away,
+Jared.
+All right.
+Back inserter.
+The back inserter is a special type of output iterator,
+so what you would be getting there would be supposed to be
+used as an output iterator. If you used it other than as an
+output iterator,
+it might work,
+it might not. it might not even compile so
+that's why you don't do the thing that's why I'm saying that
+the the function itself just knows well you're giving me an
+output iterator I could read from there but I'm not going to
+try to because I'm expecting it to be an output iterator
+sometimes I could be right but other times I wouldn't compile
+right because the compiler at template emission time
+says hey are you trying to do a thing with this iterator that
+you shouldn't,
+I'm not going to compile.
+So that's how it would break up. But it would only be based on
+what you were actually using it with.
+So in the situation where you gave it an iterator that you
+could do illegal things with,
+and you did the illegal things,
+it wouldn't have a problem. But when you tried to do
+something illegal that it didn't appreciate,
+then it would say I can't compile that because it's not
+possible.
+All right.
+So here is implementing sets with ranges.
+You can think of initialize as something that can get done in
+constant time.
+If I've got empty data,
+create me this new empty set. If I've got a set with a whole
+bunch of stuff,
+I'd have to sort them. That's why the n log n there.
+Clear,
+going to get that done in constant time.
+Just ignore all of them. or if they're objects,
+I would have to call a destructor on each of the ones
+that I was trying to get rid of. So that's why it's linear or
+constant time.
+Is a member,
+since they're sorted, I can always just binary search for
+it.
+Copy,
+can't get away from that, less than linear.
+Same thing, we saw set union and set intersection as being linear
+functions.
+So this is how ranges work using the universe of all the elements
+that can be in a set. All right, job interview
+problems.
+Oh, we're going to Mars,
+too.
+What's next?
+So,
+given a sorted array with n elements and some number z, do
+the following in linear time.
+Find the pairs x and y such that x minus y is equal to some z.
+Find the pairs x and y such that the magnitude of the distance
+between them is closest to z.
+So these are some good things to think of.
+These are good thought exercises.
+These are the kind of problems that do show up making things
+work on an exam.
+So think through things like this.
+What if the array wasn't sorted?
+How does that change things?
+Right, well if I can't sort it,
+if it's not sorted,
+then I know this is probably gonna take me n squared time, I
+have to compare everything to everything.
+But if I can get it done in linear time when they're sorted,
+isn't it better to just sort things first and then do linear
+work? Because then I'm at N log N versus N squared.
+But only if I can sort them. So if somebody gives me stuff
+that's not sorted and I can't sort it,
+and I can make an index sort of it, then you've got to look at
+your memory and time requirements for what you're
+trying to get done when questions like these are being
+asked.
+Because you say, well, here's a constant copy of this data
+that's not sorted. Well, great.
+I'll make my own index sort of it if I've got N memory to do
+it. it because it's still gonna be
+faster than doing n squared work because the things aren't sorted
+all right that's that's Union
+find what I tell you
+that's Mars so you probably don't know your Mars geography
+too well but I I
+think you can go buy some land on Mars.
+I don't know how you can enforce your claim, but someone will
+sell you, I think, an acre of Martian land for about 75 bucks
+an acre.
+So,
+it's a good thing for a girlfriend or a boyfriend, say I
+bought you something.
+It's a place you can go when I'm done talking to you.
+Ah,
+pfft! Ah, no.
+But you can buy land on Mars.
+You may never see it. Probably not
+What's going on here is I got a bunch of these Mars locations
+some of them. I can't pronounce all of them I
+can't really remember
+But you can think of Mars right now as having no roads
+So to get from one place on Mars to another it's going to be a
+challenge So our goal here is to say how can I connect all of
+these things fairly cheaply building roads in America? Not
+that cheap imagine getting the stuff that you need up to Mars
+to build it they're probably even more expensive.
+So we don't wanna do a whole bunch of road building that we
+don't need to. So I don't wanna build a road,
+I don't wanna build roads such that there's a road from every
+city,
+direct road to every other city,
+right?
+That would be a waste of time. We don't even do that here,
+right?
+There's not a road that goes from here to Jackson only
+right, it goes from here along the way, you can jump off and go
+to Chelsea or you can go wherever you want right so the
+road system does that sort of thing here so when we look at
+this we say I've got this set of elements right I
+can think of them as being a bunch of sets of size one that
+are disjoint because they're disconnected a disjoint set two
+disjoint sets have no members in common so if I think of each one
+of these as a set all by itself then I say that,
+you know, this ceranium set doesn't share any elements with
+this aeonia set.
+There's no road there.
+But if they were connected by a road,
+I would say there is now a set,
+ceranium to eronium, and everybody else is not in that
+set.
+But those two are connected.
+So these are not in a disjoint set, they're in the same set,
+and everybody else is in their own sort of disjoint sets.
+So we're working on disjoint sets that don't share any
+elements and often we need to know about whether or not sets
+are disjoint or connected.
+This is a often I say this is a an algorithmic thing that we do
+often when we're dealing with data.
+Graph connectivity being one of them.
+So in this situation I say well I can't pronounce all of these
+things. Oh I already drew a road on
+there let's take my road off.
+Let's put some roads on there. So we got a few roads there as
+we get started, because that's where people moved.
+We said, Merdiani is connected to an Oasis,
+and Valle is Marinara's.
+This just makes me think of Marinara sauce when I'm hungry,
+it's lunchtime.
+But,
+these blue roads,
+and you can see that all of these blue connected things are
+in a set that is disjoint from the red connected things.
+There's no members in common.
+And after we get tired of trying to pronounce all these things,
+we do what any programmer would do.
+Let's throw some numbers on there.
+These are nice color-coded numbers so I can really see what
+the sets are made up.
+And then we really get down to just putting it on paper here.
+So now I can see this set of red things,
+one, nine, three, two, and 10.
+The set of blue things, 23, 13, 25.
+The green things,
+14,
+15,
+27, six, 17, and 16.
+And then lastly, everything that's just kind of out there on
+its own, since white doesn't show up on white,
+we have it as a black set
+with just the one thing in it. Not connected eight,
+not connected four, not connected five, and so on.
+So here's my sets of locations on Mars.
+With this as my backdrop, the only thing that really matters
+is, are they connected or let me connect them?
+I'm building roads,
+right? I don't want to build a road from 23 to 25.
+It's a waste of road. because I can drive from 23 to
+13 and then drive to 25, and I can stay on the road.
+Now, if I wanted to build a road from 23 to 10, you'd say that's
+a good road. I could be able to do that.
+And if I did that,
+I would have now a union of the red set and the blue set,
+because they would be all one set that's connected.
+So the union is when I take two disjoint sets and turn them into
+one set with all of the elements of both.
+and find the other operation that I have, is like, here's an
+item,
+here's an item. Are they already in the same
+set?
+Think about that. I mean,
+if you're not staring at it in a picture like this,
+like close your eyes and say, is 23 connected to 27?
+How do I do that?
+What set is 23 in? Is 23 in the set?
+What set is 27 in? Is 27 in the set? I have to look at all the
+sets I have to see is 23 in there? and then I gotta look at
+all the other sets that I have to say is 27 in there, and then
+I say, oh, they're the same set?
+I guess you're in the same set, right?
+Suppose you could say,
+I looked through all the sets to find 23, and then I could look
+in 23's set to find 27. That could save me some time,
+but still worst case,
+what?
+N squared.
+Look through all the sets to find 23,
+what if there was just one set?
+I looked all through the items that I find 23 and I look
+through that same set find all those items to find 27 I say
+yep, they're in there, right?
+So if I had to do that a bunch of times, that's that's n
+squared work, right?
+So
+Union and find are now these two behaviors that I'm trying to
+implement
+How can I do this so that it's as efficient as possible
+We're going to use amortized complexity in this like we
+talked about amortized earlier.
+Remember amortized complexity says I will figure out the
+average amount of work that it takes for one action by just
+starting from the beginning going all the way to the end and
+then dividing by the total number of things.
+So it might take me one one step on this particular union or find
+and it might take me ten steps on another fine but I can't say
+the average is five.
+I won't know until I do all the finds,
+add them all up and divide by how many finds that I actually
+do. It's kind of like an averaging
+thing, but it's not like an average in the sense that any
+one average would represent any operation.
+So,
+amortized complexity is coming at you.
+Here's the first one where I just keep everything in separate
+containers, right? This is where I'm talking about this linear
+work. It's bad right our one and eight
+connected sure I got to look all the way through group one to
+find one I look through group one to find eight great
+Now if I connect one and six how do I merge those things?
+Right I got to move all the data because they're in their own
+sets
+So that could take as bad as linear time am I in the most
+extreme case I've got two sets both size n over two the union
+involves moving n over two items into the other n over two size
+container,
+that's n over two work, which is big O of n.
+So,
+my union could take me linear time if I put them in separate
+sets.
+For that matter, find takes me linear time.
+So, I gotta look through everything to find a thing.
+I gotta look through everything again,
+possibly, to find the other thing.
+So, like right now it's saying that there's rows between one,
+four, five, eight, and ten some way, and there's rows between
+two, six, and seven somehow.
+But now if I wanted to add a row between one and six, now this
+would be one big set because they would all be connected.
+Right, exactly. That's what the union would be
+when I'm keeping them as separate sets.
+Yeah, absolutely.
+But that could still be worst-case linear, right?
+I mean, if that thing has half the items in it, still going to
+take me n over two work to look through it.
+I mean, it could have n minus one of the items in there.
+I still don't know,
+or n minus 10 is still on the order of n, worst-case,
+order of n to find the first one,
+worst-case, that same order of n to find the second one.
+So we can't get away from linear time there, which isn't terrible
+in some situations, but I'd like to go faster.
+Always wanna go faster if I can.
+What's faster than linear time?
+Logarithmic time,
+which is gonna imply some amount of sorting,
+or constant time,
+which is gonna imply some sort of awesome.
+So,
+let's see if we can get there.
+So,
+this first one is, let me see that
+I go another route. I say, what if every item now
+has a representative.
+You know,
+movie star,
+I got an agent.
+I need to talk to me, I need to talk to my agent.
+Got a representative.
+So what's good about that is
+I can say, well, how do I find out if
+two people are already connected?
+Well, I just go look at their agents
+if you have a representative,
+right? So kind of like a basketball team.
+I go see if you've got the same coach as I've got,
+we're on the same team and I didn't have to look at all the
+players.
+Just ask you who your coach is, ask me who my coach is, done.
+That's pretty slick.
+That's what?
+It's constant time.
+It's way faster.
+Find operation now is quite fast.
+It's gone to linear time here.
+So here's my graphic where I'm gonna go ahead and give
+everybody a representative.
+And in this case,
+we'll start out with everybody representing themselves.
+So it's a lot less flashy than agents and coaches.
+But if everybody's representing themselves, this still works
+pretty easily, right? What happens when I wanna try to
+union one and three? I can't union them unless I know that
+they're not connected.
+Well, who's one's representative?
+One.
+Who's three's representative?
+Three. They're not the same.
+I can union them. The graph even tells me so, but
+now I can draw it in there.
+So I do that. And I say,
+then to make this easy, let's go from first to second.
+So,
+I'll now change three's representative to one.
+Now, I know that they're connected, somebody wants to try
+to connect, we're in good shape.
+How about three and eight?
+Three's representative is one,
+one's representative is eight, the graph tells me I can make
+this.
+Three and eight looks like that, right,
+logically.
+And I'll do the same thing, I'll take the first and use it to
+represent the second. So I'll say eight is no longer
+representing itself, it's being represented by three's
+representative, which is one.
+Good.
+One and five. One's represented as one, five's
+represented as five.
+We do that.
+It draws like this.
+We're good.
+How about seven and four?
+Seven's representative is seven, four's representative is four.
+I can do that one as well.
+I'll take the first one and use it to write to the second one.
+So now four's being represented by seven.
+Seven's being represented by seven.
+and they're in a set together.
+All right,
+how about seven and two?
+Seven's represented by seven, two's represented by two.
+I can draw that line without any problem.
+And so then I can also update two's representative to be
+seven's representative, which is seven.
+That one's good.
+And now we're at the union of two and five.
+Two's representative is seven.
+Five's representative is one. So they are definitely not in a
+set together, which means I can draw the line.
+Great.
+I also can do the update.
+And what was I doing before? I was taking the first one's
+representative and making the second one's representative be
+that.
+So two's representative is seven.
+I should change five's representative to be seven.
+Right?
+Let's try it.
+Okay.
+Now you look at the graph, you see that everybody's connected.
+But what happens if I try to connect
+four and three? Let's do a find on
+four and three. I say,
+well, four's representative is seven.
+Three's representative is one.
+They're not connected.
+That's not right, though, is it?
+They are connected.
+So the way that I did my union was actually wrong.
+My union was too simple because I was going for speed.
+But what I really need to do is every time I go and give
+somebody a new representative,
+like here when I said one's representing three and one, I go
+here and I change three to one.
+But what I really need to do is say anybody who's represented by
+three now needs to be represented by one.
+So I gotta do a linear search and say, hey,
+two, are you represented by three? Three,
+four, five, six, seven, any of you that are represented by
+three, I need to change you to a one.
+So in this first example, I didn't do more work than I
+already showed,
+but what I didn't show was the other things that I needed to
+do.
+So that makes it such that my union is
+still linear.
+Find is faster,
+but unions,
+still linear.
+All right?
+What if we could make it faster now and say, we don't just know
+who our representative is, what if we know who someone who knows
+who,
+someone who knows who our representative is?
+Sort of like a level of indirection.
+So you might not know who your representative is, but if you
+say, I think it's you,
+he could say, yes, I am your representative.
+Or he could say, well, I don't know, my representative is over
+there, so if I'm your representative,
+then actually our representative is over there.
+And that person could say, well, really,
+they represent me, and we could have this long chain of
+representation. But it makes it super simple to
+do the union.
+I just change the representative, and then in the
+case that we had before, I say,
+well,
+now I can go back by hopping through this chain of things,
+right?
+So,
+in hierarchical representatives,
+what do I do? I do one to six,
+one, two, three, four, five, six, that's one,
+seven,
+eight,
+I go one to eight,
+that's good, so I change eighth representative to one,
+I go one to three,
+this gets one,
+gives me that little crow's foot there, I'm doing so good so far.
+Now five to six.
+Five is going to represent six,
+but currently six is being represented by one.
+So all I have to do is say,
+hey,
+one,
+you're represented by five.
+And wouldn't you agree now, not from the drawing, but from the
+list,
+that five and six are connected?
+Because six says,
+well, who's your representative? Six says, I think it's one.
+One says, no, I think it's five.
+Five says, who's your representative?
+It's me, it's five. Okay, they're the same
+representative. They are connected.
+So that's what this hierarchical representation does.
+It allows me to speed up my unions
+because I can now do a union in constant time.
+Sounds great, doesn't it? What does it do to find though?
+Slowed it down,
+right? Because now fine could be like, I think it's five,
+I think it's four,
+I think it's three,
+I think it's two, I think it's one.
+Oh, we just looked through the whole thing.
+So now fine has gone down to linear time and union has gone
+up to this fast time. But what's the problem with that
+is I can't do union without doing fine first.
+So I am stuck here at linear until I find a way to get
+better.
+One.
+Five is representing one.
+Make one representative five?
+Because I wouldn't know where that would be useful.
+You would say I would do it that way because more people were
+represented by one than were represented by five.
+Is that why you're choosing to swap it around, or why are we?
+Then it's just like,
+you're right,
+it's just like,
+you're right,
+it's just like.
+No,
+it doesn't end up saving you anything.
+It doesn't save you anything, right? Because we're at this
+situation here, where we're just at one only,
+we're trying to union five and six.
+So you're saying, I could union five and six by saying five's
+representative is one,
+right?
+So that could work, but now I've changed the order of what I was
+doing. Before, for the first three, I
+was saying,
+take the first and use it to represent the second.
+Right?
+And so I could change that at any time, but then I would have
+to have a reason.
+Like why do I sometimes represent the first with the
+second and sometimes represent the second with the first?
+Without knowing a solid reason as to why, I would be just as
+likely to get a good result as I would be to get a bad result.
+So we stay deterministic and make a plan and stick with it.
+Sure,
+but that's not much different from saying who's ever first,
+right? As I was taking five before six because it was first,
+not because it was lower.
+Right, so yeah,
+when you don't know, you just have to pick something and then
+just do it that way.
+You're gonna, yeah, you're gonna find before you try to union,
+yes.
+So the union itself, though, you don't have to do anything for
+it. The union is counting on you to
+have already done the find.
+The union's only job is I will connect them.
+It's your choice to tell me whether or not I should.
+All right, so last one.
+This is the tough part, this is path compression.
+And in path compression, what we're gonna do is,
+as we do that chain,
+I think I'm represented by five.
+Five thinks they're represented by four.
+Four thinks they're represented by seven.
+Seven thinks they're represented by two.
+When I do that,
+I get all the way down to the end of that chain and figure
+out, well, everybody actually thinks they're represented by
+two
+so I'm gonna walk back through that path
+and tell them, oh, you're really represented by two.
+So five doesn't think it's four anymore.
+Four doesn't think it's seven anymore.
+7 thinks it's 2,
+4 thinks it's 2, 5 thinks it's 2, and 2 knows it's 2.
+So that find is now no longer read-only.
+I don't just go ask it.
+I'm going to ask it and make changes.
+So we'll pick up there, that's the hardest part of this to
+understand,
+but the cool part is that it makes things look like constant
+time both ways.
