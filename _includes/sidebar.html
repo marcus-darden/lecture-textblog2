@@ -1,7 +1,9 @@
 <aside id="sidebar" class="sidebar">
   <header class="sidebar-header">
+{% if false %}
     <a href="{{'/' | absolute_url}}"><img src="{{site.avatar | absolute_url}}" alt="avatar" class="avatar"
         loading="lazy"></a>
+{% endif %}
     <h2><a href="{{'/' | absolute_url}}" aria-label="Website Title">{{site.title}}</a></h2>
     <p class="tagline">{{site.tagline}}</p>
   </header>
