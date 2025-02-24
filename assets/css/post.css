@@ -92,6 +92,7 @@
 }
 
 .post-panel .toc h2,
+.post-panel .videos h2,
 .post-panel .last-posts h2,
 .page-panel .last-posts h2 {
   font-size: 1.8rem;
@@ -100,12 +101,14 @@
 }
 
 .post-panel .toc ul,
+.post-panel .videos ul,
 .post-panel .last-posts ul,
 .page-panel .last-posts ul {
   border-left: 0.1rem solid var(--details-color-blue);
 }
 
 .post-panel .toc li,
+.post-panel .videos li,
 .post-panel .last-posts li,
 .page-panel .last-posts li {
   margin-bottom: 1rem;
@@ -114,6 +117,7 @@
 }
 
 .post-panel .toc a,
+.post-panel .videos a,
 .post-panel .last-posts a,
 .page-panel .last-posts a {
   color: var(--primary-color);
@@ -122,6 +126,7 @@
 }
 
 .post-panel .toc a:hover,
+.post-panel .videos a:hover,
 .post-panel .last-posts a:hover,
 .page-panel .last-posts a:hover {
   color: var(--details-color-blue);

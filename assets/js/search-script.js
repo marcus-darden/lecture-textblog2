@@ -190,7 +190,7 @@
         sortMiddleware: function () {
           return 0;
         },
-        noResultsText: "Ops! What you are looking for is not here :(",
+        noResultsText: "Oops! What you are looking for is not here :(",
         limit: 10,
         fuzzy: !1,
         debounceTime: null,
