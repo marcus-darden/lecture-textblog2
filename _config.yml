@@ -7,8 +7,8 @@ lang: pt-BR
 
 timezone: America/Belem # Change to your timezone - https://kevinnovak.github.io/Time-Zone-Picker/
 
-title: Case
-tagline: Web Developer
+title: EECS 281 Lecture Textblog
+tagline: Winter 2025
 description: A Jekyll theme with sidebar for personal website and blog. 
 avatar: "assets/img/avatar/avatar.png" # The avatar on sidebar
 
